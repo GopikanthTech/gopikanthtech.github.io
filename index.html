@@ -1,0 +1,1064 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Gopikanth · AgentVerse</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Gopikanth, AI Engineer and AI Data Engineer. AI agents, data platforms, machine learning and computer vision for businesses. Available for freelance projects.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: Apple-style product page. Centred hero with live phone demo,
+   Services, Work (3 wide tiles with at-a-glance diagrams), Industries carousel,
+   ML & Vision capabilities, Skills spec sheet, Contact. Single light look. */
+:root{
+  --bg:#ffffff;
+  --tile:#f5f5f7;
+  --ink:#1d1d1f;
+  --ink-2:#424245;
+  --muted:#6e6e73;
+  --faint:#86868b;
+  --line:#d2d2d7;
+  --hair:rgba(0,0,0,.08);
+  --blue:#0066cc;
+  --green:#1f9d55;
+  --bubble:#e3f6e9;
+  --red:#d70015;
+  --amber:#b25000;
+  --sans:"Geist", -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
+  --mono:"Geist Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --ease:cubic-bezier(.2,.7,.2,1);
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.5 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--bg)}
+h1,h2,h3,h4{margin:0;font-weight:600;letter-spacing:-.03em;line-height:1.08;text-wrap:balance}
+p{margin:0}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(20px, env(safe-area-inset-left,0px));padding-right:max(20px, env(safe-area-inset-right,0px))}
+section{padding-block:clamp(80px,11vw,130px)}
+.label{font-size:14px;font-weight:600;color:var(--muted)}
+.h2{font-size:clamp(34px,5vw,52px);max-width:22ch}
+.dim{color:var(--faint)}
+.head{display:grid;gap:14px;margin-bottom:clamp(40px,6vw,60px)}
+.head p{font-size:clamp(18px,1.8vw,20px);color:var(--muted);max-width:56ch}
+.link{color:var(--blue);font-size:17px}
+.link:hover{text-decoration:underline}
+.btn{display:inline-flex;align-items:center;justify-content:center;height:48px;padding:0 26px;border-radius:999px;background:var(--ink);color:#fff;font:500 16px/1 var(--sans);border:0;cursor:pointer;transition:transform .3s var(--ease), background .3s}
+.btn:hover{background:#000;transform:translateY(-1px)}
+
+/* Nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(255,255,255,.82);backdrop-filter:saturate(1.8) blur(20px);-webkit-backdrop-filter:saturate(1.8) blur(20px);border-bottom:1px solid transparent;transition:border-color .3s}
+.nav.scrolled{border-color:var(--hair)}
+.nav .wrap{display:flex;align-items:center;gap:28px;height:52px}
+.brand{font-weight:600;font-size:16px;letter-spacing:-.02em;margin-right:auto}
+.nav a:not(.brand){font-size:13px;color:var(--muted);transition:color .2s}
+.nav a:not(.brand):hover{color:var(--ink)}
+.nav .cta{color:var(--blue)!important}
+.progress{position:absolute;left:0;bottom:-1px;height:1px;width:100%;background:var(--ink);transform-origin:0 50%;transform:scaleX(0)}
+@media (max-width:680px){.nav .hide-sm{display:none}}
+
+/* Hero (centred) */
+.hero{padding-block:clamp(64px,9vw,110px) 0;text-align:center}
+.who{display:inline-flex;align-items:center;gap:10px;font-size:15px;color:var(--ink-2);padding:6px 14px 6px 6px;border:1px solid var(--hair);border-radius:999px}
+.who .mono{width:28px;height:28px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;font-weight:600;font-size:13px}
+.who b{font-weight:600;color:var(--ink)}
+.hero h1{font-size:clamp(44px,7.4vw,88px);letter-spacing:-.045em;line-height:1.02;font-weight:700;margin:26px auto 22px;max-width:14ch}
+.hero .lead{font-size:clamp(18px,1.8vw,21px);color:var(--muted);max-width:52ch;margin:0 auto 30px}
+.ctas{display:flex;gap:26px;justify-content:center;align-items:center;flex-wrap:wrap}
+.facts{display:flex;justify-content:center;flex-wrap:wrap;gap:8px 0;margin-top:30px;font-size:14px;color:var(--muted)}
+.facts span{padding:0 18px;border-right:1px solid var(--line)}
+.facts span:last-child{border-right:0}
+.facts b{color:var(--ink);font-weight:600}
+.live{display:inline-block;width:7px;height:7px;border-radius:50%;background:#28a745;margin-right:6px;vertical-align:1px;animation:ping 2.2s infinite}
+@keyframes ping{0%{box-shadow:0 0 0 0 rgba(40,167,69,.45)}80%,100%{box-shadow:0 0 0 8px rgba(40,167,69,0)}}
+
+/* Phone stage */
+.stage{margin-top:clamp(56px,8vw,84px);display:grid;grid-template-columns:1fr auto 1fr;gap:32px;align-items:center;position:relative}
+.stage::before{content:"";position:absolute;inset:12% 0 0;background:radial-gradient(50% 55% at 50% 45%,rgba(0,0,0,.05),transparent 70%);z-index:0}
+.phone{position:relative;z-index:1;width:min(320px,86vw);border-radius:46px;padding:10px;background:#1d1d1f;box-shadow:0 50px 100px -40px rgba(0,0,0,.4)}
+.screen{border-radius:37px;overflow:hidden;background:#f2f2f7;padding:16px 12px 18px;display:flex;flex-direction:column;gap:8px;height:540px;text-align:left}
+.chat-head{display:flex;align-items:center;gap:10px;padding:4px 6px 12px;border-bottom:1px solid var(--hair);margin-bottom:6px}
+.av{width:32px;height:32px;border-radius:50%;background:#2c2c2e;color:#fff;display:grid;place-items:center;font-size:12px;font-weight:600}
+.chat-head b{display:block;font-size:14px}
+.chat-head small{font-size:11px;color:var(--green)}
+.chat{display:flex;flex-direction:column;gap:8px}
+.msg{max-width:84%;padding:9px 13px;border-radius:18px;font-size:13.5px;line-height:1.4;transition:opacity .45s var(--ease), transform .45s var(--ease)}
+.msg.in{align-self:flex-start;background:#fff}
+.msg.out{align-self:flex-end;background:var(--bubble)}
+.msg small{display:block;font-size:10px;color:var(--muted);margin-top:3px;text-align:right}
+.msg.voice{display:flex;align-items:center;gap:8px}
+.wave{display:flex;align-items:center;gap:2px;height:18px}
+.wave i{width:2px;border-radius:2px;background:var(--muted);animation:wave 1.1s ease-in-out infinite}
+@keyframes wave{0%,100%{height:30%}50%{height:100%}}
+.play{width:22px;height:22px;border-radius:50%;background:var(--ink);display:grid;place-items:center;flex:none}
+.play::after{content:"";border-left:7px solid #fff;border-top:4px solid transparent;border-bottom:4px solid transparent;margin-left:2px}
+.sys{align-self:center;margin-top:6px;font-size:11px;color:#1e7e34;background:#fff;border-radius:999px;padding:6px 12px;transition:opacity .45s var(--ease), transform .45s var(--ease)}
+.chat .hidden{opacity:0;transform:translateY(10px)}
+.typing{align-self:flex-end;display:flex;gap:4px;padding:11px 13px;background:var(--bubble);border-radius:18px}
+.typing i{width:6px;height:6px;border-radius:50%;background:var(--muted);animation:blink 1.2s infinite}
+.typing i:nth-child(2){animation-delay:.2s}.typing i:nth-child(3){animation-delay:.4s}
+@keyframes blink{0%,80%,100%{opacity:.25}40%{opacity:1}}
+.callouts{display:grid;gap:16px;position:relative;z-index:1;min-width:0}
+.callouts.left{justify-items:end}.callouts.right{justify-items:start}
+.co{background:#fff;border:1px solid var(--hair);border-radius:18px;padding:14px 18px;box-shadow:0 20px 50px -30px rgba(0,0,0,.25);text-align:left;max-width:220px;animation:float 6s ease-in-out infinite}
+.co:nth-child(2){animation-delay:-3s}
+.co b{display:block;font-size:22px;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.co span{font-size:13px;color:var(--muted)}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.stage-cap{grid-column:1 / -1;font-size:12px;color:var(--faint);position:relative;z-index:1}
+@media (max-width:900px){.stage{grid-template-columns:1fr;justify-items:center}.callouts{grid-template-columns:1fr 1fr;justify-items:stretch!important;width:min(520px,100%)}.callouts.left{order:2}.callouts.right{order:3}.stage-cap{order:4}.co{max-width:none}}
+
+/* Services */
+#services{background:var(--tile);margin-top:clamp(80px,10vw,120px)}
+.svc{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.svc article{background:var(--bg);border-radius:24px;padding:30px 28px;display:grid;gap:10px;align-content:start;min-width:0;transition:transform .4s var(--ease), box-shadow .4s var(--ease)}
+.svc article:hover{transform:translateY(-4px);box-shadow:0 24px 50px -30px rgba(0,0,0,.22)}
+.ico{width:40px;height:40px;color:var(--ink);margin-bottom:10px}
+.ico svg{width:30px;height:30px}
+.svc h3{font-size:21px}
+.svc p{color:var(--muted);font-size:16px}
+.svc .gain{font-size:14px;font-weight:500;color:var(--ink);margin-top:8px;padding-top:12px;border-top:1px solid var(--hair)}
+@media (max-width:900px){.svc{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.svc{grid-template-columns:1fr}}
+
+/* Work tiles */
+.tiles{display:grid;gap:20px}
+.tile{background:var(--tile);border-radius:28px;padding:clamp(28px,4.5vw,52px);display:grid;grid-template-columns:.8fr 1.2fr;align-items:center;gap:clamp(28px,4vw,56px);overflow:hidden;min-width:0}
+.tile.stack-tile{grid-template-columns:1fr}
+@media (max-width:900px){.tile{grid-template-columns:1fr}}
+.t-copy{display:grid;gap:12px;min-width:0}
+.t-copy h3{font-size:clamp(28px,3.4vw,40px)}
+.t-copy p{color:var(--muted)}
+.t-copy ul{margin:6px 0 0;padding:0;list-style:none;display:grid;gap:8px}
+.t-copy li{display:grid;grid-template-columns:18px 1fr;gap:8px;font-size:15px;color:var(--ink-2)}
+.t-copy li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--ink);margin-top:9px}
+.t-copy .stack{font:500 12px/1.6 var(--mono);color:var(--muted);margin-top:6px}
+
+/* Sales pipeline + comparison */
+.sales-vis{display:grid;gap:16px;min-width:0}
+.pipe{position:relative;display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.pipe::before{content:"";position:absolute;left:10%;right:10%;top:50%;height:1px;background:var(--line)}
+.pulse{position:absolute;top:50%;left:10%;width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:50%;background:var(--ink);z-index:1;animation:travel 5s var(--ease) infinite}
+@keyframes travel{0%{left:10%}100%{left:90%}}
+.pipe span{position:relative;z-index:2;background:#fff;border-radius:12px;padding:11px 4px;font-size:13px;font-weight:600;text-align:center;border:1px solid var(--hair);animation:hl 5s infinite;min-width:0}
+.pipe span small{display:block;font-weight:400;font-size:11px;opacity:.65}
+.pipe span:nth-of-type(2){animation-delay:1.1s}.pipe span:nth-of-type(3){animation-delay:2.2s}.pipe span:nth-of-type(4){animation-delay:3.3s}.pipe span:nth-of-type(5){animation-delay:4.4s}
+@keyframes hl{0%,14%{background:var(--ink);color:#fff}22%,100%{background:#fff;color:var(--ink)}}
+@media (max-width:520px){.pipe span{font-size:11px}.pipe span small{display:none}}
+.compare{background:#fff;border-radius:18px;padding:20px 22px;display:grid;gap:16px;border:1px solid var(--hair)}
+.compare h4{font-size:14px;font-weight:600;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;letter-spacing:-.01em}
+.compare h4 em{font-style:normal;font-weight:400;font-size:12px;color:var(--faint)}
+.lane{display:grid;gap:7px}
+.lane-top{display:flex;justify-content:space-between;gap:10px;font-size:13px;flex-wrap:wrap}
+.lane-top b{font-weight:600}
+.lane-top span{color:var(--muted)}
+.track{height:8px;border-radius:999px;background:var(--tile);overflow:hidden}
+.fill{height:100%;border-radius:999px;transform-origin:0 50%;transform:scaleX(var(--w,1))}
+.lane.slow .fill{background:linear-gradient(90deg,#c7c7cc,var(--red))}
+.lane.fast .fill{background:#28a745}
+.lane-foot{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);gap:10px}
+.lane.slow .lane-foot span:last-child{color:var(--red)}
+.lane.fast .lane-foot span:last-child{color:#1e7e34}
+.tile.in .lane.slow .fill{animation:fill 2.6s var(--ease) .3s both}
+.tile.in .lane.fast .fill{animation:fill .6s var(--ease) .3s both}
+@keyframes fill{from{transform:scaleX(0)}to{transform:scaleX(var(--w,1))}}
+
+/* Data agent: question → steps → answer */
+.ask{background:#fff;border-radius:20px;border:1px solid var(--hair);padding:20px;display:grid;gap:14px;min-width:0}
+.ask-q{justify-self:end;max-width:88%;background:var(--ink);color:#fff;border-radius:18px 18px 4px 18px;padding:11px 15px;font-size:15px;min-height:44px}
+.caret{display:inline-block;width:1px;height:15px;background:currentColor;vertical-align:-2px;margin-left:1px;animation:blink 1s infinite}
+.ask-steps{display:grid;gap:6px;font-size:13px;color:var(--muted)}
+.ask-steps span{display:flex;gap:8px;align-items:center;transition:opacity .4s, transform .4s}
+.ask-steps span::before{content:"✓";width:18px;height:18px;border-radius:50%;background:var(--bubble);color:#1e7e34;font-size:11px;font-weight:700;display:grid;place-items:center;flex:none}
+.ask-a{background:var(--tile);border-radius:16px;padding:16px;display:grid;gap:12px;transition:opacity .5s, transform .5s}
+.ask-a h4{font-size:18px;letter-spacing:-.02em}
+.ask-a h4 b{color:#1e7e34}
+.hbar{display:grid;grid-template-columns:52px 1fr 44px;gap:10px;align-items:center;font-size:13px}
+.hbar i{height:10px;border-radius:999px;background:#c7c7cc;transform-origin:0 50%;transition:transform .9s var(--ease)}
+.hbar.top i{background:var(--ink)}
+.hbar span:last-child{text-align:right;font-variant-numeric:tabular-nums;color:var(--muted)}
+.hbar.top span{color:var(--ink);font-weight:600}
+.ask-meta{font-size:12px;color:var(--faint)}
+.ask .wait{opacity:0;transform:translateY(8px)}
+.ask .wait i{transform:scaleX(0)}
+
+/* Data platform diagram */
+.flowmap{display:grid;grid-template-columns:1fr 44px 1fr 44px 1.15fr 44px 1fr;align-items:stretch;min-width:0}
+.stagebox{background:#fff;border-radius:20px;border:1px solid var(--hair);padding:18px;display:grid;gap:10px;align-content:start;min-width:0}
+.stagebox .n{font:500 12px/1 var(--mono);color:var(--faint)}
+.stagebox h4{font-size:17px;letter-spacing:-.02em}
+.stagebox .sub{font-size:13px;color:var(--muted);margin-top:-4px}
+.chipcol{display:grid;gap:6px}
+.chipcol span{display:flex;align-items:center;gap:8px;background:var(--tile);border-radius:10px;padding:8px 10px;font-size:13px;font-weight:500}
+.chipcol span i{width:8px;height:8px;border-radius:2px;flex:none}
+.air{display:grid;place-items:center;text-align:center;gap:6px;background:var(--tile);border-radius:14px;padding:16px 10px}
+.air b{font-size:15px}
+.air small{font-size:12px;color:var(--muted)}
+.clock{width:34px;height:34px;border-radius:50%;border:2px solid var(--ink);position:relative}
+.clock::before,.clock::after{content:"";position:absolute;left:50%;top:50%;width:2px;background:var(--ink);transform-origin:50% 100%;border-radius:2px}
+.clock::before{height:11px;margin:-11px 0 0 -1px;animation:spin 6s linear infinite}
+.clock::after{height:8px;margin:-8px 0 0 -1px;transform:rotate(90deg)}
+@keyframes spin{to{transform:rotate(360deg)}}
+.medal{display:grid;gap:6px}
+.medal div{border-radius:10px;padding:9px 11px;font-size:13px;font-weight:600;display:flex;justify-content:space-between;gap:8px}
+.medal small{font-weight:400;opacity:.75}
+.m-b{background:#f1d9c6;color:#6b3a17}.m-s{background:#e6e8ec;color:#3a3f47}.m-g{background:#f6e7b4;color:#6b5200}
+.tests{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:600;color:#1e7e34;background:var(--bubble);border-radius:999px;padding:6px 10px;justify-self:start}
+.wire{position:relative;align-self:center;height:2px;background:var(--line);margin:0 6px}
+.wire::after{content:"";position:absolute;top:-3px;width:8px;height:8px;border-radius:50%;background:var(--ink);animation:dot 2s linear infinite}
+.wire:nth-of-type(4)::after{animation-delay:.6s}.wire:nth-of-type(6)::after{animation-delay:1.2s}
+@keyframes dot{from{left:0}to{left:calc(100% - 8px)}}
+.outcome{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}
+.outcome div{background:#fff;border-radius:16px;border:1px solid var(--hair);padding:14px 16px;font-size:14px;color:var(--muted)}
+.outcome b{display:block;color:var(--ink);font-size:15px;margin-bottom:2px}
+@media (max-width:980px){
+  .flowmap{grid-template-columns:1fr}
+  .wire{height:28px;width:2px;justify-self:center;margin:4px 0}
+  .wire::after{left:-3px!important;animation-name:dotv}
+  .outcome{grid-template-columns:1fr}
+}
+@keyframes dotv{from{top:0}to{top:calc(100% - 8px)}}
+
+/* Industries carousel */
+#industries{background:var(--tile);overflow:hidden}
+.car-tabs{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin-bottom:28px;padding-bottom:4px}
+.car-tabs::-webkit-scrollbar{display:none}
+.tab{position:relative;overflow:hidden;flex:none;height:38px;padding:0 16px;border-radius:999px;border:0;background:#e8e8ed;color:var(--ink-2);font-size:14px;font-weight:500;cursor:pointer;transition:background .3s, color .3s}
+.tab:hover{background:#dcdce1}
+.tab.active{background:var(--ink);color:#fff}
+.tab .bar{position:absolute;left:0;bottom:0;height:2px;width:100%;background:rgba(255,255,255,.7);transform-origin:0 50%;transform:scaleX(0)}
+.tab.active .bar.run{animation:prog var(--dur,6s) linear forwards}
+@keyframes prog{to{transform:scaleX(1)}}
+.car-track{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-inline:max(20px, calc((100% - 1120px)/2 + 20px));scroll-padding-inline:max(20px, calc((100% - 1120px)/2 + 20px));padding-block:10px 30px}
+.car-track::-webkit-scrollbar{display:none}
+.slide{flex:none;width:min(1000px,88vw);scroll-snap-align:start;border-radius:32px;background:var(--tint);padding:clamp(26px,4vw,52px);display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(24px,4vw,56px);align-items:center;transform:scale(.94);opacity:.5;transition:transform .7s var(--ease), opacity .7s var(--ease), box-shadow .7s var(--ease)}
+.slide.active{transform:none;opacity:1;box-shadow:0 40px 80px -50px rgba(0,0,0,.3)}
+@media (max-width:820px){.slide{grid-template-columns:1fr}}
+.s-copy{display:grid;gap:14px;min-width:0}
+.s-copy .ind{font-size:14px;font-weight:600;color:var(--accent)}
+.s-copy h3{font-size:clamp(28px,3.6vw,44px);letter-spacing:-.04em}
+.s-copy p{color:var(--ink-2);font-size:16px;max-width:42ch}
+.s-copy ul{margin:4px 0 0;padding:0;list-style:none;display:grid;gap:9px}
+.s-copy li{display:grid;grid-template-columns:22px 1fr;gap:8px;font-size:15px;color:var(--ink-2)}
+.s-copy li::before{content:"✓";width:20px;height:20px;border-radius:50%;background:rgba(255,255,255,.75);color:var(--accent);font-size:11px;font-weight:700;display:grid;place-items:center}
+.slide .s-copy > *{transition:opacity .6s var(--ease), transform .6s var(--ease)}
+.slide:not(.active) .s-copy > *{opacity:.0001;transform:translateX(24px)}
+.slide.active .s-copy > :nth-child(2){transition-delay:.08s}.slide.active .s-copy > :nth-child(3){transition-delay:.16s}.slide.active .s-copy > :nth-child(4){transition-delay:.24s}
+.mini{background:rgba(255,255,255,.92);border-radius:24px;padding:16px;display:grid;gap:8px;box-shadow:0 30px 60px -40px rgba(0,0,0,.35);min-width:0}
+.mini-head{display:flex;align-items:center;gap:10px;padding-bottom:10px;border-bottom:1px solid var(--hair);margin-bottom:4px}
+.mini-head i{width:30px;height:30px;border-radius:50%;background:var(--accent);color:#fff;display:grid;place-items:center;font:600 11px/1 var(--sans);font-style:normal}
+.mini-head b{display:block;font-size:13px}
+.mini-head small{font-size:11px;color:var(--green)}
+.b{max-width:86%;padding:9px 13px;border-radius:16px;font-size:13.5px;line-height:1.4}
+.b.u{justify-self:start;background:var(--tile)}
+.b.a{justify-self:end;background:var(--bubble)}
+.b.s{justify-self:center;font-size:11px;color:#1e7e34;background:#fff;border:1px dashed rgba(31,157,85,.45);border-radius:999px;padding:6px 12px}
+.slide .b{opacity:0;transform:translateY(12px) scale(.98)}
+.slide.active .b{animation:bub .55s var(--ease) both}
+.slide.active .b:nth-of-type(1){animation-delay:.25s}.slide.active .b:nth-of-type(2){animation-delay:.85s}.slide.active .b:nth-of-type(3){animation-delay:1.45s}.slide.active .b:nth-of-type(4){animation-delay:2.05s}
+@keyframes bub{to{opacity:1;transform:none}}
+.car-ctrl{display:flex;justify-content:flex-end;gap:10px;margin-top:4px}
+.arrow{width:44px;height:44px;border-radius:50%;border:0;background:#e8e8ed;color:var(--ink);display:grid;place-items:center;cursor:pointer;transition:background .2s, transform .2s}
+.arrow:hover{background:#dcdce1;transform:scale(1.05)}
+.arrow svg{width:18px;height:18px}
+
+/* ML & Vision capabilities */
+.caps{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+@media (max-width:820px){.caps{grid-template-columns:1fr}}
+.cap{background:var(--tile);border-radius:28px;padding:clamp(26px,3.6vw,40px);display:grid;gap:22px;align-content:start;min-width:0;transition:transform .4s var(--ease)}
+.cap:hover{transform:translateY(-4px)}
+.cap .t-copy h3{font-size:clamp(24px,2.6vw,30px)}
+.cap-vis{background:#fff;border-radius:18px;border:1px solid var(--hair);padding:18px;min-height:190px;display:grid;align-content:center;min-width:0}
+/* forecast */
+.fc svg{width:100%;height:auto;display:block}
+.fc .hist{fill:none;stroke:var(--ink);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.fc .pred{fill:none;stroke:var(--blue);stroke-width:2.2;stroke-dasharray:5 5;stroke-linecap:round}
+.fc .band{fill:rgba(0,102,204,.12)}
+.fc .grid{stroke:var(--hair);stroke-width:1}
+.fc text{font:11px var(--sans);fill:var(--faint)}
+.cap.in .fc .draw{stroke-dasharray:600;stroke-dashoffset:600;animation:draw 1.6s var(--ease) .2s forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.fc-leg{display:flex;gap:16px;font-size:12px;color:var(--muted);margin-top:8px}
+.fc-leg i{display:inline-block;width:14px;height:2px;margin-right:6px;vertical-align:3px}
+/* churn */
+.risk{display:grid;gap:12px}
+.risk div{display:grid;grid-template-columns:110px 1fr 44px;gap:12px;align-items:center;font-size:13px}
+.risk i{height:8px;border-radius:999px;background:var(--tile);overflow:hidden;position:relative}
+.risk i::after{content:"";position:absolute;inset:0;width:var(--p);border-radius:999px;background:var(--c);transform-origin:0 50%}
+.cap.in .risk i::after{animation:fill 1.1s var(--ease) both}
+.risk span:last-child{text-align:right;font-weight:600;font-variant-numeric:tabular-nums}
+.risk .head-r{font-size:11px;color:var(--faint);text-transform:uppercase;letter-spacing:.06em}
+/* deep learning classifier */
+.cls{display:grid;gap:12px}
+.ticket{background:var(--tile);border-radius:12px;padding:10px 12px;font-size:13px;display:flex;justify-content:space-between;gap:10px;align-items:center}
+.ticket em{font-style:normal;font-size:11px;font-weight:600;padding:4px 8px;border-radius:999px;white-space:nowrap}
+.e1{background:#e8f0fe;color:#0b57d0}.e2{background:#fde7e9;color:#b3261e}.e3{background:#e6f4ea;color:#1e7e34}
+.cap .ticket{transition:opacity .5s var(--ease), transform .5s var(--ease)}
+.cap.pre-anim .ticket{opacity:0;transform:translateX(-12px)}
+/* vision */
+.cv{position:relative;border-radius:12px;overflow:hidden;background:linear-gradient(#ececf0,#dedee3);aspect-ratio:16/8;max-width:100%}
+.shelf{position:absolute;left:6%;right:6%;height:3px;background:#b9b9c0;border-radius:2px}
+.shelf.s1{top:48%}.shelf.s2{top:90%}
+.prod{position:absolute;border-radius:6px}
+.box{position:absolute;border:2px solid var(--c);border-radius:6px;transition:opacity .4s, transform .4s}
+.box em{position:absolute;left:-2px;top:-20px;font:600 10px/1 var(--sans);font-style:normal;color:#fff;background:var(--c);padding:4px 6px;border-radius:4px;white-space:nowrap}
+.cap.pre-anim .box{opacity:0;transform:scale(1.15)}
+.scan{position:absolute;left:0;right:0;height:30%;background:linear-gradient(to bottom,transparent,rgba(0,102,204,.18),transparent);animation:scan 3.2s linear infinite}
+@keyframes scan{from{top:-30%}to{top:100%}}
+
+/* Skills spec sheet */
+#skills{border-top:1px solid var(--hair)}
+.spec{border-top:1px solid var(--ink)}
+.spec-row{display:grid;grid-template-columns:260px 1fr;gap:16px 40px;padding:22px 0;border-bottom:1px solid var(--hair)}
+.spec-row h3{font-size:17px;letter-spacing:-.01em}
+.spec-row h3 span{display:block;font-size:13px;font-weight:400;color:var(--faint);margin-top:4px;letter-spacing:0}
+.spec-row p{font-size:17px;color:var(--ink-2);line-height:1.7}
+.spec-row p b{font-weight:600;color:var(--ink)}
+@media (max-width:720px){.spec-row{grid-template-columns:1fr;gap:6px}}
+
+/* Contact */
+#contact{background:var(--tile)}
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,88px);align-items:start}
+@media (max-width:900px){.contact{grid-template-columns:1fr}}
+.perks{display:grid;gap:12px;margin-top:28px;font-size:15px;color:var(--ink-2)}
+.perks span{display:flex;gap:10px}
+.perks span::before{content:"";width:16px;height:1px;background:var(--ink);margin-top:11px;flex:none}
+.form{display:grid;gap:12px;background:var(--bg);border-radius:24px;padding:clamp(22px,3vw,32px)}
+.form .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:520px){.form .row{grid-template-columns:1fr}}
+.form label{display:grid;gap:6px;font-size:13px;color:var(--muted);min-width:0}
+.form input,.form textarea{font:400 16px/1.4 var(--sans);color:var(--ink);background:var(--tile);border:1px solid transparent;border-radius:12px;padding:13px 15px;width:100%;min-width:0;transition:border-color .2s, background .2s}
+.form textarea{min-height:120px;resize:vertical}
+.form input:focus,.form textarea:focus{outline:none;border-color:var(--ink);background:#fff}
+.form .btn{justify-self:start;margin-top:6px}
+.out{font-size:14px;color:var(--muted);display:grid;gap:10px}
+.out pre{margin:0;white-space:pre-wrap;background:var(--tile);border-radius:12px;padding:14px;font:12.5px/1.5 var(--mono);color:var(--ink)}
+.mail{margin-top:36px;padding-top:24px;border-top:1px solid var(--line);display:grid;gap:8px}
+.mail-label{font-size:13px;color:var(--muted)}
+.mail-row{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.mail-addr{font-size:clamp(20px,2.4vw,26px);font-weight:600;letter-spacing:-.02em;color:var(--ink);word-break:break-all;user-select:all}
+.mail-addr:hover{color:var(--blue)}
+.ghost{justify-self:start;background:transparent;color:var(--ink);border:1px solid var(--line);height:36px;padding:0 16px;border-radius:999px;font:500 13px var(--sans);cursor:pointer}
+
+footer{border-top:1px solid var(--hair);padding-block:26px;font-size:12px;color:var(--muted)}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+/* Transitions: only below-the-fold elements start hidden */
+.reveal{transition:opacity .9s var(--ease), transform .9s var(--ease)}
+.reveal.pre{opacity:0;transform:translateY(32px)}
+.hero .fade{animation:fadeup .9s var(--ease) both}
+@keyframes fadeup{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .reveal.pre,.chat .hidden,.ask .wait,.slide .b,.slide:not(.active) .s-copy > *,.cap.pre-anim .ticket,.cap.pre-anim .box{opacity:1;transform:none}
+  .ask .wait i{transform:none}
+}
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="brand" href="#top">AgentVerse</a>
+    <a class="hide-sm" href="#services">Services</a>
+    <a href="#work">Work</a>
+    <a class="hide-sm" href="#industries">Industries</a>
+    <a class="hide-sm" href="#ml">ML &amp; Vision</a>
+    <a class="hide-sm" href="#skills">Skills</a>
+    <a class="cta" href="#contact">Hire me</a>
+  </div>
+  <div class="progress" id="progress"></div>
+</header>
+
+<main id="top">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <span class="who fade"><span class="mono">G</span><span><b>Gopikanth</b> · AI Engineer &amp; AI Data Engineer</span></span>
+    <h1 class="fade" style="animation-delay:.08s">AI agents that sell. <span class="dim">Data that feeds them.</span></h1>
+    <p class="lead fade" style="animation-delay:.16s">I design and build production AI agents and the data platforms behind them. They reply to your customers within seconds, automate routine work and turn your data into decisions.</p>
+    <div class="ctas fade" style="animation-delay:.24s">
+      <a class="btn" href="#contact">Start a project</a>
+      <a class="link" href="#work">See my work ›</a>
+    </div>
+    <div class="facts fade" style="animation-delay:.32s">
+      <span><b>2 years</b> in production AI</span>
+      <span><b>6 industries</b> served</span>
+      <span><i class="live"></i><b>Available</b> for freelance</span>
+    </div>
+
+    <div class="stage">
+      <div class="callouts left">
+        <div class="co"><b>4 sec</b><span>First reply to a new lead</span></div>
+        <div class="co"><b>24/7</b><span>Works nights, weekends, holidays</span></div>
+      </div>
+      <div class="phone" aria-label="Example WhatsApp conversation with an AI sales agent">
+        <div class="screen">
+          <div class="chat-head"><span class="av">LV</span><div><b>Lakeview Homes</b><small>AI agent · online</small></div></div>
+          <div class="chat" id="chat">
+            <div class="msg out">Hi Priya, thanks for your enquiry. Are you buying to live in or to invest?<small>11:40 pm</small></div>
+            <div class="msg in">To live. 2BHK, around 85 lakhs.</div>
+            <div class="msg out">We have 2BHK homes from ₹78L, ready by Dec 2027.<small>11:41 pm</small></div>
+            <div class="msg in voice"><span class="play"></span><span class="wave" aria-hidden="true"><i></i><i style="animation-delay:.1s"></i><i style="animation-delay:.2s"></i><i style="animation-delay:.3s"></i><i style="animation-delay:.4s"></i><i style="animation-delay:.5s"></i><i style="animation-delay:.6s"></i><i style="animation-delay:.7s"></i><i style="animation-delay:.8s"></i><i style="animation-delay:.3s"></i></span><span style="font-size:11px;color:var(--muted)">Telugu voice note · 0:09</span></div>
+            <div class="msg out">Understood, you'd like to see it first. Saturday 11 am or Sunday 4 pm?<small>11:42 pm</small></div>
+            <div class="msg in">Sunday 4 pm.</div>
+            <div class="msg out">Booked for Sunday, 4 pm. I'll send the location now.<small>11:42 pm</small></div>
+            <div class="sys">✓ CRM updated · Lead score 82 · Visit booked</div>
+          </div>
+        </div>
+      </div>
+      <div class="callouts right">
+        <div class="co"><b>2 min</b><span>From enquiry to booked visit</span></div>
+        <div class="co"><b>0</b><span>Manual CRM entries for your team</span></div>
+      </div>
+      <p class="stage-cap">Example conversation · fictional business</p>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="label">Services</span>
+      <h2 class="h2">What I build. <span class="dim">And what it changes for your business.</span></h2>
+    </div>
+    <div class="svc">
+      <article class="reveal">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg></span>
+        <h3>AI Sales Agents</h3>
+        <p>WhatsApp and web agents that reply to every lead in seconds, qualify them, handle objections and book the call.</p>
+        <span class="gain">Never lose a lead to slow replies</span>
+      </article>
+      <article class="reveal">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></span>
+        <h3>Voice Agents</h3>
+        <p>Customers send voice notes or call in English or Indian languages, and get a natural spoken reply.</p>
+        <span class="gain">Reach customers who prefer to talk</span>
+      </article>
+      <article class="reveal">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h11l5 5v11H4z"/><path d="M15 4v5h5M8 13h8M8 17h5"/></svg></span>
+        <h3>Knowledge Assistants</h3>
+        <p>Your brochures, policies and manuals answer customer and staff questions accurately, with sources.</p>
+        <span class="gain">Stop answering the same questions</span>
+      </article>
+      <article class="reveal">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="6" r="2"/><circle cx="5" cy="18" r="2"/><circle cx="19" cy="12" r="2"/><path d="M7 6h4l4 6M7 18h4l4-6"/></svg></span>
+        <h3>AI Data Engineering</h3>
+        <p>Airflow and dbt pipelines that collect, clean and test your data, so reports and AI always use fresh facts.</p>
+        <span class="gain">Data you can trust</span>
+      </article>
+      <article class="reveal">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-5 4 4 8-8"/><path d="M15 8h5v5"/></svg></span>
+        <h3>ML and Computer Vision</h3>
+        <p>Forecasting, churn and lead scoring, document reading and image recognition, built around your data.</p>
+        <span class="gain">See what's coming before it happens</span>
+      </article>
+      <article class="reveal">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M7 9l3 3-3 3M13 15h4"/></svg></span>
+        <h3>AI Web Apps</h3>
+        <p>Fast, polished dashboards, chat interfaces and portals built on real-time APIs.</p>
+        <span class="gain">An interface people enjoy using</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section id="work">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="label">Selected work</span>
+      <h2 class="h2">Built for real businesses. <span class="dim">Running in production.</span></h2>
+      <p>Client names are kept private.</p>
+    </div>
+
+    <div class="tiles">
+      <!-- Sales agent -->
+      <article class="tile reveal">
+        <div class="t-copy">
+          <span class="label">Agentic AI</span>
+          <h3>AI Sales Agent</h3>
+          <p>WhatsApp agents for six industries that turn ad leads into booked meetings.</p>
+          <ul>
+            <li>Qualifies leads and answers from company documents</li>
+            <li>Understands voice notes in Indian languages</li>
+            <li>Scores every lead and updates the CRM itself</li>
+            <li>Routes each turn to the right model to keep costs low</li>
+          </ul>
+          <p class="stack">LangGraph · Hybrid RAG · Agent routing · Voice AI · FastAPI</p>
+        </div>
+        <div class="sales-vis">
+          <div class="pipe" aria-label="Flow: ad lead, WhatsApp, router, agents, CRM">
+            <i class="pulse" aria-hidden="true"></i>
+            <span>Ad lead<small>form filled</small></span>
+            <span>WhatsApp<small>opener in 4s</small></span>
+            <span>Router<small>right model</small></span>
+            <span>Agents<small>qualify · book</small></span>
+            <span>CRM<small>auto-updated</small></span>
+          </div>
+          <div class="compare">
+            <h4>A lead enquires at 11:40 pm <em>Example scenario</em></h4>
+            <div class="lane slow" style="--w:1">
+              <div class="lane-top"><b>Without an agent</b><span>Team calls at 10:05 am next day</span></div>
+              <div class="track"><div class="fill"></div></div>
+              <div class="lane-foot"><span>11:40 pm</span><span>Lead already talking to a competitor</span></div>
+            </div>
+            <div class="lane fast" style="--w:.04">
+              <div class="lane-top"><b>With an AI agent</b><span>Replied in 4 seconds</span></div>
+              <div class="track"><div class="fill"></div></div>
+              <div class="lane-foot"><span>11:40 pm</span><span>Site visit booked by 11:42 pm</span></div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Data agent -->
+      <article class="tile reveal" id="askTile">
+        <div class="t-copy">
+          <span class="label">Talk to your data</span>
+          <h3>Ask your business data anything.</h3>
+          <p>Managers type a question in plain English. The agent finds the right tables, writes safe read-only SQL and replies with the answer and a chart.</p>
+          <ul>
+            <li>No SQL, no waiting for an analyst</li>
+            <li>Read-only access, nothing can be changed or deleted</li>
+            <li>Charts, reports and exports in one reply</li>
+          </ul>
+          <p class="stack">LangGraph · MCP · PostgreSQL · AWS</p>
+        </div>
+        <div class="ask" aria-label="Example: a manager asks which region grew fastest and the agent answers with a chart">
+          <div class="ask-q"><span id="askQ">Which region grew fastest this quarter?</span><span class="caret"></span></div>
+          <div class="ask-steps">
+            <span class="step">Found the sales and region tables</span>
+            <span class="step">Wrote a read-only SQL query</span>
+            <span class="step">Checked the result for errors</span>
+          </div>
+          <div class="ask-a">
+            <h4>South grew fastest, <b>+24%</b> on last quarter.</h4>
+            <div class="hbar top"><span>South</span><i style="transform:scaleX(1)"></i><span>+24%</span></div>
+            <div class="hbar"><span>West</span><i style="transform:scaleX(.62)"></i><span>+15%</span></div>
+            <div class="hbar"><span>North</span><i style="transform:scaleX(.38)"></i><span>+9%</span></div>
+            <div class="hbar"><span>East</span><i style="transform:scaleX(.17)"></i><span>+4%</span></div>
+            <span class="ask-meta">Answered in 3 seconds · Example data</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Data platform -->
+      <article class="tile stack-tile reveal">
+        <div class="t-copy" style="max-width:720px">
+          <span class="label">AI Data Engineering</span>
+          <h3>Messy data in. <span class="dim">Trusted data out.</span></h3>
+          <p>An automated pipeline that collects data from every system each night, cleans and tests it, and delivers it ready for dashboards, AI agents and ML models.</p>
+          <p class="stack">Airflow · dbt · Databricks · PySpark · Delta Lake · SQL · Star schema</p>
+        </div>
+        <div>
+          <div class="flowmap" aria-label="Diagram: sources flow into Airflow, then Bronze, Silver and Gold layers tested with dbt, then out to dashboards, AI agents and ML models">
+            <div class="stagebox">
+              <span class="n">1 · Collect</span>
+              <h4>Your systems</h4>
+              <div class="chipcol">
+                <span><i style="background:#0066cc"></i>CRM</span>
+                <span><i style="background:#1f9d55"></i>Orders and payments</span>
+                <span><i style="background:#b25000"></i>Website and ads</span>
+                <span><i style="background:#6e44ff"></i>Documents</span>
+              </div>
+            </div>
+            <span class="wire" aria-hidden="true"></span>
+            <div class="stagebox">
+              <span class="n">2 · Schedule</span>
+              <h4>Airflow</h4>
+              <div class="air"><span class="clock" aria-hidden="true"></span><b>Runs every night</b><small>Retries failures and alerts the team</small></div>
+            </div>
+            <span class="wire" aria-hidden="true"></span>
+            <div class="stagebox">
+              <span class="n">3 · Clean and test</span>
+              <h4>Databricks + dbt</h4>
+              <div class="medal">
+                <div class="m-g">Gold <small>Ready to use</small></div>
+                <div class="m-s">Silver <small>Cleaned</small></div>
+                <div class="m-b">Bronze <small>Raw copy</small></div>
+              </div>
+              <span class="tests">✓ dbt tests passed</span>
+            </div>
+            <span class="wire" aria-hidden="true"></span>
+            <div class="stagebox">
+              <span class="n">4 · Use</span>
+              <h4>Your team and AI</h4>
+              <div class="chipcol">
+                <span><i style="background:#1d1d1f"></i>Dashboards</span>
+                <span><i style="background:#1d1d1f"></i>AI agents</span>
+                <span><i style="background:#1d1d1f"></i>ML models</span>
+              </div>
+            </div>
+          </div>
+          <div class="outcome">
+            <div><b>One version of the truth</b>Every report uses the same numbers.</div>
+            <div><b>Problems caught early</b>Bad data is stopped before anyone sees it.</div>
+            <div><b>AI that stays current</b>Agents answer from last night's data.</div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- INDUSTRIES -->
+<section id="industries">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="label">Industries</span>
+      <h2 class="h2">One agent. <span class="dim">Trained for your industry.</span></h2>
+    </div>
+    <div class="car-tabs" id="tabs" role="tablist" aria-label="Choose an industry"></div>
+  </div>
+
+  <div class="car-track" id="track" aria-roledescription="carousel" aria-label="Industry examples">
+    <article class="slide active" style="--tint:#f4ece1;--accent:#8a5a1f" aria-label="Real Estate">
+      <div class="s-copy">
+        <span class="ind">Real Estate</span>
+        <h3>Site visits booked while you sleep.</h3>
+        <p>The agent qualifies buyers by budget and location, shares floor plans and prices, and books visits straight into your team's calendar.</p>
+        <ul><li>Budget and location qualification</li><li>Floor plans, prices and offers on demand</li><li>Site visits booked and confirmed</li></ul>
+      </div>
+      <div class="mini">
+        <div class="mini-head"><i>LV</i><div><b>Lakeview Homes</b><small>AI agent · online</small></div></div>
+        <div class="b u">Any 3BHK near the metro under 1.2 Cr?</div>
+        <div class="b a">Yes, 3 options. Phase 2 is 400 m from the station. Shall I send the floor plan?</div>
+        <div class="b u">Yes, and a visit on Sunday.</div>
+        <div class="b s">✓ Visit booked · CRM updated</div>
+      </div>
+    </article>
+
+    <article class="slide" style="--tint:#e5eefb;--accent:#1b5fb8" aria-label="Education">
+      <div class="s-copy">
+        <span class="ind">Education</span>
+        <h3>Every admission enquiry answered.</h3>
+        <p>Students get instant answers on courses, fees and eligibility, and the agent books counselling calls during peak admission season.</p>
+        <ul><li>Course, fee and eligibility answers</li><li>Counselling calls booked automatically</li><li>Follow-ups until the application is in</li></ul>
+      </div>
+      <div class="mini">
+        <div class="mini-head"><i>SA</i><div><b>Summit Academy</b><small>AI agent · online</small></div></div>
+        <div class="b u">Is the MBA open for 2027? I scored 62% in B.Com.</div>
+        <div class="b a">Yes. The minimum is 50%, so you're eligible. Fees are ₹4.2L. Shall I book a counselling call?</div>
+        <div class="b u">Tomorrow evening works.</div>
+        <div class="b s">✓ Counselling booked · 6:00 pm</div>
+      </div>
+    </article>
+
+    <article class="slide" style="--tint:#e3f4ee;--accent:#17805c" aria-label="Healthcare">
+      <div class="s-copy">
+        <span class="ind">Healthcare</span>
+        <h3>Appointments without the phone queue.</h3>
+        <p>Patients book, reschedule and get reminders in their own language. Anything medical goes straight to your staff.</p>
+        <ul><li>Booking and rescheduling around the clock</li><li>Reminders that reduce no-shows</li><li>Medical questions handed to staff</li></ul>
+      </div>
+      <div class="mini">
+        <div class="mini-head"><i>CC</i><div><b>CareFirst Clinic</b><small>AI agent · online</small></div></div>
+        <div class="b u">I need a dermatologist this week.</div>
+        <div class="b a">Dr. Rao is free on Thursday at 5:30 pm. Shall I book it for you?</div>
+        <div class="b u">Yes please.</div>
+        <div class="b s">✓ Appointment confirmed · reminder set</div>
+      </div>
+    </article>
+
+    <article class="slide" style="--tint:#e9ebf0;--accent:#2f3a4f" aria-label="Finance">
+      <div class="s-copy">
+        <span class="ind">Finance</span>
+        <h3>Loan leads, qualified and documented.</h3>
+        <p>The agent checks basic eligibility, collects documents securely and passes ready-to-process files to your advisors.</p>
+        <ul><li>Instant eligibility checks</li><li>Secure document collection</li><li>Complete files handed to advisors</li></ul>
+      </div>
+      <div class="mini">
+        <div class="mini-head"><i>NF</i><div><b>Northstar Finance</b><small>AI agent · online</small></div></div>
+        <div class="b u">Home loan for 40 lakhs. My salary is 90k a month.</div>
+        <div class="b a">You're likely eligible. Please upload your last 3 salary slips here.</div>
+        <div class="b u">Uploaded.</div>
+        <div class="b s">✓ Documents received · sent to advisor</div>
+      </div>
+    </article>
+
+    <article class="slide" style="--tint:#fbe9ec;--accent:#b4234a" aria-label="Retail and D2C">
+      <div class="s-copy">
+        <span class="ind">Retail and D2C</span>
+        <h3>A personal shopper in every chat.</h3>
+        <p>Shoppers describe what they want and the agent recommends products in stock, answers order questions and closes the sale in chat.</p>
+        <ul><li>Product recommendations from your catalogue</li><li>Order tracking and returns</li><li>Checkout inside WhatsApp</li></ul>
+      </div>
+      <div class="mini">
+        <div class="mini-head"><i>SW</i><div><b>Stride Wear</b><small>AI agent · online</small></div></div>
+        <div class="b u">Running shoes under ₹4,000, size 9?</div>
+        <div class="b a">3 pairs are in stock in size 9. The Aero Run is ₹3,499 with free delivery.</div>
+        <div class="b u">I'll take the Aero Run.</div>
+        <div class="b s">✓ Order placed · ₹3,499</div>
+      </div>
+    </article>
+
+    <article class="slide" style="--tint:#fbf0dc;--accent:#a55d00" aria-label="Hospitality">
+      <div class="s-copy">
+        <span class="ind">Hospitality</span>
+        <h3>Bookings in any language, at any hour.</h3>
+        <p>Guests check rooms, rates and amenities, and the agent holds or confirms the booking without a front-desk call.</p>
+        <ul><li>Live room and rate answers</li><li>Bookings held or confirmed in chat</li><li>Upsells for breakfast, transfers and late checkout</li></ul>
+      </div>
+      <div class="mini">
+        <div class="mini-head"><i>BB</i><div><b>Blue Bay Resort</b><small>AI agent · online</small></div></div>
+        <div class="b u">Room for 2, 14–16 Dec, sea view?</div>
+        <div class="b a">A sea-view deluxe is available at ₹7,800 a night with breakfast. Shall I hold it?</div>
+        <div class="b u">Yes, hold it.</div>
+        <div class="b s">✓ Room held for 24 hours</div>
+      </div>
+    </article>
+
+    <article class="slide" style="--tint:#eeeafc;--accent:#5b3fb8" aria-label="Technology and SaaS">
+      <div class="s-copy">
+        <span class="ind">Technology and SaaS</span>
+        <h3>Demo requests qualified instantly.</h3>
+        <p>The agent answers technical questions from your docs, qualifies team size and need, and books demos with the right rep.</p>
+        <ul><li>Technical answers from your documentation</li><li>Lead qualification and scoring</li><li>Demos booked with the right rep</li></ul>
+      </div>
+      <div class="mini">
+        <div class="mini-head"><i>FL</i><div><b>Flowline</b><small>AI agent · online</small></div></div>
+        <div class="b u">Does it sync with our CRM?</div>
+        <div class="b a">Yes, with two-way sync. How many sales reps are on your team?</div>
+        <div class="b u">About 25.</div>
+        <div class="b s">✓ Demo booked · Lead score 88</div>
+      </div>
+    </article>
+  </div>
+
+  <div class="wrap car-ctrl">
+    <button class="arrow" id="prev" type="button" aria-label="Previous industry"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 6l-6 6 6 6"/></svg></button>
+    <button class="arrow" id="next" type="button" aria-label="Next industry"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></button>
+  </div>
+</section>
+
+<!-- ML & VISION -->
+<section id="ml">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="label">Machine learning and computer vision</span>
+      <h2 class="h2">Beyond agents. <span class="dim">Models that predict and see.</span></h2>
+    </div>
+    <div class="caps">
+      <article class="cap reveal">
+        <div class="t-copy"><h3>Forecasting</h3><p>Predict next month's sales, demand or revenue, so you can plan stock, staff and spend with confidence.</p></div>
+        <div class="cap-vis fc">
+          <svg viewBox="0 0 320 150" role="img" aria-label="Line chart: past sales in black, forecast in dashed blue with a shaded range">
+            <line class="grid" x1="20" y1="30" x2="310" y2="30"/><line class="grid" x1="20" y1="75" x2="310" y2="75"/><line class="grid" x1="20" y1="120" x2="310" y2="120"/>
+            <path class="band" d="M200 70 L230 58 L260 50 L290 38 L290 78 L260 84 L230 88 L200 86 Z"/>
+            <path class="hist draw" d="M20 112 L45 104 L70 108 L95 92 L120 96 L145 84 L170 86 L200 78"/>
+            <path class="pred draw" d="M200 78 L230 73 L260 67 L290 58"/>
+            <line x1="200" y1="22" x2="200" y2="124" stroke="#d2d2d7" stroke-dasharray="3 3"/>
+            <text x="20" y="142">Jan</text><text x="185" y="142">Today</text><text x="270" y="142">+3 mo</text>
+          </svg>
+          <div class="fc-leg"><span><i style="background:#1d1d1f"></i>Actual</span><span><i style="background:#0066cc"></i>Forecast</span><span><i style="background:rgba(0,102,204,.25);height:8px;vertical-align:0"></i>Likely range</span></div>
+        </div>
+      </article>
+
+      <article class="cap reveal">
+        <div class="t-copy"><h3>Predictive ML</h3><p>Score every customer or lead by how likely they are to buy, pay or leave, so your team calls the right people first.</p></div>
+        <div class="cap-vis">
+          <div class="risk">
+            <div class="head-r"><span>Customer</span><span>Churn risk</span><span></span></div>
+            <div><span>Account #2041</span><i style="--p:86%;--c:#d70015"></i><span>86%</span></div>
+            <div><span>Account #1187</span><i style="--p:52%;--c:#b25000"></i><span>52%</span></div>
+            <div><span>Account #3320</span><i style="--p:18%;--c:#1f9d55"></i><span>18%</span></div>
+            <div><span>Account #0954</span><i style="--p:9%;--c:#1f9d55"></i><span>9%</span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="cap reveal" data-anim="tickets">
+        <div class="t-copy"><h3>Deep Learning</h3><p>Neural networks that read text the way people do: sort support tickets, detect sentiment and route messages automatically.</p></div>
+        <div class="cap-vis">
+          <div class="cls">
+            <div class="ticket">"My payment failed twice today" <em class="e2">Billing · 97%</em></div>
+            <div class="ticket">"How do I add a new user?" <em class="e1">How-to · 94%</em></div>
+            <div class="ticket">"Love the new update, thanks!" <em class="e3">Positive · 98%</em></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="cap reveal" data-anim="boxes">
+        <div class="t-copy"><h3>Computer Vision</h3><p>Models that understand images: count products, spot empty shelves and defects, and read invoices and IDs automatically.</p></div>
+        <div class="cap-vis">
+          <div class="cv" role="img" aria-label="Shelf photo with detected products and one empty slot highlighted">
+            <span class="shelf s1"></span><span class="shelf s2"></span>
+            <span class="prod" style="left:9%;top:14%;width:16%;height:33%;background:#7aa7e0"></span>
+            <span class="prod" style="left:29%;top:20%;width:14%;height:27%;background:#e0a77a"></span>
+            <span class="prod" style="left:71%;top:12%;width:18%;height:35%;background:#9ccf9f"></span>
+            <span class="prod" style="left:12%;top:58%;width:20%;height:31%;background:#c9a0dc"></span>
+            <span class="prod" style="left:58%;top:60%;width:16%;height:29%;background:#e6c86e"></span>
+            <span class="box" style="left:8%;top:12%;width:18%;height:36%;--c:#0066cc"><em>Product · 0.97</em></span>
+            <span class="box" style="left:47%;top:12%;width:20%;height:36%;--c:#d70015;transition-delay:.15s"><em>Empty slot · 0.93</em></span>
+            <span class="box" style="left:57%;top:58%;width:18%;height:32%;--c:#0066cc;transition-delay:.3s"><em>Product · 0.95</em></span>
+            <span class="scan" aria-hidden="true"></span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="label">Skills</span>
+      <h2 class="h2">Technical specifications.</h2>
+    </div>
+    <div class="spec reveal">
+      <div class="spec-row"><h3>Agentic AI<span>Agents and orchestration</span></h3><p><b>LangGraph</b>, LangChain, multi-agent and supervisor systems, ReAct, tool calling, <b>MCP</b>, A2A, human-in-the-loop</p></div>
+      <div class="spec-row"><h3>LLMs and Retrieval<span>Models, RAG, voice</span></h3><p>OpenAI, Claude, Gemini, <b>hybrid RAG</b> (BM25 + vector), LanceDB, FAISS, Redis, reranking, speech-to-text and text-to-speech</p></div>
+      <div class="spec-row"><h3>Routing, Cost and Safety<span>Production readiness</span></h3><p><b>Agent routing with Jev</b>, model cascading, semantic caching, guardrails, prompt-injection defense, LLM evaluation, LangSmith</p></div>
+      <div class="spec-row"><h3>Data Engineering<span>Pipelines and warehousing</span></h3><p><b>Airflow</b>, <b>dbt</b>, <b>Databricks</b>, PySpark, SQL, Delta Lake, medallion architecture, star schema, SCD Type 2, data quality testing</p></div>
+      <div class="spec-row"><h3>Machine Learning<span>Prediction and forecasting</span></h3><p>LightGBM, XGBoost, CatBoost, scikit-learn, time-series forecasting, churn and lead scoring</p></div>
+      <div class="spec-row"><h3>Deep Learning and Vision<span>Text and images</span></h3><p><b>PyTorch</b>, TensorFlow, Transformers, text classification, OpenCV, object detection (YOLO), OCR and document AI</p></div>
+      <div class="spec-row"><h3>Backend, Web and Cloud<span>Shipping it</span></h3><p>Python, <b>FastAPI</b>, Pydantic, WebSockets, React, AWS, GCP (BigQuery, Cloud Functions), Docker, Git</p></div>
+      <div class="spec-row"><h3>Certifications</h3><p>Databricks Agentic AI Foundations Associate · Salesforce Certified AI Associate · Google Cloud Generative AI for Developers · Google Cloud Introduction to Generative AI</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="wrap contact">
+    <div class="reveal">
+      <span class="label">Contact</span>
+      <h2 class="h2" style="margin-top:14px">Let's build your first agent.</h2>
+      <p style="font-size:19px;color:var(--muted);margin-top:16px;max-width:44ch">Tell me where your business loses time or leads. I'll show you what an agent could take over, how long it takes to build and what it costs to run.</p>
+      <div class="perks"><span>Free 30-minute discovery call</span><span>Reply within one business day</span><span>Remote, working with clients worldwide</span></div>
+      <div class="mail">
+        <span class="mail-label">Email me directly</span>
+        <div class="mail-row">
+          <a class="mail-addr" id="mailAddr" href="mailto:gopikanth.tech@gmail.com">gopikanth.tech@gmail.com</a>
+          <button class="ghost" id="copyMail" type="button">Copy</button>
+        </div>
+      </div>
+    </div>
+    <form class="form reveal" id="brief" novalidate>
+      <div class="row">
+        <label for="f-name">Name<input id="f-name" name="name" autocomplete="name" required></label>
+        <label for="f-contact">Email or WhatsApp<input id="f-contact" name="contact" required></label>
+      </div>
+      <label for="f-msg">Project<textarea id="f-msg" name="message" placeholder="I want an agent that replies to my ad leads on WhatsApp…"></textarea></label>
+      <button class="btn" type="submit">Send message</button>
+      <div class="out" id="formOut" hidden></div>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="yr">2026</span> Gopikanth · AgentVerse</span>
+    <span>gopikanth.tech@gmail.com · AI Engineer · AI Data Engineer</span>
+  </div>
+</footer>
+
+<script>
+const CONFIG = { FORM_ENDPOINT: "" }; // Formspree / Web3Forms URL. Empty = show a copyable message.
+
+(function(){
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const wait = ms => new Promise(r => setTimeout(r, reduce ? 0 : ms));
+  document.getElementById("yr").textContent = new Date().getFullYear();
+
+  // Nav hairline + progress
+  const nav = document.getElementById("nav"), bar = document.getElementById("progress");
+  const onScroll = () => {
+    const h = document.documentElement.scrollHeight - innerHeight;
+    bar.style.transform = `scaleX(${h > 0 ? scrollY / h : 0})`;
+    nav.classList.toggle("scrolled", scrollY > 8);
+  };
+  addEventListener("scroll", onScroll, {passive:true}); onScroll();
+
+  // Data agent sequence: type question, tick steps, show answer
+  async function playAsk(){
+    if(reduce) return;
+    const tile = document.getElementById("askTile");
+    const q = document.getElementById("askQ"), full = q.textContent;
+    const steps = tile.querySelectorAll(".step"), ans = tile.querySelector(".ask-a");
+    const bars = Array.from(tile.querySelectorAll(".hbar i")), scales = bars.map(b => b.style.transform);
+    steps.forEach(s => s.classList.add("wait")); ans.classList.add("wait");
+    bars.forEach(b => b.style.transform = "scaleX(0)");
+    q.textContent = "";
+    for(let i = 1; i <= full.length; i++){ q.textContent = full.slice(0, i); await wait(32); }
+    for(const s of steps){ await wait(450); s.classList.remove("wait"); }
+    await wait(400); ans.classList.remove("wait");
+    await wait(200); bars.forEach((b, i) => b.style.transform = scales[i]);
+  }
+
+  // Tickets / detection boxes
+  function primeCap(el){ if(el.dataset.anim && !reduce) el.classList.add("pre-anim"); }
+  function playCap(el){
+    if(!el.dataset.anim) return;
+    if(el.dataset.anim === "tickets"){
+      el.querySelectorAll(".ticket").forEach((t, i) => t.style.transitionDelay = (0.2 + i * 0.25) + "s");
+    }
+    requestAnimationFrame(() => el.classList.remove("pre-anim"));
+  }
+
+  // Scroll reveals
+  const items = Array.from(document.querySelectorAll(".reveal"));
+  const onShow = el => {
+    if(el.id === "askTile") playAsk();
+    if(el.classList.contains("cap")) playCap(el);
+  };
+  if(!reduce && "IntersectionObserver" in window){
+    const io = new IntersectionObserver(es => es.forEach(e => {
+      if(!e.isIntersecting) return;
+      const el = e.target;
+      const sibs = Array.from(el.parentElement.children).filter(c => c.classList.contains("reveal"));
+      el.style.transitionDelay = (Math.max(0, sibs.indexOf(el)) % 3) * 0.08 + "s";
+      el.classList.remove("pre"); el.classList.add("in");
+      onShow(el);
+      io.unobserve(el);
+    }), {threshold:.15, rootMargin:"0px 0px -6% 0px"});
+    items.forEach(el => {
+      if(el.getBoundingClientRect().top > innerHeight * 0.92){ el.classList.add("pre"); primeCap(el); }
+      else el.classList.add("in");
+      io.observe(el);
+    });
+  } else {
+    items.forEach(el => el.classList.add("in"));
+  }
+
+  // Phone conversation
+  const chat = document.getElementById("chat");
+  const msgs = Array.from(chat.children);
+  let run = 0;
+  async function play(){
+    const id = ++run;
+    msgs.forEach(m => m.classList.add("hidden"));
+    await wait(600);
+    for(const m of msgs){
+      if(id !== run) return;
+      if(m.classList.contains("out")){
+        const t = document.createElement("div"); t.className = "typing"; t.innerHTML = "<i></i><i></i><i></i>";
+        chat.insertBefore(t, m); await wait(850); t.remove();
+      } else { await wait(650); }
+      if(id !== run) return;
+      m.classList.remove("hidden");
+      await wait(250);
+    }
+  }
+  if(!reduce){
+    let seen = true; play();
+    if("IntersectionObserver" in window){
+      new IntersectionObserver(es => es.forEach(e => {
+        if(e.isIntersecting && !seen){ seen = true; play(); }
+        else if(!e.isIntersecting){ seen = false; }
+      }), {threshold:.4}).observe(chat);
+    }
+  }
+
+  // Industries carousel
+  const track = document.getElementById("track"), tabsEl = document.getElementById("tabs");
+  const slides = Array.from(track.querySelectorAll(".slide"));
+  const DUR = 6500;
+  let active = 0, timer = null, paused = false, inView = false;
+  slides.forEach((s, i) => {
+    s.setAttribute("aria-roledescription", "slide");
+    const b = document.createElement("button");
+    b.className = "tab" + (i === 0 ? " active" : ""); b.type = "button"; b.setAttribute("role", "tab");
+    b.innerHTML = `${s.getAttribute("aria-label")}<span class="bar"></span>`;
+    b.style.setProperty("--dur", DUR + "ms");
+    b.addEventListener("click", () => { go(i); restart(); });
+    tabsEl.appendChild(b);
+  });
+  const tabs = Array.from(tabsEl.children);
+  function setActive(i){
+    if(i === active && slides[i].classList.contains("active")) return;
+    active = i;
+    slides.forEach((s, k) => s.classList.toggle("active", k === i));
+    tabs.forEach((t, k) => { t.classList.toggle("active", k === i); t.setAttribute("aria-selected", k === i); });
+    tabs[i].scrollIntoView({block:"nearest", inline:"nearest", behavior: reduce ? "auto" : "smooth"});
+    runBar();
+  }
+  function go(i){
+    i = (i + slides.length) % slides.length;
+    const left = slides[i].offsetLeft - slides[0].offsetLeft;
+    track.scrollTo({left, behavior: reduce ? "auto" : "smooth"});
+    setActive(i);
+  }
+  function runBar(){
+    tabs.forEach(t => { const b = t.querySelector(".bar"); b.classList.remove("run"); });
+    if(reduce || paused || !inView) return;
+    const b = tabs[active].querySelector(".bar"); void b.offsetWidth; b.classList.add("run");
+  }
+  function restart(){
+    clearInterval(timer);
+    if(reduce) return;
+    timer = setInterval(() => { if(!paused && inView && !document.hidden) go(active + 1); }, DUR);
+    runBar();
+  }
+  let st;
+  track.addEventListener("scroll", () => {
+    clearTimeout(st);
+    st = setTimeout(() => {
+      const x = track.scrollLeft;
+      let best = 0, d = Infinity;
+      slides.forEach((s, k) => { const dd = Math.abs((s.offsetLeft - slides[0].offsetLeft) - x); if(dd < d){ d = dd; best = k; } });
+      if(best !== active){ setActive(best); restart(); }
+    }, 90);
+  }, {passive:true});
+  document.getElementById("prev").addEventListener("click", () => { go(active - 1); restart(); });
+  document.getElementById("next").addEventListener("click", () => { go(active + 1); restart(); });
+  const sec = document.getElementById("industries");
+  sec.addEventListener("mouseenter", () => { paused = true; runBar(); });
+  sec.addEventListener("mouseleave", () => { paused = false; restart(); });
+  sec.addEventListener("focusin", () => { paused = true; runBar(); });
+  sec.addEventListener("focusout", () => { paused = false; restart(); });
+  if("IntersectionObserver" in window){
+    new IntersectionObserver(es => es.forEach(e => { inView = e.isIntersecting; restart(); }), {threshold:.35}).observe(track);
+  }
+  restart();
+
+  // Copy email
+  const copyMail = document.getElementById("copyMail"), mailAddr = document.getElementById("mailAddr");
+  copyMail.addEventListener("click", () => {
+    navigator.clipboard.writeText(mailAddr.textContent).then(() => { copyMail.textContent = "Copied"; setTimeout(() => copyMail.textContent = "Copy", 1800); })
+      .catch(() => { const r = document.createRange(); r.selectNodeContents(mailAddr); const s = getSelection(); s.removeAllRanges(); s.addRange(r); copyMail.textContent = "Selected"; });
+  });
+
+  // Contact form
+  const form = document.getElementById("brief"), out = document.getElementById("formOut");
+  form.addEventListener("submit", async e => {
+    e.preventDefault();
+    const d = Object.fromEntries(new FormData(form));
+    out.hidden = false;
+    if(!d.name || !d.contact){ out.textContent = "Add your name and an email or WhatsApp number so I can reply."; return; }
+    if(CONFIG.FORM_ENDPOINT){
+      try{
+        const r = await fetch(CONFIG.FORM_ENDPOINT, {method:"POST", headers:{"Content-Type":"application/json", Accept:"application/json"}, body:JSON.stringify(d)});
+        out.textContent = r.ok ? "Thanks. I'll reply within one business day." : "That didn't go through. Please try again.";
+        if(r.ok) form.reset();
+        return;
+      }catch(err){}
+    }
+    const msg = `Name: ${d.name}\nContact: ${d.contact}\nProject: ${d.message || "-"}`;
+    out.innerHTML = "";
+    const p = document.createElement("span"); p.textContent = "Your message is ready. Copy it and email it to gopikanth.tech@gmail.com.";
+    const pre = document.createElement("pre"); pre.textContent = msg;
+    const b = document.createElement("button"); b.type = "button"; b.className = "ghost"; b.textContent = "Copy message";
+    b.addEventListener("click", () => {
+      navigator.clipboard.writeText(msg).then(() => { b.textContent = "Copied"; })
+        .catch(() => { const r = document.createRange(); r.selectNodeContents(pre); const s = getSelection(); s.removeAllRanges(); s.addRange(r); b.textContent = "Selected, press Ctrl+C"; });
+    });
+    out.append(p, pre, b);
+  });
+})();
+</script>
+</body>
+</html>
