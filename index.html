@@ -227,124 +227,71 @@ header.scrolled{border-bottom-color:var(--line)}
 .m-b{background:#f3e3d3;color:#7a4513}.m-s{background:#e6e9ef;color:#40485a}.m-g{background:#f6ebc4;color:#6d5300}
 .pass{font-size:12px;color:var(--green);font-weight:500;margin-left:auto;white-space:nowrap}
 
-/* under the hood: AI edit studio */
-.studio{background:#0b0e15;color:#e6e8ee;border-radius:28px;padding:20px;box-shadow:0 60px 120px -60px rgba(12,15,22,.7);position:relative;overflow:hidden}
-.studio::before{content:"";position:absolute;width:900px;height:500px;left:50%;top:-320px;transform:translateX(-50%);background:radial-gradient(ellipse,rgba(91,124,255,.28),transparent 65%);pointer-events:none}
-.studio>*{position:relative}
-.stu-top{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding:0 4px 16px;border-bottom:1px solid rgba(255,255,255,.07)}
-.stu-top .dots{display:flex;gap:6px}
-.stu-top .dots i{width:10px;height:10px;border-radius:50%;background:#262c38}
-.stu-top b{font-size:14px}
-.stu-goal{font-size:13px;color:#9aa1ae}
-.stu-pill{margin-left:auto;font-size:12px;padding:5px 12px;border-radius:999px;background:rgba(91,124,255,.18);color:#b4c5ff;display:flex;gap:8px;align-items:center;white-space:nowrap}
-.stu-pill i{width:10px;height:10px;border-radius:50%;border:2px solid currentColor;border-right-color:transparent;animation:spin .8s linear infinite}
-.studio.is-fin .stu-pill{background:rgba(20,147,90,.18);color:#7ee2a8}
-.studio.is-fin .stu-pill i{border:0;width:8px;height:8px;background:#7ee2a8;animation:none}
-.stu-grid{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.6fr) minmax(0,1fr);grid-template-areas:"raw team out";gap:16px;margin-top:16px}
-.stu-col{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:18px;padding:16px;min-width:0}
-.stu-col h4{font-size:13px;color:#cfd4dd;display:flex;justify-content:space-between;gap:8px;margin-bottom:12px;font-weight:600;letter-spacing:0}
-.stu-col h4 span{font-weight:400;color:#7d8595;font-size:12px}
-.c-raw{grid-area:raw}
-.c-team{grid-area:team;background:none;border:0;padding:0;display:flex;flex-direction:column}
-.c-out{grid-area:out}
-.clips{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.clip{position:relative;aspect-ratio:16/10;border-radius:10px;overflow:hidden;background:var(--g);display:flex;align-items:flex-end;padding:6px;transition:box-shadow .3s}
-.clip i{position:absolute;left:30%;bottom:16%;width:26%;height:48%;border-radius:40% 40% 6px 6px;background:rgba(255,255,255,.16)}
-.clip span{position:relative;font-family:var(--f-mono);font-size:9.5px;color:rgba(255,255,255,.85)}
-.clip em{position:absolute;top:5px;right:6px;font-style:normal;font-family:var(--f-mono);font-size:9.5px;background:rgba(0,0,0,.45);padding:1px 5px;border-radius:4px}
-.clip::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,transparent 30%,rgba(255,255,255,.35) 50%,transparent 70%);transform:translateX(-120%)}
-.clip.is-scan{box-shadow:0 0 0 2px #7ea0ff}
-.clip.is-scan::after{animation:shine .8s ease}
-@keyframes shine{to{transform:translateX(120%)}}
-.raw-meta{margin-top:12px;display:grid;gap:6px}
-.raw-meta div{display:flex;justify-content:space-between;font-size:12px;color:#7d8595}
-.raw-meta b{color:#cfd4dd;font-weight:500}
-.director{background:linear-gradient(180deg,rgba(91,124,255,.16),rgba(255,255,255,.03));border:1px solid rgba(124,150,255,.35);border-radius:18px;padding:16px}
-.d-head{display:flex;align-items:center;gap:12px}
-.d-ico{width:38px;height:38px;border-radius:11px;background:linear-gradient(145deg,#5b7cff,#2350e6);display:grid;place-items:center;font-size:18px;color:#fff;box-shadow:0 8px 20px -8px rgba(91,124,255,.8);flex:none}
-.d-head b{display:block;font-size:15px}
-.d-head small{font-size:12px;color:#9aa1ae}
-.d-state{margin-left:auto;font-size:11.5px;padding:3px 10px;border-radius:999px;background:rgba(255,255,255,.08);color:#cfd4dd;white-space:nowrap}
-.plan{display:grid;grid-template-columns:1fr 1fr;gap:7px 16px;margin-top:14px;counter-reset:pl}
-.plan li{font-size:12.5px;color:#5f6676;display:grid;grid-template-columns:17px minmax(0,1fr);column-gap:9px;row-gap:1px;transition:color .3s}
-.plan li::before{counter-increment:pl;content:counter(pl);font-family:var(--f-mono);font-size:10px;width:17px;height:17px;border-radius:5px;background:rgba(255,255,255,.07);display:grid;place-items:center;grid-row:span 2;transition:background .3s,color .3s}
-.plan li em{font-style:normal;color:#9db4ff;font-size:11.5px;grid-column:2}
-.plan li.sent{color:#e6e8ee}
-.plan li.sent::before{background:#2350e6;color:#fff}
-.bus{height:28px;position:relative;margin:0 16.6%}
-.bus::before{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:rgba(255,255,255,.1)}
-.bus::after{content:"";position:absolute;left:50%;top:0;bottom:0;width:2px;background:rgba(255,255,255,.1)}
-.bus i{position:absolute;bottom:-1px;left:50%;width:70px;height:4px;border-radius:2px;background:linear-gradient(90deg,transparent,#9db4ff,transparent);animation:busl 1.6s ease-in-out infinite;opacity:0}
-.bus i+i{animation-name:busr}
-@keyframes busl{0%{left:50%;opacity:0}25%{opacity:1}100%{left:-10%;opacity:0}}
-@keyframes busr{0%{left:45%;opacity:0}25%{opacity:1}100%{left:100%;opacity:0}}
-.agents{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
-.agent{position:relative;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:12px;display:grid;gap:7px;overflow:hidden;transition:border-color .3s,background .3s}
-.agent::after{content:"";position:absolute;left:50%;top:-14px;width:2px;height:14px;background:rgba(255,255,255,.1)}
-.a-top{display:flex;flex-direction:column;align-items:flex-start;gap:5px}
-.a-top b{font-size:13.5px}
-.mdl{font-size:10.5px;padding:2px 7px;border-radius:6px;white-space:nowrap}
-.m-sonnet{background:rgba(124,77,255,.24);color:#cdb9ff}
-.m-haiku{background:rgba(20,160,170,.22);color:#86e3ea}
-.a-task{font-size:12px;color:#9aa1ae;line-height:1.35}
-.sbar{height:4px;border-radius:2px;background:rgba(255,255,255,.08);overflow:hidden}
-.sbar i{display:block;height:100%;background:linear-gradient(90deg,#5b7cff,#9db4ff);transform-origin:left;transform:scaleX(1);transition:transform var(--d,2s) linear}
-.agent.done .sbar i{background:#3fbf7f;transform:scaleX(1);transition:transform .25s ease}
-.a-st{font-size:11px;color:#7ee2a8}
-.agent.queued .sbar i{transform:scaleX(0);transition:none}
-.agent.queued .a-st{color:#5f6676}
-.agent.work{border-color:rgba(124,150,255,.55);background:rgba(91,124,255,.09)}
-.agent.work .a-st{color:#b4c5ff}
-.agent.work::before{content:"";position:absolute;inset:0;background:linear-gradient(100deg,transparent 35%,rgba(124,150,255,.16) 50%,transparent 65%);animation:sweep 1.3s linear infinite}
-@keyframes sweep{from{transform:translateX(-100%)}to{transform:translateX(100%)}}
-.agent.done{border-color:rgba(126,226,168,.3)}
-.vscreen{position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:#05070b}
-.scene{position:absolute;inset:-6%;background:linear-gradient(180deg,#1b2a6b 0%,#5b6fd6 42%,#f0a27a 70%,#2a1d2e 71%,#120d18 100%);transition:filter .8s}
-.sun{position:absolute;left:60%;top:50%;width:15%;aspect-ratio:1/1;border-radius:50%;background:radial-gradient(circle,#ffe8c4,#ffb07a 60%,transparent 63%)}
-.figure{position:absolute;left:26%;bottom:22%;width:12%;height:34%;background:#0c0a12;border-radius:45% 45% 6px 6px}
-.studio.is-live .scene{animation:kb 9s ease-in-out infinite alternate}
-@keyframes kb{from{transform:scale(1) translate(0,0)}to{transform:scale(1.1) translate(-3%,-2%)}}
-.studio.is-building .scene{filter:grayscale(.85) brightness(.55)}
-.lower{position:absolute;left:6%;bottom:9%;font-size:clamp(10px,1.1vw,13px);font-weight:600;color:#fff;background:rgba(0,0,0,.5);padding:3px 8px;border-radius:5px;transition:opacity .5s}
-.studio.is-building .lower{opacity:0}
-.tcode{position:absolute;right:5%;top:7%;font-family:var(--f-mono);font-size:10px;color:#fff;background:rgba(0,0,0,.5);padding:2px 6px;border-radius:4px}
-.pbtn{position:absolute;left:50%;top:50%;width:40px;height:40px;transform:translate(-50%,-50%);border-radius:50%;background:rgba(255,255,255,.92);display:grid;place-items:center;transition:opacity .4s,transform .4s}
-.pbtn::before{content:"";border-left:12px solid #0b0e15;border-top:8px solid transparent;border-bottom:8px solid transparent;margin-left:3px}
-.studio.is-building .pbtn{opacity:0;transform:translate(-50%,-50%) scale(.7)}
-.rend-ov{position:absolute;inset:0;display:grid;place-items:center;font-size:12px;color:#cfd4dd;background:rgba(5,7,11,.55);opacity:0;transition:opacity .4s}
-.studio.is-building .rend-ov{opacity:1}
-.render{margin-top:12px;display:grid;gap:6px}
-.render div{display:flex;justify-content:space-between;gap:8px;font-size:12px;color:#9aa1ae}
-.render b{font-family:var(--f-mono);font-weight:500;color:#e6e8ee;font-variant-numeric:tabular-nums}
-.render .sbar i{transition:none}
-.checks{margin-top:14px;display:grid;gap:7px}
-.checks li{font-size:12.5px;color:#cfd4dd;display:flex;gap:8px;align-items:center;transition:color .3s}
-.checks li::before{content:"✓";width:16px;height:16px;border-radius:50%;background:rgba(126,226,168,.18);color:#7ee2a8;display:grid;place-items:center;font-size:9px;font-weight:700;flex:none;transition:background .3s,color .3s}
-.checks li.pending{color:#5f6676}
-.checks li.pending::before{background:rgba(255,255,255,.06);color:transparent}
-.tline{margin-top:16px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:18px;padding:14px 16px 16px;--lw:96px}
-.tl-head{display:flex;justify-content:space-between;gap:12px;font-size:12.5px;color:#cfd4dd;margin-bottom:10px;font-weight:600}
-.tl-head span{font-weight:400;color:#7d8595}
-.ruler,.trk{display:grid;grid-template-columns:var(--lw) minmax(0,1fr);gap:10px;align-items:center}
-.ruler{margin-bottom:6px}
-.ruler div{display:flex;justify-content:space-between;font-family:var(--f-mono);font-size:10px;color:#5f6676}
-.tracks{display:grid;gap:6px;position:relative}
-.trk>span{font-size:11.5px;color:#7d8595;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.lane{position:relative;height:22px;border-radius:6px;background:rgba(255,255,255,.04)}
-.blk{position:absolute;top:2px;bottom:2px;left:var(--l);width:var(--w);border-radius:5px;transform-origin:left;transition:transform .55s cubic-bezier(.2,.8,.2,1),opacity .4s,filter .8s}
-.blk.off{transform:scaleX(0);opacity:0}
-.b-v1{background:linear-gradient(180deg,#5b7cff,#3a5bd9);filter:saturate(.25) brightness(.8)}
-.b-v1:nth-child(even){background:linear-gradient(180deg,#6d8bff,#4766e0)}
-.b-v1.graded{filter:none}
-.b-v2{background:linear-gradient(180deg,#9b7bff,#6f4de0)}
-.b-cap{background:#d9b44a}
-.b-vo{background:#0f3d2c repeating-linear-gradient(90deg,rgba(126,226,168,.85) 0 2px,transparent 2px 5px);-webkit-mask-image:linear-gradient(90deg,#000,#000);}
-.b-mu{background:#4a2414 repeating-linear-gradient(90deg,rgba(255,170,110,.75) 0 2px,transparent 2px 6px)}
-.playhead{position:absolute;top:-4px;bottom:-4px;left:calc(var(--lw) + 10px + (100% - var(--lw) - 10px) * var(--p,.7));width:2px;background:#ff5d5d;box-shadow:0 0 10px #ff5d5d;border-radius:1px;pointer-events:none}
-.playhead::before{content:"";position:absolute;top:-4px;left:-4px;border-left:5px solid transparent;border-right:5px solid transparent;border-top:6px solid #ff5d5d}
-.stu-foot{margin-top:14px;display:flex;flex-wrap:wrap;gap:8px 18px;font-size:12px;color:#7d8595;padding:0 4px}
-.stu-foot span{display:flex;align-items:center;gap:7px}
-.stu-foot b{color:#cfd4dd;font-weight:500}
+/* under the hood: agent flow */
+.fx-wrap{background:var(--bg);border:1px solid var(--line);border-radius:28px;padding:36px 32px 26px;box-shadow:0 40px 80px -60px rgba(12,15,22,.45)}
+.fx-head{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:28px}
+.fx-head b{font-size:16px}
+.fx-head span{font-size:13px;color:var(--muted)}
+.flowx{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.95fr) minmax(0,1.15fr) minmax(0,1.1fr);column-gap:72px;align-items:center}
+.fx-lines{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none;z-index:0}
+.fx-lines .ln{fill:none;stroke:#e1e5ec;stroke-width:1.5}
+.fx-lines .la{fill:none;stroke-width:2;stroke-linecap:round;transition:stroke-dashoffset .9s cubic-bezier(.4,0,.2,1)}
+.fx-lines .la.blue{stroke:var(--blue)}
+.fx-lines .la.green{stroke:var(--green)}
+.fx-col{position:relative;z-index:1;min-width:0}
+.fx-card{background:var(--bg);border:1px solid var(--line);border-radius:20px;padding:18px;display:grid;gap:6px;box-shadow:0 18px 40px -30px rgba(12,15,22,.45);transition:border-color .4s,box-shadow .4s}
+.fx-card b{font-size:15.5px;letter-spacing:-.01em}
+.fx-card small{font-size:12.5px;color:var(--muted);line-height:1.4}
+.thumbs{position:relative;height:92px;margin-bottom:10px}
+.thumbs i{position:absolute;width:min(72%,130px);aspect-ratio:16/10;border-radius:10px;box-shadow:0 10px 20px -12px rgba(12,15,22,.5);border:2px solid #fff}
+.thumbs i:nth-child(1){left:0;top:10px;transform:rotate(-6deg);background:linear-gradient(135deg,#2b3f7a,#7f9cff)}
+.thumbs i:nth-child(2){left:min(14%,26px);top:4px;transform:rotate(2deg);background:linear-gradient(135deg,#40275c,#c27a9a)}
+.thumbs i:nth-child(3){left:min(28%,52px);top:12px;transform:rotate(7deg);background:linear-gradient(135deg,#124038,#4cb394)}
+.brief{margin-top:6px;font-size:12.5px;background:var(--tile);border-radius:10px;padding:8px 10px;color:var(--ink-2)}
+.fx-raw .fx-card.pulse{border-color:var(--blue);box-shadow:0 0 0 4px var(--blue-soft)}
+.dir-card{background:#0c0f16;border-color:#0c0f16;color:#fff;text-align:center;justify-items:center;padding:24px 18px;position:relative}
+.dir-card small{color:#9aa1ae}
+.dir-ico{width:52px;height:52px;border-radius:16px;background:linear-gradient(145deg,#6d8bff,#2350e6);display:grid;place-items:center;font-size:24px;margin-bottom:6px;position:relative}
+.dir-ico::after{content:"";position:absolute;inset:-6px;border-radius:20px;border:2px solid rgba(109,139,255,.6);opacity:0}
+.dir-card.think .dir-ico::after{animation:ring 1.2s ease-out infinite}
+@keyframes ring{0%{opacity:.9;transform:scale(.9)}100%{opacity:0;transform:scale(1.25)}}
+.dir-st{margin-top:8px;font-size:12px;padding:4px 10px;border-radius:999px;background:rgba(255,255,255,.1);color:#cfd4dd}
+.fx-team{display:grid;gap:9px}
+.fx-agent{display:flex;align-items:center;gap:11px;background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:9px 12px;box-shadow:0 8px 18px -14px rgba(12,15,22,.4);transition:border-color .35s,box-shadow .35s,transform .35s}
+.fx-agent>i{width:32px;height:32px;border-radius:10px;background:var(--tile);color:var(--ink);display:grid;place-items:center;flex:none;transition:background .35s,color .35s}
+.fx-agent>i svg{width:17px;height:17px}
+.fx-agent div{display:grid;min-width:0}
+.fx-agent b{font-size:13.5px;line-height:1.25}
+.fx-agent small{font-size:11.5px;color:var(--muted)}
+.fx-agent .ok{margin-left:auto;width:20px;height:20px;border-radius:50%;border:2px solid var(--line);display:grid;place-items:center;font-size:10px;font-weight:700;color:transparent;flex:none;transition:background .3s,border-color .3s,color .3s}
+.fx-agent.work{border-color:var(--blue);box-shadow:0 12px 26px -16px rgba(35,80,230,.6);transform:translateX(3px)}
+.fx-agent.work>i{background:var(--blue-soft);color:var(--blue)}
+.fx-agent.work .ok{border-color:var(--blue-soft);border-top-color:var(--blue);animation:spin .8s linear infinite}
+.fx-agent.done .ok{background:var(--green);border-color:var(--green);color:#fff}
+.fx-agent.done>i{background:var(--green-soft);color:var(--green)}
+.fx-agent.idle{opacity:.55}
+.vid{position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:#0c0f16;margin-bottom:8px}
+.vid .scene{position:absolute;inset:-6%;background:linear-gradient(180deg,#1b2a6b 0%,#5b6fd6 42%,#f0a27a 70%,#2a1d2e 71%,#120d18 100%);transition:filter .8s}
+.vid .sun{position:absolute;left:60%;top:50%;width:15%;aspect-ratio:1/1;border-radius:50%;background:radial-gradient(circle,#ffe8c4,#ffb07a 60%,transparent 63%)}
+.vid .figure{position:absolute;left:26%;bottom:22%;width:12%;height:34%;background:#0c0a12;border-radius:45% 45% 6px 6px}
+.vid .pbtn{position:absolute;left:50%;top:50%;width:38px;height:38px;transform:translate(-50%,-50%);border-radius:50%;background:rgba(255,255,255,.92);display:grid;place-items:center;transition:opacity .4s,transform .4s}
+.vid .pbtn::before{content:"";border-left:11px solid #0c0f16;border-top:7px solid transparent;border-bottom:7px solid transparent;margin-left:3px}
+.vid .vbar{position:absolute;left:8px;right:8px;bottom:8px;height:3px;border-radius:2px;background:rgba(255,255,255,.25);overflow:hidden}
+.vid .vbar i{display:block;height:100%;background:#fff;transform-origin:left;transform:scaleX(1)}
+.out-card.wait .scene{filter:grayscale(.9) brightness(.5)}
+.out-card.wait .pbtn{opacity:0;transform:translate(-50%,-50%) scale(.7)}
+.out-card.ready{border-color:rgba(20,147,90,.45);box-shadow:0 0 0 4px var(--green-soft)}
+.out-card.ready .scene{animation:kb 9s ease-in-out infinite alternate}
+@keyframes kb{from{transform:scale(1)}to{transform:scale(1.1) translate(-3%,-2%)}}
+.rev{justify-self:start;margin-top:4px;font-size:12px;font-weight:500;color:var(--green);background:var(--green-soft);padding:4px 10px;border-radius:999px;transition:opacity .4s,transform .4s}
+.rev.hide{opacity:0;transform:translateY(4px)}
+.fx-steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:30px;padding-top:20px;border-top:1px solid var(--line);counter-reset:fs}
+.fx-steps li{display:flex;gap:10px;align-items:center;font-size:14px;color:var(--muted);transition:color .3s}
+.fx-steps li::before{counter-increment:fs;content:counter(fs);width:24px;height:24px;border-radius:50%;border:1.5px solid var(--line);display:grid;place-items:center;font-size:12px;font-weight:600;flex:none;transition:background .3s,border-color .3s,color .3s}
+.fx-steps li.on{color:var(--ink);font-weight:500}
+.fx-steps li.on::before{background:var(--blue);border-color:var(--blue);color:#fff}
+.fx-steps li.done::before{content:"✓";background:var(--green-soft);border-color:var(--green-soft);color:var(--green)}
+.fx-note{font-size:12.5px;color:var(--muted);margin-top:14px}
 .concepts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:20px}
 .cc{border:1px solid var(--line);border-radius:18px;padding:20px;background:var(--bg);display:flex;flex-direction:column;gap:8px}
 .cc h3{font-size:16.5px}
@@ -513,7 +460,11 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   .case.flip .c-copy{order:0}
   .svc,.tech{grid-template-columns:repeat(2,minmax(0,1fr))}
   .concepts{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .stu-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-areas:"team team" "raw out"}
+  .flowx{grid-template-columns:minmax(0,1fr);row-gap:30px;max-width:560px;margin:0 auto}
+  .fx-lines{display:none}
+  .fx-col:not(:last-child)::after{content:"";position:absolute;left:50%;bottom:-24px;width:2px;height:18px;background:var(--line)}
+  .fx-team{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .fx-steps{grid-template-columns:repeat(2,minmax(0,1fr))}
   .cta-band{grid-template-columns:minmax(0,1fr);padding:40px}
   .cta-btns{flex-direction:row;flex-wrap:wrap}
   .caps{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -529,16 +480,9 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   section{padding-block:80px}
   .nav a.l{display:none}
   .svc,.tech,.caps,.promise,.concepts{grid-template-columns:minmax(0,1fr)}
-  .studio{padding:14px;border-radius:22px}
-  .stu-pill{margin-left:0}
-  .stu-grid{grid-template-columns:minmax(0,1fr);grid-template-areas:"raw" "team" "out"}
-  .clips{grid-template-columns:repeat(3,minmax(0,1fr))}
-  .agents{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .agent::after{display:none}
-  .bus{display:none}
-  .director{margin-bottom:12px}
-  .plan{grid-template-columns:minmax(0,1fr)}
-  .tline{--lw:58px;padding:12px}
+  .fx-wrap{padding:22px 16px 18px;border-radius:22px}
+  .fx-team{grid-template-columns:minmax(0,1fr)}
+  .fx-steps{grid-template-columns:minmax(0,1fr)}
   .cta-band{padding:30px 22px;border-radius:22px}
   .cta-btns{flex-direction:column}
   .proc{grid-template-columns:minmax(0,1fr)}
@@ -764,88 +708,39 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
       <p>The agents I build work like a real team. A lead agent plans the job, specialist agents work in parallel, a reviewer checks the result, and every step is routed, traced and safe. Here is that pattern as an AI video editor, with Claude under the hood.</p>
     </div>
 
-    <div class="studio is-live is-fin reveal" id="studio" aria-label="Example: raw footage goes to a Claude director agent, which assigns transcription, shot selection, story editing, color, sound and captions to six Claude agents working in parallel. Their work fills a multi-track timeline, Claude reviews the cut and the final video is rendered.">
-      <div class="stu-top">
-        <span class="dots"><i></i><i></i><i></i></span><b>AI Edit Studio</b>
-        <span class="stu-goal">Brief: "60-second launch reel from today's shoot"</span>
-        <span class="stu-pill"><i></i><span id="stuPhase">Done · final_reel.mp4</span></span>
-      </div>
-
-      <div class="stu-grid">
-        <div class="stu-col c-raw">
-          <h4>Raw footage <span>46 clips</span></h4>
-          <div class="clips">
-            <div class="clip" style="--g:linear-gradient(135deg,#24345f,#6b8cff)"><i></i><span>A001_C014</span><em>04:12</em></div>
-            <div class="clip" style="--g:linear-gradient(135deg,#3a2b4f,#c06c84)"><i></i><span>A002_C003</span><em>12:40</em></div>
-            <div class="clip" style="--g:linear-gradient(135deg,#123a33,#3fa58a)"><i></i><span>B001_C021</span><em>00:48</em></div>
-            <div class="clip" style="--g:linear-gradient(135deg,#42275a,#8a5d8c)"><i></i><span>B002_C007</span><em>01:16</em></div>
-            <div class="clip" style="--g:linear-gradient(135deg,#0f2027,#2c5364)"><i></i><span>D001_C002</span><em>02:05</em></div>
-            <div class="clip" style="--g:linear-gradient(135deg,#4d3a85,#6d7fd0)"><i></i><span>A003_C011</span><em>08:33</em></div>
-          </div>
-          <div class="raw-meta"><div>Total length<b>3h 12m</b></div><div>Interviews<b>6</b></div><div>B-roll and drone<b>40</b></div></div>
+    <div class="fx-wrap reveal">
+      <div class="fx-head"><b>Example: an AI video editor</b><span>Raw footage in, finished video out</span></div>
+      <div class="flowx" id="flowx" aria-label="Example: raw footage goes to a Claude Opus director agent, which splits the work across six Claude agents working in parallel. Their work is combined, reviewed by Claude and rendered as the final video.">
+        <svg class="fx-lines" id="fxLines" aria-hidden="true"></svg>
+        <div class="fx-col fx-raw"><div class="fx-card" id="fxRaw">
+          <div class="thumbs" aria-hidden="true"><i></i><i></i><i></i></div>
+          <b>Raw footage</b><small>2 hours of clips</small>
+          <span class="brief">Brief: "60s launch reel, upbeat, with captions"</span>
+        </div></div>
+        <div class="fx-col fx-dir"><div class="fx-card dir-card" id="fxDir">
+          <span class="dir-ico">✦</span><b>Director agent</b><small>Claude Opus</small>
+          <span class="dir-st" id="fxDirSt">Splits the work</span>
+        </div></div>
+        <div class="fx-col fx-team" id="fxTeam">
+          <div class="fx-agent done"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 10h16M4 14h10M4 18h7"/></svg></i><div><b>Transcribe</b><small>Claude Haiku</small></div><span class="ok">✓</span></div>
+          <div class="fx-agent done"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></i><div><b>Pick best shots</b><small>Claude Sonnet</small></div><span class="ok">✓</span></div>
+          <div class="fx-agent done"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M8.6 7.6 20 18M8.6 16.4 20 6"/></svg></i><div><b>Cut the story</b><small>Claude Sonnet</small></div><span class="ok">✓</span></div>
+          <div class="fx-agent done"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s6 6.4 6 11a6 6 0 0 1-12 0c0-4.6 6-11 6-11z"/></svg></i><div><b>Color grade</b><small>Claude Sonnet</small></div><span class="ok">✓</span></div>
+          <div class="fx-agent done"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></svg></i><div><b>Music and sound</b><small>Claude Haiku</small></div><span class="ok">✓</span></div>
+          <div class="fx-agent done"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M10 10.5a2 2 0 1 0 0 3M16 10.5a2 2 0 1 0 0 3"/></svg></i><div><b>Captions</b><small>Claude Haiku</small></div><span class="ok">✓</span></div>
         </div>
-
-        <div class="c-team">
-          <div class="director">
-            <div class="d-head"><span class="d-ico">✦</span><div><b>Director agent</b><small>Claude Opus · reads the brief, plans, assigns</small></div><span class="d-state" id="dState">Done</span></div>
-            <ol class="plan" id="plan">
-              <li class="sent">Transcribe interviews <em>Assigned to Transcriber</em></li>
-              <li class="sent">Pick the strongest shots <em>Assigned to Scene scout</em></li>
-              <li class="sent">Assemble a 60s story <em>Assigned to Story editor</em></li>
-              <li class="sent">Match color and look <em>Assigned to Colorist</em></li>
-              <li class="sent">Sync music, level voice <em>Assigned to Sound</em></li>
-              <li class="sent">Add captions, 4 languages <em>Assigned to Captions</em></li>
-            </ol>
-          </div>
-          <div class="bus" aria-hidden="true"><i></i><i></i></div>
-          <div class="agents">
-            <div class="agent done"><div class="a-top"><b>Transcriber</b><span class="mdl m-haiku">Claude Haiku</span></div><span class="a-task">Transcribes every interview with timestamps</span><div class="sbar"><i></i></div><span class="a-st">Done</span></div>
-            <div class="agent done"><div class="a-top"><b>Scene scout</b><span class="mdl m-sonnet">Claude Sonnet</span></div><span class="a-task">Watches all footage, picks the 14 best shots</span><div class="sbar"><i></i></div><span class="a-st">Done</span></div>
-            <div class="agent done"><div class="a-top"><b>Story editor</b><span class="mdl m-sonnet">Claude Sonnet</span></div><span class="a-task">Builds the 60s story and sets the pacing</span><div class="sbar"><i></i></div><span class="a-st">Done</span></div>
-            <div class="agent done"><div class="a-top"><b>Colorist</b><span class="mdl m-sonnet">Claude Sonnet</span></div><span class="a-task">Matches color and look across shots</span><div class="sbar"><i></i></div><span class="a-st">Done</span></div>
-            <div class="agent done"><div class="a-top"><b>Sound</b><span class="mdl m-haiku">Claude Haiku</span></div><span class="a-task">Syncs music to the beat, levels the voice</span><div class="sbar"><i></i></div><span class="a-st">Done</span></div>
-            <div class="agent done"><div class="a-top"><b>Captions</b><span class="mdl m-haiku">Claude Haiku</span></div><span class="a-task">Writes subtitles in 4 languages</span><div class="sbar"><i></i></div><span class="a-st">Done</span></div>
-          </div>
-        </div>
-
-        <div class="stu-col c-out">
-          <h4>Final output <span>1080p · 0:60</span></h4>
-          <div class="vscreen">
-            <div class="scene"><span class="sun"></span><span class="figure"></span></div>
-            <span class="lower">Built for what's next.</span>
-            <span class="tcode">00:42 / 01:00</span>
-            <span class="pbtn"></span>
-            <div class="rend-ov" id="rendOv">Agents at work…</div>
-          </div>
-          <div class="render"><div><span>final_reel.mp4</span><b id="rPct">100%</b></div><div class="sbar"><i id="rBar"></i></div></div>
-          <ul class="checks" id="checks">
-            <li>Pacing reviewed by Claude</li>
-            <li>Brand rules passed</li>
-            <li>Captions checked against transcript</li>
-            <li>Ready for your approval</li>
-          </ul>
-        </div>
+        <div class="fx-col fx-out"><div class="fx-card out-card ready" id="fxOut">
+          <div class="vid" aria-hidden="true"><div class="scene"><span class="sun"></span><span class="figure"></span></div><span class="pbtn"></span><span class="vbar"><i id="fxBar"></i></span></div>
+          <b>Final video</b><small id="fxOutSt">1080p · 0:60 · ready to publish</small>
+          <span class="rev" id="fxRev">✓ Reviewed by Claude</span>
+        </div></div>
       </div>
-
-      <div class="tline">
-        <div class="tl-head">Timeline <span>Assembled by agents</span></div>
-        <div class="ruler"><span></span><div><span>0:00</span><span>0:15</span><span>0:30</span><span>0:45</span><span>1:00</span></div></div>
-        <div class="tracks" id="tracks">
-          <div class="trk"><span>V2 · B-roll</span><div class="lane"><i class="blk b-v2" data-a="2" style="--l:9%;--w:11%"></i><i class="blk b-v2" data-a="2" style="--l:35%;--w:9%"></i><i class="blk b-v2" data-a="2" style="--l:63%;--w:12%"></i></div></div>
-          <div class="trk"><span>V1 · Main</span><div class="lane"><i class="blk b-v1 graded" data-a="1" style="--l:0%;--w:16%"></i><i class="blk b-v1 graded" data-a="1" style="--l:16%;--w:14%"></i><i class="blk b-v1 graded" data-a="1" style="--l:30%;--w:18%"></i><i class="blk b-v1 graded" data-a="1" style="--l:48%;--w:15%"></i><i class="blk b-v1 graded" data-a="1" style="--l:63%;--w:17%"></i><i class="blk b-v1 graded" data-a="1" style="--l:80%;--w:20%"></i></div></div>
-          <div class="trk"><span>T1 · Captions</span><div class="lane"><i class="blk b-cap" data-a="5" style="--l:2%;--w:11%"></i><i class="blk b-cap" data-a="5" style="--l:17%;--w:10%"></i><i class="blk b-cap" data-a="5" style="--l:32%;--w:13%"></i><i class="blk b-cap" data-a="5" style="--l:51%;--w:10%"></i><i class="blk b-cap" data-a="5" style="--l:66%;--w:12%"></i><i class="blk b-cap" data-a="5" style="--l:83%;--w:13%"></i></div></div>
-          <div class="trk"><span>A1 · Voice</span><div class="lane"><i class="blk b-vo" data-a="0" style="--l:0%;--w:48%"></i><i class="blk b-vo" data-a="0" style="--l:52%;--w:44%"></i></div></div>
-          <div class="trk"><span>A2 · Music</span><div class="lane"><i class="blk b-mu" data-a="4" style="--l:0%;--w:100%"></i></div></div>
-          <span class="playhead" id="playhead"></span>
-        </div>
-      </div>
-
-      <div class="stu-foot">
-        <span><b>Claude Opus</b> plans and reviews</span>
-        <span><b>Claude Sonnet</b> sees and edits</span>
-        <span><b>Claude Haiku</b> handles fast, high-volume work</span>
-        <span><b>MCP tools</b> run FFmpeg and render</span>
-      </div>
+      <ol class="fx-steps" id="fxSteps">
+        <li class="done">Director splits the work</li>
+        <li class="done">Six agents work in parallel</li>
+        <li class="done">Claude reviews the cut</li>
+        <li class="done">Final video is rendered</li>
+      </ol>
     </div>
 
     <div class="concepts">
@@ -1214,58 +1109,65 @@ var CONFIG = { FORM_ENDPOINT: "" }; // paste a Formspree URL here, e.g. https://
   if (reduce) { [].slice.call(hub.querySelectorAll("circle.in, circle.out")).forEach(function(c){ c.remove(); }); }
   else setInterval(function(){ if (!document.hidden) hubStep(); }, 2600);
 
-  /* AI edit studio sequence */
-  var studio = document.getElementById("studio");
-  if (studio) {
-    var sAgents = [].slice.call(studio.querySelectorAll(".agent")),
-        sPlan = [].slice.call(studio.querySelectorAll("#plan li")),
-        sClips = [].slice.call(studio.querySelectorAll(".clip")),
-        sBlocks = [].slice.call(studio.querySelectorAll(".blk")),
-        sChecks = [].slice.call(studio.querySelectorAll("#checks li")),
-        sPhase = document.getElementById("stuPhase"), sState = document.getElementById("dState"),
-        rPct = document.getElementById("rPct"), rBar = document.getElementById("rBar"),
-        rOv = document.getElementById("rendOv"), pHead = document.getElementById("playhead"),
-        sDur = [2.4, 3.4, 4.4, 3.0, 2.6, 3.6], sT = [];
-    var sAt = function(fn, ms){ sT.push(setTimeout(fn, ms)); };
-    var stSet = function(a, cls, txt){ a.classList.remove("queued", "work", "done"); a.classList.add(cls); a.querySelector(".a-st").textContent = txt; };
-    var setProg = function(p){ rPct.textContent = Math.round(p * 100) + "%"; rBar.style.transform = "scaleX(" + p + ")"; pHead.style.setProperty("--p", p); };
-    var sReset = function(){
-      studio.classList.add("is-building"); studio.classList.remove("is-live", "is-fin");
-      sAgents.forEach(function(a){ stSet(a, "queued", "Queued"); });
-      sPlan.forEach(function(l){ l.classList.remove("sent"); });
-      sBlocks.forEach(function(b){ b.classList.add("off"); b.classList.remove("graded"); });
-      sChecks.forEach(function(c){ c.classList.add("pending"); });
-      setProg(0); sState.textContent = "Planning"; sPhase.textContent = "Director is planning the edit"; rOv.textContent = "Waiting for agents…";
+  /* agent flow: lines + sequence */
+  var fx = document.getElementById("flowx");
+  if (fx) {
+    var svgNS = "http://www.w3.org/2000/svg", fxSvg = document.getElementById("fxLines");
+    var fxRaw = document.getElementById("fxRaw"), fxDir = document.getElementById("fxDir"), fxOut = document.getElementById("fxOut");
+    var fxAg = [].slice.call(fx.querySelectorAll(".fx-agent")), fxSteps = [].slice.call(document.querySelectorAll("#fxSteps li"));
+    var fxDirSt = document.getElementById("fxDirSt"), fxOutSt = document.getElementById("fxOutSt"), fxRev = document.getElementById("fxRev"), fxBar = document.getElementById("fxBar");
+    var ls = { raw: true, dir: fxAg.map(function(){ return true; }), out: fxAg.map(function(){ return true; }) }, lines = { raw: null, dir: [], out: [] };
+    var mkPath = function(d, cls){ var pth = document.createElementNS(svgNS, "path"); pth.setAttribute("d", d); pth.setAttribute("class", cls); fxSvg.appendChild(pth); return pth; };
+    var curve = function(x1, y1, x2, y2){ var dx = (x2 - x1) / 2; return "M" + x1 + " " + y1 + " C" + (x1 + dx) + " " + y1 + " " + (x2 - dx) + " " + y2 + " " + x2 + " " + y2; };
+    var setLn = function(pth, on){ if (pth) pth.style.strokeDashoffset = on ? 0 : pth._len; };
+    var drawLines = function(){
+      fxSvg.innerHTML = ""; lines = { raw: null, dir: [], out: [] };
+      if (getComputedStyle(fxSvg).display === "none") return;
+      var c = fx.getBoundingClientRect();
+      var R = function(el){ var r = el.getBoundingClientRect(); return { l: r.left - c.left, r: r.right - c.left, y: r.top - c.top + r.height / 2 }; };
+      var add = function(d, color){ mkPath(d, "ln"); var a = mkPath(d, "la " + color); a._len = a.getTotalLength(); a.style.strokeDasharray = a._len; a.style.transition = "none"; return a; };
+      var rw = R(fxRaw), dr = R(fxDir), ot = R(fxOut);
+      lines.raw = add(curve(rw.r, rw.y, dr.l, dr.y), "blue");
+      fxAg.forEach(function(a){ var g = R(a); lines.dir.push(add(curve(dr.r, dr.y, g.l, g.y), "blue")); lines.out.push(add(curve(g.r, g.y, ot.l, ot.y), "green")); });
+      setLn(lines.raw, ls.raw); lines.dir.forEach(function(p, i){ setLn(p, ls.dir[i]); }); lines.out.forEach(function(p, i){ setLn(p, ls.out[i]); });
+      fxSvg.getBoundingClientRect();
+      [lines.raw].concat(lines.dir, lines.out).forEach(function(p){ p.style.transition = ""; });
     };
-    var sRun = function(){
-      sT.forEach(clearTimeout); sT = []; sReset();
-      var t = 400;
-      sClips.forEach(function(c, i){ sAt(function(){ c.classList.remove("is-scan"); void c.offsetWidth; c.classList.add("is-scan"); }, t + i * 150); });
-      t += sClips.length * 150 + 300;
-      sAt(function(){ sState.textContent = "Assigning"; sPhase.textContent = "6 Claude agents working in parallel"; rOv.textContent = "Agents at work…"; }, t);
-      var end = 0;
-      sAgents.forEach(function(a, i){
-        var st = t + i * 350, en = st + sDur[i] * 1000; end = Math.max(end, en);
-        sAt(function(){ sPlan[i].classList.add("sent"); a.style.setProperty("--d", sDur[i] + "s"); stSet(a, "work", "Working…"); }, st);
-        sAt(function(){
-          stSet(a, "done", "Done");
-          sBlocks.filter(function(b){ return b.getAttribute("data-a") === String(i); }).forEach(function(b, k){ setTimeout(function(){ b.classList.remove("off"); }, k * 110); });
-          if (i === 3) sBlocks.forEach(function(b){ if (b.classList.contains("b-v1")) b.classList.add("graded"); });
-        }, en);
+    var L = function(kind, i, on){ if (kind === "raw") { ls.raw = on; setLn(lines.raw, on); } else { ls[kind][i] = on; setLn(lines[kind][i], on); } };
+    var step = function(n){ fxSteps.forEach(function(li, k){ li.classList.toggle("on", k === n); li.classList.toggle("done", k < n); }); };
+    var agSet = function(a, cls){ a.classList.remove("idle", "work", "done"); a.classList.add(cls); };
+    var fT = [], fAt = function(fn, ms){ fT.push(setTimeout(fn, ms)); };
+    var fxRun = function(){
+      fT.forEach(clearTimeout); fT = [];
+      L("raw", 0, false); fxAg.forEach(function(a, i){ agSet(a, "idle"); L("dir", i, false); L("out", i, false); });
+      fxOut.classList.remove("ready"); fxOut.classList.add("wait"); fxRev.classList.add("hide"); fxBar.style.transform = "scaleX(0)";
+      fxOutSt.textContent = "Waiting for the team"; fxDirSt.textContent = "Reading the brief"; step(0);
+      fAt(function(){ fxRaw.classList.add("pulse"); L("raw", 0, true); }, 300);
+      fAt(function(){ fxRaw.classList.remove("pulse"); fxDir.classList.add("think"); }, 1300);
+      fAt(function(){ fxDirSt.textContent = "Splits the work"; }, 1700);
+      var t = 2500, dur = [1600, 2400, 3000, 2100, 1800, 2700], end = 0;
+      fAt(function(){ step(1); fxDirSt.textContent = "Assigned 6 tasks"; }, t);
+      fxAg.forEach(function(a, i){
+        var st = t + i * 160, en = st + dur[i]; end = Math.max(end, en);
+        fAt(function(){ L("dir", i, true); }, st);
+        fAt(function(){ agSet(a, "work"); }, st + 500);
+        fAt(function(){ agSet(a, "done"); L("out", i, true); }, en + 500);
       });
-      var t2 = end + 400;
-      sAt(function(){ sState.textContent = "Reviewing"; sPhase.textContent = "Claude is reviewing the cut"; rOv.textContent = "Reviewing the cut…"; }, t2);
-      sChecks.forEach(function(c, i){ sAt(function(){ c.classList.remove("pending"); }, t2 + 300 + i * 450); });
-      var t3 = t2 + 300 + sChecks.length * 450;
-      sAt(function(){ sPhase.textContent = "Rendering final video"; rOv.textContent = "Rendering…"; }, t3);
-      for (var k = 1; k <= 40; k++) (function(k){ sAt(function(){ setProg(k / 40); }, t3 + k * 60); })(k);
-      var t4 = t3 + 40 * 60 + 200;
-      sAt(function(){ studio.classList.remove("is-building"); studio.classList.add("is-live", "is-fin"); sState.textContent = "Done"; sPhase.textContent = "Done · final_reel.mp4"; }, t4);
-      sAt(sRun, t4 + 5500);
+      var t2 = end + 1300;
+      fAt(function(){ step(2); fxDir.classList.remove("think"); fxDirSt.textContent = "Reviewing the cut"; fxOutSt.textContent = "Claude is reviewing the cut"; }, t2);
+      fAt(function(){ fxRev.classList.remove("hide"); }, t2 + 1200);
+      var t3 = t2 + 1700;
+      fAt(function(){ step(3); fxOutSt.textContent = "Rendering…"; }, t3);
+      for (var k = 1; k <= 30; k++) (function(k){ fAt(function(){ fxBar.style.transform = "scaleX(" + (k / 30) + ")"; }, t3 + k * 55); })(k);
+      fAt(function(){ fxOut.classList.remove("wait"); fxOut.classList.add("ready"); fxOutSt.textContent = "1080p · 0:60 · ready to publish"; fxDirSt.textContent = "Done"; step(4); }, t3 + 30 * 55 + 150);
+      fAt(fxRun, t3 + 30 * 55 + 5000);
     };
+    drawLines();
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(drawLines);
+    var fxRz; window.addEventListener("resize", function(){ clearTimeout(fxRz); fxRz = setTimeout(drawLines, 150); });
     if (!reduce && "IntersectionObserver" in window) {
-      var sObs = new IntersectionObserver(function(es){ if (es[0].isIntersecting) { sObs.disconnect(); sRun(); } }, {threshold: .25});
-      sObs.observe(studio);
+      var fxObs = new IntersectionObserver(function(es){ if (es[0].isIntersecting) { fxObs.disconnect(); fxRun(); } }, {threshold: .3});
+      fxObs.observe(fx);
     }
   }
 
