@@ -231,50 +231,82 @@ header.scrolled{border-bottom-color:var(--line)}
 .fx-wrap{background:var(--bg);border:1px solid var(--line);border-radius:28px;padding:36px 32px 26px;box-shadow:0 40px 80px -60px rgba(12,15,22,.45)}
 .fx-head{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:28px}
 .fx-head b{font-size:16px}
-.fx-head span{font-size:13px;color:var(--muted)}
-.flowx{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.95fr) minmax(0,1.15fr) minmax(0,1.1fr);column-gap:72px;align-items:center}
+.fx-legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12.5px;color:var(--muted)}
+.fx-legend span{display:flex;align-items:center;gap:7px}
+.fx-legend i{width:18px;height:0;border-top:2px solid var(--blue)}
+.fx-legend i.g{border-color:var(--green)}
+.fx-legend i.a{border-top:2px dashed #d97706}
+.flowx{position:relative;padding-top:58px;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,.85fr) minmax(0,1.15fr) minmax(0,1fr) minmax(0,.95fr);column-gap:50px;align-items:center}
 .fx-lines{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none;z-index:0}
 .fx-lines .ln{fill:none;stroke:#e1e5ec;stroke-width:1.5}
 .fx-lines .la{fill:none;stroke-width:2;stroke-linecap:round;transition:stroke-dashoffset .9s cubic-bezier(.4,0,.2,1)}
 .fx-lines .la.blue{stroke:var(--blue)}
 .fx-lines .la.green{stroke:var(--green)}
+.fx-lines .fb{fill:none;stroke:#f2c894;stroke-width:1.6;stroke-dasharray:5 5;transition:stroke .3s}
+.fx-lines .fb.on{stroke:#d97706;stroke-width:2.2;animation:march .6s linear infinite}
+@keyframes march{to{stroke-dashoffset:-20}}
 .fx-col{position:relative;z-index:1;min-width:0}
-.fx-card{background:var(--bg);border:1px solid var(--line);border-radius:20px;padding:18px;display:grid;gap:6px;box-shadow:0 18px 40px -30px rgba(12,15,22,.45);transition:border-color .4s,box-shadow .4s}
-.fx-card b{font-size:15.5px;letter-spacing:-.01em}
+.fb-tag{position:absolute;left:50%;top:20px;transform:translate(-50%,-50%);z-index:2;font-size:12px;font-weight:500;color:#b45f06;background:#fff7ed;border:1px dashed #f2c894;padding:5px 12px;border-radius:999px;white-space:nowrap;transition:background .3s,color .3s,border-color .3s,box-shadow .3s}
+.fb-tag.on{background:#d97706;color:#fff;border-color:#d97706;box-shadow:0 10px 24px -12px rgba(217,119,6,.7)}
+.fx-card{background:var(--bg);border:1px solid var(--line);border-radius:20px;padding:16px;display:grid;gap:5px;box-shadow:0 18px 40px -30px rgba(12,15,22,.45);transition:border-color .4s,box-shadow .4s}
+.fx-card b{font-size:15px;letter-spacing:-.01em}
 .fx-card small{font-size:12.5px;color:var(--muted);line-height:1.4}
-.thumbs{position:relative;height:92px;margin-bottom:10px}
-.thumbs i{position:absolute;width:min(72%,130px);aspect-ratio:16/10;border-radius:10px;box-shadow:0 10px 20px -12px rgba(12,15,22,.5);border:2px solid #fff}
+.thumbs{position:relative;height:84px;margin-bottom:8px}
+.thumbs i{position:absolute;width:min(72%,120px);aspect-ratio:16/10;border-radius:10px;box-shadow:0 10px 20px -12px rgba(12,15,22,.5);border:2px solid #fff}
 .thumbs i:nth-child(1){left:0;top:10px;transform:rotate(-6deg);background:linear-gradient(135deg,#2b3f7a,#7f9cff)}
-.thumbs i:nth-child(2){left:min(14%,26px);top:4px;transform:rotate(2deg);background:linear-gradient(135deg,#40275c,#c27a9a)}
-.thumbs i:nth-child(3){left:min(28%,52px);top:12px;transform:rotate(7deg);background:linear-gradient(135deg,#124038,#4cb394)}
-.brief{margin-top:6px;font-size:12.5px;background:var(--tile);border-radius:10px;padding:8px 10px;color:var(--ink-2)}
+.thumbs i:nth-child(2){left:min(14%,22px);top:4px;transform:rotate(2deg);background:linear-gradient(135deg,#40275c,#c27a9a)}
+.thumbs i:nth-child(3){left:min(28%,44px);top:12px;transform:rotate(7deg);background:linear-gradient(135deg,#124038,#4cb394)}
+.brief{margin-top:6px;font-size:12px;background:var(--tile);border-radius:10px;padding:8px 10px;color:var(--ink-2)}
 .fx-raw .fx-card.pulse{border-color:var(--blue);box-shadow:0 0 0 4px var(--blue-soft)}
-.dir-card{background:#0c0f16;border-color:#0c0f16;color:#fff;text-align:center;justify-items:center;padding:24px 18px;position:relative}
+.dir-card{background:#0c0f16;border-color:#0c0f16;color:#fff;text-align:center;justify-items:center;padding:22px 14px}
 .dir-card small{color:#9aa1ae}
-.dir-ico{width:52px;height:52px;border-radius:16px;background:linear-gradient(145deg,#6d8bff,#2350e6);display:grid;place-items:center;font-size:24px;margin-bottom:6px;position:relative}
-.dir-ico::after{content:"";position:absolute;inset:-6px;border-radius:20px;border:2px solid rgba(109,139,255,.6);opacity:0}
+.dir-ico{width:50px;height:50px;border-radius:15px;background:linear-gradient(145deg,#6d8bff,#2350e6);display:grid;place-items:center;font-size:23px;margin-bottom:6px;position:relative}
+.dir-ico::after{content:"";position:absolute;inset:-6px;border-radius:19px;border:2px solid rgba(109,139,255,.6);opacity:0}
 .dir-card.think .dir-ico::after{animation:ring 1.2s ease-out infinite}
 @keyframes ring{0%{opacity:.9;transform:scale(.9)}100%{opacity:0;transform:scale(1.25)}}
-.dir-st{margin-top:8px;font-size:12px;padding:4px 10px;border-radius:999px;background:rgba(255,255,255,.1);color:#cfd4dd}
+.dir-st{margin-top:8px;font-size:11.5px;padding:4px 10px;border-radius:999px;background:rgba(255,255,255,.1);color:#cfd4dd}
 .fx-team{display:grid;gap:9px}
-.fx-agent{display:flex;align-items:center;gap:11px;background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:9px 12px;box-shadow:0 8px 18px -14px rgba(12,15,22,.4);transition:border-color .35s,box-shadow .35s,transform .35s}
-.fx-agent>i{width:32px;height:32px;border-radius:10px;background:var(--tile);color:var(--ink);display:grid;place-items:center;flex:none;transition:background .35s,color .35s}
-.fx-agent>i svg{width:17px;height:17px}
+.fx-agent{display:flex;align-items:center;gap:10px;background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:8px 10px;box-shadow:0 8px 18px -14px rgba(12,15,22,.4);transition:border-color .35s,box-shadow .35s,transform .35s,opacity .35s}
+.fx-agent>i{width:30px;height:30px;border-radius:9px;background:var(--tile);color:var(--ink);display:grid;place-items:center;flex:none;transition:background .35s,color .35s}
+.fx-agent>i svg{width:16px;height:16px}
 .fx-agent div{display:grid;min-width:0}
-.fx-agent b{font-size:13.5px;line-height:1.25}
-.fx-agent small{font-size:11.5px;color:var(--muted)}
+.fx-agent b{font-size:13px;line-height:1.25}
+.fx-agent small{font-size:11px;color:var(--muted)}
 .fx-agent .ok{margin-left:auto;width:20px;height:20px;border-radius:50%;border:2px solid var(--line);display:grid;place-items:center;font-size:10px;font-weight:700;color:transparent;flex:none;transition:background .3s,border-color .3s,color .3s}
 .fx-agent.work{border-color:var(--blue);box-shadow:0 12px 26px -16px rgba(35,80,230,.6);transform:translateX(3px)}
 .fx-agent.work>i{background:var(--blue-soft);color:var(--blue)}
 .fx-agent.work .ok{border-color:var(--blue-soft);border-top-color:var(--blue);animation:spin .8s linear infinite}
+.fx-agent.redo{border-color:#d97706;box-shadow:0 12px 26px -16px rgba(217,119,6,.6);transform:translateX(3px)}
+.fx-agent.redo>i{background:#fdecd8;color:#b45f06}
+.fx-agent.redo .ok{border-color:#fdecd8;border-top-color:#d97706;animation:spin .8s linear infinite}
 .fx-agent.done .ok{background:var(--green);border-color:var(--green);color:#fff}
 .fx-agent.done>i{background:var(--green-soft);color:var(--green)}
 .fx-agent.idle{opacity:.55}
+.val-card{position:relative}
+.val-top{display:flex;align-items:center;gap:10px;margin-bottom:4px}
+.val-ico{width:36px;height:36px;border-radius:11px;background:#0c0f16;color:#7ee2a8;display:grid;place-items:center;flex:none}
+.val-ico svg{width:18px;height:18px}
+.val-top div{display:grid}
+.vchecks{display:grid;gap:6px;margin:8px 0 4px}
+.vchecks li{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--ink-2)}
+.vchecks li::before{content:"✓";width:17px;height:17px;border-radius:50%;background:var(--green-soft);color:var(--green);display:grid;place-items:center;font-size:9px;font-weight:700;flex:none;transition:background .3s,color .3s}
+.vchecks li.pend{color:var(--muted)}
+.vchecks li.pend::before{content:"";background:var(--tile)}
+.vchecks li.fail{color:#b45f06;font-weight:500}
+.vchecks li.fail::before{content:"!";background:#fdecd8;color:#b45f06}
+.val-st{justify-self:start;font-size:11.5px;font-weight:500;padding:4px 10px;border-radius:999px;background:var(--green-soft);color:var(--green);transition:background .3s,color .3s}
+.val-st.warn{background:#fdecd8;color:#b45f06}
+.val-st.busy{background:var(--blue-soft);color:var(--blue)}
+.val-card.check{border-color:var(--blue);box-shadow:0 0 0 4px var(--blue-soft)}
+.val-card.warn{border-color:#d97706;box-shadow:0 0 0 4px #fdecd8}
+.fbk{display:grid;gap:4px;margin-top:6px;padding:9px 10px;border-radius:10px;background:#fff7ed;border:1px dashed #f2c894;font-size:11.5px;color:#8a4a05;transition:opacity .4s}
+.fbk b{font-size:11.5px;font-weight:600;color:#b45f06}
+.fbk.hide{opacity:.45}
 .vid{position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:#0c0f16;margin-bottom:8px}
 .vid .scene{position:absolute;inset:-6%;background:linear-gradient(180deg,#1b2a6b 0%,#5b6fd6 42%,#f0a27a 70%,#2a1d2e 71%,#120d18 100%);transition:filter .8s}
 .vid .sun{position:absolute;left:60%;top:50%;width:15%;aspect-ratio:1/1;border-radius:50%;background:radial-gradient(circle,#ffe8c4,#ffb07a 60%,transparent 63%)}
 .vid .figure{position:absolute;left:26%;bottom:22%;width:12%;height:34%;background:#0c0a12;border-radius:45% 45% 6px 6px}
-.vid .pbtn{position:absolute;left:50%;top:50%;width:38px;height:38px;transform:translate(-50%,-50%);border-radius:50%;background:rgba(255,255,255,.92);display:grid;place-items:center;transition:opacity .4s,transform .4s}
+.vid .pbtn{position:absolute;left:50%;top:50%;width:36px;height:36px;transform:translate(-50%,-50%);border-radius:50%;background:rgba(255,255,255,.92);display:grid;place-items:center;transition:opacity .4s,transform .4s}
 .vid .pbtn::before{content:"";border-left:11px solid #0c0f16;border-top:7px solid transparent;border-bottom:7px solid transparent;margin-left:3px}
 .vid .vbar{position:absolute;left:8px;right:8px;bottom:8px;height:3px;border-radius:2px;background:rgba(255,255,255,.25);overflow:hidden}
 .vid .vbar i{display:block;height:100%;background:#fff;transform-origin:left;transform:scaleX(1)}
@@ -283,15 +315,29 @@ header.scrolled{border-bottom-color:var(--line)}
 .out-card.ready{border-color:rgba(20,147,90,.45);box-shadow:0 0 0 4px var(--green-soft)}
 .out-card.ready .scene{animation:kb 9s ease-in-out infinite alternate}
 @keyframes kb{from{transform:scale(1)}to{transform:scale(1.1) translate(-3%,-2%)}}
-.rev{justify-self:start;margin-top:4px;font-size:12px;font-weight:500;color:var(--green);background:var(--green-soft);padding:4px 10px;border-radius:999px;transition:opacity .4s,transform .4s}
+.rev{justify-self:start;margin-top:4px;font-size:11.5px;font-weight:500;color:var(--green);background:var(--green-soft);padding:4px 10px;border-radius:999px;transition:opacity .4s,transform .4s}
 .rev.hide{opacity:0;transform:translateY(4px)}
-.fx-steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:30px;padding-top:20px;border-top:1px solid var(--line);counter-reset:fs}
-.fx-steps li{display:flex;gap:10px;align-items:center;font-size:14px;color:var(--muted);transition:color .3s}
+.fx-steps{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin-top:30px;padding-top:20px;border-top:1px solid var(--line);counter-reset:fs}
+.fx-steps li{display:flex;gap:10px;align-items:center;font-size:13.5px;color:var(--muted);transition:color .3s;line-height:1.3}
 .fx-steps li::before{counter-increment:fs;content:counter(fs);width:24px;height:24px;border-radius:50%;border:1.5px solid var(--line);display:grid;place-items:center;font-size:12px;font-weight:600;flex:none;transition:background .3s,border-color .3s,color .3s}
 .fx-steps li.on{color:var(--ink);font-weight:500}
 .fx-steps li.on::before{background:var(--blue);border-color:var(--blue);color:#fff}
+.fx-steps li.on.amber::before{background:#d97706;border-color:#d97706}
 .fx-steps li.done::before{content:"✓";background:var(--green-soft);border-color:var(--green-soft);color:var(--green)}
-.fx-note{font-size:12.5px;color:var(--muted);margin-top:14px}
+@media (max-width:1100px){
+  .flowx{grid-template-columns:minmax(0,1fr);row-gap:30px;max-width:560px;margin:0 auto;padding-top:0}
+  .fx-lines{display:none}
+  .fx-col:not(:last-of-type)::after{content:"";position:absolute;left:50%;bottom:-24px;width:2px;height:18px;background:var(--line)}
+  .fx-team{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .fx-steps{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .fb-tag{position:static;transform:none;justify-self:center;white-space:normal;text-align:center;order:5}
+}
+@media (max-width:760px){
+  .fx-wrap{padding:22px 16px 18px;border-radius:22px}
+  .fx-team{grid-template-columns:minmax(0,1fr)}
+  .fx-steps{grid-template-columns:minmax(0,1fr)}
+}
+
 .concepts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:20px}
 .cc{border:1px solid var(--line);border-radius:18px;padding:20px;background:var(--bg);display:flex;flex-direction:column;gap:8px}
 .cc h3{font-size:16.5px}
@@ -460,11 +506,6 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   .case.flip .c-copy{order:0}
   .svc,.tech{grid-template-columns:repeat(2,minmax(0,1fr))}
   .concepts{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .flowx{grid-template-columns:minmax(0,1fr);row-gap:30px;max-width:560px;margin:0 auto}
-  .fx-lines{display:none}
-  .fx-col:not(:last-child)::after{content:"";position:absolute;left:50%;bottom:-24px;width:2px;height:18px;background:var(--line)}
-  .fx-team{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .fx-steps{grid-template-columns:repeat(2,minmax(0,1fr))}
   .cta-band{grid-template-columns:minmax(0,1fr);padding:40px}
   .cta-btns{flex-direction:row;flex-wrap:wrap}
   .caps{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -480,9 +521,6 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   section{padding-block:80px}
   .nav a.l{display:none}
   .svc,.tech,.caps,.promise,.concepts{grid-template-columns:minmax(0,1fr)}
-  .fx-wrap{padding:22px 16px 18px;border-radius:22px}
-  .fx-team{grid-template-columns:minmax(0,1fr)}
-  .fx-steps{grid-template-columns:minmax(0,1fr)}
   .cta-band{padding:30px 22px;border-radius:22px}
   .cta-btns{flex-direction:column}
   .proc{grid-template-columns:minmax(0,1fr)}
@@ -705,13 +743,16 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
     <div class="head reveal">
       <span class="eyebrow">Under the hood</span>
       <h2 class="h2">Not a chatbot. A multi-agent system.</h2>
-      <p>The agents I build work like a real team. A lead agent plans the job, specialist agents work in parallel, a reviewer checks the result, and every step is routed, traced and safe. Here is that pattern as an AI video editor, with Claude under the hood.</p>
+      <p>The agents I build work like a real team. A lead agent plans the job, specialist agents work in parallel, a validator checks the result and sends work back with feedback until it passes. Here is that pattern as an AI video editor, with Claude under the hood.</p>
     </div>
 
     <div class="fx-wrap reveal">
-      <div class="fx-head"><b>Example: an AI video editor</b><span>Raw footage in, finished video out</span></div>
-      <div class="flowx" id="flowx" aria-label="Example: raw footage goes to a Claude Opus director agent, which splits the work across six Claude agents working in parallel. Their work is combined, reviewed by Claude and rendered as the final video.">
+      <div class="fx-head"><b>Example: an AI video editor</b>
+        <div class="fx-legend"><span><i></i>Task assigned</span><span><i class="g"></i>Work delivered</span><span><i class="a"></i>Feedback and rework</span></div>
+      </div>
+      <div class="flowx" id="flowx" aria-label="Architecture: raw footage goes to a Claude Opus director agent, which assigns tasks to six Claude agents working in parallel. A validator agent checks their work. When a check fails it sends feedback to the responsible agent for rework and checks again. Only when every check passes is the final video rendered.">
         <svg class="fx-lines" id="fxLines" aria-hidden="true"></svg>
+        <span class="fb-tag" id="fxFbTag">Feedback loop: rework until every check passes</span>
         <div class="fx-col fx-raw"><div class="fx-card" id="fxRaw">
           <div class="thumbs" aria-hidden="true"><i></i><i></i><i></i></div>
           <b>Raw footage</b><small>2 hours of clips</small>
@@ -719,7 +760,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
         </div></div>
         <div class="fx-col fx-dir"><div class="fx-card dir-card" id="fxDir">
           <span class="dir-ico">✦</span><b>Director agent</b><small>Claude Opus</small>
-          <span class="dir-st" id="fxDirSt">Splits the work</span>
+          <span class="dir-st" id="fxDirSt">Plans and assigns</span>
         </div></div>
         <div class="fx-col fx-team" id="fxTeam">
           <div class="fx-agent done"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 10h16M4 14h10M4 18h7"/></svg></i><div><b>Transcribe</b><small>Claude Haiku</small></div><span class="ok">✓</span></div>
@@ -729,17 +770,24 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
           <div class="fx-agent done"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></svg></i><div><b>Music and sound</b><small>Claude Haiku</small></div><span class="ok">✓</span></div>
           <div class="fx-agent done"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M10 10.5a2 2 0 1 0 0 3M16 10.5a2 2 0 1 0 0 3"/></svg></i><div><b>Captions</b><small>Claude Haiku</small></div><span class="ok">✓</span></div>
         </div>
+        <div class="fx-col fx-val"><div class="fx-card val-card" id="fxVal">
+          <div class="val-top"><span class="val-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg></span><div><b>Validator</b><small>Claude Opus</small></div></div>
+          <ul class="vchecks" id="fxChecks"><li>Pacing and story</li><li>Brand rules</li><li>Caption accuracy</li><li>Audio levels</li></ul>
+          <div class="fbk hide" id="fxFb"><b>Feedback for rework</b><span>Cut the story: tighten 0:18 to 0:24</span><span>Captions: fix 2 typos</span></div>
+          <span class="val-st" id="fxValSt">All checks passed</span>
+        </div></div>
         <div class="fx-col fx-out"><div class="fx-card out-card ready" id="fxOut">
           <div class="vid" aria-hidden="true"><div class="scene"><span class="sun"></span><span class="figure"></span></div><span class="pbtn"></span><span class="vbar"><i id="fxBar"></i></span></div>
           <b>Final video</b><small id="fxOutSt">1080p · 0:60 · ready to publish</small>
-          <span class="rev" id="fxRev">✓ Reviewed by Claude</span>
+          <span class="rev" id="fxRev">✓ Approved by validator</span>
         </div></div>
       </div>
       <ol class="fx-steps" id="fxSteps">
-        <li class="done">Director splits the work</li>
-        <li class="done">Six agents work in parallel</li>
-        <li class="done">Claude reviews the cut</li>
-        <li class="done">Final video is rendered</li>
+        <li class="done">Director assigns tasks</li>
+        <li class="done">Agents work in parallel</li>
+        <li class="done">Validator checks the cut</li>
+        <li class="done">Feedback to director, rework</li>
+        <li class="done">Approved and rendered</li>
       </ol>
     </div>
 
@@ -750,7 +798,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
       <article class="cc reveal"><h3>Vision understanding</h3><p>Claude looks at frames to choose shots and keep color consistent.</p><span class="use">Claude vision</span></article>
       <article class="cc reveal"><h3>MCP tools</h3><p>Agents run real editing tools such as FFmpeg through secure tool calls.</p><span class="use">MCP · FFmpeg</span></article>
       <article class="cc reveal"><h3>Shared memory</h3><p>Every agent works from the same brief, transcript and timeline.</p><span class="use">Shared state</span></article>
-      <article class="cc reveal"><h3>Review loop</h3><p>Claude checks pacing, brand rules and captions, and sends fixes back before export.</p><span class="use">Evals · self-review</span></article>
+      <article class="cc reveal"><h3>Validator and rework loop</h3><p>A validator agent scores the output and sends specific feedback. The director re-assigns only the work that failed.</p><span class="use">Evaluator-optimizer · evals</span></article>
       <article class="cc reveal"><h3>Human in the loop</h3><p>You approve the cut or ask for changes in plain English.</p><span class="use">Approvals · feedback</span></article>
     </div>
   </div>
@@ -1113,54 +1161,82 @@ var CONFIG = { FORM_ENDPOINT: "" }; // paste a Formspree URL here, e.g. https://
   var fx = document.getElementById("flowx");
   if (fx) {
     var svgNS = "http://www.w3.org/2000/svg", fxSvg = document.getElementById("fxLines");
-    var fxRaw = document.getElementById("fxRaw"), fxDir = document.getElementById("fxDir"), fxOut = document.getElementById("fxOut");
+    var fxRaw = document.getElementById("fxRaw"), fxDir = document.getElementById("fxDir"), fxVal = document.getElementById("fxVal"), fxOut = document.getElementById("fxOut");
     var fxAg = [].slice.call(fx.querySelectorAll(".fx-agent")), fxSteps = [].slice.call(document.querySelectorAll("#fxSteps li"));
+    var fxChecks = [].slice.call(document.querySelectorAll("#fxChecks li")), fxFb = document.getElementById("fxFb"), fxValSt = document.getElementById("fxValSt");
     var fxDirSt = document.getElementById("fxDirSt"), fxOutSt = document.getElementById("fxOutSt"), fxRev = document.getElementById("fxRev"), fxBar = document.getElementById("fxBar");
-    var ls = { raw: true, dir: fxAg.map(function(){ return true; }), out: fxAg.map(function(){ return true; }) }, lines = { raw: null, dir: [], out: [] };
-    var mkPath = function(d, cls){ var pth = document.createElementNS(svgNS, "path"); pth.setAttribute("d", d); pth.setAttribute("class", cls); fxSvg.appendChild(pth); return pth; };
+    var REDO = [2, 5], FAIL = [0, 2];
+    var on = function(n, v){ return Array.apply(null, Array(n)).map(function(){ return v; }); };
+    var ls = { raw: true, dir: on(6, true), val: on(6, true), out: true }, fbOn = false;
+    var lines = { raw: null, dir: [], val: [], out: null, fb: [] };
+    var mk = function(tag, attrs, parent){ var e = document.createElementNS(svgNS, tag); for (var k in attrs) e.setAttribute(k, attrs[k]); (parent || fxSvg).appendChild(e); return e; };
     var curve = function(x1, y1, x2, y2){ var dx = (x2 - x1) / 2; return "M" + x1 + " " + y1 + " C" + (x1 + dx) + " " + y1 + " " + (x2 - dx) + " " + y2 + " " + x2 + " " + y2; };
-    var setLn = function(pth, on){ if (pth) pth.style.strokeDashoffset = on ? 0 : pth._len; };
+    var setLn = function(pth, v){ if (pth) pth.style.strokeDashoffset = v ? 0 : pth._len; };
     var drawLines = function(){
-      fxSvg.innerHTML = ""; lines = { raw: null, dir: [], out: [] };
+      fxSvg.innerHTML = ""; lines = { raw: null, dir: [], val: [], out: null, fb: [] };
       if (getComputedStyle(fxSvg).display === "none") return;
+      var defs = mk("defs", {}), mkr = mk("marker", { id: "fxArrow", viewBox: "0 0 8 8", refX: "6", refY: "4", markerWidth: "7", markerHeight: "7", orient: "auto-start-reverse" }, defs);
+      mk("path", { d: "M0 0 L8 4 L0 8 z", fill: "#d97706" }, mkr);
       var c = fx.getBoundingClientRect();
-      var R = function(el){ var r = el.getBoundingClientRect(); return { l: r.left - c.left, r: r.right - c.left, y: r.top - c.top + r.height / 2 }; };
-      var add = function(d, color){ mkPath(d, "ln"); var a = mkPath(d, "la " + color); a._len = a.getTotalLength(); a.style.strokeDasharray = a._len; a.style.transition = "none"; return a; };
-      var rw = R(fxRaw), dr = R(fxDir), ot = R(fxOut);
+      var R = function(el){ var r = el.getBoundingClientRect(); return { l: r.left - c.left, r: r.right - c.left, t: r.top - c.top, b: r.bottom - c.top, y: r.top - c.top + r.height / 2 }; };
+      var add = function(d, color){ mk("path", { d: d, "class": "ln" }); var a = mk("path", { d: d, "class": "la " + color }); a._len = a.getTotalLength(); a.style.strokeDasharray = a._len; a.style.transition = "none"; return a; };
+      var rw = R(fxRaw), dr = R(fxDir), vl = R(fxVal), ot = R(fxOut);
       lines.raw = add(curve(rw.r, rw.y, dr.l, dr.y), "blue");
-      fxAg.forEach(function(a){ var g = R(a); lines.dir.push(add(curve(dr.r, dr.y, g.l, g.y), "blue")); lines.out.push(add(curve(g.r, g.y, ot.l, ot.y), "green")); });
-      setLn(lines.raw, ls.raw); lines.dir.forEach(function(p, i){ setLn(p, ls.dir[i]); }); lines.out.forEach(function(p, i){ setLn(p, ls.out[i]); });
+      fxAg.forEach(function(a){ var g = R(a); lines.dir.push(add(curve(dr.r, dr.y, g.l, g.y), "blue")); lines.val.push(add(curve(g.r, g.y, vl.l, vl.y), "green")); });
+      lines.out = add(curve(vl.r, vl.y, ot.l, ot.y), "green");
+      var topA = Math.min.apply(null, fxAg.map(function(a){ return R(a).t; })), apex = topA - 30;
+      var x1 = (vl.l + vl.r) / 2, y1 = vl.t, x2 = (dr.l + dr.r) / 2, y2 = dr.t - 2, cy = (apex - 0.125 * (y1 + y2)) / 0.75;
+      lines.fb.push(mk("path", { d: "M" + x1 + " " + y1 + " C" + x1 + " " + cy + " " + x2 + " " + cy + " " + x2 + " " + y2, "class": "fb" + (fbOn ? " on" : ""), "marker-end": "url(#fxArrow)" }));
+      var tag = document.getElementById("fxFbTag"); tag.style.left = ((x1 + x2) / 2) + "px"; tag.style.top = apex + "px";
+      setLn(lines.raw, ls.raw); setLn(lines.out, ls.out);
+      lines.dir.forEach(function(p, i){ setLn(p, ls.dir[i]); }); lines.val.forEach(function(p, i){ setLn(p, ls.val[i]); });
       fxSvg.getBoundingClientRect();
-      [lines.raw].concat(lines.dir, lines.out).forEach(function(p){ p.style.transition = ""; });
+      [lines.raw, lines.out].concat(lines.dir, lines.val).forEach(function(p){ p.style.transition = ""; });
     };
-    var L = function(kind, i, on){ if (kind === "raw") { ls.raw = on; setLn(lines.raw, on); } else { ls[kind][i] = on; setLn(lines[kind][i], on); } };
-    var step = function(n){ fxSteps.forEach(function(li, k){ li.classList.toggle("on", k === n); li.classList.toggle("done", k < n); }); };
-    var agSet = function(a, cls){ a.classList.remove("idle", "work", "done"); a.classList.add(cls); };
+    var L = function(kind, i, v){ if (kind === "raw" || kind === "out") { ls[kind] = v; setLn(lines[kind], v); } else { ls[kind][i] = v; setLn(lines[kind][i], v); } };
+    var FB = function(v){ fbOn = v; lines.fb.forEach(function(p){ p.classList.toggle("on", v); }); document.getElementById("fxFbTag").classList.toggle("on", v); };
+    var step = function(n, amber){ fxSteps.forEach(function(li, k){ li.classList.toggle("on", k === n); li.classList.toggle("amber", k === n && !!amber); li.classList.toggle("done", k < n); }); };
+    var agSet = function(a, cls){ a.classList.remove("idle", "work", "done", "redo"); a.classList.add(cls); };
+    var chk = function(i, cls){ fxChecks[i].classList.remove("pend", "fail"); if (cls) fxChecks[i].classList.add(cls); };
+    var vst = function(txt, cls){ fxValSt.textContent = txt; fxValSt.className = "val-st" + (cls ? " " + cls : ""); fxVal.classList.remove("check", "warn"); if (cls === "busy") fxVal.classList.add("check"); if (cls === "warn") fxVal.classList.add("warn"); };
     var fT = [], fAt = function(fn, ms){ fT.push(setTimeout(fn, ms)); };
     var fxRun = function(){
       fT.forEach(clearTimeout); fT = [];
-      L("raw", 0, false); fxAg.forEach(function(a, i){ agSet(a, "idle"); L("dir", i, false); L("out", i, false); });
+      L("raw", 0, false); L("out", 0, false); FB(false);
+      fxAg.forEach(function(a, i){ agSet(a, "idle"); L("dir", i, false); L("val", i, false); });
+      fxChecks.forEach(function(c, i){ chk(i, "pend"); }); fxFb.classList.add("hide"); vst("Waiting for work", "");
+      fxValSt.className = "val-st busy"; fxVal.classList.remove("check", "warn");
       fxOut.classList.remove("ready"); fxOut.classList.add("wait"); fxRev.classList.add("hide"); fxBar.style.transform = "scaleX(0)";
-      fxOutSt.textContent = "Waiting for the team"; fxDirSt.textContent = "Reading the brief"; step(0);
+      fxOutSt.textContent = "Waiting for approval"; fxDirSt.textContent = "Reading the brief"; step(0);
       fAt(function(){ fxRaw.classList.add("pulse"); L("raw", 0, true); }, 300);
-      fAt(function(){ fxRaw.classList.remove("pulse"); fxDir.classList.add("think"); }, 1300);
-      fAt(function(){ fxDirSt.textContent = "Splits the work"; }, 1700);
-      var t = 2500, dur = [1600, 2400, 3000, 2100, 1800, 2700], end = 0;
-      fAt(function(){ step(1); fxDirSt.textContent = "Assigned 6 tasks"; }, t);
+      fAt(function(){ fxRaw.classList.remove("pulse"); fxDir.classList.add("think"); }, 1200);
+      var t = 2200, dur = [1500, 2200, 2700, 1900, 1700, 2400], end = 0;
+      fAt(function(){ fxDirSt.textContent = "Assigned 6 tasks"; }, t);
       fxAg.forEach(function(a, i){
-        var st = t + i * 160, en = st + dur[i]; end = Math.max(end, en);
+        var st = t + i * 150, en = st + dur[i]; end = Math.max(end, en);
         fAt(function(){ L("dir", i, true); }, st);
-        fAt(function(){ agSet(a, "work"); }, st + 500);
-        fAt(function(){ agSet(a, "done"); L("out", i, true); }, en + 500);
+        fAt(function(){ if (i === 0) step(1); agSet(a, "work"); }, st + 500);
+        fAt(function(){ agSet(a, "done"); L("val", i, true); }, en + 500);
       });
       var t2 = end + 1300;
-      fAt(function(){ step(2); fxDir.classList.remove("think"); fxDirSt.textContent = "Reviewing the cut"; fxOutSt.textContent = "Claude is reviewing the cut"; }, t2);
-      fAt(function(){ fxRev.classList.remove("hide"); }, t2 + 1200);
-      var t3 = t2 + 1700;
-      fAt(function(){ step(3); fxOutSt.textContent = "Rendering…"; }, t3);
-      for (var k = 1; k <= 30; k++) (function(k){ fAt(function(){ fxBar.style.transform = "scaleX(" + (k / 30) + ")"; }, t3 + k * 55); })(k);
-      fAt(function(){ fxOut.classList.remove("wait"); fxOut.classList.add("ready"); fxOutSt.textContent = "1080p · 0:60 · ready to publish"; fxDirSt.textContent = "Done"; step(4); }, t3 + 30 * 55 + 150);
-      fAt(fxRun, t3 + 30 * 55 + 5000);
+      fAt(function(){ step(2); fxDir.classList.remove("think"); fxDirSt.textContent = "Waiting for validator"; vst("Checking the cut…", "busy"); }, t2);
+      fxChecks.forEach(function(c, i){ fAt(function(){ chk(i, FAIL.indexOf(i) > -1 ? "fail" : ""); }, t2 + 500 + i * 450); });
+      var t3 = t2 + 500 + fxChecks.length * 450 + 300;
+      fAt(function(){
+        step(3, true); vst("2 issues · feedback sent", "warn"); fxFb.classList.remove("hide"); FB(true);
+        REDO.forEach(function(i){ L("val", i, false); L("dir", i, false); });
+      }, t3);
+      fAt(function(){ fxDir.classList.add("think"); fxDirSt.textContent = "Re-assigning 2 fixes"; }, t3 + 900);
+      fAt(function(){ REDO.forEach(function(i){ L("dir", i, true); agSet(fxAg[i], "redo"); }); }, t3 + 1500);
+      REDO.forEach(function(i, k){ fAt(function(){ agSet(fxAg[i], "done"); L("val", i, true); }, t3 + 3300 + k * 500); });
+      var t4 = t3 + 3300 + REDO.length * 500 + 600;
+      fAt(function(){ FB(false); fxFb.classList.add("hide"); fxDir.classList.remove("think"); fxDirSt.textContent = "Waiting for validator"; vst("Re-checking…", "busy"); }, t4);
+      FAIL.forEach(function(i, k){ fAt(function(){ chk(i, ""); }, t4 + 500 + k * 450); });
+      var t5 = t4 + 500 + FAIL.length * 450 + 200;
+      fAt(function(){ vst("All checks passed", ""); step(4); L("out", 0, true); fxOutSt.textContent = "Rendering…"; }, t5);
+      for (var k = 1; k <= 30; k++) (function(k){ fAt(function(){ fxBar.style.transform = "scaleX(" + (k / 30) + ")"; }, t5 + 600 + k * 50); })(k);
+      fAt(function(){ fxOut.classList.remove("wait"); fxOut.classList.add("ready"); fxRev.classList.remove("hide"); fxOutSt.textContent = "1080p · 0:60 · ready to publish"; fxDirSt.textContent = "Done"; step(5); }, t5 + 600 + 30 * 50 + 150);
+      fAt(fxRun, t5 + 600 + 30 * 50 + 5000);
     };
     drawLines();
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(drawLines);
