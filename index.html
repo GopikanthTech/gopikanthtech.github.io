@@ -227,6 +227,37 @@ header.scrolled{border-bottom-color:var(--line)}
 .m-b{background:#f3e3d3;color:#7a4513}.m-s{background:#e6e9ef;color:#40485a}.m-g{background:#f6ebc4;color:#6d5300}
 .pass{font-size:12px;color:var(--green);font-weight:500;margin-left:auto;white-space:nowrap}
 
+/* under the hood */
+.arch{border:1px solid var(--line);border-radius:28px;padding:28px;background:var(--bg);box-shadow:0 30px 60px -50px rgba(12,15,22,.4)}
+.arch-top{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:20px}
+.arch-top b{font-size:15px}
+.arch-top span{font-size:13px;color:var(--muted)}
+.flow6{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:16px}
+.stage{position:relative;border:1px solid var(--line);border-radius:16px;padding:14px;background:var(--tile);display:flex;flex-direction:column;gap:8px;transition:border-color .4s,background .4s,box-shadow .4s,transform .4s;min-width:0}
+.stage:not(:last-child)::after{content:"";position:absolute;top:50%;right:-17px;width:18px;height:2px;background:var(--line);transition:background .4s}
+.stage.on{border-color:var(--blue);background:var(--bg);box-shadow:0 18px 36px -24px rgba(35,80,230,.6);transform:translateY(-3px)}
+.stage.on::after,.stage.done::after{background:var(--blue)}
+.stage .k{font-size:12px;font-weight:600;color:var(--blue)}
+.stage h4{font-size:15px;letter-spacing:-.01em}
+.stage small{font-size:12.5px;color:var(--muted);line-height:1.4}
+.stage .bub{font-size:12.5px;background:var(--bubble);border-radius:10px 10px 10px 3px;padding:7px 9px;line-height:1.35}
+.stage .bub.out{background:var(--bg);border:1px solid var(--line);border-radius:10px 10px 3px 10px}
+.stage .chips span{font-size:11.5px;padding:3px 8px;background:var(--bg);border:1px solid var(--line)}
+.tiers{display:grid;gap:4px}
+.tiers span{font-size:12px;padding:5px 8px;border-radius:8px;background:var(--bg);border:1px solid var(--line);display:flex;justify-content:space-between;transition:background .3s,color .3s,border-color .3s}
+.tiers span em{font-style:normal;color:var(--muted);font-size:11px}
+.tiers span.pick{background:var(--blue);border-color:var(--blue);color:#fff}
+.tiers span.pick em{color:rgba(255,255,255,.75)}
+.obs{margin-top:16px;border:1px dashed #cdd3de;border-radius:14px;padding:12px 16px;display:flex;flex-wrap:wrap;align-items:center;gap:10px 22px;font-size:13px;color:var(--ink-2)}
+.obs b{font-size:13px}
+.obs span{display:flex;align-items:center;gap:7px}
+.obs span::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--green)}
+.concepts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:20px}
+.cc{border:1px solid var(--line);border-radius:18px;padding:20px;background:var(--bg);display:flex;flex-direction:column;gap:8px}
+.cc h3{font-size:16.5px}
+.cc p{font-size:14px;color:var(--muted)}
+.cc .use{font-family:var(--f-mono);font-size:11.5px;color:var(--ink-2);margin-top:auto;padding-top:6px}
+
 /* services */
 .svc{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
 .svc article{background:var(--bg);border:1px solid var(--line);border-radius:22px;padding:28px;display:flex;flex-direction:column;gap:14px;transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s ease,border-color .35s}
@@ -388,6 +419,9 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   .hero-grid,.case,.about,.faq,.contact{grid-template-columns:minmax(0,1fr)}
   .case.flip .c-copy{order:0}
   .svc,.tech{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .flow6{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .stage:nth-child(3)::after{display:none}
+  .concepts{grid-template-columns:repeat(2,minmax(0,1fr))}
   .cta-band{grid-template-columns:minmax(0,1fr);padding:40px}
   .cta-btns{flex-direction:row;flex-wrap:wrap}
   .caps{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -402,7 +436,10 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 @media (max-width:760px){
   section{padding-block:80px}
   .nav a.l{display:none}
-  .svc,.tech,.caps,.promise{grid-template-columns:minmax(0,1fr)}
+  .svc,.tech,.caps,.promise,.concepts{grid-template-columns:minmax(0,1fr)}
+  .flow6{grid-template-columns:minmax(0,1fr);gap:14px}
+  .stage:not(:last-child)::after{display:block;top:auto;bottom:-15px;right:auto;left:28px;width:2px;height:14px}
+  .arch{padding:16px;border-radius:22px}
   .cta-band{padding:30px 22px;border-radius:22px}
   .cta-btns{flex-direction:column}
   .proc{grid-template-columns:minmax(0,1fr)}
@@ -437,6 +474,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   <div class="wrap nav">
     <a class="brand" href="#top"><span class="mk">G</span><span>Gopikanth<small>AGENTVERSE</small></span></a>
     <a class="l" href="#work">Work</a>
+    <a class="l" href="#engine">Architecture</a>
     <a class="l" href="#services">Services</a>
     <a class="l" href="#process">Process</a>
     <a class="l" href="#about">About</a>
@@ -516,7 +554,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
           <h3>A sales agent that replies to every lead in seconds, day or night.</h3>
           <dl class="pbr">
             <div><dt>The problem</dt><dd>Businesses paid for ad leads that went cold overnight. Replies were slow, leads went unqualified and the CRM was never up to date.</dd></div>
-            <div><dt>What I built</dt><dd>A multi-agent WhatsApp assistant that qualifies leads, answers from company documents, understands Indian-language voice notes, books visits and updates the CRM.</dd></div>
+            <div><dt>What I built</dt><dd>A multi-agent WhatsApp assistant that qualifies leads, answers from company documents, understands voice notes, replies in each lead's own language, books visits and updates the CRM.</dd></div>
             <div><dt>How it stays affordable</dt><dd>Agent routing sends each message to the right model, so quality stays high and API cost stays low.</dd></div>
           </dl>
           <div class="wins">
@@ -534,7 +572,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
                 <div class="msg out">Hi Priya, thanks for your enquiry. Are you buying to live in or to invest?<small>11:40 pm</small></div>
                 <div class="msg in">To live. 2BHK, around 85 lakhs.</div>
                 <div class="msg out">We have 2BHK homes from ₹78L, ready by Dec 2027.<small>11:41 pm</small></div>
-                <div class="msg in voice"><span class="play"></span><span class="wave" aria-hidden="true"><i></i><i style="animation-delay:.1s"></i><i style="animation-delay:.2s"></i><i style="animation-delay:.3s"></i><i style="animation-delay:.4s"></i><i style="animation-delay:.5s"></i><i style="animation-delay:.6s"></i><i style="animation-delay:.2s"></i></span><span style="font-size:11px;color:var(--muted)">Telugu voice note · 0:09</span></div>
+                <div class="msg in voice"><span class="play"></span><span class="wave" aria-hidden="true"><i></i><i style="animation-delay:.1s"></i><i style="animation-delay:.2s"></i><i style="animation-delay:.3s"></i><i style="animation-delay:.4s"></i><i style="animation-delay:.5s"></i><i style="animation-delay:.6s"></i><i style="animation-delay:.2s"></i></span><span style="font-size:11px;color:var(--muted)">Voice note · 0:09</span></div>
                 <div class="msg out">Happy to show you. Saturday 11 am or Sunday 4 pm?<small>11:42 pm</small></div>
                 <div class="msg in">Sunday 4 pm.</div>
                 <div class="typing" id="typing"><i></i><i></i><i></i></div>
@@ -618,8 +656,43 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   </div>
 </section>
 
+<!-- UNDER THE HOOD -->
+<section id="engine" class="tint">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow">Under the hood</span>
+      <h2 class="h2">Not a chatbot. A multi-agent system.</h2>
+      <p>Every message goes through safety checks, smart model routing and a team of specialist agents before a reply goes out. This is the architecture behind the agents I build.</p>
+    </div>
+
+    <div class="arch reveal" id="arch" aria-label="Architecture: message in, input guardrails, Jev router, supervisor agent with specialists, MCP tools and memory, checked reply, with tracing and evals across every step">
+      <div class="arch-top"><b>How one customer message is handled</b><span>Example flow</span></div>
+      <div class="flow6">
+        <div class="stage"><span class="k">1 · Message in</span><h4>Any channel</h4><div class="bub">Is the 2BHK still available?</div><small>Text or voice, in any language</small></div>
+        <div class="stage"><span class="k">2 · Input guardrails</span><h4>Safety first</h4><div class="chips"><span>PII masked</span><span>Injection blocked</span><span>On-topic</span></div><small>Checked before any model sees it</small></div>
+        <div class="stage"><span class="k">3 · Jev router</span><h4>Right model</h4><div class="tiers" id="tiers"><span>Fast <em>simple</em></span><span class="pick">Standard <em>most</em></span><span>Reasoning <em>complex</em></span></div><small>Chosen by difficulty and cost</small></div>
+        <div class="stage"><span class="k">4 · Supervisor agent</span><h4>Plans and delegates</h4><div class="chips"><span>Qualifier</span><span>Booking</span><span>Knowledge</span><span>Data</span></div><small>Hands each step to a specialist</small></div>
+        <div class="stage"><span class="k">5 · Tools and memory</span><h4>Takes action</h4><div class="chips"><span>CRM</span><span>Calendar</span><span>Database</span><span>Memory</span></div><small>Secure tool calls through MCP</small></div>
+        <div class="stage"><span class="k">6 · Checked reply</span><h4>Grounded answer</h4><div class="bub out">Yes, 2 units left. Visit on Sat or Sun?</div><small>Fact-checked, in the customer's language</small></div>
+      </div>
+      <div class="obs"><b>Across every step:</b><span>Full traces</span><span>Eval scores</span><span>Cost per conversation</span><span>Human handoff</span></div>
+    </div>
+
+    <div class="concepts">
+      <article class="cc reveal"><h3>Multi-agent orchestration</h3><p>A supervisor plans the work and hands each step to a specialist agent.</p><span class="use">LangGraph · supervisor pattern</span></article>
+      <article class="cc reveal"><h3>Jev routing</h3><p>Each request goes to the right model for its difficulty, balancing quality and cost.</p><span class="use">Jev · model cascading · caching</span></article>
+      <article class="cc reveal"><h3>Hybrid RAG</h3><p>Keyword and vector search with reranking, so answers come from your documents.</p><span class="use">BM25 + vectors · reranking</span></article>
+      <article class="cc reveal"><h3>Guardrails</h3><p>Prompt-injection defense, PII masking and policy checks on every input and output.</p><span class="use">Input and output filters</span></article>
+      <article class="cc reveal"><h3>MCP tool use</h3><p>Agents act in your CRM, calendar and databases through secure tool calls.</p><span class="use">MCP · A2A · tool calling</span></article>
+      <article class="cc reveal"><h3>Memory</h3><p>Agents remember each customer's history across conversations and channels.</p><span class="use">Short and long-term memory</span></article>
+      <article class="cc reveal"><h3>Evals and observability</h3><p>Every step is traced and scored, and cost per conversation is tracked.</p><span class="use">LangSmith · LLM evals</span></article>
+      <article class="cc reveal"><h3>Human in the loop</h3><p>Sensitive actions wait for approval, and a person can take over any chat.</p><span class="use">Approvals · handoff</span></article>
+    </div>
+  </div>
+</section>
+
 <!-- SERVICES -->
-<section id="services" class="tint">
+<section id="services">
   <div class="wrap">
     <div class="head reveal">
       <div>
@@ -638,7 +711,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
       <article class="reveal">
         <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></span>
         <h3>Voice Agents</h3>
-        <p>Customers send voice notes or call in English or Indian languages and get a natural spoken reply.</p>
+        <p>Customers send voice notes or call in their own language and get a natural spoken reply.</p>
         <ul><li>Speech-to-text and text-to-speech</li><li>Multilingual understanding</li><li>Same knowledge as your chat agent</li></ul>
       </article>
       <article class="reveal">
@@ -950,12 +1023,12 @@ var CONFIG = { FORM_ENDPOINT: "" }; // paste a Formspree URL here, e.g. https://
   var hub = document.getElementById("hub"), toast = document.getElementById("toast");
   var hubNodes = [].slice.call(hub.querySelectorAll(".node"));
   var steps = [
-    ["Lead qualified, visit booked", "11:42 pm"],
-    ["Visitor question answered", "2:05 am"],
-    ["Call handled in Telugu", "6:30 am"],
-    ["Lead score 82 synced", "9:14 am"],
-    ["Weekly sales report ready", "8:00 am"],
-    ["Answer found in policy PDF", "4:47 pm"]
+    ["Lead qualified in their own language", "11:42 pm"],
+    ["Supervisor handed off to booking agent", "2:05 am"],
+    ["Voice note answered in the caller's language", "6:30 am"],
+    ["MCP tool call: CRM record updated", "9:14 am"],
+    ["Jev routed the query, safe SQL, chart ready", "8:00 am"],
+    ["RAG answer with sources, guardrails passed", "4:47 pm"]
   ];
   var hs = 0;
   function hubStep(){
@@ -970,6 +1043,17 @@ var CONFIG = { FORM_ENDPOINT: "" }; // paste a Formspree URL here, e.g. https://
   hubStep();
   if (reduce) { [].slice.call(hub.querySelectorAll("circle.in, circle.out")).forEach(function(c){ c.remove(); }); }
   else setInterval(function(){ if (!document.hidden) hubStep(); }, 2600);
+
+  /* architecture stepper */
+  var arch = document.getElementById("arch"), stages = [].slice.call(arch.querySelectorAll(".stage"));
+  var tiers = [].slice.call(document.querySelectorAll("#tiers span")), as = 0, tierSeq = [1, 0, 2, 1];
+  function archStep(){
+    var i = as % (stages.length + 1);
+    stages.forEach(function(st, k){ st.classList.toggle("on", k === i); st.classList.toggle("done", k < i); });
+    if (i === 2) { var t = tierSeq[Math.floor(as / (stages.length + 1)) % tierSeq.length]; tiers.forEach(function(x, k){ x.classList.toggle("pick", k === t); }); }
+    as++;
+  }
+  if (!reduce) setInterval(function(){ if (!document.hidden) archStep(); }, 1300);
 
   /* header state + progress */
   var hdr = document.getElementById("hdr"), bar = document.getElementById("progress");
