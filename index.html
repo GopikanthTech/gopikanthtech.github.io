@@ -79,12 +79,12 @@ header.scrolled{border-bottom-color:var(--line)}
 
 /* hero */
 .hero{padding-block:84px 72px}
-.hero-grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:64px;align-items:center}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:56px;align-items:center}
 .avail{display:inline-flex;align-items:center;gap:10px;padding:7px 14px 7px 10px;border:1px solid var(--line);border-radius:999px;font-size:13.5px;color:var(--ink-2);background:var(--bg)}
 .live{width:8px;height:8px;border-radius:50%;background:var(--green);position:relative;display:inline-block;flex:none}
 .live::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:2px solid var(--green);opacity:0;animation:ping 2.2s ease-out infinite}
 @keyframes ping{0%{transform:scale(.5);opacity:.7}100%{transform:scale(1.6);opacity:0}}
-.hero h1{font-size:clamp(36px,4.8vw,60px);letter-spacing:-.04em;line-height:1.05;margin-top:24px;max-width:15ch}
+.hero h1{font-size:clamp(38px,5vw,64px);letter-spacing:-.04em;line-height:1.03;margin-top:24px;max-width:14ch}
 .hero h1 .hl{color:var(--blue)}
 .lead{font-size:clamp(17px,1.6vw,19px);color:var(--ink-2);max-width:56ch;margin-top:26px}
 .lead b{font-weight:600;color:var(--ink)}
@@ -95,23 +95,40 @@ header.scrolled{border-bottom-color:var(--line)}
 .facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;margin-top:52px;border-top:1px solid var(--line)}
 .facts div{padding:18px 18px 0 0}
 .facts div+div{padding-left:18px;border-left:1px solid var(--line)}
-.facts b{display:block;font-size:28px;font-weight:600;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.facts b{display:block;font-size:24px;font-weight:600;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
 .facts span{font-size:13px;color:var(--muted);line-height:1.35;display:block;margin-top:2px}
 
-.profile{border:1px solid var(--line);border-radius:24px;padding:26px;background:var(--bg);box-shadow:0 1px 0 var(--line),0 30px 60px -40px rgba(12,15,22,.35);position:relative}
-.p-top{display:flex;gap:14px;align-items:center}
-.p-top .av{width:58px;height:58px;border-radius:16px;background:linear-gradient(145deg,#1a2030,#0c0f16);color:#fff;display:grid;place-items:center;font-size:24px;font-weight:600;position:relative}
-.p-top .av .live{position:absolute;right:-3px;bottom:-3px;border:2px solid var(--bg);width:14px;height:14px}
-.p-top b{display:block;font-size:18px}
-.p-top span{font-size:13.5px;color:var(--muted)}
-.p-rows{margin:22px 0;border-top:1px solid var(--line)}
-.p-rows div{display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid var(--line);font-size:14px}
-.p-rows dt{color:var(--muted)}
-.p-rows dd{margin:0;text-align:right;font-weight:500}
-.p-rows{margin-block:22px}
-.p-now{background:var(--tile);border-radius:14px;padding:14px 16px;font-size:13.5px;color:var(--ink-2);margin-bottom:18px}
-.p-now b{display:block;font-size:13px;color:var(--ink);font-weight:600;margin-bottom:2px}
-.profile .btn{width:100%;justify-content:center}
+.console{background:#0c0f16;color:#e6e8ee;border-radius:22px;padding:18px;box-shadow:0 40px 80px -40px rgba(12,15,22,.55),0 0 0 1px rgba(12,15,22,.9);position:relative;overflow:hidden;min-width:0}
+.console::before{content:"";position:absolute;width:360px;height:360px;right:-140px;top:-180px;border-radius:50%;background:radial-gradient(circle,rgba(35,80,230,.35),transparent 65%);pointer-events:none}
+.console>*{position:relative}
+.cs-head{display:flex;align-items:center;gap:12px;padding:2px 4px 14px;border-bottom:1px solid rgba(255,255,255,.08)}
+.cs-head .dots{display:flex;gap:6px}
+.cs-head .dots i{width:10px;height:10px;border-radius:50%;background:#2a303c}
+.cs-head b{font-family:var(--f-mono);font-size:12.5px;font-weight:500;color:#aeb5c2;letter-spacing:.01em}
+.cs-live{margin-left:auto;display:flex;align-items:center;gap:8px;font-size:12px;color:#7ee2a8;background:rgba(20,147,90,.14);padding:4px 10px;border-radius:999px}
+.cs-live .live::after{border-color:#7ee2a8}
+.cs-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:14px 0}
+.cs-stats div{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:10px 12px}
+.cs-stats small{display:block;font-size:11.5px;color:#8b93a1}
+.cs-stats b{display:block;font-size:20px;font-weight:600;letter-spacing:-.02em;font-variant-numeric:tabular-nums;margin-top:2px}
+.cs-feed{display:grid;gap:6px;height:266px;overflow:hidden;-webkit-mask-image:linear-gradient(#000 70%,transparent);mask-image:linear-gradient(#000 70%,transparent)}
+.cs-feed li{display:grid;grid-template-columns:auto auto minmax(0,1fr) auto;align-items:center;gap:10px;padding:9px 10px;border-radius:10px;background:rgba(255,255,255,.03);font-size:13px}
+.cs-feed li.new{animation:feedin .6s cubic-bezier(.2,.8,.2,1)}
+@keyframes feedin{from{opacity:0;transform:translateY(-10px);background:rgba(35,80,230,.25)}to{opacity:1;transform:none}}
+.cs-feed .t{font-family:var(--f-mono);font-size:11.5px;color:#6f7786;font-variant-numeric:tabular-nums}
+.cs-feed .tag{font-size:11.5px;font-weight:500;padding:2px 8px;border-radius:6px;white-space:nowrap}
+.cs-feed .tx{color:#d5d9e1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cs-feed .m{font-family:var(--f-mono);font-size:11.5px;color:#8b93a1;white-space:nowrap}
+.g-sales{background:rgba(20,147,90,.18);color:#7ee2a8}
+.g-route{background:rgba(35,80,230,.22);color:#9db4ff}
+.g-rag{background:rgba(124,77,255,.2);color:#c3adff}
+.g-data{background:rgba(180,95,6,.22);color:#f3b46a}
+.g-guard{background:rgba(217,58,58,.2);color:#ff9d9d}
+.g-pipe{background:rgba(20,160,170,.2);color:#7fdde4}
+.cs-foot{display:flex;justify-content:space-between;gap:12px;font-size:11.5px;color:#6f7786;padding:12px 4px 0;border-top:1px solid rgba(255,255,255,.08);margin-top:8px}
+.hero-sub{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:22px;font-size:14px;color:var(--muted)}
+.hero-sub span{display:flex;align-items:center;gap:8px}
+.hero-sub span::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--blue)}
 
 /* marquee */
 .stackbar{border-block:1px solid var(--line);padding-block:22px;overflow:hidden;position:relative}
@@ -377,7 +394,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   .head{grid-template-columns:minmax(0,1fr);gap:16px}
   .slide{grid-template-columns:minmax(0,1fr)}
   .contact{padding:48px}
-  .profile{max-width:520px}
+  .console{max-width:600px}
 }
 @media (max-width:760px){
   section{padding-block:80px}
@@ -399,6 +416,10 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   .row2{grid-template-columns:minmax(0,1fr)}
   .s-copy,.s-chat{padding:24px}
   .mailchip{width:100%;justify-content:space-between}
+  .cs-feed li{grid-template-columns:auto minmax(0,1fr) auto}
+  .cs-feed .t{display:none}
+  .cs-stats b{font-size:17px}
+  .cs-head b{display:none}
 }
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
@@ -428,33 +449,37 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   <div class="wrap hero-grid">
     <div>
       <span class="avail fadeup"><i class="live"></i>Available for new projects</span>
-      <h1 class="fadeup" style="animation-delay:.08s">I build AI that <span class="hl">answers your customers</span> and keeps your data right.</h1>
-      <p class="lead fadeup" style="animation-delay:.16s">I'm <b>Gopikanth</b>, a freelance AI Engineer and AI Data Engineer. I have 2 years of industry experience building production AI: <b>WhatsApp sales agents</b> used across six industries, <b>data agents</b> that answer in plain English, and the <b>Airflow and dbt pipelines</b> underneath them.</p>
+      <h1 class="fadeup" style="animation-delay:.08s">Integrate AI into your business. <span class="hl">Working 24/7.</span></h1>
+      <p class="lead fadeup" style="animation-delay:.16s">I design and build <b>production AI agents, RAG systems and data platforms</b> that sell, support and answer questions around the clock, so your team can focus on growth.</p>
+      <div class="hero-sub fadeup" style="animation-delay:.2s"><span>Agentic AI</span><span>RAG and voice AI</span><span>Data engineering and ML</span></div>
       <div class="ctas fadeup" style="animation-delay:.24s">
-        <a class="btn" href="#contact">Book a free 30-min call <span class="arr">→</span></a>
-        <span class="mailchip"><span>gopikanth.tech@gmail.com</span><button type="button" data-copy="gopikanth.tech@gmail.com">Copy</button></span>
+        <a class="btn" href="#contact">Book a free strategy call <span class="arr">→</span></a>
+        <a class="btn ghost" href="#work">See my work</a>
       </div>
       <div class="facts fadeup" style="animation-delay:.32s">
-        <div><b>2 yrs</b><span>building production AI</span></div>
+        <div><b>24/7</b><span>always-on AI agents</span></div>
+        <div><b>Seconds</b><span>to reply to every lead</span></div>
         <div><b>6</b><span>industries served</span></div>
-        <div><b>24 h</b><span>reply to every enquiry</span></div>
-        <div><b>Early</b><span>working demo before the full build</span></div>
+        <div><b>2 yrs</b><span>building production AI</span></div>
       </div>
     </div>
 
-    <aside class="profile fadeup" style="animation-delay:.2s" aria-label="Profile summary">
-      <div class="p-top">
-        <span class="av">G<i class="live"></i></span>
-        <div><b>Gopikanth</b><span>AI Engineer · AI Data Engineer</span></div>
+    <aside class="console fadeup" style="animation-delay:.2s" aria-label="Example: live activity from AI systems running in a business">
+      <div class="cs-head"><span class="dots"><i></i><i></i><i></i></span><b>agentverse / production</b><span class="cs-live"><i class="live"></i>All systems live</span></div>
+      <div class="cs-stats">
+        <div><small>Agents online</small><b>6</b></div>
+        <div><small>Avg. reply</small><b id="csReply">2.1 s</b></div>
+        <div><small>Data tests</small><b>48/48</b></div>
       </div>
-      <dl class="p-rows">
-        <div><dt>Focus</dt><dd>AI agents, RAG, data pipelines</dd></div>
-        <div><dt>Based in</dt><dd>India · works remotely</dd></div>
-        <div><dt>Availability</dt><dd>Across time zones</dd></div>
-        <div><dt>Engagement</dt><dd>Projects and ongoing support</dd></div>
-      </dl>
-      <div class="p-now"><b>Best fit</b>Businesses that lose leads to slow replies, or teams whose reports and AI run on messy data.</div>
-      <a class="btn blue" href="#contact">Start a project <span class="arr">→</span></a>
+      <ul class="cs-feed" id="feed">
+        <li><span class="t">23:41:07</span><span class="tag g-sales">Sales agent</span><span class="tx">Lead qualified, site visit booked</span><span class="m">1.9 s</span></li>
+        <li><span class="t">23:41:04</span><span class="tag g-route">Router</span><span class="tx">Simple question sent to fast model</span><span class="m">low cost</span></li>
+        <li><span class="t">23:41:01</span><span class="tag g-rag">RAG</span><span class="tx">Answer grounded in 3 documents</span><span class="m">3 sources</span></li>
+        <li><span class="t">23:40:57</span><span class="tag g-guard">Guardrail</span><span class="tx">Prompt injection blocked</span><span class="m">safe</span></li>
+        <li><span class="t">23:40:52</span><span class="tag g-data">Data agent</span><span class="tx">"Revenue by region" answered with chart</span><span class="m">3.1 s</span></li>
+        <li><span class="t">23:40:48</span><span class="tag g-pipe">Airflow</span><span class="tx">Nightly pipeline finished, dbt tests passed</span><span class="m">48/48</span></li>
+      </ul>
+      <div class="cs-foot"><span>Example activity, fictional data</span><span>Sales · Support · Data</span></div>
     </aside>
   </div>
 </section>
@@ -916,6 +941,35 @@ var CONFIG = { FORM_ENDPOINT: "" }; // paste a Formspree URL here, e.g. https://
 (function(){
   var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var vh = window.innerHeight || 800;
+
+  /* hero console feed */
+  var feed = document.getElementById("feed");
+  var pool = [
+    ["g-sales","Sales agent","Lead qualified, demo booked","2.0 s"],
+    ["g-route","Router","Complex question sent to reasoning model","routed"],
+    ["g-rag","RAG","Policy answer with 2 citations","2 sources"],
+    ["g-sales","Voice","Telugu voice note understood","2.4 s"],
+    ["g-data","Data agent","\"Top products this week\" answered","2.8 s"],
+    ["g-guard","Guardrail","Personal data masked in reply","safe"],
+    ["g-pipe","Forecast","Demand forecast refreshed","next 30 d"],
+    ["g-sales","Support","Ticket classified and routed to billing","0.8 s"],
+    ["g-route","Cache","Repeated question served from cache","instant"],
+    ["g-sales","CRM","Lead score 82 synced to CRM","synced"]
+  ];
+  var pi = 0, clock = 23 * 3600 + 41 * 60 + 7;
+  function pad(n){ return (n < 10 ? "0" : "") + n; }
+  function pushEvent(){
+    var e = pool[pi++ % pool.length]; clock += 2 + Math.floor(Math.random() * 3);
+    var li = document.createElement("li"); li.className = "new";
+    var t = pad(Math.floor(clock / 3600) % 24) + ":" + pad(Math.floor(clock / 60) % 60) + ":" + pad(clock % 60);
+    [["t", t], ["tag " + e[0], e[1]], ["tx", e[2]], ["m", e[3]]].forEach(function(c){
+      var sp = document.createElement("span"); sp.className = c[0]; sp.textContent = c[1]; li.appendChild(sp);
+    });
+    feed.insertBefore(li, feed.firstChild);
+    while (feed.children.length > 7) feed.removeChild(feed.lastChild);
+    var r = document.getElementById("csReply"); if (r) r.textContent = (1.8 + Math.random() * 0.6).toFixed(1) + " s";
+  }
+  if (!reduce) setInterval(function(){ if (!document.hidden) pushEvent(); }, 2400);
 
   /* header state + progress */
   var hdr = document.getElementById("hdr"), bar = document.getElementById("progress");
