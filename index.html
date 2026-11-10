@@ -98,34 +98,37 @@ header.scrolled{border-bottom-color:var(--line)}
 .facts b{display:block;font-size:24px;font-weight:600;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
 .facts span{font-size:13px;color:var(--muted);line-height:1.35;display:block;margin-top:2px}
 
-.console{background:#0c0f16;color:#e6e8ee;border-radius:22px;padding:18px;box-shadow:0 40px 80px -40px rgba(12,15,22,.55),0 0 0 1px rgba(12,15,22,.9);position:relative;overflow:hidden;min-width:0}
-.console::before{content:"";position:absolute;width:360px;height:360px;right:-140px;top:-180px;border-radius:50%;background:radial-gradient(circle,rgba(35,80,230,.35),transparent 65%);pointer-events:none}
-.console>*{position:relative}
-.cs-head{display:flex;align-items:center;gap:12px;padding:2px 4px 14px;border-bottom:1px solid rgba(255,255,255,.08)}
-.cs-head .dots{display:flex;gap:6px}
-.cs-head .dots i{width:10px;height:10px;border-radius:50%;background:#2a303c}
-.cs-head b{font-family:var(--f-mono);font-size:12.5px;font-weight:500;color:#aeb5c2;letter-spacing:.01em}
-.cs-live{margin-left:auto;display:flex;align-items:center;gap:8px;font-size:12px;color:#7ee2a8;background:rgba(20,147,90,.14);padding:4px 10px;border-radius:999px}
-.cs-live .live::after{border-color:#7ee2a8}
-.cs-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:14px 0}
-.cs-stats div{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:10px 12px}
-.cs-stats small{display:block;font-size:11.5px;color:#8b93a1}
-.cs-stats b{display:block;font-size:20px;font-weight:600;letter-spacing:-.02em;font-variant-numeric:tabular-nums;margin-top:2px}
-.cs-feed{display:grid;gap:6px;height:266px;overflow:hidden;-webkit-mask-image:linear-gradient(#000 70%,transparent);mask-image:linear-gradient(#000 70%,transparent)}
-.cs-feed li{display:grid;grid-template-columns:auto auto minmax(0,1fr) auto;align-items:center;gap:10px;padding:9px 10px;border-radius:10px;background:rgba(255,255,255,.03);font-size:13px}
-.cs-feed li.new{animation:feedin .6s cubic-bezier(.2,.8,.2,1)}
-@keyframes feedin{from{opacity:0;transform:translateY(-10px);background:rgba(35,80,230,.25)}to{opacity:1;transform:none}}
-.cs-feed .t{font-family:var(--f-mono);font-size:11.5px;color:#6f7786;font-variant-numeric:tabular-nums}
-.cs-feed .tag{font-size:11.5px;font-weight:500;padding:2px 8px;border-radius:6px;white-space:nowrap}
-.cs-feed .tx{color:#d5d9e1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.cs-feed .m{font-family:var(--f-mono);font-size:11.5px;color:#8b93a1;white-space:nowrap}
-.g-sales{background:rgba(20,147,90,.18);color:#7ee2a8}
-.g-route{background:rgba(35,80,230,.22);color:#9db4ff}
-.g-rag{background:rgba(124,77,255,.2);color:#c3adff}
-.g-data{background:rgba(180,95,6,.22);color:#f3b46a}
-.g-guard{background:rgba(217,58,58,.2);color:#ff9d9d}
-.g-pipe{background:rgba(20,160,170,.2);color:#7fdde4}
-.cs-foot{display:flex;justify-content:space-between;gap:12px;font-size:11.5px;color:#6f7786;padding:12px 4px 0;border-top:1px solid rgba(255,255,255,.08);margin-top:8px}
+.hub{position:relative;width:100%;max-width:540px;aspect-ratio:1/1}
+.hub::before{content:"";position:absolute;inset:4%;border-radius:50%;background:radial-gradient(circle,rgba(35,80,230,.10),transparent 62%);pointer-events:none}
+.hub .grid-bg{position:absolute;inset:0;background-image:radial-gradient(#d5dae4 1px,transparent 1.2px);background-size:22px 22px;-webkit-mask-image:radial-gradient(circle,#000 30%,transparent 70%);mask-image:radial-gradient(circle,#000 30%,transparent 70%);opacity:.8}
+.hub svg.wires{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.wires .ring{fill:none;stroke:#e4e7ed;stroke-width:.25;stroke-dasharray:1 1.4}
+.wires .w{fill:none;stroke:#d3d9e4;stroke-width:.35;transition:stroke .4s,stroke-width .4s}
+.wires .w.on{stroke:#2350e6;stroke-width:.6}
+.wires .in{fill:#2350e6}
+.wires .out{fill:#14935a}
+.core{position:absolute;left:50%;top:50%;width:30%;aspect-ratio:1/1;transform:translate(-50%,-50%);border-radius:28%;background:#0c0f16;color:#fff;display:grid;place-items:center;text-align:center;box-shadow:0 30px 60px -20px rgba(35,80,230,.45),0 0 0 8px rgba(255,255,255,.9),0 0 0 9px #e4e7ed;z-index:2;overflow:hidden}
+.core::before{content:"";position:absolute;inset:-40%;background:conic-gradient(from 0deg,transparent 0 70%,rgba(110,150,255,.55) 85%,transparent 100%);animation:spin 4s linear infinite}
+.core::after{content:"";position:absolute;inset:2px;border-radius:inherit;background:radial-gradient(circle at 50% 30%,#1c2440,#0c0f16 70%)}
+.core>div{position:relative;z-index:1;display:grid;gap:2px;justify-items:center}
+.core .cbadge{font-size:clamp(9px,1.6vw,11px);color:#7ee2a8;display:flex;align-items:center;gap:6px}
+.core b{font-size:clamp(16px,3vw,24px);letter-spacing:-.02em;line-height:1.1}
+.core small{font-size:clamp(9px,1.5vw,11.5px);color:#9aa1ae}
+@keyframes spin{to{transform:rotate(360deg)}}
+.node{position:absolute;transform:translate(-50%,-50%);display:flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:8px 12px 8px 8px;font-size:13.5px;font-weight:500;white-space:nowrap;box-shadow:0 10px 24px -16px rgba(12,15,22,.35);z-index:2;transition:border-color .4s,box-shadow .4s,transform .4s}
+.node i{width:28px;height:28px;border-radius:9px;background:var(--tile);display:grid;place-items:center;color:var(--ink);transition:background .4s,color .4s;flex:none}
+.node i svg{width:16px;height:16px}
+.node.on{border-color:#2350e6;box-shadow:0 14px 30px -14px rgba(35,80,230,.55);transform:translate(-50%,-50%) scale(1.06)}
+.node.on i{background:#2350e6;color:#fff}
+.hero-vis{display:grid;justify-items:center;gap:6px;min-width:0}
+.toast{position:relative;z-index:3;background:#fff;border-radius:999px;padding:10px 16px 10px 10px;font-size:13.5px;box-shadow:0 18px 40px -16px rgba(12,15,22,.35),0 0 0 1px var(--line);display:flex;align-items:center;gap:8px;white-space:nowrap;max-width:100%}
+.toast.pop{animation:pop .5s cubic-bezier(.2,.8,.2,1)}
+@keyframes pop{from{opacity:0;transform:translateY(8px) scale(.96)}to{opacity:1;transform:none}}
+.toast .ok{width:18px;height:18px;border-radius:50%;background:var(--green-soft);color:var(--green);display:grid;place-items:center;font-size:10px;font-weight:700;flex:none}
+.toast b{font-weight:600;overflow:hidden;text-overflow:ellipsis}
+.toast .ch{color:var(--blue);font-weight:600}
+.toast span.tm{color:var(--muted);font-size:11.5px}
+.hub-chip{position:absolute;left:50%;bottom:1%;transform:translateX(-50%);font-size:12px;color:var(--muted);white-space:nowrap;z-index:2}
 .hero-sub{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:22px;font-size:14px;color:var(--muted)}
 .hero-sub span{display:flex;align-items:center;gap:8px}
 .hero-sub span::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--blue)}
@@ -394,7 +397,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   .head{grid-template-columns:minmax(0,1fr);gap:16px}
   .slide{grid-template-columns:minmax(0,1fr)}
   .contact{padding:48px}
-  .console{max-width:600px}
+
 }
 @media (max-width:760px){
   section{padding-block:80px}
@@ -416,10 +419,11 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   .row2{grid-template-columns:minmax(0,1fr)}
   .s-copy,.s-chat{padding:24px}
   .mailchip{width:100%;justify-content:space-between}
-  .cs-feed li{grid-template-columns:auto minmax(0,1fr) auto}
-  .cs-feed .t{display:none}
-  .cs-stats b{font-size:17px}
-  .cs-head b{display:none}
+  .node{font-size:11.5px;padding:5px 8px 5px 5px;gap:6px;border-radius:11px}
+  .node i{width:22px;height:22px;border-radius:7px}
+  .node i svg{width:13px;height:13px}
+  .toast{font-size:12px;padding:8px 12px 8px 8px}
+  .toast span.tm{display:none}
 }
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
@@ -464,23 +468,23 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
       </div>
     </div>
 
-    <aside class="console fadeup" style="animation-delay:.2s" aria-label="Example: live activity from AI systems running in a business">
-      <div class="cs-head"><span class="dots"><i></i><i></i><i></i></span><b>agentverse / production</b><span class="cs-live"><i class="live"></i>All systems live</span></div>
-      <div class="cs-stats">
-        <div><small>Agents online</small><b>6</b></div>
-        <div><small>Avg. reply</small><b id="csReply">2.1 s</b></div>
-        <div><small>Data tests</small><b>48/48</b></div>
-      </div>
-      <ul class="cs-feed" id="feed">
-        <li><span class="t">23:41:07</span><span class="tag g-sales">Sales agent</span><span class="tx">Lead qualified, site visit booked</span><span class="m">1.9 s</span></li>
-        <li><span class="t">23:41:04</span><span class="tag g-route">Router</span><span class="tx">Simple question sent to fast model</span><span class="m">low cost</span></li>
-        <li><span class="t">23:41:01</span><span class="tag g-rag">RAG</span><span class="tx">Answer grounded in 3 documents</span><span class="m">3 sources</span></li>
-        <li><span class="t">23:40:57</span><span class="tag g-guard">Guardrail</span><span class="tx">Prompt injection blocked</span><span class="m">safe</span></li>
-        <li><span class="t">23:40:52</span><span class="tag g-data">Data agent</span><span class="tx">"Revenue by region" answered with chart</span><span class="m">3.1 s</span></li>
-        <li><span class="t">23:40:48</span><span class="tag g-pipe">Airflow</span><span class="tx">Nightly pipeline finished, dbt tests passed</span><span class="m">48/48</span></li>
-      </ul>
-      <div class="cs-foot"><span>Example activity, fictional data</span><span>Sales · Support · Data</span></div>
-    </aside>
+    <div class="hero-vis fadeup" style="animation-delay:.2s">
+    <div class="hub" style="animation-delay:.2s" id="hub" aria-label="Diagram: one AI agent connected to WhatsApp, website, voice calls, CRM, reports and documents, handling work around the clock">
+      <div class="grid-bg"></div>
+      <svg class="wires" viewBox="0 0 100 100" aria-hidden="true">
+        <circle class="ring" cx="50" cy="50" r="39"/>
+        <path class="w" id="w0" d="M50 50 L50 11"/><circle class="in" r=".9"><animateMotion dur="2.6s" begin="0.00s" repeatCount="indefinite" keyPoints="1;0" keyTimes="0;1" calcMode="linear"><mpath href="#w0"/></animateMotion></circle><circle class="out" r=".9"><animateMotion dur="2.6s" begin="1.30s" repeatCount="indefinite"><mpath href="#w0"/></animateMotion></circle><path class="w" id="w1" d="M50 50 L85 31"/><circle class="in" r=".9"><animateMotion dur="2.6s" begin="0.43s" repeatCount="indefinite" keyPoints="1;0" keyTimes="0;1" calcMode="linear"><mpath href="#w1"/></animateMotion></circle><circle class="out" r=".9"><animateMotion dur="2.6s" begin="1.73s" repeatCount="indefinite"><mpath href="#w1"/></animateMotion></circle><path class="w" id="w2" d="M50 50 L85 69"/><circle class="in" r=".9"><animateMotion dur="2.6s" begin="0.86s" repeatCount="indefinite" keyPoints="1;0" keyTimes="0;1" calcMode="linear"><mpath href="#w2"/></animateMotion></circle><circle class="out" r=".9"><animateMotion dur="2.6s" begin="2.16s" repeatCount="indefinite"><mpath href="#w2"/></animateMotion></circle><path class="w" id="w3" d="M50 50 L50 89"/><circle class="in" r=".9"><animateMotion dur="2.6s" begin="1.29s" repeatCount="indefinite" keyPoints="1;0" keyTimes="0;1" calcMode="linear"><mpath href="#w3"/></animateMotion></circle><circle class="out" r=".9"><animateMotion dur="2.6s" begin="2.59s" repeatCount="indefinite"><mpath href="#w3"/></animateMotion></circle><path class="w" id="w4" d="M50 50 L15 69"/><circle class="in" r=".9"><animateMotion dur="2.6s" begin="1.72s" repeatCount="indefinite" keyPoints="1;0" keyTimes="0;1" calcMode="linear"><mpath href="#w4"/></animateMotion></circle><circle class="out" r=".9"><animateMotion dur="2.6s" begin="3.02s" repeatCount="indefinite"><mpath href="#w4"/></animateMotion></circle><path class="w" id="w5" d="M50 50 L15 31"/><circle class="in" r=".9"><animateMotion dur="2.6s" begin="2.15s" repeatCount="indefinite" keyPoints="1;0" keyTimes="0;1" calcMode="linear"><mpath href="#w5"/></animateMotion></circle><circle class="out" r=".9"><animateMotion dur="2.6s" begin="3.45s" repeatCount="indefinite"><mpath href="#w5"/></animateMotion></circle>
+      </svg>
+      <div class="core"><div><span class="cbadge"><i class="live"></i>Always on</span><b>Your AI</b><small>24/7 · every channel</small></div></div>
+        <div class="node" style="left:50%;top:11%"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg></i>WhatsApp</div>
+        <div class="node" style="left:85%;top:31%"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/></svg></i>Website</div>
+        <div class="node" style="left:85%;top:69%"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></i>Voice calls</div>
+        <div class="node" style="left:50%;top:89%"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M3 20c.8-3.5 3.2-5 6-5s5.2 1.5 6 5M16 4.5a3.5 3.5 0 0 1 0 7M21 20c-.5-2.4-1.8-3.8-3.5-4.5"/></svg></i>CRM</div>
+        <div class="node" style="left:15%;top:69%"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></i>Reports</div>
+        <div class="node" style="left:15%;top:31%"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h10l4 4v14H5z"/><path d="M14 3v5h5M8 13h8M8 17h5"/></svg></i>Documents</div>
+    </div>
+    <div class="toast" id="toast"><span class="ok">✓</span><span class="ch">WhatsApp</span><b>Lead qualified, visit booked</b><span class="tm">11:42 pm</span></div>
+    </div>
   </div>
 </section>
 
@@ -942,34 +946,30 @@ var CONFIG = { FORM_ENDPOINT: "" }; // paste a Formspree URL here, e.g. https://
   var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var vh = window.innerHeight || 800;
 
-  /* hero console feed */
-  var feed = document.getElementById("feed");
-  var pool = [
-    ["g-sales","Sales agent","Lead qualified, demo booked","2.0 s"],
-    ["g-route","Router","Complex question sent to reasoning model","routed"],
-    ["g-rag","RAG","Policy answer with 2 citations","2 sources"],
-    ["g-sales","Voice","Telugu voice note understood","2.4 s"],
-    ["g-data","Data agent","\"Top products this week\" answered","2.8 s"],
-    ["g-guard","Guardrail","Personal data masked in reply","safe"],
-    ["g-pipe","Forecast","Demand forecast refreshed","next 30 d"],
-    ["g-sales","Support","Ticket classified and routed to billing","0.8 s"],
-    ["g-route","Cache","Repeated question served from cache","instant"],
-    ["g-sales","CRM","Lead score 82 synced to CRM","synced"]
+  /* hero hub: highlight one channel at a time */
+  var hub = document.getElementById("hub"), toast = document.getElementById("toast");
+  var hubNodes = [].slice.call(hub.querySelectorAll(".node"));
+  var steps = [
+    ["Lead qualified, visit booked", "11:42 pm"],
+    ["Visitor question answered", "2:05 am"],
+    ["Call handled in Telugu", "6:30 am"],
+    ["Lead score 82 synced", "9:14 am"],
+    ["Weekly sales report ready", "8:00 am"],
+    ["Answer found in policy PDF", "4:47 pm"]
   ];
-  var pi = 0, clock = 23 * 3600 + 41 * 60 + 7;
-  function pad(n){ return (n < 10 ? "0" : "") + n; }
-  function pushEvent(){
-    var e = pool[pi++ % pool.length]; clock += 2 + Math.floor(Math.random() * 3);
-    var li = document.createElement("li"); li.className = "new";
-    var t = pad(Math.floor(clock / 3600) % 24) + ":" + pad(Math.floor(clock / 60) % 60) + ":" + pad(clock % 60);
-    [["t", t], ["tag " + e[0], e[1]], ["tx", e[2]], ["m", e[3]]].forEach(function(c){
-      var sp = document.createElement("span"); sp.className = c[0]; sp.textContent = c[1]; li.appendChild(sp);
-    });
-    feed.insertBefore(li, feed.firstChild);
-    while (feed.children.length > 7) feed.removeChild(feed.lastChild);
-    var r = document.getElementById("csReply"); if (r) r.textContent = (1.8 + Math.random() * 0.6).toFixed(1) + " s";
+  var hs = 0;
+  function hubStep(){
+    var i = hs % hubNodes.length, nd = hubNodes[i];
+    hubNodes.forEach(function(n, k){ n.classList.toggle("on", k === i); });
+    [].slice.call(hub.querySelectorAll(".w")).forEach(function(w, k){ w.classList.toggle("on", k === i); });
+    toast.children[1].textContent = nd.textContent.trim();
+    toast.children[2].textContent = steps[i][0]; toast.children[3].textContent = steps[i][1];
+    toast.classList.remove("pop"); void toast.offsetWidth; toast.classList.add("pop");
+    hs++;
   }
-  if (!reduce) setInterval(function(){ if (!document.hidden) pushEvent(); }, 2400);
+  hubStep();
+  if (reduce) { [].slice.call(hub.querySelectorAll("circle.in, circle.out")).forEach(function(c){ c.remove(); }); }
+  else setInterval(function(){ if (!document.hidden) hubStep(); }, 2600);
 
   /* header state + progress */
   var hdr = document.getElementById("hdr"), bar = document.getElementById("progress");
