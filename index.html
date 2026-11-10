@@ -248,6 +248,19 @@ header.scrolled{border-bottom-color:var(--line)}
 .tiers span em{font-style:normal;color:var(--muted);font-size:11px}
 .tiers span.pick{background:var(--blue);border-color:var(--blue);color:#fff}
 .tiers span.pick em{color:rgba(255,255,255,.75)}
+.reel{display:flex;gap:4px}
+.reel i{flex:1;height:30px;border-radius:6px;background:linear-gradient(135deg,#cfd8ea,#9fb0cf)}
+.reel i:nth-child(2){background:linear-gradient(135deg,#d9e7dc,#9cc2a6)}
+.reel i:nth-child(3){background:linear-gradient(135deg,#efe0cc,#d1ab7c)}
+.reel i:nth-child(4){background:linear-gradient(135deg,#dcd5ef,#a99bd6)}
+.chips.team span{transition:background .3s,color .3s,border-color .3s}
+.stage.on .chips.team span,.stage.done .chips.team span{background:var(--green-soft);color:var(--green);border-color:transparent}
+.stage.on .chips.team span:nth-child(2){transition-delay:.15s}.stage.on .chips.team span:nth-child(3){transition-delay:.3s}.stage.on .chips.team span:nth-child(4){transition-delay:.45s}.stage.on .chips.team span:nth-child(5){transition-delay:.6s}.stage.on .chips.team span:nth-child(6){transition-delay:.75s}
+.player{position:relative;aspect-ratio:16/9;max-width:100%;border-radius:10px;background:linear-gradient(135deg,#1b2440,#0c0f16);display:grid;place-items:center;overflow:hidden}
+.playbtn{width:0;height:0;border-left:14px solid #fff;border-top:9px solid transparent;border-bottom:9px solid transparent;margin-left:4px;opacity:.9}
+.pbar{position:absolute;left:8px;right:8px;bottom:8px;height:3px;border-radius:2px;background:rgba(255,255,255,.2);overflow:hidden}
+.pbar i{display:block;height:100%;width:100%;background:#7ea0ff;transform-origin:left;transform:scaleX(1);transition:transform 1.2s linear}
+.stage.wait .pbar i{transform:scaleX(0);transition:none}
 .obs{margin-top:16px;border:1px dashed #cdd3de;border-radius:14px;padding:12px 16px;display:flex;flex-wrap:wrap;align-items:center;gap:10px 22px;font-size:13px;color:var(--ink-2)}
 .obs b{font-size:13px}
 .obs span{display:flex;align-items:center;gap:7px}
@@ -662,28 +675,28 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
     <div class="head reveal">
       <span class="eyebrow">Under the hood</span>
       <h2 class="h2">Not a chatbot. A multi-agent system.</h2>
-      <p>Every message goes through safety checks, smart model routing and a team of specialist agents before a reply goes out. This is the architecture behind the agents I build.</p>
+      <p>The agents I build work like a real team. A lead agent plans the job, specialist agents do the work in parallel, a reviewer checks the result, and every step is routed, traced and safe. Here is the same pattern applied to video editing.</p>
     </div>
 
-    <div class="arch reveal" id="arch" aria-label="Architecture: message in, input guardrails, Jev router, supervisor agent with specialists, MCP tools and memory, checked reply, with tracing and evals across every step">
-      <div class="arch-top"><b>How one customer message is handled</b><span>Example flow</span></div>
+    <div class="arch reveal" id="arch" aria-label="Example architecture: raw footage goes to a director agent, Jev routes each task to the right model, specialist agents edit in parallel, a critic agent reviews, and the final video renders">
+      <div class="arch-top"><b>Example: an AI video editor built from agents</b><span>Raw footage in, finished video out</span></div>
       <div class="flow6">
-        <div class="stage"><span class="k">1 · Message in</span><h4>Any channel</h4><div class="bub">Is the 2BHK still available?</div><small>Text or voice, in any language</small></div>
-        <div class="stage"><span class="k">2 · Input guardrails</span><h4>Safety first</h4><div class="chips"><span>PII masked</span><span>Injection blocked</span><span>On-topic</span></div><small>Checked before any model sees it</small></div>
-        <div class="stage"><span class="k">3 · Jev router</span><h4>Right model</h4><div class="tiers" id="tiers"><span>Fast <em>simple</em></span><span class="pick">Standard <em>most</em></span><span>Reasoning <em>complex</em></span></div><small>Chosen by difficulty and cost</small></div>
-        <div class="stage"><span class="k">4 · Supervisor agent</span><h4>Plans and delegates</h4><div class="chips"><span>Qualifier</span><span>Booking</span><span>Knowledge</span><span>Data</span></div><small>Hands each step to a specialist</small></div>
-        <div class="stage"><span class="k">5 · Tools and memory</span><h4>Takes action</h4><div class="chips"><span>CRM</span><span>Calendar</span><span>Database</span><span>Memory</span></div><small>Secure tool calls through MCP</small></div>
-        <div class="stage"><span class="k">6 · Checked reply</span><h4>Grounded answer</h4><div class="bub out">Yes, 2 units left. Visit on Sat or Sun?</div><small>Fact-checked, in the customer's language</small></div>
+        <div class="stage"><span class="k">1 · Raw footage</span><h4>Upload and brief</h4><div class="reel" aria-hidden="true"><i></i><i></i><i></i><i></i></div><div class="bub">60s promo, upbeat, add captions</div><small>2 h of clips plus a short brief</small></div>
+        <div class="stage"><span class="k">2 · Director agent</span><h4>Plans the cut</h4><div class="chips"><span>Storyline</span><span>Shot list</span><span>Task plan</span></div><small>Breaks the job into tasks and assigns the team</small></div>
+        <div class="stage"><span class="k">3 · Jev router</span><h4>Right model per task</h4><div class="tiers" id="tiers"><span>Fast <em>captions</em></span><span class="pick">Vision <em>scenes</em></span><span>Reasoning <em>story</em></span></div><small>Chosen by task, quality and cost</small></div>
+        <div class="stage"><span class="k">4 · Specialist agents</span><h4>Work in parallel</h4><div class="chips team"><span>Transcript</span><span>Scene picker</span><span>B-roll</span><span>Captions</span><span>Music</span><span>Color</span></div><small>Each agent does one job</small></div>
+        <div class="stage"><span class="k">5 · Critic agent</span><h4>Reviews the cut</h4><div class="chips"><span>Pacing ✓</span><span>Brand ✓</span><span>2 fixes sent back</span></div><small>Loops fixes back to the team</small></div>
+        <div class="stage"><span class="k">6 · Final render</span><h4>Ready to publish</h4><div class="player" aria-hidden="true"><span class="playbtn"></span><span class="pbar"><i></i></span></div><small>1080p · 0:60 · captions burned in</small></div>
       </div>
-      <div class="obs"><b>Across every step:</b><span>Full traces</span><span>Eval scores</span><span>Cost per conversation</span><span>Human handoff</span></div>
+      <div class="obs"><b>Across every step:</b><span>Full traces</span><span>Quality scores</span><span>Cost per video</span><span>Human approval before publish</span></div>
     </div>
 
     <div class="concepts">
-      <article class="cc reveal"><h3>Multi-agent orchestration</h3><p>A supervisor plans the work and hands each step to a specialist agent.</p><span class="use">LangGraph · supervisor pattern</span></article>
+      <article class="cc reveal"><h3>Multi-agent orchestration</h3><p>A lead agent plans the work and hands each task to a specialist, in parallel where possible.</p><span class="use">LangGraph · supervisor pattern</span></article>
       <article class="cc reveal"><h3>Jev routing</h3><p>Each request goes to the right model for its difficulty, balancing quality and cost.</p><span class="use">Jev · model cascading · caching</span></article>
       <article class="cc reveal"><h3>Hybrid RAG</h3><p>Keyword and vector search with reranking, so answers come from your documents.</p><span class="use">BM25 + vectors · reranking</span></article>
       <article class="cc reveal"><h3>Guardrails</h3><p>Prompt-injection defense, PII masking and policy checks on every input and output.</p><span class="use">Input and output filters</span></article>
-      <article class="cc reveal"><h3>MCP tool use</h3><p>Agents act in your CRM, calendar and databases through secure tool calls.</p><span class="use">MCP · A2A · tool calling</span></article>
+      <article class="cc reveal"><h3>MCP tool use</h3><p>Agents act in your real tools, from CRM and calendars to storage and editing software.</p><span class="use">MCP · A2A · tool calling</span></article>
       <article class="cc reveal"><h3>Memory</h3><p>Agents remember each customer's history across conversations and channels.</p><span class="use">Short and long-term memory</span></article>
       <article class="cc reveal"><h3>Evals and observability</h3><p>Every step is traced and scored, and cost per conversation is tracked.</p><span class="use">LangSmith · LLM evals</span></article>
       <article class="cc reveal"><h3>Human in the loop</h3><p>Sensitive actions wait for approval, and a person can take over any chat.</p><span class="use">Approvals · handoff</span></article>
@@ -1049,7 +1062,7 @@ var CONFIG = { FORM_ENDPOINT: "" }; // paste a Formspree URL here, e.g. https://
   var tiers = [].slice.call(document.querySelectorAll("#tiers span")), as = 0, tierSeq = [1, 0, 2, 1];
   function archStep(){
     var i = as % (stages.length + 1);
-    stages.forEach(function(st, k){ st.classList.toggle("on", k === i); st.classList.toggle("done", k < i); });
+    stages.forEach(function(st, k){ st.classList.toggle("on", k === i); st.classList.toggle("done", k < i); st.classList.toggle("wait", k > i); });
     if (i === 2) { var t = tierSeq[Math.floor(as / (stages.length + 1)) % tierSeq.length]; tiers.forEach(function(x, k){ x.classList.toggle("pick", k === t); }); }
     as++;
   }
