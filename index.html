@@ -293,54 +293,31 @@ header.scrolled{border-bottom-color:var(--line)}
 .proc.in li:nth-child(2)::before{transition-delay:.25s}.proc.in li:nth-child(3)::before{transition-delay:.5s}.proc.in li:nth-child(4)::before{transition-delay:.75s}
 
 /* engagement */
-.plans{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
-.plan{border:1px solid var(--line);border-radius:24px;padding:30px;display:flex;flex-direction:column;gap:16px;background:var(--bg)}
-.plan.feat{background:var(--dark);color:var(--on-dark);border-color:var(--dark)}
-.plan.feat p,.plan.feat li,.plan.feat .for{color:var(--on-dark-muted)}
-.plan.feat li::before{color:#7ea0ff}
-.plan .top{display:flex;justify-content:space-between;align-items:center;gap:10px}
-.plan .badge{font-size:12px;padding:4px 10px;border-radius:999px;background:rgba(255,255,255,.12);color:var(--on-dark)}
-.plan h3{font-size:24px}
-.plan .for{font-size:14px;color:var(--muted)}
-.plan ul{display:grid;gap:9px;padding-block:6px}
-.plan li{font-size:14.5px;display:flex;gap:10px;color:var(--ink-2)}
-.plan li::before{content:"✓";color:var(--blue);font-weight:700}
-.plan .btn{margin-top:auto;justify-content:center}
-.plan.feat .btn{background:var(--on-dark);color:var(--dark);border-color:var(--on-dark)}
-.promise{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;margin-top:56px;padding-top:36px;border-top:1px solid var(--line)}
+.promise{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;margin-top:40px;padding-inline:8px}
 .promise h4{font-size:16px;display:flex;gap:10px;align-items:center}
 .promise h4::before{content:"";width:8px;height:8px;border-radius:2px;background:var(--blue);flex:none}
 .promise p{font-size:14.5px;color:var(--muted);margin-top:8px}
 
 /* about */
-.about{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:64px}
-.about-l p{font-size:17px;color:var(--ink-2);margin-top:20px;max-width:52ch}
-.about-l p strong{color:var(--ink);font-weight:600}
-.look{margin-top:32px;display:grid;gap:18px;background:var(--bg);border:1px solid var(--line);border-radius:20px;padding:24px}
-.look h4{font-size:14px;font-weight:600;margin-bottom:10px;letter-spacing:0}
-.pills{display:flex;flex-wrap:wrap;gap:6px}
-.pills span{font-size:13.5px;padding:5px 12px;border-radius:999px;background:var(--tile);color:var(--ink-2)}
-.tl{display:grid;gap:0}
-.job{display:grid;grid-template-columns:150px minmax(0,1fr);gap:24px;padding-block:28px;border-top:1px solid var(--line)}
-.job:last-child{border-bottom:1px solid var(--line)}
-.job .when{font-size:13.5px;color:var(--muted);font-variant-numeric:tabular-nums}
-.job .when b{display:block;color:var(--ink-2);font-weight:500;font-size:12.5px;margin-top:4px}
-.job h3{font-size:20px}
-.job .org{font-size:14px;color:var(--muted);margin-top:2px}
-.job ul{display:grid;gap:8px;margin-top:14px}
-.job li{font-size:15px;color:var(--ink-2);display:flex;gap:10px}
-.job li::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--ink-2);margin-top:10px;flex:none}
-.certs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:28px}
-.certs div{border:1px solid var(--line);border-radius:14px;padding:14px;font-size:14px;background:var(--bg)}
-.certs small{display:block;font-size:12.5px;color:var(--muted)}
-
-/* skills */
-.spec{border-top:1px solid var(--line)}
-.spec-row{display:grid;grid-template-columns:minmax(0,280px) minmax(0,1fr);gap:24px;padding-block:20px;border-bottom:1px solid var(--line)}
-.spec-row h3{font-size:16px}
-.spec-row h3 span{display:block;font-size:13px;color:var(--muted);font-weight:400;margin-top:3px;letter-spacing:0}
-.spec-row p{font-size:15px;color:var(--ink-2)}
-.spec-row b{font-weight:600;color:var(--ink)}
+.about{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:72px;align-items:start}
+.about-l p{font-size:18px;color:var(--ink-2);margin-top:20px;max-width:52ch}
+.about-r h4{font-size:14px;font-weight:600;color:var(--muted);letter-spacing:0;margin-bottom:6px}
+.hl-list li{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding-block:16px;border-bottom:1px solid var(--line)}
+.hl-list b{font-size:17px;font-weight:600;letter-spacing:-.01em}
+.hl-list span{font-size:14.5px;color:var(--muted);text-align:right}
+.cert-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.cert-chips span{font-size:13.5px;padding:7px 12px;border:1px solid var(--line);border-radius:10px;color:var(--ink-2)}
+.tech{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.tc{background:var(--bg);border:1px solid var(--line);border-radius:20px;padding:26px;display:flex;flex-direction:column;gap:10px;transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s}
+.tc:hover{transform:translateY(-3px);box-shadow:0 22px 44px -34px rgba(12,15,22,.45)}
+.tc h3{font-size:19px}
+.tc p{font-size:14.5px;color:var(--muted)}
+.tc .chips{margin-top:8px}
+.tc .chips span{background:var(--tile);font-size:13px;padding:5px 11px}
+.cta-band{background:var(--tile);border-radius:28px;padding:56px;display:grid;grid-template-columns:minmax(0,1.5fr) auto;gap:40px;align-items:center}
+.cta-band p{color:var(--muted);font-size:17px;margin-top:14px;max-width:56ch}
+.cta-btns{display:flex;flex-direction:column;gap:10px}
+.cta-btns .btn{justify-content:center}
 
 /* faq */
 .faq{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:56px}
@@ -390,7 +367,9 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 @media (max-width:1020px){
   .hero-grid,.case,.about,.faq,.contact{grid-template-columns:minmax(0,1fr)}
   .case.flip .c-copy{order:0}
-  .svc,.plans{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .svc,.tech{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .cta-band{grid-template-columns:minmax(0,1fr);padding:40px}
+  .cta-btns{flex-direction:row;flex-wrap:wrap}
   .caps{grid-template-columns:repeat(2,minmax(0,1fr))}
   .proc{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:32px}
   .proc li:nth-child(3){padding-left:0;border-left:0}
@@ -403,7 +382,9 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 @media (max-width:760px){
   section{padding-block:80px}
   .nav a.l{display:none}
-  .svc,.plans,.caps,.promise,.certs{grid-template-columns:minmax(0,1fr)}
+  .svc,.tech,.caps,.promise{grid-template-columns:minmax(0,1fr)}
+  .cta-band{padding:30px 22px;border-radius:22px}
+  .cta-btns{flex-direction:column}
   .proc{grid-template-columns:minmax(0,1fr)}
   .proc li,.proc li+li{padding-left:0;border-left:0}
   .facts{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -414,8 +395,6 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   .wins div+div{border-top:1px solid var(--line)}
   .wins span{margin:0;text-align:right}
   .pbr div{grid-template-columns:minmax(0,1fr);gap:4px}
-  .job{grid-template-columns:minmax(0,1fr);gap:8px}
-  .spec-row{grid-template-columns:minmax(0,1fr);gap:6px}
   .contact{padding:30px 22px;border-radius:24px}
   .row2{grid-template-columns:minmax(0,1fr)}
   .s-copy,.s-chat{padding:24px}
@@ -450,7 +429,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
     <div>
       <span class="avail fadeup"><i class="live"></i>Available for new projects</span>
       <h1 class="fadeup" style="animation-delay:.08s">I build AI that <span class="hl">answers your customers</span> and keeps your data right.</h1>
-      <p class="lead fadeup" style="animation-delay:.16s">I'm <b>Gopikanth</b>, a freelance AI Engineer and AI Data Engineer. For two years I've shipped production AI: <b>WhatsApp sales agents</b> used across six industries, <b>data agents</b> that answer in plain English, and the <b>Airflow and dbt pipelines</b> underneath them.</p>
+      <p class="lead fadeup" style="animation-delay:.16s">I'm <b>Gopikanth</b>, a freelance AI Engineer and AI Data Engineer. I have 2 years of industry experience building production AI: <b>WhatsApp sales agents</b> used across six industries, <b>data agents</b> that answer in plain English, and the <b>Airflow and dbt pipelines</b> underneath them.</p>
       <div class="ctas fadeup" style="animation-delay:.24s">
         <a class="btn" href="#contact">Book a free 30-min call <span class="arr">→</span></a>
         <span class="mailchip"><span>gopikanth.tech@gmail.com</span><button type="button" data-copy="gopikanth.tech@gmail.com">Copy</button></span>
@@ -459,7 +438,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
         <div><b>2 yrs</b><span>building production AI</span></div>
         <div><b>6</b><span>industries served</span></div>
         <div><b>24 h</b><span>reply to every enquiry</span></div>
-        <div><b>2 wk</b><span>to a working prototype</span></div>
+        <div><b>Early</b><span>working demo before the full build</span></div>
       </div>
     </div>
 
@@ -471,8 +450,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
       <dl class="p-rows">
         <div><dt>Focus</dt><dd>AI agents, RAG, data pipelines</dd></div>
         <div><dt>Based in</dt><dd>India · works remotely</dd></div>
-        <div><dt>Time zones</dt><dd>IST, overlaps UK, EU, US</dd></div>
-        <div><dt>Engagement</dt><dd>Project, retainer, hourly</dd></div>
+        <div><dt>Availability</dt><dd>Across time zones</dd></div>
+        <div><dt>Engagement</dt><dd>Projects and ongoing support</dd></div>
       </dl>
       <div class="p-now"><b>Best fit</b>Businesses that lose leads to slow replies, or teams whose reports and AI run on messy data.</div>
       <a class="btn blue" href="#contact">Start a project <span class="arr">→</span></a>
@@ -497,7 +476,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
         <span class="eyebrow">Selected work</span>
         <h2 class="h2">Systems I've built <span class="dim">and what they changed.</span></h2>
       </div>
-      <p>Built in my full-time role at an AI solutions company. Client names stay private; the demos use fictional businesses and example data.</p>
+      <p>Systems I've worked on and delivered. Client names are kept private, and the demos use fictional businesses and example data.</p>
     </div>
 
     <div class="cases">
@@ -626,42 +605,36 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
         <h3>AI Sales and Support Agents</h3>
         <p>WhatsApp and website agents that reply instantly, qualify leads, book meetings and hand over to your team.</p>
         <ul><li>Trained on your products and FAQs</li><li>CRM and calendar integration</li><li>Human handoff and chat history</li></ul>
-        <div class="meta"><span>Typical timeline</span><b>3 to 6 weeks</b></div>
       </article>
       <article class="reveal">
         <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></span>
         <h3>Voice Agents</h3>
         <p>Customers send voice notes or call in English or Indian languages and get a natural spoken reply.</p>
         <ul><li>Speech-to-text and text-to-speech</li><li>Multilingual understanding</li><li>Same knowledge as your chat agent</li></ul>
-        <div class="meta"><span>Typical timeline</span><b>3 to 5 weeks</b></div>
       </article>
       <article class="reveal">
         <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h11l5 5v11H4z"/><path d="M15 4v5h5M8 13h8M8 17h5"/></svg></span>
         <h3>Knowledge Assistants (RAG)</h3>
         <p>Your policies, manuals and brochures answer staff and customer questions accurately, with sources.</p>
         <ul><li>Hybrid search with reranking</li><li>Answers cite the source document</li><li>Guardrails against made-up answers</li></ul>
-        <div class="meta"><span>Typical timeline</span><b>2 to 4 weeks</b></div>
       </article>
       <article class="reveal">
         <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg></span>
         <h3>AI Data Engineering</h3>
         <p>Pipelines that collect, clean and test your data, so reports and AI always run on fresh, correct facts.</p>
         <ul><li>Airflow scheduling and alerts</li><li>dbt models and data tests</li><li>Databricks or BigQuery warehouse</li></ul>
-        <div class="meta"><span>Typical timeline</span><b>3 to 8 weeks</b></div>
       </article>
       <article class="reveal">
         <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-5 4 4 8-8"/><path d="M15 8h5v5"/></svg></span>
         <h3>ML, Forecasting and Vision</h3>
         <p>Models that predict sales and churn, score leads, read documents and recognise what's in an image.</p>
         <ul><li>Forecasts your team can act on</li><li>Lead and churn scoring</li><li>OCR and object detection</li></ul>
-        <div class="meta"><span>Typical timeline</span><b>3 to 6 weeks</b></div>
       </article>
       <article class="reveal">
         <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M7 9l3 3-3 3M13 15h4"/></svg></span>
         <h3>AI Web Apps and Dashboards</h3>
         <p>Fast, clean interfaces on top of your AI: chat portals, admin panels and live dashboards.</p>
         <ul><li>FastAPI backend, React frontend</li><li>Real-time updates over WebSockets</li><li>Deployed on AWS or Google Cloud</li></ul>
-        <div class="meta"><span>Typical timeline</span><b>2 to 5 weeks</b></div>
       </article>
     </div>
   </div>
@@ -790,48 +763,9 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
     <ol class="proc reveal">
       <li><span class="n">Step 1</span><h3>Discovery call</h3><span class="dur">Free · 30 minutes</span><p>We find where you lose leads, hours or data, and pick the automation with the clearest return.</p></li>
       <li><span class="n">Step 2</span><h3>Fixed quote</h3><span class="dur">Within 48 hours</span><p>A written scope with deliverables, timeline, price and the expected monthly running cost.</p></li>
-      <li><span class="n">Step 3</span><h3>Build and test</h3><span class="dur">2 to 6 weeks</span><p>A working prototype in about two weeks, then integration, safety checks and testing on real scenarios.</p></li>
+      <li><span class="n">Step 3</span><h3>Build and test</h3><span class="dur">Early demos</span><p>You see an early working version first. Then I connect it to your systems and test it on real scenarios.</p></li>
       <li><span class="n">Step 4</span><h3>Launch and support</h3><span class="dur">Ongoing</span><p>Go live with monitoring and human handoff, then tuning so it keeps improving and stays cheap to run.</p></li>
     </ol>
-  </div>
-</section>
-
-<!-- ENGAGEMENT -->
-<section id="pricing" class="tint">
-  <div class="wrap">
-    <div class="head reveal">
-      <div>
-        <span class="eyebrow">Work with me</span>
-        <h2 class="h2">Three ways to work together.</h2>
-      </div>
-      <p>Pricing depends on scope. After the discovery call you get a fixed written quote, so you know the cost before anything starts.</p>
-    </div>
-    <div class="plans">
-      <article class="plan reveal">
-        <div class="top"><h3>Project</h3></div>
-        <p class="for">For a clear goal: one agent, one pipeline, one model.</p>
-        <ul><li>Fixed scope and fixed price</li><li>Working prototype in about 2 weeks</li><li>Code, docs and handover</li><li>30 days of fixes after launch</li></ul>
-        <a class="btn ghost" href="#contact">Discuss a project</a>
-      </article>
-      <article class="plan feat reveal">
-        <div class="top"><h3>Retainer</h3><span class="badge">Best value</span></div>
-        <p class="for">For teams that want an AI engineer on call every month.</p>
-        <ul><li>A set number of days each month</li><li>New features, tuning and monitoring</li><li>Cost and quality reports</li><li>Priority replies on weekdays</li></ul>
-        <a class="btn" href="#contact">Discuss a retainer</a>
-      </article>
-      <article class="plan reveal">
-        <div class="top"><h3>Consulting</h3></div>
-        <p class="for">For advice, reviews and planning, billed by the hour.</p>
-        <ul><li>Architecture and model choice</li><li>Review of an existing agent or pipeline</li><li>Cost reduction plan</li><li>Team workshops</li></ul>
-        <a class="btn ghost" href="#contact">Book a session</a>
-      </article>
-    </div>
-    <div class="promise reveal">
-      <div><h4>Built for production</h4><p>Tests, guardrails and monitoring come standard, so it keeps working after the demo.</p></div>
-      <div><h4>End to end</h4><p>Agent, data pipeline and web app from one person. No hand-offs between vendors.</p></div>
-      <div><h4>Cost-aware</h4><p>Model routing and caching keep your monthly AI bill low. You see the estimate first.</p></div>
-      <div><h4>Clear updates</h4><p>Weekly demos and plain-English progress notes. You always know where things stand.</p></div>
-    </div>
   </div>
 </section>
 
@@ -840,69 +774,66 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   <div class="wrap about">
     <div class="about-l reveal">
       <span class="eyebrow">About me</span>
-      <h2 class="h2">An engineer who cares <span class="dim">what happens after launch.</span></h2>
-      <p>I'm Gopikanth. I started in data engineering, building pipelines on Databricks and Google Cloud, and moved into AI agents when businesses began asking for them. That mix is why my agents work: <strong>they sit on clean, tested data</strong>.</p>
-      <p>Today I lead development of AI sales agents used across six industries. As a freelancer I take on a few projects at a time, so each client gets my full attention.</p>
-      <div class="look">
-        <div><h4>Projects I'm looking for</h4><div class="pills"><span>AI agents for sales, support, bookings</span><span>RAG assistants</span><span>Data pipelines and warehouses</span><span>Forecasting and vision models</span></div></div>
-        <div><h4>Clients I work best with</h4><div class="pills"><span>Startups</span><span>Small and mid-sized businesses</span><span>Agencies</span><span>Product teams</span></div></div>
-      </div>
+      <h2 class="h2">Two years building AI and data solutions for businesses.</h2>
+      <p>I'm Gopikanth, an AI Engineer and AI Data Engineer with 2 years of industry experience building advanced AI and data solutions. I work across the whole system: the AI agent, the data it relies on and the app people use.</p>
+      <a class="btn" href="#contact" style="margin-top:28px">Work with me <span class="arr">→</span></a>
     </div>
-    <div class="reveal">
-      <div class="tl">
-        <div class="job">
-          <div class="when">Mar 2026 – Now<b>Full-time</b></div>
-          <div>
-            <h3>Senior AI Engineer</h3>
-            <p class="org">AI solutions company</p>
-            <ul>
-              <li>Lead WhatsApp AI sales agents used across six industries, with tool calling, hybrid RAG and lead scoring.</li>
-              <li>Built agent routing and model evaluation to balance answer quality against API cost.</li>
-              <li>Added Indian-language voice so customers can talk to agents with voice notes.</li>
-            </ul>
-          </div>
-        </div>
-        <div class="job">
-          <div class="when">Jan 2025 – Feb 2026<b>Full-time</b></div>
-          <div>
-            <h3>AI Engineer</h3>
-            <p class="org">AI solutions company</p>
-            <ul>
-              <li>Built multi-agent data intelligence and real estate agent platforms with approval steps and monitoring.</li>
-              <li>Engineered PySpark and Databricks pipelines with layered, tested data and star-schema warehouses.</li>
-              <li>Delivered a customer lifetime value forecasting pipeline on Google Cloud.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="certs">
-        <div><small>Databricks</small>Agentic AI Foundations Associate</div>
-        <div><small>Salesforce</small>Certified AI Associate</div>
-        <div><small>Google Cloud</small>Generative AI for Developers</div>
-        <div><small>Google Cloud</small>Introduction to Generative AI</div>
+    <div class="about-r reveal">
+      <h4>What I've worked on</h4>
+      <ul class="hl-list">
+        <li><b>AI sales agents</b><span>across six industries</span></li>
+        <li><b>Data agents</b><span>answers in plain English</span></li>
+        <li><b>Data platforms</b><span>Databricks, Airflow, dbt</span></li>
+        <li><b>ML models</b><span>forecasting and scoring</span></li>
+      </ul>
+      <h4 style="margin-top:32px">Certifications</h4>
+      <div class="cert-chips">
+        <span>Databricks Agentic AI Foundations</span>
+        <span>Salesforce Certified AI Associate</span>
+        <span>Google Cloud Generative AI for Developers</span>
+        <span>Google Cloud Introduction to Generative AI</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- SKILLS -->
-<section id="skills" class="tint">
+<!-- TECH -->
+<section id="tech" class="tint">
   <div class="wrap">
     <div class="head reveal">
-      <div>
-        <span class="eyebrow">Skills</span>
-        <h2 class="h2">Technical specifications.</h2>
-      </div>
-      <p>The tools behind every system above. Bold items are the ones I use most.</p>
+      <span class="eyebrow">Tech stack</span>
+      <h2 class="h2">Technologies I build with.</h2>
     </div>
-    <div class="spec reveal">
-      <div class="spec-row"><h3>Agentic AI<span>Agents and orchestration</span></h3><p><b>LangGraph</b>, LangChain, multi-agent and supervisor systems, ReAct, tool calling, <b>MCP</b>, A2A, human-in-the-loop</p></div>
-      <div class="spec-row"><h3>LLMs and Retrieval<span>Models, RAG, voice</span></h3><p>OpenAI, Claude, Gemini, <b>hybrid RAG</b> (BM25 + vector), LanceDB, FAISS, Redis, reranking, speech-to-text, text-to-speech</p></div>
-      <div class="spec-row"><h3>Routing, Cost and Safety<span>Production readiness</span></h3><p><b>Agent routing with Jev</b>, model cascading, semantic caching, guardrails, prompt-injection defense, LLM evaluation, LangSmith</p></div>
-      <div class="spec-row"><h3>Data Engineering<span>Pipelines and warehousing</span></h3><p><b>Airflow</b>, <b>dbt</b>, <b>Databricks</b>, PySpark, SQL, Delta Lake, medallion architecture, star schema, SCD Type 2, data quality tests</p></div>
-      <div class="spec-row"><h3>Machine Learning<span>Prediction and forecasting</span></h3><p>LightGBM, XGBoost, CatBoost, scikit-learn, time-series forecasting, churn and lead scoring</p></div>
-      <div class="spec-row"><h3>Deep Learning and Vision<span>Text and images</span></h3><p><b>PyTorch</b>, TensorFlow, Transformers, text classification, OpenCV, object detection (YOLO), OCR and document AI</p></div>
-      <div class="spec-row"><h3>Backend, Web and Cloud<span>Shipping it</span></h3><p>Python, <b>FastAPI</b>, Pydantic, WebSockets, React, AWS, Google Cloud (BigQuery, Cloud Functions), Docker, Git</p></div>
+    <div class="tech">
+      <article class="tc reveal"><h3>Agentic AI</h3><p>Agents that reason, use tools and work together.</p><div class="chips"><span>LangGraph</span><span>LangChain</span><span>MCP</span><span>A2A</span><span>Multi-agent</span><span>Tool calling</span></div></article>
+      <article class="tc reveal"><h3>LLMs and RAG</h3><p>Accurate answers from your own documents.</p><div class="chips"><span>OpenAI</span><span>Claude</span><span>Gemini</span><span>Hybrid RAG</span><span>LanceDB</span><span>FAISS</span><span>Redis</span></div></article>
+      <article class="tc reveal"><h3>Routing and safety</h3><p>Lower AI costs and answers you can trust.</p><div class="chips"><span>Jev</span><span>Model routing</span><span>Semantic caching</span><span>Guardrails</span><span>LangSmith</span><span>Evals</span></div></article>
+      <article class="tc reveal"><h3>Data engineering</h3><p>Clean, tested data pipelines and warehouses.</p><div class="chips"><span>Airflow</span><span>dbt</span><span>Databricks</span><span>PySpark</span><span>Delta Lake</span><span>SQL</span><span>BigQuery</span></div></article>
+      <article class="tc reveal"><h3>ML and computer vision</h3><p>Models that predict, classify and see.</p><div class="chips"><span>PyTorch</span><span>TensorFlow</span><span>Transformers</span><span>XGBoost</span><span>LightGBM</span><span>OpenCV</span><span>YOLO</span></div></article>
+      <article class="tc reveal"><h3>Backend and cloud</h3><p>Fast APIs and apps, deployed and monitored.</p><div class="chips"><span>Python</span><span>FastAPI</span><span>React</span><span>WebSockets</span><span>Docker</span><span>AWS</span><span>Google Cloud</span></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- GET STARTED -->
+<section id="start">
+  <div class="wrap">
+    <div class="cta-band reveal">
+      <div>
+        <span class="eyebrow">Get started</span>
+        <h2 class="h2">Want to bring AI into your business?</h2>
+        <p>Whether you need a new AI service or want AI added to the tools you already use, reach out. We'll talk through your idea and find the right approach.</p>
+      </div>
+      <div class="cta-btns">
+        <a class="btn blue" href="#contact">Book a free call <span class="arr">→</span></a>
+        <a class="btn ghost" href="#contact">Send a message</a>
+      </div>
+    </div>
+    <div class="promise reveal">
+      <div><h4>Built for production</h4><p>Tests, guardrails and monitoring come standard.</p></div>
+      <div><h4>End to end</h4><p>Agent, data and app from one person.</p></div>
+      <div><h4>Cost-aware</h4><p>Smart routing keeps your AI bill low.</p></div>
+      <div><h4>Clear updates</h4><p>Regular demos in plain English.</p></div>
     </div>
   </div>
 </section>
@@ -920,7 +851,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
       <details><summary>Is my data safe?</summary><p>Yes. Agents get read-only access where possible, sensitive data stays in your own cloud account, and I'm happy to sign an NDA before we look at anything.</p></details>
       <details><summary>Do you work with clients outside India?</summary><p>Yes. I work remotely with clients worldwide, and my working hours overlap with the UK and Europe, with calls arranged for US time zones.</p></details>
       <details><summary>What do I need to have ready?</summary><p>Just the problem and access to the relevant documents or data. I'll help you work out the rest on the discovery call.</p></details>
-      <details><summary>What happens after launch?</summary><p>Every project includes 30 days of fixes. After that you can take over with the docs I hand you, or keep me on a monthly retainer for tuning, monitoring and new features.</p></details>
+      <details><summary>What happens after launch?</summary><p>Every project includes 30 days of fixes. After that you can take over with the docs I hand you, or keep me on for ongoing tuning, monitoring and new features.</p></details>
       <details><summary>Will the AI make things up?</summary><p>I build agents to answer from your own documents and data, with guardrails and tests on real scenarios. When the agent isn't sure, it says so and hands over to a person.</p></details>
     </div>
   </div>
@@ -1019,7 +950,7 @@ var CONFIG = { FORM_ENDPOINT: "" }; // paste a Formspree URL here, e.g. https://
     io.observe(el);
   });
   // stagger siblings in grids
-  [".svc", ".plans", ".caps", ".cases"].forEach(function(sel){
+  [".svc", ".tech", ".caps", ".cases"].forEach(function(sel){
     var g = document.querySelector(sel); if (!g) return;
     [].slice.call(g.children).forEach(function(c, i){ c.style.transitionDelay = (i % 3) * 0.08 + "s"; });
   });
