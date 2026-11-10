@@ -543,6 +543,32 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   .toast{font-size:12px;padding:8px 12px 8px 8px}
   .toast span.tm{display:none}
 }
+.more,.swipe{display:none}
+/* phone-only layout: rails, collapsible case details */
+@media (max-width:760px){
+  .concepts,.svc,.caps,.tech{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;margin-inline:-20px;padding:4px 20px 18px;scroll-padding-inline:20px;scrollbar-width:none;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain}
+  .concepts::-webkit-scrollbar,.svc::-webkit-scrollbar,.caps::-webkit-scrollbar,.tech::-webkit-scrollbar{display:none}
+  .concepts>*,.svc>*,.caps>*,.tech>*{flex:0 0 84%;scroll-snap-align:start}
+  .concepts>.pre,.svc>.pre,.caps>.pre,.tech>.pre{opacity:1;transform:none}
+  .svc article:hover{transform:none}
+  .swipe{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:22px 0 10px;font-family:var(--f-mono);font-size:12px;letter-spacing:.06em;color:var(--muted)}
+  .swipe span{display:inline-flex;align-items:center;gap:6px;color:var(--blue)}
+  .swipe span::after{content:"\2192";font-size:15px;animation:nudge 1.6s ease-in-out infinite}
+  @keyframes nudge{50%{transform:translateX(4px)}}
+  .c-copy{padding:24px 22px;gap:16px}
+  .pbr{display:none}
+  .c-copy.open .pbr{display:grid}
+  .more{display:inline-flex;align-items:center;gap:8px;align-self:flex-start;font:inherit;font-size:14.5px;font-weight:600;color:var(--blue);background:var(--blue-soft);border:0;border-radius:999px;padding:10px 18px;cursor:pointer}
+  .more::after{content:"\25BE";transition:transform .25s}
+  .c-copy.open .more::after{transform:rotate(180deg)}
+  .step{display:block;position:relative;padding-left:30px;line-height:1.7}
+  .step::before{position:absolute;left:0;top:2px}
+  .step code{white-space:nowrap;overflow-wrap:normal}
+  .fx-team{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+  .fx-agent{padding:9px 10px;gap:8px}
+  .fx-agent>i{display:none}
+  .fx-agent b{font-size:12.5px}
+}
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
   .pre{opacity:1;transform:none}
@@ -638,6 +664,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
             <div><dt>What I built</dt><dd>A multi-agent WhatsApp assistant that qualifies leads, answers from company documents, understands voice notes, replies in each lead's own language, books visits and updates the CRM.</dd></div>
             <div><dt>How it stays affordable</dt><dd>Agent routing sends each message to the right model, so quality stays high and API cost stays low.</dd></div>
           </dl>
+          <button class="more" type="button" aria-expanded="false">How it works</button>
           <div class="wins">
             <div><b>Instant reply</b><span>every lead, any hour</span></div>
             <div><b>Scored leads</b><span>after every message</span></div>
@@ -676,6 +703,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
             <div><dt>What I built</dt><dd>A multi-agent system that finds the right tables, writes read-only SQL, checks the result and replies with the answer, a chart and an export.</dd></div>
             <div><dt>Safety</dt><dd>Read-only access, approval steps for sensitive questions and full monitoring of every query.</dd></div>
           </dl>
+          <button class="more" type="button" aria-expanded="false">How it works</button>
           <div class="wins">
             <div><b>Seconds</b><span>instead of a ticket queue</span></div>
             <div><b>No SQL</b><span>needed by the user</span></div>
@@ -712,6 +740,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
             <div><dt>The problem</dt><dd>Data spread across CRM, orders, ads and documents, with no tests and no single source of truth.</dd></div>
             <div><dt>What I built</dt><dd>Scheduled PySpark pipelines on Databricks with Bronze, Silver and Gold layers, dbt tests and a star-schema warehouse. I also built a customer lifetime value forecast on Google Cloud.</dd></div>
           </dl>
+          <button class="more" type="button" aria-expanded="false">How it works</button>
           <div class="wins">
             <div><b>One truth</b><span>every report agrees</span></div>
             <div><b>Tested</b><span>bad data stopped early</span></div>
@@ -791,6 +820,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
       </ol>
     </div>
 
+    <p class="swipe" aria-hidden="true">The ideas behind it<span>Swipe</span></p>
     <div class="concepts">
       <article class="cc reveal"><h3>Director agent</h3><p>Claude Opus reads the brief, breaks the job into tasks and assigns each one.</p><span class="use">Claude Opus · planning</span></article>
       <article class="cc reveal"><h3>Parallel specialists</h3><p>Six agents work side by side instead of one step at a time.</p><span class="use">Sub-agents · LangGraph</span></article>
@@ -814,6 +844,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
       </div>
       <p>Every project starts with a free call and a fixed quote. You get working software, documentation and a handover, not slides.</p>
     </div>
+    <p class="swipe" aria-hidden="true">6 services<span>Swipe</span></p>
     <div class="svc">
       <article class="reveal">
         <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg></span>
@@ -912,6 +943,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
       </div>
       <p>Machine learning, deep learning and computer vision, built around your data and connected to the tools your team already uses.</p>
     </div>
+    <p class="swipe" aria-hidden="true">4 capabilities<span>Swipe</span></p>
     <div class="caps">
       <article class="cap reveal">
         <div class="viz">
@@ -1019,6 +1051,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
       <span class="eyebrow">Tech stack</span>
       <h2 class="h2">Technologies I build with.</h2>
     </div>
+    <p class="swipe" aria-hidden="true">6 areas<span>Swipe</span></p>
     <div class="tech">
       <article class="tc reveal"><h3>Agentic AI</h3><p>Agents that reason, use tools and work together.</p><div class="chips"><span>LangGraph</span><span>LangChain</span><span>MCP</span><span>A2A</span><span>Multi-agent</span><span>Tool calling</span></div></article>
       <article class="tc reveal"><h3>LLMs and RAG</h3><p>Accurate answers from your own documents.</p><div class="chips"><span>OpenAI</span><span>Claude</span><span>Gemini</span><span>Hybrid RAG</span><span>LanceDB</span><span>FAISS</span><span>Redis</span></div></article>
@@ -1411,6 +1444,14 @@ var CONFIG = { FORM_ENDPOINT: "" }; // paste a Formspree URL here, e.g. https://
     var pre = document.createElement("pre"); pre.textContent = body; note.appendChild(pre);
   });
 })();
+</script>
+<script>
+document.querySelectorAll(".more").forEach(function(b){
+  b.addEventListener("click", function(){
+    var c = b.closest(".c-copy"), open = c.classList.toggle("open");
+    b.setAttribute("aria-expanded", open); b.textContent = open ? "Hide details" : "How it works";
+  });
+});
 </script>
 </body>
 </html>
