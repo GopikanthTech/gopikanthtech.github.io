@@ -5,1084 +5,973 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Gopikanth · AgentVerse</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="Gopikanth, freelance AI Engineer and AI Data Engineer. I build AI agents, data pipelines and machine learning systems that win more leads and cut manual work. Available for freelance projects.">
+<meta name="description" content="Gopikanth, freelance AI Engineer and AI Data Engineer. AI sales agents, knowledge assistants, data pipelines with Airflow and dbt, forecasting and computer vision.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap">
 <style>
-/* Layout: freelance portfolio told as a story. Who I am (hero + profile card) →
-   What I'm looking for → Services → How I work → Experience (timeline + live demos)
-   → Industries carousel → ML & Vision → Why me + engagement → Skills → FAQ → Contact.
-   Apple-style light look, 1120px column, alternating white / grey bands. */
+/* Layout: a freelancer's case-file. Left-aligned editorial headings, wide case-study panels, one dark closing band. */
 :root{
   --bg:#ffffff;
-  --tile:#f5f5f7;
-  --ink:#1d1d1f;
-  --ink-2:#424245;
-  --muted:#6e6e73;
-  --faint:#86868b;
-  --line:#d2d2d7;
-  --hair:rgba(0,0,0,.08);
-  --blue:#0066cc;
-  --green:#1f9d55;
-  --bubble:#e3f6e9;
-  --red:#d70015;
-  --sans:"Geist", -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
-  --mono:"Geist Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
-  --ease:cubic-bezier(.2,.7,.2,1);
+  --tile:#f4f6f9;
+  --ink:#0c0f16;
+  --ink-2:#2a303c;
+  --muted:#5d6472;
+  --line:#e4e7ed;
+  --blue:#2350e6;
+  --blue-soft:#e9eefe;
+  --green:#14935a;
+  --green-soft:#e3f5ec;
+  --amber:#b45f06;
+  --bubble:#dff5e6;
+  --dark:#0c0f16;
+  --dark-2:#171b24;
+  --on-dark:#f4f6f9;
+  --on-dark-muted:#9aa1ae;
+  --f-sans:"Geist",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --f-mono:"Geist Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --r:18px;
+  --wrap:1180px;
   color-scheme:light;
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.5 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--bg)}
-h1,h2,h3,h4{margin:0;font-weight:600;letter-spacing:-.03em;line-height:1.08;text-wrap:balance}
+a{color:inherit}
+img{max-width:100%}
+h1,h2,h3,h4{margin:0;text-wrap:balance;letter-spacing:-.02em;line-height:1.12;font-weight:600}
 p{margin:0}
-a{color:inherit;text-decoration:none}
-button{font-family:inherit}
+ul{margin:0;padding:0;list-style:none}
 :focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:6px}
-.wrap{max-width:1120px;margin:0 auto;padding-left:max(20px, env(safe-area-inset-left,0px));padding-right:max(20px, env(safe-area-inset-right,0px))}
-section{padding-block:clamp(80px,11vw,130px)}
-.grey{background:var(--tile)}
-.label{font-size:14px;font-weight:600;color:var(--muted)}
-.h2{font-size:clamp(34px,5vw,52px);max-width:22ch}
-.dim{color:var(--faint)}
-.head{display:grid;gap:14px;margin-bottom:clamp(40px,6vw,60px)}
-.head p{font-size:clamp(18px,1.8vw,20px);color:var(--muted);max-width:58ch}
-.sub-head{display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap;margin:clamp(64px,8vw,96px) 0 28px}
-.sub-head h3{font-size:clamp(26px,3vw,34px)}
-.sub-head p{color:var(--muted);max-width:46ch}
-.link{color:var(--blue);font-size:17px}
-.link:hover{text-decoration:underline}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:48px;padding:0 26px;border-radius:999px;background:var(--ink);color:#fff;font:500 16px/1 var(--sans);border:0;cursor:pointer;transition:transform .3s var(--ease), background .3s}
-.btn:hover{background:#000;transform:translateY(-1px)}
-.btn.light{background:#fff;color:var(--ink);border:1px solid var(--line)}
-.btn.light:hover{background:#fff;border-color:var(--ink)}
+.wrap{max-width:var(--wrap);margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+section{padding-block:112px}
+.tint{background:var(--tile)}
+.eyebrow{font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);display:inline-flex;align-items:center;gap:10px}
+.eyebrow::before{content:"";width:18px;height:1px;background:currentColor}
+.h2{font-size:clamp(32px,4.6vw,54px);letter-spacing:-.035em;margin-top:16px}
+.dim{color:var(--muted)}
+.head{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:40px;align-items:end;margin-bottom:56px}
+.head p{color:var(--muted);font-size:17px;max-width:46ch}
+.mono{font-family:var(--f-mono)}
 
-/* Nav */
-.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(255,255,255,.82);backdrop-filter:saturate(1.8) blur(20px);-webkit-backdrop-filter:saturate(1.8) blur(20px);border-bottom:1px solid transparent;transition:border-color .3s}
-.nav.scrolled{border-color:var(--hair)}
-.nav .wrap{display:flex;align-items:center;gap:26px;height:52px}
-.brand{font-weight:600;font-size:16px;letter-spacing:-.02em;margin-right:auto}
-.nav a:not(.brand){font-size:13px;color:var(--muted);transition:color .2s}
-.nav a:not(.brand):hover{color:var(--ink)}
-.nav .cta{color:#fff!important;background:var(--ink);padding:7px 14px;border-radius:999px}
-.progress{position:absolute;left:0;bottom:-1px;height:1px;width:100%;background:var(--ink);transform-origin:0 50%;transform:scaleX(0)}
-@media (max-width:820px){.nav .hide-sm{display:none}}
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:10px;height:50px;padding:0 22px;border-radius:999px;background:var(--ink);color:var(--bg);text-decoration:none;font-weight:500;font-size:15px;border:1px solid var(--ink);cursor:pointer;transition:transform .25s ease,background .25s ease,box-shadow .25s ease;font-family:inherit}
+.btn:hover{transform:translateY(-1px);box-shadow:0 10px 24px -12px rgba(12,15,22,.55)}
+.btn .arr{transition:transform .25s ease}
+.btn:hover .arr{transform:translateX(3px)}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn.ghost:hover{border-color:var(--ink);box-shadow:none}
+.btn.blue{background:var(--blue);border-color:var(--blue);color:#fff}
+.btn.sm{height:40px;padding:0 16px;font-size:14px}
 
-/* Hero: who I am */
-.hero{padding-block:clamp(56px,8vw,100px) clamp(64px,8vw,100px)}
-.hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:clamp(36px,6vw,80px);align-items:center}
-@media (max-width:940px){.hero-grid{grid-template-columns:1fr}}
-.hero-copy{display:grid;gap:24px;min-width:0}
-.avail{display:inline-flex;align-items:center;gap:8px;width:max-content;max-width:100%;font-size:13px;font-weight:500;color:var(--ink-2);padding:6px 12px;border-radius:999px;background:var(--bubble)}
-.live{display:inline-block;width:7px;height:7px;border-radius:50%;background:#28a745;animation:ping 2.2s infinite;flex:none}
-@keyframes ping{0%{box-shadow:0 0 0 0 rgba(40,167,69,.45)}80%,100%{box-shadow:0 0 0 8px rgba(40,167,69,0)}}
-.hero h1{font-size:clamp(42px,6.2vw,76px);letter-spacing:-.045em;line-height:1.03;font-weight:700}
-.hero .lead{font-size:clamp(18px,1.7vw,20px);color:var(--muted);max-width:54ch}
-.hero .lead b{color:var(--ink);font-weight:500}
-.ctas{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
-.trust{display:grid;grid-template-columns:repeat(4,auto);justify-content:start;gap:0;border-top:1px solid var(--hair);padding-top:22px}
-.trust div{padding-right:24px;margin-right:24px;border-right:1px solid var(--hair);display:grid;gap:2px}
-.trust div:last-child{border:0;margin:0;padding:0}
-.trust b{font-size:22px;font-weight:600;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
-.trust span{font-size:13px;color:var(--muted)}
-@media (max-width:600px){.trust{grid-template-columns:1fr 1fr;gap:16px}.trust div{border:0;margin:0;padding:0}}
+/* header */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(255,255,255,.82);backdrop-filter:saturate(180%) blur(16px);-webkit-backdrop-filter:saturate(180%) blur(16px);border-bottom:1px solid transparent;transition:border-color .3s}
+header.scrolled{border-bottom-color:var(--line)}
+.nav{display:flex;align-items:center;gap:28px;height:68px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:600;letter-spacing:-.01em;margin-right:auto}
+.brand .mk{width:30px;height:30px;border-radius:9px;background:var(--ink);color:var(--bg);display:grid;place-items:center;font-size:14px;font-weight:600}
+.brand small{display:block;font-family:var(--f-mono);font-size:10.5px;color:var(--muted);font-weight:400;letter-spacing:.04em;line-height:1}
+.brand span{line-height:1.15}
+.nav a.l{text-decoration:none;font-size:14px;color:var(--ink-2);position:relative}
+.nav a.l::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:1.5px;background:var(--ink);transform:scaleX(0);transition:transform .3s ease;transform-origin:left}
+.nav a.l:hover::after,.nav a.l.on::after{transform:scaleX(1)}
+.progress{position:absolute;left:0;bottom:-1px;height:2px;background:var(--blue);width:0}
 
-.card{background:var(--tile);border-radius:28px;padding:28px;display:grid;gap:20px;min-width:0}
-.card-top{display:flex;align-items:center;gap:14px}
-.mono{width:60px;height:60px;border-radius:20px;background:var(--ink);color:#fff;display:grid;place-items:center;font-weight:600;font-size:24px;letter-spacing:-.02em;flex:none}
-.card-top b{display:block;font-size:20px;letter-spacing:-.02em}
-.card-top span{font-size:14px;color:var(--muted)}
-.kv{margin:0;display:grid}
-.kv div{display:grid;grid-template-columns:118px 1fr;gap:12px;padding:12px 0;border-top:1px solid var(--hair);font-size:15px}
-.kv dt{color:var(--muted)}
-.kv dd{margin:0;font-weight:500;min-width:0}
-.card .btn{width:100%}
+/* hero */
+.hero{padding-block:84px 72px}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,1fr);gap:56px;align-items:center}
+.avail{display:inline-flex;align-items:center;gap:10px;padding:7px 14px 7px 10px;border:1px solid var(--line);border-radius:999px;font-size:13.5px;color:var(--ink-2);background:var(--bg)}
+.live{width:8px;height:8px;border-radius:50%;background:var(--green);position:relative;display:inline-block;flex:none}
+.live::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:2px solid var(--green);opacity:0;animation:ping 2.2s ease-out infinite}
+@keyframes ping{0%{transform:scale(.5);opacity:.7}100%{transform:scale(1.6);opacity:0}}
+.hero h1{font-size:clamp(40px,6.4vw,78px);letter-spacing:-.045em;line-height:1.02;margin-top:26px}
+.hero h1 .hl{position:relative;white-space:nowrap}
+.hero h1 .hl::after{content:"";position:absolute;left:0;right:0;bottom:.06em;height:.12em;background:var(--blue);border-radius:2px;transform-origin:left;animation:draw 1s .6s cubic-bezier(.2,.8,.2,1) both}
+@keyframes draw{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.lead{font-size:clamp(17px,1.6vw,19px);color:var(--ink-2);max-width:56ch;margin-top:26px}
+.lead b{font-weight:600;color:var(--ink)}
+.ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.mailchip{display:inline-flex;align-items:center;gap:10px;height:50px;padding:0 8px 0 18px;border:1px solid var(--line);border-radius:999px;font-size:14.5px;color:var(--ink-2);background:var(--bg)}
+.mailchip button{height:34px;padding:0 12px;border-radius:999px;border:0;background:var(--tile);font:inherit;font-size:13px;cursor:pointer;color:var(--ink)}
+.mailchip button:hover{background:var(--line)}
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;margin-top:52px;border-top:1px solid var(--line)}
+.facts div{padding:18px 18px 0 0}
+.facts div+div{padding-left:18px;border-left:1px solid var(--line)}
+.facts b{display:block;font-size:28px;font-weight:600;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.facts span{font-size:13px;color:var(--muted);line-height:1.35;display:block;margin-top:2px}
 
-/* What I'm looking for */
-.about{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,80px);align-items:start}
-@media (max-width:900px){.about{grid-template-columns:1fr}}
-.about-text{display:grid;gap:18px;font-size:19px;line-height:1.6;color:var(--ink-2);max-width:56ch}
-.about-text strong{color:var(--ink);font-weight:600}
-.look{background:#fff;border-radius:28px;padding:clamp(24px,3.4vw,36px);display:grid;gap:22px;min-width:0}
-.look h3{font-size:24px}
-.look-group{display:grid;gap:10px}
-.look-group h4{font-size:13px;font-weight:600;color:var(--faint);text-transform:uppercase;letter-spacing:.08em}
-.look ul{margin:0;padding:0;list-style:none;display:grid;gap:10px}
-.look li{display:grid;grid-template-columns:22px 1fr;gap:10px;font-size:16px}
-.look li::before{content:"✓";width:20px;height:20px;border-radius:50%;background:var(--bubble);color:#1e7e34;font-size:11px;font-weight:700;display:grid;place-items:center;margin-top:2px}
-.pills{display:flex;flex-wrap:wrap;gap:8px}
-.pills span{background:var(--tile);border-radius:999px;padding:7px 14px;font-size:14px;font-weight:500}
+.profile{border:1px solid var(--line);border-radius:24px;padding:26px;background:var(--bg);box-shadow:0 1px 0 var(--line),0 30px 60px -40px rgba(12,15,22,.35);position:relative}
+.p-top{display:flex;gap:14px;align-items:center}
+.p-top .av{width:58px;height:58px;border-radius:16px;background:linear-gradient(145deg,#1a2030,#0c0f16);color:#fff;display:grid;place-items:center;font-size:24px;font-weight:600;position:relative}
+.p-top .av .live{position:absolute;right:-3px;bottom:-3px;border:2px solid var(--bg);width:14px;height:14px}
+.p-top b{display:block;font-size:18px}
+.p-top span{font-size:13.5px;color:var(--muted)}
+.p-rows{margin:22px 0;border-top:1px solid var(--line)}
+.p-rows div{display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid var(--line);font-size:14px}
+.p-rows dt{color:var(--muted)}
+.p-rows dd{margin:0;text-align:right;font-weight:500}
+.p-rows{margin-block:22px}
+.p-now{background:var(--tile);border-radius:14px;padding:14px 16px;font-size:13.5px;color:var(--ink-2);margin-bottom:18px}
+.p-now b{display:block;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:400;margin-bottom:4px}
+.profile .btn{width:100%;justify-content:center}
 
-/* Services */
-.svc{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.svc article{background:var(--tile);border-radius:24px;padding:30px 28px;display:grid;gap:10px;align-content:start;min-width:0;transition:transform .4s var(--ease), box-shadow .4s var(--ease), background .4s}
-.svc article:hover{transform:translateY(-4px);box-shadow:0 24px 50px -30px rgba(0,0,0,.22);background:#fff}
-.ico{width:40px;height:40px;color:var(--ink);margin-bottom:10px}
-.ico svg{width:30px;height:30px}
-.svc h3{font-size:21px}
-.svc p{color:var(--muted);font-size:16px}
-.svc .gain{font-size:14px;font-weight:500;color:var(--ink);margin-top:8px;padding-top:12px;border-top:1px solid var(--hair)}
-@media (max-width:900px){.svc{grid-template-columns:repeat(2,1fr)}}
-@media (max-width:560px){.svc{grid-template-columns:1fr}}
+/* marquee */
+.stackbar{border-block:1px solid var(--line);padding-block:22px;overflow:hidden;position:relative}
+.stackbar .lbl{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-align:center;margin-bottom:14px}
+.marq{display:flex;width:max-content;animation:marq 48s linear infinite}
+.stackbar:hover .marq{animation-play-state:paused}
+.marq span{font-size:19px;font-weight:500;color:var(--ink-2);letter-spacing:-.01em;padding:0 26px;white-space:nowrap;display:flex;align-items:center;gap:26px}
+.marq span::after{content:"";width:5px;height:5px;border-radius:50%;background:var(--line)}
+.fade-x{position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,var(--bg),transparent 12%,transparent 88%,var(--bg))}
+@keyframes marq{to{transform:translateX(-50%)}}
 
-/* Process */
-.proc{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin:0;padding:0;counter-reset:s}
-.proc li{list-style:none;background:#fff;border-radius:24px;padding:28px 24px;display:grid;gap:10px;align-content:start;min-width:0;position:relative}
-.proc .n{font:500 13px/1 var(--mono);color:var(--faint)}
-.proc h3{font-size:22px}
-.proc .dur{font-size:13px;font-weight:600;color:var(--blue)}
-.proc p{color:var(--muted);font-size:15px}
-.proc li:not(:last-child)::after{content:"";position:absolute;right:-14px;top:40px;width:8px;height:8px;border-top:2px solid var(--line);border-right:2px solid var(--line);transform:rotate(45deg)}
-@media (max-width:900px){.proc{grid-template-columns:repeat(2,1fr)}.proc li::after{display:none}}
-@media (max-width:520px){.proc{grid-template-columns:1fr}}
+/* case studies */
+.cases{display:grid;gap:28px}
+.case{border:1px solid var(--line);border-radius:28px;overflow:hidden;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);background:var(--bg)}
+.case.flip .c-copy{order:2}
+.c-copy{padding:44px;display:flex;flex-direction:column;gap:22px}
+.c-tag{display:flex;flex-wrap:wrap;gap:8px}
+.c-tag span{font-size:12.5px;padding:5px 11px;border-radius:999px;background:var(--tile);color:var(--ink-2)}
+.c-tag span.k{background:var(--blue-soft);color:var(--blue);font-weight:500}
+.c-copy h3{font-size:clamp(26px,2.8vw,34px);letter-spacing:-.03em}
+.c-copy .intro{color:var(--muted);font-size:16.5px}
+.pbr{display:grid;gap:14px;border-top:1px solid var(--line);padding-top:20px}
+.pbr div{display:grid;grid-template-columns:110px minmax(0,1fr);gap:16px;font-size:15px}
+.pbr dt{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);padding-top:3px}
+.pbr dd{margin:0;color:var(--ink-2)}
+.wins{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.wins div{background:var(--tile);border-radius:14px;padding:14px}
+.wins b{display:block;font-size:15px;letter-spacing:-.01em}
+.wins span{font-size:12.5px;color:var(--muted);line-height:1.4;display:block;margin-top:2px}
+.c-stack{font-family:var(--f-mono);font-size:12.5px;color:var(--muted);margin-top:auto}
+.c-vis{background:var(--tile);padding:40px;display:flex;flex-direction:column;justify-content:center;gap:18px;position:relative;min-width:0}
+.c-vis .note{font-family:var(--f-mono);font-size:11px;color:var(--muted);letter-spacing:.04em;text-align:center}
 
-/* Experience timeline */
-.timeline{list-style:none;margin:0;padding:0;display:grid;border-top:1px solid var(--ink)}
-.job{display:grid;grid-template-columns:240px 1fr;gap:16px 48px;padding:30px 0;border-bottom:1px solid var(--hair)}
-.job .when{font:500 14px/1.5 var(--mono);color:var(--muted)}
-.job .when b{display:block;font:600 15px/1.4 var(--sans);color:var(--ink);margin-top:4px}
-.job h3{font-size:clamp(22px,2.4vw,28px)}
-.job .org{font-size:15px;color:var(--muted);margin-top:4px}
-.job ul{margin:16px 0 0;padding:0;list-style:none;display:grid;gap:10px}
-.job li{display:grid;grid-template-columns:18px 1fr;gap:8px;color:var(--ink-2);font-size:16px}
-.job li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--ink);margin-top:10px}
-.job li strong{color:var(--ink);font-weight:600}
-@media (max-width:760px){.job{grid-template-columns:1fr;gap:6px}}
-
-/* Work tiles */
-.tiles{display:grid;gap:20px}
-.tile{background:var(--tile);border-radius:28px;padding:clamp(28px,4.5vw,52px);display:grid;grid-template-columns:.8fr 1.2fr;align-items:center;gap:clamp(28px,4vw,56px);overflow:hidden;min-width:0}
-.tile.stack-tile{grid-template-columns:1fr}
-.tile.phone-tile{grid-template-columns:auto 1fr}
-@media (max-width:900px){.tile,.tile.phone-tile{grid-template-columns:1fr}}
-.t-copy{display:grid;gap:12px;min-width:0}
-.t-copy h3{font-size:clamp(28px,3.4vw,40px)}
-.t-copy p{color:var(--muted)}
-.t-copy ul{margin:6px 0 0;padding:0;list-style:none;display:grid;gap:8px}
-.t-copy li{display:grid;grid-template-columns:18px 1fr;gap:8px;font-size:15px;color:var(--ink-2)}
-.t-copy li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--ink);margin-top:9px}
-.t-copy .stack{font:500 12px/1.6 var(--mono);color:var(--muted);margin-top:6px}
-
-/* Phone */
-.phone-col{display:grid;justify-items:center;gap:12px}
-.phone{width:min(310px,84vw);border-radius:46px;padding:10px;background:#1d1d1f;box-shadow:0 50px 100px -40px rgba(0,0,0,.4)}
-.screen{border-radius:37px;overflow:hidden;background:#f2f2f7;padding:16px 12px 18px;display:flex;flex-direction:column;gap:8px;height:540px}
-.chat-head{display:flex;align-items:center;gap:10px;padding:4px 6px 12px;border-bottom:1px solid var(--hair);margin-bottom:6px}
-.av{width:32px;height:32px;border-radius:50%;background:#2c2c2e;color:#fff;display:grid;place-items:center;font-size:12px;font-weight:600}
-.chat-head b{display:block;font-size:14px}
-.chat-head small{font-size:11px;color:var(--green)}
-.chat{display:flex;flex-direction:column;gap:8px}
-.msg{max-width:84%;padding:9px 13px;border-radius:18px;font-size:13.5px;line-height:1.4;transition:opacity .45s var(--ease), transform .45s var(--ease)}
-.msg.in{align-self:flex-start;background:#fff}
-.msg.out{align-self:flex-end;background:var(--bubble)}
-.msg small{display:block;font-size:10px;color:var(--muted);margin-top:3px;text-align:right}
+/* phone */
+.phone{width:290px;max-width:100%;margin:0 auto;border-radius:42px;background:#0c0f16;padding:10px;box-shadow:0 40px 70px -40px rgba(12,15,22,.6)}
+.screen{border-radius:33px;background:#efeae2;overflow:hidden;height:500px;display:flex;flex-direction:column}
+.chat-head{display:flex;align-items:center;gap:10px;padding:14px 14px 12px;background:#fff;border-bottom:1px solid var(--line)}
+.chat-head .av{width:34px;height:34px;border-radius:50%;background:var(--green);color:#fff;display:grid;place-items:center;font-size:12px;font-weight:600}
+.chat-head b{display:block;font-size:14px;line-height:1.2}
+.chat-head small{font-size:11.5px;color:var(--green)}
+.chat{flex:1;padding:14px 12px;display:flex;flex-direction:column;gap:8px;overflow:hidden;justify-content:flex-end}
+.msg{max-width:84%;padding:8px 11px;border-radius:12px;font-size:13px;line-height:1.4;box-shadow:0 1px 0 rgba(0,0,0,.06);transition:opacity .45s ease,transform .45s cubic-bezier(.2,.8,.2,1)}
+.msg small{display:block;text-align:right;font-size:10px;color:var(--muted);margin-top:2px}
+.msg.in{align-self:flex-end;background:var(--bubble);border-top-right-radius:4px}
+.msg.out{align-self:flex-start;background:#fff;border-top-left-radius:4px}
 .msg.voice{display:flex;align-items:center;gap:8px}
+.play{width:0;height:0;border-left:9px solid var(--ink-2);border-top:6px solid transparent;border-bottom:6px solid transparent}
 .wave{display:flex;align-items:center;gap:2px;height:18px}
-.wave i{width:2px;border-radius:2px;background:var(--muted);animation:wave 1.1s ease-in-out infinite}
-@keyframes wave{0%,100%{height:30%}50%{height:100%}}
-.play{width:22px;height:22px;border-radius:50%;background:var(--ink);display:grid;place-items:center;flex:none}
-.play::after{content:"";border-left:7px solid #fff;border-top:4px solid transparent;border-bottom:4px solid transparent;margin-left:2px}
-.sys{align-self:center;margin-top:6px;font-size:11px;color:#1e7e34;background:#fff;border-radius:999px;padding:6px 12px;transition:opacity .45s var(--ease), transform .45s var(--ease)}
-.chat .hidden{opacity:0;transform:translateY(10px)}
-.typing{align-self:flex-end;display:flex;gap:4px;padding:11px 13px;background:var(--bubble);border-radius:18px}
-.typing i{width:6px;height:6px;border-radius:50%;background:var(--muted);animation:blink 1.2s infinite}
-.typing i:nth-child(2){animation-delay:.2s}.typing i:nth-child(3){animation-delay:.4s}
-@keyframes blink{0%,80%,100%{opacity:.25}40%{opacity:1}}
-.caption{font-size:12px;color:var(--faint)}
+.wave i{width:3px;background:var(--green);border-radius:2px;height:40%;animation:wv 1s ease-in-out infinite}
+@keyframes wv{50%{height:100%}}
+.sys{align-self:center;font-size:11px;background:#fff;color:var(--green);padding:5px 10px;border-radius:8px;font-weight:500;transition:opacity .45s ease,transform .45s ease}
+.chat.prep .msg,.chat.prep .sys{opacity:0;transform:translateY(10px)}
+.chat .show{opacity:1!important;transform:none!important}
+.typing{align-self:flex-start;background:#fff;border-radius:12px;padding:10px 12px;display:none;gap:4px}
+.typing.on{display:flex}
+.typing i{width:6px;height:6px;border-radius:50%;background:var(--muted);animation:bl 1s infinite}
+.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+@keyframes bl{50%{opacity:.25}}
 
-/* Sales pipeline + comparison */
-.sales-right{display:grid;gap:22px;min-width:0}
-.pipe{position:relative;display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
-.pipe::before{content:"";position:absolute;left:10%;right:10%;top:50%;height:1px;background:var(--line)}
-.pulse{position:absolute;top:50%;left:10%;width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:50%;background:var(--ink);z-index:1;animation:travel 5s var(--ease) infinite}
-@keyframes travel{0%{left:10%}100%{left:90%}}
-.pipe span{position:relative;z-index:2;background:#fff;border-radius:12px;padding:11px 4px;font-size:13px;font-weight:600;text-align:center;border:1px solid var(--hair);animation:hl 5s infinite;min-width:0}
-.pipe span small{display:block;font-weight:400;font-size:11px;opacity:.65}
-.pipe span:nth-of-type(2){animation-delay:1.1s}.pipe span:nth-of-type(3){animation-delay:2.2s}.pipe span:nth-of-type(4){animation-delay:3.3s}.pipe span:nth-of-type(5){animation-delay:4.4s}
-@keyframes hl{0%,14%{background:var(--ink);color:#fff}22%,100%{background:#fff;color:var(--ink)}}
-@media (max-width:520px){.pipe span{font-size:11px}.pipe span small{display:none}}
-.compare{background:#fff;border-radius:18px;padding:20px 22px;display:grid;gap:16px;border:1px solid var(--hair)}
-.compare h4{font-size:14px;font-weight:600;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;letter-spacing:-.01em}
-.compare h4 em{font-style:normal;font-weight:400;font-size:12px;color:var(--faint)}
-.lane{display:grid;gap:7px}
-.lane-top{display:flex;justify-content:space-between;gap:10px;font-size:13px;flex-wrap:wrap}
-.lane-top b{font-weight:600}
-.lane-top span{color:var(--muted)}
-.track{height:8px;border-radius:999px;background:var(--tile);overflow:hidden}
-.fill{height:100%;border-radius:999px;transform-origin:0 50%;transform:scaleX(var(--w,1))}
-.lane.slow .fill{background:linear-gradient(90deg,#c7c7cc,var(--red))}
-.lane.fast .fill{background:#28a745}
-.lane-foot{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);gap:10px}
-.lane.slow .lane-foot span:last-child{color:var(--red)}
-.lane.fast .lane-foot span:last-child{color:#1e7e34}
-.tile.in .lane.slow .fill{animation:fill 2.6s var(--ease) .3s both}
-.tile.in .lane.fast .fill{animation:fill .6s var(--ease) .3s both}
-@keyframes fill{from{transform:scaleX(0)}to{transform:scaleX(var(--w,1))}}
+/* ask */
+.ask{background:var(--bg);border:1px solid var(--line);border-radius:20px;padding:20px;display:grid;gap:14px;box-shadow:0 30px 60px -45px rgba(12,15,22,.4)}
+.ask-q{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:15px;font-weight:500;min-height:48px}
+.ask-q::before{content:"";width:16px;height:16px;flex:none;border-radius:50%;border:2px solid var(--muted);box-shadow:inset 0 0 0 3px var(--bg)}
+.caret{width:2px;height:18px;background:var(--blue);animation:bl 1s steps(1) infinite}
+.steps{display:grid;gap:8px}
+.step{display:flex;align-items:center;gap:10px;font-size:13.5px;color:var(--ink-2);transition:opacity .4s ease,transform .4s ease}
+.step::before{content:"✓";width:20px;height:20px;border-radius:50%;background:var(--green-soft);color:var(--green);display:grid;place-items:center;font-size:11px;font-weight:700;flex:none}
+.step code{font-family:var(--f-mono);font-size:12px;background:var(--tile);padding:2px 6px;border-radius:5px;overflow-wrap:anywhere}
+.ans{border-top:1px solid var(--line);padding-top:14px;transition:opacity .5s ease,transform .5s ease}
+.ans h4{font-size:16px;margin-bottom:12px;letter-spacing:-.01em}
+.ans h4 b{color:var(--green)}
+.hb{display:grid;grid-template-columns:52px minmax(0,1fr) 44px;align-items:center;gap:10px;font-size:13px;margin-bottom:8px}
+.hb i{height:10px;border-radius:5px;background:#c9d2e3;transform-origin:left;transition:transform 1s cubic-bezier(.2,.8,.2,1)}
+.hb.top i{background:var(--blue)}
+.hb span:last-child{text-align:right;font-variant-numeric:tabular-nums;color:var(--muted)}
+.ask.prep .step,.ask.prep .ans{opacity:0;transform:translateY(8px)}
+.ask.prep .hb i{transform:scaleX(0)!important}
+.ask .show{opacity:1!important;transform:none!important}
 
-/* Data agent */
-.ask{background:#fff;border-radius:20px;border:1px solid var(--hair);padding:20px;display:grid;gap:14px;min-width:0}
-.ask-q{justify-self:end;max-width:88%;background:var(--ink);color:#fff;border-radius:18px 18px 4px 18px;padding:11px 15px;font-size:15px;min-height:44px}
-.caret{display:inline-block;width:1px;height:15px;background:currentColor;vertical-align:-2px;margin-left:1px;animation:blink 1s infinite}
-.ask-steps{display:grid;gap:6px;font-size:13px;color:var(--muted)}
-.ask-steps span{display:flex;gap:8px;align-items:center;transition:opacity .4s, transform .4s}
-.ask-steps span::before{content:"✓";width:18px;height:18px;border-radius:50%;background:var(--bubble);color:#1e7e34;font-size:11px;font-weight:700;display:grid;place-items:center;flex:none}
-.ask-a{background:var(--tile);border-radius:16px;padding:16px;display:grid;gap:12px;transition:opacity .5s, transform .5s}
-.ask-a h4{font-size:18px;letter-spacing:-.02em}
-.ask-a h4 b{color:#1e7e34}
-.hbar{display:grid;grid-template-columns:52px 1fr 44px;gap:10px;align-items:center;font-size:13px}
-.hbar i{height:10px;border-radius:999px;background:#c7c7cc;transform-origin:0 50%;transition:transform .9s var(--ease)}
-.hbar.top i{background:var(--ink)}
-.hbar span:last-child{text-align:right;font-variant-numeric:tabular-nums;color:var(--muted)}
-.hbar.top span{color:var(--ink);font-weight:600}
-.ask-meta{font-size:12px;color:var(--faint)}
-.ask .wait{opacity:0;transform:translateY(8px)}
+/* flow */
+.flow{display:grid;gap:10px}
+.fl-row{display:grid;grid-template-columns:96px minmax(0,1fr);gap:14px;align-items:center;background:var(--bg);border:1px solid var(--line);border-radius:16px;padding:14px 16px;position:relative}
+.fl-row h4{font-size:14.5px;letter-spacing:-.01em}
+.fl-row small{display:block;font-size:12.5px;color:var(--muted)}
+.fl-row .st{font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.fl-row+.fl-row::before{content:"";position:absolute;left:62px;top:-11px;width:2px;height:10px;background:linear-gradient(var(--blue),var(--blue)) 0 0/100% 0 no-repeat,var(--line);animation:wire 2.4s ease-in-out infinite}
+.fl-row:nth-child(3)::before{animation-delay:.6s}.fl-row:nth-child(4)::before{animation-delay:1.2s}
+@keyframes wire{0%{background-size:100% 0,auto}50%{background-size:100% 100%,auto}100%{background-size:100% 100%,auto;background-position:0 10px,0 0}}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips span{font-size:12.5px;padding:4px 10px;border-radius:999px;background:var(--tile);color:var(--ink-2)}
+.medal{display:flex;gap:6px;flex-wrap:wrap}
+.medal span{font-size:12.5px;padding:4px 10px;border-radius:8px;font-weight:500}
+.m-b{background:#f3e3d3;color:#7a4513}.m-s{background:#e6e9ef;color:#40485a}.m-g{background:#f6ebc4;color:#6d5300}
+.pass{font-size:12px;color:var(--green);font-weight:500;margin-left:auto;white-space:nowrap}
 
-/* Data platform diagram */
-.flowmap{display:grid;grid-template-columns:1fr 44px 1fr 44px 1.15fr 44px 1fr;align-items:stretch;min-width:0}
-.stagebox{background:#fff;border-radius:20px;border:1px solid var(--hair);padding:18px;display:grid;gap:10px;align-content:start;min-width:0}
-.stagebox .n{font:500 12px/1 var(--mono);color:var(--faint)}
-.stagebox h4{font-size:17px;letter-spacing:-.02em}
-.chipcol{display:grid;gap:6px}
-.chipcol span{display:flex;align-items:center;gap:8px;background:var(--tile);border-radius:10px;padding:8px 10px;font-size:13px;font-weight:500}
-.chipcol span i{width:8px;height:8px;border-radius:2px;flex:none}
-.air{display:grid;place-items:center;text-align:center;gap:6px;background:var(--tile);border-radius:14px;padding:16px 10px}
-.air b{font-size:15px}
-.air small{font-size:12px;color:var(--muted)}
-.clock{width:34px;height:34px;border-radius:50%;border:2px solid var(--ink);position:relative}
-.clock::before,.clock::after{content:"";position:absolute;left:50%;top:50%;width:2px;background:var(--ink);transform-origin:50% 100%;border-radius:2px}
-.clock::before{height:11px;margin:-11px 0 0 -1px;animation:spin 6s linear infinite}
-.clock::after{height:8px;margin:-8px 0 0 -1px;transform:rotate(90deg)}
-@keyframes spin{to{transform:rotate(360deg)}}
-.medal{display:grid;gap:6px}
-.medal div{border-radius:10px;padding:9px 11px;font-size:13px;font-weight:600;display:flex;justify-content:space-between;gap:8px}
-.medal small{font-weight:400;opacity:.75}
-.m-b{background:#f1d9c6;color:#6b3a17}.m-s{background:#e6e8ec;color:#3a3f47}.m-g{background:#f6e7b4;color:#6b5200}
-.tests{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:600;color:#1e7e34;background:var(--bubble);border-radius:999px;padding:6px 10px;justify-self:start}
-.wire{position:relative;align-self:center;height:2px;background:var(--line);margin:0 6px}
-.wire::after{content:"";position:absolute;top:-3px;width:8px;height:8px;border-radius:50%;background:var(--ink);animation:dot 2s linear infinite}
-@keyframes dot{from{left:0}to{left:calc(100% - 8px)}}
-.outcome{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}
-.outcome div{background:#fff;border-radius:16px;border:1px solid var(--hair);padding:14px 16px;font-size:14px;color:var(--muted)}
-.outcome b{display:block;color:var(--ink);font-size:15px;margin-bottom:2px}
-@media (max-width:980px){
-  .flowmap{grid-template-columns:1fr}
-  .wire{height:28px;width:2px;justify-self:center;margin:4px 0}
-  .wire::after{left:-3px!important;animation-name:dotv}
-  .outcome{grid-template-columns:1fr}
+/* services */
+.svc{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.svc article{background:var(--bg);border:1px solid var(--line);border-radius:22px;padding:28px;display:flex;flex-direction:column;gap:14px;transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s ease,border-color .35s}
+.svc article:hover{transform:translateY(-4px);box-shadow:0 26px 50px -36px rgba(12,15,22,.45);border-color:#d3d8e2}
+.svc .ico{width:44px;height:44px;border-radius:12px;background:var(--tile);display:grid;place-items:center;color:var(--ink)}
+.svc .ico svg{width:22px;height:22px}
+.svc h3{font-size:21px}
+.svc p{color:var(--muted);font-size:15px}
+.svc ul{display:grid;gap:7px;border-top:1px solid var(--line);padding-top:14px}
+.svc li{font-size:14px;color:var(--ink-2);display:flex;gap:9px}
+.svc li::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--blue);margin-top:9px;flex:none}
+.svc .meta{display:flex;justify-content:space-between;gap:12px;font-size:13px;color:var(--muted);margin-top:auto;padding-top:14px;border-top:1px solid var(--line)}
+.svc .meta b{color:var(--ink);font-weight:500}
+
+/* industries carousel */
+.car-top{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:36px;flex-wrap:wrap}
+.car-nav{display:flex;gap:8px}
+.car-nav button{width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:var(--bg);cursor:pointer;display:grid;place-items:center;color:var(--ink);transition:background .2s,border-color .2s}
+.car-nav button:hover{border-color:var(--ink)}
+.car-nav svg{width:18px;height:18px}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:24px}
+.tabs button{position:relative;overflow:hidden;border:1px solid var(--line);background:var(--bg);border-radius:999px;padding:8px 16px;font:inherit;font-size:13.5px;color:var(--muted);cursor:pointer;transition:color .3s,border-color .3s}
+.tabs button.on{color:var(--ink);border-color:var(--ink)}
+.tabs button i{position:absolute;left:0;bottom:0;height:2px;background:var(--blue);width:0}
+.track{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-bottom:4px;scroll-behavior:smooth}
+.track::-webkit-scrollbar{display:none}
+.slide{flex:0 0 min(860px,88%);scroll-snap-align:start;border-radius:28px;background:var(--bg);border:1px solid var(--line);display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);overflow:hidden;transition:transform .7s cubic-bezier(.2,.8,.2,1),opacity .7s ease;transform:scale(.95);opacity:.45}
+.slide.on{transform:none;opacity:1}
+.s-copy{padding:38px;display:flex;flex-direction:column;gap:16px}
+.s-copy .ind{font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--blue)}
+.s-copy h3{font-size:clamp(24px,2.6vw,32px);letter-spacing:-.03em}
+.s-copy p{color:var(--muted);font-size:15.5px}
+.s-copy ul{display:grid;gap:8px}
+.s-copy li{font-size:14.5px;display:flex;gap:10px;color:var(--ink-2)}
+.s-copy li::before{content:"✓";color:var(--green);font-weight:700}
+.s-chat{background:var(--tile);padding:30px;display:flex;flex-direction:column;justify-content:center;gap:10px}
+.s-chat .msg{opacity:0;transform:translateY(12px)}
+.slide.on .s-chat .msg{opacity:1;transform:none}
+.slide.on .s-chat .msg:nth-child(2){transition-delay:.35s}
+.slide.on .s-chat .msg:nth-child(3){transition-delay:.7s}
+.slide.on .s-chat .sys{opacity:1;transform:none;transition-delay:1.05s}
+.s-chat .sys{opacity:0;transform:translateY(8px)}
+
+/* capabilities */
+.caps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.cap{border:1px solid var(--line);border-radius:22px;padding:24px;display:flex;flex-direction:column;gap:12px;background:var(--bg)}
+.cap .viz{height:132px;border-radius:14px;background:var(--tile);padding:14px;display:flex;align-items:flex-end;position:relative;overflow:hidden}
+.cap h3{font-size:19px;margin-top:6px}
+.cap p{font-size:14.5px;color:var(--muted)}
+.cap .use{font-size:12.5px;font-family:var(--f-mono);color:var(--ink-2);margin-top:auto}
+.viz svg{width:100%;height:100%;overflow:visible}
+.fc-line{stroke-dasharray:420;stroke-dashoffset:420;transition:stroke-dashoffset 1.8s cubic-bezier(.2,.8,.2,1)}
+.in .fc-line,.cap.in .fc-line{stroke-dashoffset:0}
+.bars{display:flex;align-items:flex-end;gap:8px;width:100%;height:100%}
+.bars div{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:4px;height:100%}
+.bars i{width:100%;border-radius:6px 6px 3px 3px;background:#c9d2e3;transform-origin:bottom;transform:scaleY(.08);transition:transform 1.1s cubic-bezier(.2,.8,.2,1)}
+.bars i.hot{background:var(--blue)}
+.bars small{font-size:10.5px;color:var(--muted);font-family:var(--f-mono)}
+.cap.in .bars i{transform:scaleY(1)}
+.tickets{display:grid;gap:6px;width:100%}
+.tickets div{display:flex;justify-content:space-between;gap:8px;align-items:center;background:var(--bg);border-radius:8px;padding:6px 9px;font-size:11.5px}
+.tickets b{font-weight:500;font-size:10.5px;padding:2px 7px;border-radius:999px}
+.t1{background:var(--green-soft);color:var(--green)}.t2{background:#fdecd8;color:var(--amber)}.t3{background:var(--blue-soft);color:var(--blue)}
+.shelf{position:absolute;inset:14px;display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(2,1fr);gap:8px}
+.shelf span{border-radius:6px;background:#d9dee8;position:relative}
+.shelf span.empty{background:repeating-linear-gradient(45deg,#eef0f4 0 6px,#e4e7ed 6px 12px)}
+.shelf span::after{content:"";position:absolute;inset:-3px;border:2px solid var(--green);border-radius:8px;opacity:0;transition:opacity .3s}
+.shelf span.empty::after{border-color:#d93a3a}
+.cap.in .shelf span::after{opacity:1}
+.cap.in .shelf span:nth-child(2)::after{transition-delay:.15s}.cap.in .shelf span:nth-child(3)::after{transition-delay:.3s}.cap.in .shelf span:nth-child(4)::after{transition-delay:.45s}.cap.in .shelf span:nth-child(5)::after{transition-delay:.6s}.cap.in .shelf span:nth-child(6)::after{transition-delay:.75s}.cap.in .shelf span:nth-child(7)::after{transition-delay:.9s}.cap.in .shelf span:nth-child(8)::after{transition-delay:1.05s}
+.scan{position:absolute;left:0;right:0;height:2px;background:var(--green);box-shadow:0 0 12px var(--green);top:0;animation:scan 3s ease-in-out infinite;opacity:.7}
+@keyframes scan{50%{top:100%}}
+
+/* process */
+.proc{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;counter-reset:s;border-top:1px solid var(--line)}
+.proc li{padding:28px 24px 0 0;position:relative}
+.proc li+li{padding-left:24px;border-left:1px solid var(--line)}
+.proc .n{font-family:var(--f-mono);font-size:12px;color:var(--blue)}
+.proc h3{font-size:20px;margin-top:14px}
+.proc .dur{display:inline-block;font-size:12.5px;background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:3px 10px;margin-top:10px;color:var(--ink-2)}
+.proc p{font-size:14.5px;color:var(--muted);margin-top:12px}
+.proc li::before{content:"";position:absolute;top:-1px;left:0;height:2px;width:0;background:var(--ink);transition:width 1s cubic-bezier(.2,.8,.2,1)}
+.proc.in li::before{width:100%}
+.proc.in li:nth-child(2)::before{transition-delay:.25s}.proc.in li:nth-child(3)::before{transition-delay:.5s}.proc.in li:nth-child(4)::before{transition-delay:.75s}
+
+/* engagement */
+.plans{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.plan{border:1px solid var(--line);border-radius:24px;padding:30px;display:flex;flex-direction:column;gap:16px;background:var(--bg)}
+.plan.feat{background:var(--dark);color:var(--on-dark);border-color:var(--dark)}
+.plan.feat p,.plan.feat li,.plan.feat .for{color:var(--on-dark-muted)}
+.plan.feat li::before{color:#7ea0ff}
+.plan .top{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.plan .badge{font-size:12px;padding:4px 10px;border-radius:999px;background:rgba(255,255,255,.12);color:var(--on-dark)}
+.plan h3{font-size:24px}
+.plan .for{font-size:14px;color:var(--muted)}
+.plan ul{display:grid;gap:9px;padding-block:6px}
+.plan li{font-size:14.5px;display:flex;gap:10px;color:var(--ink-2)}
+.plan li::before{content:"✓";color:var(--blue);font-weight:700}
+.plan .btn{margin-top:auto;justify-content:center}
+.plan.feat .btn{background:var(--on-dark);color:var(--dark);border-color:var(--on-dark)}
+.promise{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;margin-top:56px;padding-top:36px;border-top:1px solid var(--line)}
+.promise h4{font-size:16px;display:flex;gap:10px;align-items:center}
+.promise h4::before{content:"";width:8px;height:8px;border-radius:2px;background:var(--blue);flex:none}
+.promise p{font-size:14.5px;color:var(--muted);margin-top:8px}
+
+/* about */
+.about{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:64px}
+.about-l p{font-size:17px;color:var(--ink-2);margin-top:20px;max-width:52ch}
+.about-l p strong{color:var(--ink);font-weight:600}
+.look{margin-top:32px;display:grid;gap:18px;background:var(--bg);border:1px solid var(--line);border-radius:20px;padding:24px}
+.look h4{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:400;margin-bottom:8px}
+.pills{display:flex;flex-wrap:wrap;gap:6px}
+.pills span{font-size:13.5px;padding:5px 12px;border-radius:999px;background:var(--tile);color:var(--ink-2)}
+.tl{display:grid;gap:0}
+.job{display:grid;grid-template-columns:150px minmax(0,1fr);gap:24px;padding-block:28px;border-top:1px solid var(--line)}
+.job:last-child{border-bottom:1px solid var(--line)}
+.job .when{font-size:13.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+.job .when b{display:block;color:var(--ink-2);font-weight:500;font-size:12.5px;margin-top:4px}
+.job h3{font-size:20px}
+.job .org{font-size:14px;color:var(--muted);margin-top:2px}
+.job ul{display:grid;gap:8px;margin-top:14px}
+.job li{font-size:15px;color:var(--ink-2);display:flex;gap:10px}
+.job li::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--ink-2);margin-top:10px;flex:none}
+.certs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:28px}
+.certs div{border:1px solid var(--line);border-radius:14px;padding:14px;font-size:14px;background:var(--bg)}
+.certs small{display:block;font-family:var(--f-mono);font-size:11px;color:var(--muted);letter-spacing:.04em}
+
+/* skills */
+.spec{border-top:1px solid var(--line)}
+.spec-row{display:grid;grid-template-columns:minmax(0,280px) minmax(0,1fr);gap:24px;padding-block:20px;border-bottom:1px solid var(--line)}
+.spec-row h3{font-size:16px}
+.spec-row h3 span{display:block;font-size:13px;color:var(--muted);font-weight:400;margin-top:3px;letter-spacing:0}
+.spec-row p{font-size:15px;color:var(--ink-2)}
+.spec-row b{font-weight:600;color:var(--ink)}
+
+/* faq */
+.faq{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:56px}
+.faq details{border-bottom:1px solid var(--line)}
+.faq details:first-child{border-top:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;padding-block:22px;font-size:17px;font-weight:500;letter-spacing:-.01em}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-size:22px;line-height:1;color:var(--muted);transition:transform .3s ease;flex:none}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{padding-bottom:22px;color:var(--muted);font-size:15.5px;max-width:62ch}
+
+/* contact */
+.contact{background:var(--dark);color:var(--on-dark);border-radius:32px;padding:64px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;position:relative;overflow:hidden}
+.contact::before{content:"";position:absolute;width:520px;height:520px;right:-160px;top:-220px;border-radius:50%;background:radial-gradient(circle,rgba(35,80,230,.45),transparent 65%);pointer-events:none}
+.contact .eyebrow{color:var(--on-dark-muted)}
+.contact h2{font-size:clamp(34px,4.4vw,52px);letter-spacing:-.035em;margin-top:16px}
+.contact h2 span{color:var(--on-dark-muted)}
+.contact .sub{color:var(--on-dark-muted);font-size:17px;margin-top:20px;max-width:44ch}
+.c-mail{margin-top:30px;display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.c-mail .addr{font-size:clamp(18px,2vw,22px);font-weight:500;user-select:all;overflow-wrap:anywhere}
+.c-mail button{height:36px;padding:0 14px;border-radius:999px;border:1px solid rgba(255,255,255,.2);background:transparent;color:var(--on-dark);font:inherit;font-size:13px;cursor:pointer}
+.c-mail button:hover{background:rgba(255,255,255,.08)}
+.c-list{margin-top:30px;display:grid;gap:10px}
+.c-list li{display:flex;gap:10px;font-size:15px;color:var(--on-dark-muted)}
+.c-list li::before{content:"✓";color:#7ea0ff;font-weight:700}
+form{display:grid;gap:12px;position:relative}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+label{display:grid;gap:6px;font-size:13px;color:var(--on-dark-muted)}
+input,select,textarea{font:inherit;font-size:15px;color:var(--on-dark);background:var(--dark-2);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:12px 14px;width:100%;transition:border-color .2s}
+select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,#9aa1ae 50%),linear-gradient(135deg,#9aa1ae 50%,transparent 50%);background-position:calc(100% - 20px) 50%,calc(100% - 15px) 50%;background-size:5px 5px;background-repeat:no-repeat}
+input:focus,select:focus,textarea:focus{outline:none;border-color:#7ea0ff}
+textarea{min-height:120px;resize:vertical}
+form .btn{background:var(--on-dark);color:var(--dark);border-color:var(--on-dark);justify-content:center;margin-top:4px}
+.f-note{font-size:13px;color:var(--on-dark-muted);min-height:1.2em}
+.f-note pre{white-space:pre-wrap;background:var(--dark-2);border-radius:10px;padding:12px;font-family:var(--f-mono);font-size:12px;color:var(--on-dark);margin:8px 0 0;user-select:all}
+footer{padding-block:40px;color:var(--muted);font-size:13.5px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+/* reveal */
+.pre{opacity:0;transform:translateY(28px)}
+.pre.in{opacity:1;transform:none;transition:opacity .9s ease,transform .9s cubic-bezier(.2,.8,.2,1)}
+.fadeup{animation:fu .9s cubic-bezier(.2,.8,.2,1) both}
+@keyframes fu{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+
+/* responsive */
+@media (max-width:1020px){
+  .hero-grid,.case,.about,.faq,.contact{grid-template-columns:minmax(0,1fr)}
+  .case.flip .c-copy{order:0}
+  .svc,.plans{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .caps{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .proc{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:32px}
+  .proc li:nth-child(3){padding-left:0;border-left:0}
+  .promise{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .head{grid-template-columns:minmax(0,1fr);gap:16px}
+  .slide{grid-template-columns:minmax(0,1fr)}
+  .contact{padding:48px}
+  .profile{max-width:520px}
 }
-@keyframes dotv{from{top:0}to{top:calc(100% - 8px)}}
-
-/* Industries carousel */
-#industries{overflow:hidden}
-.car-tabs{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin-bottom:28px;padding-bottom:4px}
-.car-tabs::-webkit-scrollbar{display:none}
-.tab{position:relative;overflow:hidden;flex:none;height:38px;padding:0 16px;border-radius:999px;border:0;background:#e8e8ed;color:var(--ink-2);font-size:14px;font-weight:500;cursor:pointer;transition:background .3s, color .3s}
-.tab:hover{background:#dcdce1}
-.tab.active{background:var(--ink);color:#fff}
-.tab .bar{position:absolute;left:0;bottom:0;height:2px;width:100%;background:rgba(255,255,255,.7);transform-origin:0 50%;transform:scaleX(0)}
-.tab.active .bar.run{animation:prog var(--dur,6s) linear forwards}
-@keyframes prog{to{transform:scaleX(1)}}
-.car-track{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-inline:max(20px, calc((100% - 1120px)/2 + 20px));scroll-padding-inline:max(20px, calc((100% - 1120px)/2 + 20px));padding-block:10px 30px}
-.car-track::-webkit-scrollbar{display:none}
-.slide{flex:none;width:min(1000px,88vw);scroll-snap-align:start;border-radius:32px;background:var(--tint);padding:clamp(26px,4vw,52px);display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(24px,4vw,56px);align-items:center;transform:scale(.94);opacity:.5;transition:transform .7s var(--ease), opacity .7s var(--ease), box-shadow .7s var(--ease)}
-.slide.active{transform:none;opacity:1;box-shadow:0 40px 80px -50px rgba(0,0,0,.3)}
-@media (max-width:820px){.slide{grid-template-columns:1fr}}
-.s-copy{display:grid;gap:14px;min-width:0}
-.s-copy .ind{font-size:14px;font-weight:600;color:var(--accent)}
-.s-copy h3{font-size:clamp(28px,3.6vw,44px);letter-spacing:-.04em}
-.s-copy p{color:var(--ink-2);font-size:16px;max-width:42ch}
-.s-copy ul{margin:4px 0 0;padding:0;list-style:none;display:grid;gap:9px}
-.s-copy li{display:grid;grid-template-columns:22px 1fr;gap:8px;font-size:15px;color:var(--ink-2)}
-.s-copy li::before{content:"✓";width:20px;height:20px;border-radius:50%;background:rgba(255,255,255,.75);color:var(--accent);font-size:11px;font-weight:700;display:grid;place-items:center}
-.slide .s-copy > *{transition:opacity .6s var(--ease), transform .6s var(--ease)}
-.slide:not(.active) .s-copy > *{opacity:.0001;transform:translateX(24px)}
-.slide.active .s-copy > :nth-child(2){transition-delay:.08s}.slide.active .s-copy > :nth-child(3){transition-delay:.16s}.slide.active .s-copy > :nth-child(4){transition-delay:.24s}
-.mini{background:rgba(255,255,255,.92);border-radius:24px;padding:16px;display:grid;gap:8px;box-shadow:0 30px 60px -40px rgba(0,0,0,.35);min-width:0}
-.mini-head{display:flex;align-items:center;gap:10px;padding-bottom:10px;border-bottom:1px solid var(--hair);margin-bottom:4px}
-.mini-head i{width:30px;height:30px;border-radius:50%;background:var(--accent);color:#fff;display:grid;place-items:center;font:600 11px/1 var(--sans);font-style:normal}
-.mini-head b{display:block;font-size:13px}
-.mini-head small{font-size:11px;color:var(--green)}
-.b{max-width:86%;padding:9px 13px;border-radius:16px;font-size:13.5px;line-height:1.4}
-.b.u{justify-self:start;background:var(--tile)}
-.b.a{justify-self:end;background:var(--bubble)}
-.b.s{justify-self:center;font-size:11px;color:#1e7e34;background:#fff;border:1px dashed rgba(31,157,85,.45);border-radius:999px;padding:6px 12px}
-.slide .b{opacity:0;transform:translateY(12px) scale(.98)}
-.slide.active .b{animation:bub .55s var(--ease) both}
-.slide.active .b:nth-of-type(1){animation-delay:.25s}.slide.active .b:nth-of-type(2){animation-delay:.85s}.slide.active .b:nth-of-type(3){animation-delay:1.45s}.slide.active .b:nth-of-type(4){animation-delay:2.05s}
-@keyframes bub{to{opacity:1;transform:none}}
-.car-ctrl{display:flex;justify-content:flex-end;gap:10px;margin-top:4px}
-.arrow{width:44px;height:44px;border-radius:50%;border:0;background:#e8e8ed;color:var(--ink);display:grid;place-items:center;cursor:pointer;transition:background .2s, transform .2s}
-.arrow:hover{background:#dcdce1;transform:scale(1.05)}
-.arrow svg{width:18px;height:18px}
-
-/* ML & Vision */
-.caps{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
-@media (max-width:820px){.caps{grid-template-columns:1fr}}
-.cap{background:var(--tile);border-radius:28px;padding:clamp(26px,3.6vw,40px);display:grid;gap:22px;align-content:start;min-width:0;transition:transform .4s var(--ease)}
-.cap:hover{transform:translateY(-4px)}
-.cap .t-copy h3{font-size:clamp(24px,2.6vw,30px)}
-.cap-vis{background:#fff;border-radius:18px;border:1px solid var(--hair);padding:18px;min-height:190px;display:grid;align-content:center;min-width:0}
-.fc svg{width:100%;height:auto;display:block}
-.fc .hist{fill:none;stroke:var(--ink);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
-.fc .pred{fill:none;stroke:var(--blue);stroke-width:2.2;stroke-dasharray:5 5;stroke-linecap:round}
-.fc .band{fill:rgba(0,102,204,.12)}
-.fc .grid{stroke:var(--hair);stroke-width:1}
-.fc text{font:11px var(--sans);fill:var(--faint)}
-.cap.in .fc .draw{stroke-dasharray:600;stroke-dashoffset:600;animation:draw 1.6s var(--ease) .2s forwards}
-@keyframes draw{to{stroke-dashoffset:0}}
-.fc-leg{display:flex;gap:16px;font-size:12px;color:var(--muted);margin-top:8px;flex-wrap:wrap}
-.fc-leg i{display:inline-block;width:14px;height:2px;margin-right:6px;vertical-align:3px}
-.risk{display:grid;gap:12px}
-.risk div{display:grid;grid-template-columns:110px 1fr 44px;gap:12px;align-items:center;font-size:13px}
-.risk i{height:8px;border-radius:999px;background:var(--tile);overflow:hidden;position:relative}
-.risk i::after{content:"";position:absolute;inset:0;width:var(--p);border-radius:999px;background:var(--c);transform-origin:0 50%}
-.cap.in .risk i::after{animation:fill 1.1s var(--ease) both}
-.risk span:last-child{text-align:right;font-weight:600;font-variant-numeric:tabular-nums}
-.risk .head-r{font-size:11px;color:var(--faint);text-transform:uppercase;letter-spacing:.06em}
-.cls{display:grid;gap:12px}
-.ticket{background:var(--tile);border-radius:12px;padding:10px 12px;font-size:13px;display:flex;justify-content:space-between;gap:10px;align-items:center;transition:opacity .5s var(--ease), transform .5s var(--ease)}
-.ticket em{font-style:normal;font-size:11px;font-weight:600;padding:4px 8px;border-radius:999px;white-space:nowrap}
-.e1{background:#e8f0fe;color:#0b57d0}.e2{background:#fde7e9;color:#b3261e}.e3{background:#e6f4ea;color:#1e7e34}
-.cap.pre-anim .ticket{opacity:0;transform:translateX(-12px)}
-.cv{position:relative;border-radius:12px;overflow:hidden;background:linear-gradient(#ececf0,#dedee3);aspect-ratio:16/8;max-width:100%}
-.shelf{position:absolute;left:6%;right:6%;height:3px;background:#b9b9c0;border-radius:2px}
-.shelf.s1{top:48%}.shelf.s2{top:90%}
-.prod{position:absolute;border-radius:6px}
-.box{position:absolute;border:2px solid var(--c);border-radius:6px;transition:opacity .4s, transform .4s}
-.box em{position:absolute;left:-2px;top:-20px;font:600 10px/1 var(--sans);font-style:normal;color:#fff;background:var(--c);padding:4px 6px;border-radius:4px;white-space:nowrap}
-.cap.pre-anim .box{opacity:0;transform:scale(1.15)}
-.scan{position:absolute;left:0;right:0;height:30%;background:linear-gradient(to bottom,transparent,rgba(0,102,204,.18),transparent);animation:scan 3.2s linear infinite}
-@keyframes scan{from{top:-30%}to{top:100%}}
-
-/* Why me + engagement */
-.why{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-.why article{display:grid;gap:10px;align-content:start;padding-top:22px;border-top:1px solid var(--ink);min-width:0}
-.why h3{font-size:20px}
-.why p{color:var(--muted);font-size:15px}
-@media (max-width:900px){.why{grid-template-columns:repeat(2,1fr)}}
-@media (max-width:520px){.why{grid-template-columns:1fr}}
-.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.plan{background:#fff;border-radius:28px;padding:30px;display:flex;flex-direction:column;gap:14px;min-width:0;border:1px solid transparent;transition:transform .4s var(--ease), box-shadow .4s var(--ease)}
-.plan:hover{transform:translateY(-4px);box-shadow:0 30px 60px -36px rgba(0,0,0,.25)}
-.plan.feature{border-color:var(--ink)}
-.plan .k{font-size:13px;font-weight:600;color:var(--muted)}
-.plan .tagline{display:inline-block;width:max-content;font-size:11px;font-weight:600;background:var(--ink);color:#fff;border-radius:999px;padding:4px 10px}
-.plan h3{font-size:28px}
-.plan .for{color:var(--muted);font-size:15px}
-.plan ul{margin:0;padding:0;list-style:none;display:grid;gap:10px;font-size:15px}
-.plan li{display:grid;grid-template-columns:22px 1fr;gap:8px}
-.plan li::before{content:"✓";color:#1e7e34;font-weight:700}
-.plan .btn{margin-top:auto}
-@media (max-width:900px){.plans{grid-template-columns:1fr}}
-
-/* Skills spec sheet */
-.spec{border-top:1px solid var(--ink)}
-.spec-row{display:grid;grid-template-columns:260px 1fr;gap:16px 40px;padding:22px 0;border-bottom:1px solid var(--hair)}
-.spec-row h3{font-size:17px;letter-spacing:-.01em}
-.spec-row h3 span{display:block;font-size:13px;font-weight:400;color:var(--faint);margin-top:4px;letter-spacing:0}
-.spec-row p{font-size:17px;color:var(--ink-2);line-height:1.7}
-.spec-row p b{font-weight:600;color:var(--ink)}
-@media (max-width:720px){.spec-row{grid-template-columns:1fr;gap:6px}}
-
-/* FAQ */
-.faq{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(32px,5vw,80px)}
-@media (max-width:900px){.faq{grid-template-columns:1fr}}
-.qa{border-top:1px solid var(--ink)}
-.qa details{border-bottom:1px solid var(--hair)}
-.qa summary{list-style:none;cursor:pointer;padding:22px 40px 22px 0;font-size:18px;font-weight:500;letter-spacing:-.01em;position:relative}
-.qa summary::-webkit-details-marker{display:none}
-.qa summary::after{content:"+";position:absolute;right:4px;top:16px;font-size:26px;font-weight:300;color:var(--muted);transition:transform .3s var(--ease)}
-.qa details[open] summary::after{transform:rotate(45deg)}
-.qa details p{padding:0 0 22px;color:var(--muted);max-width:62ch}
-
-/* Contact */
-.contact{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,88px);align-items:start}
-@media (max-width:900px){.contact{grid-template-columns:1fr}}
-.perks{display:grid;gap:12px;margin-top:28px;font-size:15px;color:var(--ink-2)}
-.perks span{display:flex;gap:10px}
-.perks span::before{content:"";width:16px;height:1px;background:var(--ink);margin-top:11px;flex:none}
-.mail{margin-top:36px;padding-top:24px;border-top:1px solid var(--line);display:grid;gap:8px}
-.mail-label{font-size:13px;color:var(--muted)}
-.mail-row{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
-.mail-addr{font-size:clamp(20px,2.4vw,26px);font-weight:600;letter-spacing:-.02em;color:var(--ink);word-break:break-all;user-select:all}
-.mail-addr:hover{color:var(--blue)}
-.form{display:grid;gap:12px;background:var(--bg);border-radius:24px;padding:clamp(22px,3vw,32px)}
-.form .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-@media (max-width:520px){.form .row{grid-template-columns:1fr}}
-.form label{display:grid;gap:6px;font-size:13px;color:var(--muted);min-width:0}
-.form input,.form textarea,.form select{font:400 16px/1.4 var(--sans);color:var(--ink);background:var(--tile);border:1px solid transparent;border-radius:12px;padding:13px 15px;width:100%;min-width:0;transition:border-color .2s, background .2s}
-.form textarea{min-height:120px;resize:vertical}
-.form input:focus,.form textarea:focus,.form select:focus{outline:none;border-color:var(--ink);background:#fff}
-.form .btn{justify-self:start;margin-top:6px}
-.out{font-size:14px;color:var(--muted);display:grid;gap:10px}
-.out pre{margin:0;white-space:pre-wrap;background:var(--tile);border-radius:12px;padding:14px;font:12.5px/1.5 var(--mono);color:var(--ink)}
-.ghost{justify-self:start;background:transparent;color:var(--ink);border:1px solid var(--line);height:36px;padding:0 16px;border-radius:999px;font:500 13px var(--sans);cursor:pointer}
-
-footer{border-top:1px solid var(--hair);padding-block:26px;font-size:12px;color:var(--muted)}
-footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
-
-/* Transitions: only below-the-fold elements start hidden */
-.reveal{transition:opacity .9s var(--ease), transform .9s var(--ease)}
-.reveal.pre{opacity:0;transform:translateY(32px)}
-.hero .fade{animation:fadeup .9s var(--ease) both}
-@keyframes fadeup{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
-@media (prefers-reduced-motion: reduce){
+@media (max-width:760px){
+  section{padding-block:80px}
+  .nav a.l{display:none}
+  .svc,.plans,.caps,.promise,.certs{grid-template-columns:minmax(0,1fr)}
+  .proc{grid-template-columns:minmax(0,1fr)}
+  .proc li,.proc li+li{padding-left:0;border-left:0}
+  .facts{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .facts div:nth-child(3){padding-left:0;border-left:0}
+  .c-copy,.c-vis{padding:26px}
+  .wins{grid-template-columns:minmax(0,1fr)}
+  .pbr div{grid-template-columns:minmax(0,1fr);gap:4px}
+  .job{grid-template-columns:minmax(0,1fr);gap:8px}
+  .spec-row{grid-template-columns:minmax(0,1fr);gap:6px}
+  .contact{padding:30px 22px;border-radius:24px}
+  .row2{grid-template-columns:minmax(0,1fr)}
+  .s-copy,.s-chat{padding:24px}
+  .slide{flex-basis:92%}
+  .hero h1 .hl{white-space:normal}
+  .mailchip{width:100%;justify-content:space-between}
+}
+@media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
-  .reveal.pre,.chat .hidden,.ask .wait,.slide .b,.slide:not(.active) .s-copy > *,.cap.pre-anim .ticket,.cap.pre-anim .box{opacity:1;transform:none}
+  .pre{opacity:1;transform:none}
 }
 </style>
 </head>
 <body>
 
-<header class="nav" id="nav">
-  <div class="wrap">
-    <a class="brand" href="#top">AgentVerse</a>
-    <a class="hide-sm" href="#about">About</a>
-    <a class="hide-sm" href="#services">Services</a>
-    <a class="hide-sm" href="#experience">Experience</a>
-    <a class="hide-sm" href="#industries">Industries</a>
-    <a class="hide-sm" href="#pricing">Work with me</a>
-    <a class="cta" href="#contact">Hire me</a>
+<header id="hdr">
+  <div class="wrap nav">
+    <a class="brand" href="#top"><span class="mk">G</span><span>Gopikanth<small>AGENTVERSE</small></span></a>
+    <a class="l" href="#work">Work</a>
+    <a class="l" href="#services">Services</a>
+    <a class="l" href="#process">Process</a>
+    <a class="l" href="#about">About</a>
+    <a class="l" href="#faq">FAQ</a>
+    <a class="btn sm" href="#contact">Book a call <span class="arr">→</span></a>
   </div>
   <div class="progress" id="progress"></div>
 </header>
 
 <main id="top">
 
-<!-- 1. WHO I AM -->
+<!-- HERO -->
 <section class="hero">
   <div class="wrap hero-grid">
-    <div class="hero-copy">
-      <span class="avail fade"><i class="live"></i>Available for freelance projects</span>
-      <h1 class="fade" style="animation-delay:.06s">I'm Gopikanth. <span class="dim">I build AI that wins you customers and saves you time.</span></h1>
-      <p class="lead fade" style="animation-delay:.12s">I'm a <b>freelance AI Engineer and AI Data Engineer</b> with 2 years of production experience. I help businesses put AI to work: agents that reply to every lead, pipelines that keep data clean, and models that predict what's next.</p>
-      <div class="ctas fade" style="animation-delay:.18s">
-        <a class="btn" href="#contact">Book a free call</a>
-        <a class="btn light" href="#services">See services</a>
+    <div>
+      <span class="avail fadeup"><i class="live"></i>Available for new projects</span>
+      <h1 class="fadeup" style="animation-delay:.08s">I build AI that <span class="hl">answers your customers</span> and keeps your data right.</h1>
+      <p class="lead fadeup" style="animation-delay:.16s">I'm <b>Gopikanth</b>, a freelance AI Engineer and AI Data Engineer. For two years I've shipped production AI: <b>WhatsApp sales agents</b> used across six industries, <b>data agents</b> that answer in plain English, and the <b>Airflow and dbt pipelines</b> underneath them.</p>
+      <div class="ctas fadeup" style="animation-delay:.24s">
+        <a class="btn" href="#contact">Book a free 30-min call <span class="arr">→</span></a>
+        <span class="mailchip"><span>gopikanth.tech@gmail.com</span><button type="button" data-copy="gopikanth.tech@gmail.com">Copy</button></span>
       </div>
-      <div class="trust fade" style="animation-delay:.24s">
-        <div><b>2 yrs</b><span>Production AI</span></div>
-        <div><b>6</b><span>Industries served</span></div>
-        <div><b>5+</b><span>Systems shipped</span></div>
-        <div><b>24 h</b><span>Reply time</span></div>
+      <div class="facts fadeup" style="animation-delay:.32s">
+        <div><b>2 yrs</b><span>building production AI</span></div>
+        <div><b>6</b><span>industries served</span></div>
+        <div><b>24 h</b><span>reply to every enquiry</span></div>
+        <div><b>2 wk</b><span>to a working prototype</span></div>
       </div>
     </div>
 
-    <aside class="card fade" style="animation-delay:.2s" aria-label="Profile summary">
-      <div class="card-top">
-        <span class="mono">G</span>
+    <aside class="profile fadeup" style="animation-delay:.2s" aria-label="Profile summary">
+      <div class="p-top">
+        <span class="av">G<i class="live"></i></span>
         <div><b>Gopikanth</b><span>AI Engineer · AI Data Engineer</span></div>
       </div>
-      <dl class="kv">
-        <div><dt>Specialty</dt><dd>AI agents, RAG, data pipelines</dd></div>
-        <div><dt>Experience</dt><dd>2 years in production AI</dd></div>
-        <div><dt>Work type</dt><dd>Projects, retainers, consulting</dd></div>
-        <div><dt>Location</dt><dd>Remote, clients worldwide</dd></div>
-        <div><dt>Status</dt><dd><i class="live" style="margin-right:6px;vertical-align:1px"></i>Taking new projects</dd></div>
+      <dl class="p-rows">
+        <div><dt>Focus</dt><dd>AI agents, RAG, data pipelines</dd></div>
+        <div><dt>Based in</dt><dd>India · works remotely</dd></div>
+        <div><dt>Time zones</dt><dd>IST, overlaps UK, EU, US</dd></div>
+        <div><dt>Engagement</dt><dd>Project, retainer, hourly</dd></div>
       </dl>
-      <a class="btn" href="#contact">Start a project</a>
+      <div class="p-now"><b>Best fit</b>Businesses that lose leads to slow replies, or teams whose reports and AI run on messy data.</div>
+      <a class="btn blue" href="#contact">Start a project <span class="arr">→</span></a>
     </aside>
   </div>
 </section>
 
-<!-- 2. WHAT I'M LOOKING FOR -->
-<section id="about" class="grey">
-  <div class="wrap about">
-    <div>
-      <div class="head reveal" style="margin-bottom:28px">
-        <span class="label">About me</span>
-        <h2 class="h2">An engineer who ships AI <span class="dim">that businesses actually use.</span></h2>
-      </div>
-      <div class="about-text reveal">
-        <p>For the last two years I've built AI systems that run inside real companies every day: <strong>WhatsApp sales agents</strong> used across six industries, <strong>data agents</strong> that answer business questions in plain English, and the <strong>data pipelines</strong> that keep them accurate.</p>
-        <p>I build the whole thing: the agent, the data underneath it and the app on top. And I care about what happens after launch. That means answers you can trust, costs that stay low and clear updates for you at every step.</p>
-      </div>
-    </div>
-
-    <div class="look reveal">
-      <h3>What I'm looking for</h3>
-      <div class="look-group">
-        <h4>Projects</h4>
-        <ul>
-          <li>AI agents for sales, support or bookings</li>
-          <li>Chatbots and assistants trained on your documents</li>
-          <li>Data pipelines, warehouses and dashboards</li>
-          <li>Forecasting, scoring and computer vision models</li>
-        </ul>
-      </div>
-      <div class="look-group">
-        <h4>Ideal clients</h4>
-        <div class="pills"><span>Startups</span><span>Small and mid-sized businesses</span><span>Agencies</span><span>Product teams</span></div>
-      </div>
-      <div class="look-group">
-        <h4>Ways to work</h4>
-        <div class="pills"><span>Fixed-scope project</span><span>Monthly retainer</span><span>Hourly consulting</span></div>
-      </div>
-    </div>
+<div class="stackbar" aria-label="Tools I work with">
+  <p class="lbl">Tools I ship with</p>
+  <div class="marq" aria-hidden="true">
+    <span>LangGraph</span><span>OpenAI</span><span>Claude</span><span>Gemini</span><span>MCP</span><span>Hybrid RAG</span><span>Databricks</span><span>Airflow</span><span>dbt</span><span>PySpark</span><span>FastAPI</span><span>PostgreSQL</span><span>AWS</span><span>Google Cloud</span><span>PyTorch</span><span>React</span>
+    <span>LangGraph</span><span>OpenAI</span><span>Claude</span><span>Gemini</span><span>MCP</span><span>Hybrid RAG</span><span>Databricks</span><span>Airflow</span><span>dbt</span><span>PySpark</span><span>FastAPI</span><span>PostgreSQL</span><span>AWS</span><span>Google Cloud</span><span>PyTorch</span><span>React</span>
   </div>
-</section>
+  <div class="fade-x"></div>
+</div>
 
-<!-- 3. SERVICES -->
-<section id="services">
+<!-- SELECTED WORK -->
+<section id="work">
   <div class="wrap">
     <div class="head reveal">
-      <span class="label">Services</span>
-      <h2 class="h2">What I can build for you. <span class="dim">And what it changes for your business.</span></h2>
-    </div>
-    <div class="svc">
-      <article class="reveal">
-        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg></span>
-        <h3>AI Sales Agents</h3>
-        <p>WhatsApp and web agents that reply to every lead in seconds, qualify them, handle objections and book the call.</p>
-        <span class="gain">Never lose a lead to slow replies</span>
-      </article>
-      <article class="reveal">
-        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></span>
-        <h3>Voice Agents</h3>
-        <p>Customers send voice notes or call in English or Indian languages, and get a natural spoken reply.</p>
-        <span class="gain">Reach customers who prefer to talk</span>
-      </article>
-      <article class="reveal">
-        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h11l5 5v11H4z"/><path d="M15 4v5h5M8 13h8M8 17h5"/></svg></span>
-        <h3>Knowledge Assistants</h3>
-        <p>Your brochures, policies and manuals answer customer and staff questions accurately, with sources.</p>
-        <span class="gain">Stop answering the same questions</span>
-      </article>
-      <article class="reveal">
-        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="6" r="2"/><circle cx="5" cy="18" r="2"/><circle cx="19" cy="12" r="2"/><path d="M7 6h4l4 6M7 18h4l4-6"/></svg></span>
-        <h3>AI Data Engineering</h3>
-        <p>Airflow and dbt pipelines that collect, clean and test your data, so reports and AI always use fresh facts.</p>
-        <span class="gain">Data you can trust</span>
-      </article>
-      <article class="reveal">
-        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-5 4 4 8-8"/><path d="M15 8h5v5"/></svg></span>
-        <h3>ML and Computer Vision</h3>
-        <p>Forecasting, churn and lead scoring, document reading and image recognition, built around your data.</p>
-        <span class="gain">See what's coming before it happens</span>
-      </article>
-      <article class="reveal">
-        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M7 9l3 3-3 3M13 15h4"/></svg></span>
-        <h3>AI Web Apps</h3>
-        <p>Fast, polished dashboards, chat interfaces and portals built on real-time APIs.</p>
-        <span class="gain">An interface people enjoy using</span>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- 4. HOW I WORK -->
-<section id="process" class="grey">
-  <div class="wrap">
-    <div class="head reveal">
-      <span class="label">How I work</span>
-      <h2 class="h2">From first call to live AI <span class="dim">in weeks, not months.</span></h2>
-    </div>
-    <ol class="proc">
-      <li class="reveal"><span class="n">01</span><h3>Discovery call</h3><span class="dur">Free · 30 minutes</span><p>We find where you lose leads, hours or data, and pick the automation with the clearest return.</p></li>
-      <li class="reveal"><span class="n">02</span><h3>Prototype</h3><span class="dur">About 2 weeks</span><p>A working version on your real products and documents, tested against your toughest scenarios.</p></li>
-      <li class="reveal"><span class="n">03</span><h3>Launch</h3><span class="dur">2 to 6 weeks</span><p>Connected to your CRM, channels and data, with safety checks, monitoring and human handoff.</p></li>
-      <li class="reveal"><span class="n">04</span><h3>Support</h3><span class="dur">Ongoing</span><p>Regular testing, tuning and cost tracking, so it keeps getting better and cheaper to run.</p></li>
-    </ol>
-  </div>
-</section>
-
-<!-- 5. EXPERIENCE -->
-<section id="experience">
-  <div class="wrap">
-    <div class="head reveal">
-      <span class="label">Experience</span>
-      <h2 class="h2">Two years building AI <span class="dim">that runs in production.</span></h2>
+      <div>
+        <span class="eyebrow">Selected work</span>
+        <h2 class="h2">Systems I've built <span class="dim">and what they changed.</span></h2>
+      </div>
+      <p>Built in my full-time role at an AI solutions company. Client names stay private; the demos use fictional businesses and example data.</p>
     </div>
 
-    <ol class="timeline reveal">
-      <li class="job">
-        <div class="when">Mar 2026 – Present<b>Full-time</b></div>
-        <div>
-          <h3>Senior AI Engineer</h3>
-          <p class="org">AI solutions company</p>
-          <ul>
-            <li>Lead development of <strong>WhatsApp AI sales agents used across six industries</strong>, with tool calling, hybrid RAG and lead scoring after every message.</li>
-            <li>Built <strong>agent routing and model evaluation</strong> to balance answer quality against API cost on real sales scenarios.</li>
-            <li>Added <strong>Indian-language voice</strong>, so customers can talk to agents with voice notes.</li>
-          </ul>
+    <div class="cases">
+      <!-- Case 1 -->
+      <article class="case reveal">
+        <div class="c-copy">
+          <div class="c-tag"><span class="k">AI Sales Agent</span><span>WhatsApp</span><span>6 industries</span></div>
+          <h3>A sales agent that replies to every lead in seconds, day or night.</h3>
+          <p class="intro">Businesses running ads were paying for leads that went cold overnight. Sales teams called back the next morning, after the lead had moved on.</p>
+          <dl class="pbr">
+            <div><dt>The problem</dt><dd>Slow replies, unqualified leads and a CRM nobody kept up to date.</dd></div>
+            <div><dt>What I built</dt><dd>A multi-agent WhatsApp assistant that qualifies leads, answers from company documents, understands Indian-language voice notes, books visits and updates the CRM.</dd></div>
+            <div><dt>Engineering</dt><dd>Agent routing sends each message to the right model, so quality stays high and API cost stays low.</dd></div>
+          </dl>
+          <div class="wins">
+            <div><b>Instant reply</b><span>every lead, any hour</span></div>
+            <div><b>Scored leads</b><span>after every message</span></div>
+            <div><b>CRM updated</b><span>without manual entry</span></div>
+          </div>
+          <p class="c-stack">LangGraph · Hybrid RAG · Agent routing · Voice AI · FastAPI</p>
         </div>
-      </li>
-      <li class="job">
-        <div class="when">Jan 2025 – Feb 2026<b>Full-time</b></div>
-        <div>
-          <h3>AI Engineer</h3>
-          <p class="org">AI solutions company</p>
-          <ul>
-            <li>Built <strong>multi-agent data intelligence</strong> and <strong>real estate agent</strong> platforms with approval steps and full monitoring.</li>
-            <li>Engineered <strong>PySpark and Databricks pipelines</strong> with layered, tested data and star-schema warehouses.</li>
-            <li>Delivered a <strong>customer lifetime value forecasting</strong> pipeline on Google Cloud.</li>
-          </ul>
-        </div>
-      </li>
-    </ol>
-
-    <div class="sub-head reveal">
-      <h3>My work in action</h3>
-      <p>Systems I designed and built. Client names are kept private.</p>
-    </div>
-
-    <div class="tiles">
-      <!-- Sales agent with live phone -->
-      <article class="tile phone-tile reveal">
-        <div class="phone-col">
+        <div class="c-vis">
           <div class="phone" aria-label="Example WhatsApp conversation with an AI sales agent">
             <div class="screen">
-              <div class="chat-head"><span class="av">LV</span><div><b>Lakeview Homes</b><small>AI agent · online</small></div></div>
+              <div class="chat-head"><span class="av">LV</span><div><b>Lakeview Homes</b><small>AI assistant · online</small></div></div>
               <div class="chat" id="chat">
                 <div class="msg out">Hi Priya, thanks for your enquiry. Are you buying to live in or to invest?<small>11:40 pm</small></div>
                 <div class="msg in">To live. 2BHK, around 85 lakhs.</div>
-                <div class="msg out">We have 2BHK homes from ₹78L, ready by Dec 2027.<small>11:41 pm</small></div>
-                <div class="msg in voice"><span class="play"></span><span class="wave" aria-hidden="true"><i></i><i style="animation-delay:.1s"></i><i style="animation-delay:.2s"></i><i style="animation-delay:.3s"></i><i style="animation-delay:.4s"></i><i style="animation-delay:.5s"></i><i style="animation-delay:.6s"></i><i style="animation-delay:.7s"></i><i style="animation-delay:.8s"></i><i style="animation-delay:.3s"></i></span><span style="font-size:11px;color:var(--muted)">Telugu voice note · 0:09</span></div>
+                <div class="msg out">We have 2BHK homes from ₹78L, ready by Dec 2027. Here's the floor plan.<small>11:41 pm</small></div>
+                <div class="msg in voice"><span class="play"></span><span class="wave" aria-hidden="true"><i></i><i style="animation-delay:.1s"></i><i style="animation-delay:.2s"></i><i style="animation-delay:.3s"></i><i style="animation-delay:.4s"></i><i style="animation-delay:.5s"></i><i style="animation-delay:.6s"></i><i style="animation-delay:.2s"></i></span><span style="font-size:11px;color:var(--muted)">Telugu voice note · 0:09</span></div>
                 <div class="msg out">Understood, you'd like to see it first. Saturday 11 am or Sunday 4 pm?<small>11:42 pm</small></div>
                 <div class="msg in">Sunday 4 pm.</div>
-                <div class="msg out">Booked for Sunday, 4 pm. I'll send the location now.<small>11:42 pm</small></div>
+                <div class="typing" id="typing"><i></i><i></i><i></i></div>
+                <div class="msg out">Booked for Sunday, 4 pm. Sending the location now.<small>11:42 pm</small></div>
                 <div class="sys">✓ CRM updated · Lead score 82 · Visit booked</div>
               </div>
             </div>
           </div>
-          <p class="caption">Example conversation · fictional business</p>
-        </div>
-        <div class="sales-right">
-          <div class="t-copy">
-            <span class="label">Agentic AI</span>
-            <h3>AI Sales Agent</h3>
-            <p>WhatsApp agents that turn ad leads into booked meetings, around the clock.</p>
-            <ul>
-              <li>Qualifies leads and answers from company documents</li>
-              <li>Understands voice notes in Indian languages</li>
-              <li>Scores every lead and updates the CRM itself</li>
-              <li>Routes each message to the right model to keep costs low</li>
-            </ul>
-            <p class="stack">LangGraph · Hybrid RAG · Agent routing · Voice AI · FastAPI</p>
-          </div>
-          <div class="pipe" aria-label="Flow: ad lead, WhatsApp, router, agents, CRM">
-            <i class="pulse" aria-hidden="true"></i>
-            <span>Ad lead<small>form filled</small></span>
-            <span>WhatsApp<small>opener in 4s</small></span>
-            <span>Router<small>right model</small></span>
-            <span>Agents<small>qualify · book</small></span>
-            <span>CRM<small>auto-updated</small></span>
-          </div>
-          <div class="compare">
-            <h4>A lead enquires at 11:40 pm <em>Example scenario</em></h4>
-            <div class="lane slow" style="--w:1">
-              <div class="lane-top"><b>Without an agent</b><span>Team calls at 10:05 am next day</span></div>
-              <div class="track"><div class="fill"></div></div>
-              <div class="lane-foot"><span>11:40 pm</span><span>Lead already talking to a competitor</span></div>
-            </div>
-            <div class="lane fast" style="--w:.04">
-              <div class="lane-top"><b>With an AI agent</b><span>Replied in 4 seconds</span></div>
-              <div class="track"><div class="fill"></div></div>
-              <div class="lane-foot"><span>11:40 pm</span><span>Site visit booked by 11:42 pm</span></div>
-            </div>
-          </div>
+          <p class="note">EXAMPLE CONVERSATION · FICTIONAL BUSINESS</p>
         </div>
       </article>
 
-      <!-- Data agent -->
-      <article class="tile reveal" id="askTile">
-        <div class="t-copy">
-          <span class="label">Talk to your data</span>
-          <h3>Ask your business data anything.</h3>
-          <p>Managers type a question in plain English. The agent finds the right tables, writes safe read-only SQL and replies with the answer and a chart.</p>
-          <ul>
-            <li>No SQL, no waiting for an analyst</li>
-            <li>Read-only access, nothing can be changed or deleted</li>
-            <li>Charts, reports and exports in one reply</li>
-          </ul>
-          <p class="stack">LangGraph · MCP · PostgreSQL · AWS</p>
+      <!-- Case 2 -->
+      <article class="case flip reveal">
+        <div class="c-copy">
+          <div class="c-tag"><span class="k">Data Agent</span><span>Text to SQL</span><span>Multi-agent</span></div>
+          <h3>Managers ask their data a question and get the answer with a chart.</h3>
+          <p class="intro">Every business question meant a ticket to the data team and a wait of days. Most people just stopped asking.</p>
+          <dl class="pbr">
+            <div><dt>The problem</dt><dd>Data locked behind SQL and a small analyst team.</dd></div>
+            <div><dt>What I built</dt><dd>A multi-agent system that finds the right tables, writes read-only SQL, checks the result and replies with the answer, a chart and an export.</dd></div>
+            <div><dt>Safety</dt><dd>Read-only access, approval steps for sensitive questions and full monitoring of every query.</dd></div>
+          </dl>
+          <div class="wins">
+            <div><b>Seconds</b><span>instead of a ticket queue</span></div>
+            <div><b>No SQL</b><span>needed by the user</span></div>
+            <div><b>Read-only</b><span>nothing can be changed</span></div>
+          </div>
+          <p class="c-stack">LangGraph · MCP · PostgreSQL · AWS · LangSmith</p>
         </div>
-        <div class="ask" aria-label="Example: a manager asks which region grew fastest and the agent answers with a chart">
-          <div class="ask-q"><span id="askQ">Which region grew fastest this quarter?</span><span class="caret"></span></div>
-          <div class="ask-steps">
-            <span class="step">Found the sales and region tables</span>
-            <span class="step">Wrote a read-only SQL query</span>
-            <span class="step">Checked the result for errors</span>
+        <div class="c-vis">
+          <div class="ask" id="ask" aria-label="Example: a manager asks which region grew fastest and the agent answers with a chart">
+            <div class="ask-q"><span id="askQ">Which region grew fastest this quarter?</span><span class="caret"></span></div>
+            <div class="steps">
+              <span class="step">Found tables <code>sales</code> and <code>regions</code></span>
+              <span class="step">Wrote a read-only query <code>SELECT region, growth …</code></span>
+              <span class="step">Checked the result against last quarter</span>
+            </div>
+            <div class="ans">
+              <h4>South grew fastest, <b>+24%</b> on last quarter.</h4>
+              <div class="hb top"><span>South</span><i style="transform:scaleX(1)"></i><span>+24%</span></div>
+              <div class="hb"><span>West</span><i style="transform:scaleX(.62)"></i><span>+15%</span></div>
+              <div class="hb"><span>North</span><i style="transform:scaleX(.38)"></i><span>+9%</span></div>
+              <div class="hb"><span>East</span><i style="transform:scaleX(.17)"></i><span>+4%</span></div>
+            </div>
           </div>
-          <div class="ask-a">
-            <h4>South grew fastest, <b>+24%</b> on last quarter.</h4>
-            <div class="hbar top"><span>South</span><i style="transform:scaleX(1)"></i><span>+24%</span></div>
-            <div class="hbar"><span>West</span><i style="transform:scaleX(.62)"></i><span>+15%</span></div>
-            <div class="hbar"><span>North</span><i style="transform:scaleX(.38)"></i><span>+9%</span></div>
-            <div class="hbar"><span>East</span><i style="transform:scaleX(.17)"></i><span>+4%</span></div>
-            <span class="ask-meta">Answered in 3 seconds · Example data</span>
-          </div>
+          <p class="note">EXAMPLE DATA</p>
         </div>
       </article>
 
-      <!-- Data platform -->
-      <article class="tile stack-tile reveal">
-        <div class="t-copy" style="max-width:720px">
-          <span class="label">AI Data Engineering</span>
-          <h3>Messy data in. <span class="dim">Trusted data out.</span></h3>
-          <p>An automated pipeline that collects data from every system each night, cleans and tests it, and delivers it ready for dashboards, AI agents and ML models.</p>
-          <p class="stack">Airflow · dbt · Databricks · PySpark · Delta Lake · SQL · Star schema</p>
-        </div>
-        <div>
-          <div class="flowmap" aria-label="Diagram: sources flow into Airflow, then Bronze, Silver and Gold layers tested with dbt, then out to dashboards, AI agents and ML models">
-            <div class="stagebox">
-              <span class="n">1 · Collect</span>
-              <h4>Your systems</h4>
-              <div class="chipcol">
-                <span><i style="background:#0066cc"></i>CRM</span>
-                <span><i style="background:#1f9d55"></i>Orders and payments</span>
-                <span><i style="background:#b25000"></i>Website and ads</span>
-                <span><i style="background:#6e44ff"></i>Documents</span>
-              </div>
-            </div>
-            <span class="wire" aria-hidden="true"></span>
-            <div class="stagebox">
-              <span class="n">2 · Schedule</span>
-              <h4>Airflow</h4>
-              <div class="air"><span class="clock" aria-hidden="true"></span><b>Runs every night</b><small>Retries failures and alerts the team</small></div>
-            </div>
-            <span class="wire" aria-hidden="true" style="--d:.6s"></span>
-            <div class="stagebox">
-              <span class="n">3 · Clean and test</span>
-              <h4>Databricks + dbt</h4>
-              <div class="medal">
-                <div class="m-g">Gold <small>Ready to use</small></div>
-                <div class="m-s">Silver <small>Cleaned</small></div>
-                <div class="m-b">Bronze <small>Raw copy</small></div>
-              </div>
-              <span class="tests">✓ dbt tests passed</span>
-            </div>
-            <span class="wire" aria-hidden="true"></span>
-            <div class="stagebox">
-              <span class="n">4 · Use</span>
-              <h4>Your team and AI</h4>
-              <div class="chipcol">
-                <span><i style="background:#1d1d1f"></i>Dashboards</span>
-                <span><i style="background:#1d1d1f"></i>AI agents</span>
-                <span><i style="background:#1d1d1f"></i>ML models</span>
-              </div>
-            </div>
+      <!-- Case 3 -->
+      <article class="case reveal">
+        <div class="c-copy">
+          <div class="c-tag"><span class="k">AI Data Engineering</span><span>Airflow</span><span>dbt</span><span>Databricks</span></div>
+          <h3>One trusted pipeline feeding dashboards, agents and ML models.</h3>
+          <p class="intro">Reports disagreed with each other, and AI answers were only as good as yesterday's messy export.</p>
+          <dl class="pbr">
+            <div><dt>The problem</dt><dd>Data spread across CRM, orders, ads and documents, with no tests and no single source of truth.</dd></div>
+            <div><dt>What I built</dt><dd>Scheduled PySpark pipelines on Databricks with Bronze, Silver and Gold layers, dbt tests and a star-schema warehouse. I also built a customer lifetime value forecast on Google Cloud.</dd></div>
+          </dl>
+          <div class="wins">
+            <div><b>One truth</b><span>every report agrees</span></div>
+            <div><b>Tested</b><span>bad data stopped early</span></div>
+            <div><b>Fresh</b><span>AI uses last night's data</span></div>
           </div>
-          <div class="outcome">
-            <div><b>One version of the truth</b>Every report uses the same numbers.</div>
-            <div><b>Problems caught early</b>Bad data is stopped before anyone sees it.</div>
-            <div><b>AI that stays current</b>Agents answer from last night's data.</div>
-          </div>
+          <p class="c-stack">Airflow · dbt · Databricks · PySpark · Delta Lake · BigQuery</p>
         </div>
+        <div class="c-vis">
+          <div class="flow" aria-label="Pipeline: sources collected by Airflow, cleaned in Bronze, Silver and Gold layers tested by dbt, then used by dashboards, agents and models">
+            <div class="fl-row"><span class="st">Collect</span><div><h4>Your systems</h4><div class="chips" style="margin-top:6px"><span>CRM</span><span>Orders</span><span>Ads</span><span>Documents</span></div></div></div>
+            <div class="fl-row"><span class="st">Schedule</span><div><h4>Airflow</h4><small>Runs nightly, retries failures, alerts the team</small></div></div>
+            <div class="fl-row"><span class="st">Clean</span><div><h4 style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">Databricks + dbt <span class="pass">✓ 48 tests passed</span></h4><div class="medal" style="margin-top:6px"><span class="m-b">Bronze · raw</span><span class="m-s">Silver · cleaned</span><span class="m-g">Gold · ready</span></div></div></div>
+            <div class="fl-row"><span class="st">Use</span><div><h4>Your team and AI</h4><div class="chips" style="margin-top:6px"><span>Dashboards</span><span>AI agents</span><span>ML models</span></div></div></div>
+          </div>
+          <p class="note">TYPICAL ARCHITECTURE · EXAMPLE FIGURES</p>
+        </div>
+      </article>
+    </div>
+
+    <div style="display:flex;justify-content:center;margin-top:48px" class="reveal">
+      <a class="btn" href="#contact">Get something like this built <span class="arr">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="tint">
+  <div class="wrap">
+    <div class="head reveal">
+      <div>
+        <span class="eyebrow">Services</span>
+        <h2 class="h2">What I can build for you.</h2>
+      </div>
+      <p>Every project starts with a free call and a fixed quote. You get working software, documentation and a handover, not slides.</p>
+    </div>
+    <div class="svc">
+      <article class="reveal">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg></span>
+        <h3>AI Sales and Support Agents</h3>
+        <p>WhatsApp and website agents that reply instantly, qualify leads, book meetings and hand over to your team.</p>
+        <ul><li>Trained on your products and FAQs</li><li>CRM and calendar integration</li><li>Human handoff and chat history</li></ul>
+        <div class="meta"><span>Typical timeline</span><b>3 to 6 weeks</b></div>
+      </article>
+      <article class="reveal">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></span>
+        <h3>Voice Agents</h3>
+        <p>Customers send voice notes or call in English or Indian languages and get a natural spoken reply.</p>
+        <ul><li>Speech-to-text and text-to-speech</li><li>Multilingual understanding</li><li>Same knowledge as your chat agent</li></ul>
+        <div class="meta"><span>Typical timeline</span><b>3 to 5 weeks</b></div>
+      </article>
+      <article class="reveal">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h11l5 5v11H4z"/><path d="M15 4v5h5M8 13h8M8 17h5"/></svg></span>
+        <h3>Knowledge Assistants (RAG)</h3>
+        <p>Your policies, manuals and brochures answer staff and customer questions accurately, with sources.</p>
+        <ul><li>Hybrid search with reranking</li><li>Answers cite the source document</li><li>Guardrails against made-up answers</li></ul>
+        <div class="meta"><span>Typical timeline</span><b>2 to 4 weeks</b></div>
+      </article>
+      <article class="reveal">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg></span>
+        <h3>AI Data Engineering</h3>
+        <p>Pipelines that collect, clean and test your data, so reports and AI always run on fresh, correct facts.</p>
+        <ul><li>Airflow scheduling and alerts</li><li>dbt models and data tests</li><li>Databricks or BigQuery warehouse</li></ul>
+        <div class="meta"><span>Typical timeline</span><b>3 to 8 weeks</b></div>
+      </article>
+      <article class="reveal">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-5 4 4 8-8"/><path d="M15 8h5v5"/></svg></span>
+        <h3>ML, Forecasting and Vision</h3>
+        <p>Models that predict sales and churn, score leads, read documents and recognise what's in an image.</p>
+        <ul><li>Forecasts your team can act on</li><li>Lead and churn scoring</li><li>OCR and object detection</li></ul>
+        <div class="meta"><span>Typical timeline</span><b>3 to 6 weeks</b></div>
+      </article>
+      <article class="reveal">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M7 9l3 3-3 3M13 15h4"/></svg></span>
+        <h3>AI Web Apps and Dashboards</h3>
+        <p>Fast, clean interfaces on top of your AI: chat portals, admin panels and live dashboards.</p>
+        <ul><li>FastAPI backend, React frontend</li><li>Real-time updates over WebSockets</li><li>Deployed on AWS or Google Cloud</li></ul>
+        <div class="meta"><span>Typical timeline</span><b>2 to 5 weeks</b></div>
       </article>
     </div>
   </div>
 </section>
 
-<!-- 6. INDUSTRIES -->
-<section id="industries" class="grey">
+<!-- INDUSTRIES -->
+<section id="industries">
   <div class="wrap">
-    <div class="head reveal">
-      <span class="label">Industries</span>
-      <h2 class="h2">One agent. <span class="dim">Trained for your industry.</span></h2>
+    <div class="car-top reveal">
+      <div>
+        <span class="eyebrow">Industries</span>
+        <h2 class="h2">One agent, <span class="dim">trained for your industry.</span></h2>
+      </div>
+      <div class="car-nav">
+        <button type="button" id="prev" aria-label="Previous industry"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 6l-6 6 6 6"/></svg></button>
+        <button type="button" id="next" aria-label="Next industry"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></button>
+      </div>
     </div>
-    <div class="car-tabs" id="tabs" role="tablist" aria-label="Choose an industry"></div>
-  </div>
-
-  <div class="car-track" id="track" aria-roledescription="carousel" aria-label="Industry examples">
-    <article class="slide active" style="--tint:#f4ece1;--accent:#8a5a1f" aria-label="Real Estate">
-      <div class="s-copy">
-        <span class="ind">Real Estate</span>
-        <h3>Site visits booked while you sleep.</h3>
-        <p>The agent qualifies buyers by budget and location, shares floor plans and prices, and books visits straight into your team's calendar.</p>
-        <ul><li>Budget and location qualification</li><li>Floor plans, prices and offers on demand</li><li>Site visits booked and confirmed</li></ul>
-      </div>
-      <div class="mini">
-        <div class="mini-head"><i>LV</i><div><b>Lakeview Homes</b><small>AI agent · online</small></div></div>
-        <div class="b u">Any 3BHK near the metro under 1.2 Cr?</div>
-        <div class="b a">Yes, 3 options. Phase 2 is 400 m from the station. Shall I send the floor plan?</div>
-        <div class="b u">Yes, and a visit on Sunday.</div>
-        <div class="b s">✓ Visit booked · CRM updated</div>
-      </div>
-    </article>
-    <article class="slide" style="--tint:#e5eefb;--accent:#1b5fb8" aria-label="Education">
-      <div class="s-copy">
-        <span class="ind">Education</span>
-        <h3>Every admission enquiry answered.</h3>
-        <p>Students get instant answers on courses, fees and eligibility, and the agent books counselling calls during peak admission season.</p>
-        <ul><li>Course, fee and eligibility answers</li><li>Counselling calls booked automatically</li><li>Follow-ups until the application is in</li></ul>
-      </div>
-      <div class="mini">
-        <div class="mini-head"><i>SA</i><div><b>Summit Academy</b><small>AI agent · online</small></div></div>
-        <div class="b u">Is the MBA open for 2027? I scored 62% in B.Com.</div>
-        <div class="b a">Yes. The minimum is 50%, so you're eligible. Fees are ₹4.2L. Shall I book a counselling call?</div>
-        <div class="b u">Tomorrow evening works.</div>
-        <div class="b s">✓ Counselling booked · 6:00 pm</div>
-      </div>
-    </article>
-    <article class="slide" style="--tint:#e3f4ee;--accent:#17805c" aria-label="Healthcare">
-      <div class="s-copy">
-        <span class="ind">Healthcare</span>
-        <h3>Appointments without the phone queue.</h3>
-        <p>Patients book, reschedule and get reminders in their own language. Anything medical goes straight to your staff.</p>
-        <ul><li>Booking and rescheduling around the clock</li><li>Reminders that reduce no-shows</li><li>Medical questions handed to staff</li></ul>
-      </div>
-      <div class="mini">
-        <div class="mini-head"><i>CC</i><div><b>CareFirst Clinic</b><small>AI agent · online</small></div></div>
-        <div class="b u">I need a dermatologist this week.</div>
-        <div class="b a">Dr. Rao is free on Thursday at 5:30 pm. Shall I book it for you?</div>
-        <div class="b u">Yes please.</div>
-        <div class="b s">✓ Appointment confirmed · reminder set</div>
-      </div>
-    </article>
-    <article class="slide" style="--tint:#e9ebf0;--accent:#2f3a4f" aria-label="Finance">
-      <div class="s-copy">
-        <span class="ind">Finance</span>
-        <h3>Loan leads, qualified and documented.</h3>
-        <p>The agent checks basic eligibility, collects documents securely and passes ready-to-process files to your advisors.</p>
-        <ul><li>Instant eligibility checks</li><li>Secure document collection</li><li>Complete files handed to advisors</li></ul>
-      </div>
-      <div class="mini">
-        <div class="mini-head"><i>NF</i><div><b>Northstar Finance</b><small>AI agent · online</small></div></div>
-        <div class="b u">Home loan for 40 lakhs. My salary is 90k a month.</div>
-        <div class="b a">You're likely eligible. Please upload your last 3 salary slips here.</div>
-        <div class="b u">Uploaded.</div>
-        <div class="b s">✓ Documents received · sent to advisor</div>
-      </div>
-    </article>
-    <article class="slide" style="--tint:#fbe9ec;--accent:#b4234a" aria-label="Retail and D2C">
-      <div class="s-copy">
-        <span class="ind">Retail and D2C</span>
-        <h3>A personal shopper in every chat.</h3>
-        <p>Shoppers describe what they want and the agent recommends products in stock, answers order questions and closes the sale in chat.</p>
-        <ul><li>Product recommendations from your catalogue</li><li>Order tracking and returns</li><li>Checkout inside WhatsApp</li></ul>
-      </div>
-      <div class="mini">
-        <div class="mini-head"><i>SW</i><div><b>Stride Wear</b><small>AI agent · online</small></div></div>
-        <div class="b u">Running shoes under ₹4,000, size 9?</div>
-        <div class="b a">3 pairs are in stock in size 9. The Aero Run is ₹3,499 with free delivery.</div>
-        <div class="b u">I'll take the Aero Run.</div>
-        <div class="b s">✓ Order placed · ₹3,499</div>
-      </div>
-    </article>
-    <article class="slide" style="--tint:#fbf0dc;--accent:#a55d00" aria-label="Hospitality">
-      <div class="s-copy">
-        <span class="ind">Hospitality</span>
-        <h3>Bookings in any language, at any hour.</h3>
-        <p>Guests check rooms, rates and amenities, and the agent holds or confirms the booking without a front-desk call.</p>
-        <ul><li>Live room and rate answers</li><li>Bookings held or confirmed in chat</li><li>Upsells for breakfast, transfers and late checkout</li></ul>
-      </div>
-      <div class="mini">
-        <div class="mini-head"><i>BB</i><div><b>Blue Bay Resort</b><small>AI agent · online</small></div></div>
-        <div class="b u">Room for 2, 14–16 Dec, sea view?</div>
-        <div class="b a">A sea-view deluxe is available at ₹7,800 a night with breakfast. Shall I hold it?</div>
-        <div class="b u">Yes, hold it.</div>
-        <div class="b s">✓ Room held for 24 hours</div>
-      </div>
-    </article>
-    <article class="slide" style="--tint:#eeeafc;--accent:#5b3fb8" aria-label="Technology and SaaS">
-      <div class="s-copy">
-        <span class="ind">Technology and SaaS</span>
-        <h3>Demo requests qualified instantly.</h3>
-        <p>The agent answers technical questions from your docs, qualifies team size and need, and books demos with the right rep.</p>
-        <ul><li>Technical answers from your documentation</li><li>Lead qualification and scoring</li><li>Demos booked with the right rep</li></ul>
-      </div>
-      <div class="mini">
-        <div class="mini-head"><i>FL</i><div><b>Flowline</b><small>AI agent · online</small></div></div>
-        <div class="b u">Does it sync with our CRM?</div>
-        <div class="b a">Yes, with two-way sync. How many sales reps are on your team?</div>
-        <div class="b u">About 25.</div>
-        <div class="b s">✓ Demo booked · Lead score 88</div>
-      </div>
-    </article>
-  </div>
-
-  <div class="wrap car-ctrl">
-    <button class="arrow" id="prev" type="button" aria-label="Previous industry"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 6l-6 6 6 6"/></svg></button>
-    <button class="arrow" id="next" type="button" aria-label="Next industry"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></button>
+    <div class="tabs reveal" id="tabs" role="tablist"></div>
+    <div class="track reveal" id="track">
+      <article class="slide" data-name="Real estate">
+        <div class="s-copy"><span class="ind">Real estate</span><h3>Site visits booked while you sleep.</h3><p>Answers project, price and possession questions, then books the visit.</p><ul><li>Budget and location qualification</li><li>Floor plans and brochures on request</li><li>Visit scheduling and reminders</li></ul></div>
+        <div class="s-chat"><div class="msg in">Any 3BHK under 1.2 Cr near the metro?</div><div class="msg out">Yes, two projects within 800 m of the metro. Want to visit this weekend?</div><div class="msg in">Saturday works.</div><div class="sys">✓ Visit booked · sent to sales</div></div>
+      </article>
+      <article class="slide" data-name="Education">
+        <div class="s-copy"><span class="ind">Education</span><h3>Every admission enquiry answered.</h3><p>Course, fee and eligibility questions handled for students and parents.</p><ul><li>Course matching by interest and marks</li><li>Fee and scholarship details</li><li>Counsellor callback booking</li></ul></div>
+        <div class="s-chat"><div class="msg in">Is there a data science course for working people?</div><div class="msg out">Yes, a weekend batch starting 5 Jan. Shall I share the fee plan?</div><div class="msg in">Please do.</div><div class="sys">✓ Fee plan sent · counsellor notified</div></div>
+      </article>
+      <article class="slide" data-name="Healthcare">
+        <div class="s-copy"><span class="ind">Healthcare</span><h3>Appointments without the phone queue.</h3><p>Patients find the right doctor and slot, with reminders before the visit.</p><ul><li>Doctor and department search</li><li>Slot booking and rescheduling</li><li>Reports and timings on request</li></ul></div>
+        <div class="s-chat"><div class="msg in">Need a dermatologist tomorrow evening.</div><div class="msg out">Dr. Rao has 6:30 pm free. Shall I book it?</div><div class="msg in">Yes.</div><div class="sys">✓ Appointment confirmed · reminder set</div></div>
+      </article>
+      <article class="slide" data-name="Finance">
+        <div class="s-copy"><span class="ind">Finance and loans</span><h3>Loan leads, qualified and documented.</h3><p>Checks eligibility, explains products and collects documents securely.</p><ul><li>Eligibility questions in chat</li><li>EMI estimates on the spot</li><li>Document checklist and upload</li></ul></div>
+        <div class="s-chat"><div class="msg in">Can I get a home loan of 40 lakhs?</div><div class="msg out">Likely, yes. A few quick questions about income and tenure first.</div><div class="msg in">Salaried, 20 years.</div><div class="sys">✓ Pre-qualified · documents requested</div></div>
+      </article>
+      <article class="slide" data-name="Retail">
+        <div class="s-copy"><span class="ind">Retail and e-commerce</span><h3>A personal shopper in every chat.</h3><p>Recommends products, tracks orders and recovers abandoned carts.</p><ul><li>Product search and recommendations</li><li>Order tracking and returns</li><li>Cart reminders that convert</li></ul></div>
+        <div class="s-chat"><div class="msg in">Running shoes under ₹5,000?</div><div class="msg out">Here are three bestsellers in your size. Want a 10% first-order code?</div><div class="msg in">Yes please.</div><div class="sys">✓ Code sent · cart saved</div></div>
+      </article>
+      <article class="slide" data-name="Travel">
+        <div class="s-copy"><span class="ind">Travel and hospitality</span><h3>Bookings in any language, at any hour.</h3><p>Handles room, package and itinerary questions for guests worldwide.</p><ul><li>Availability and pricing</li><li>Itinerary suggestions</li><li>Booking changes and upsells</li></ul></div>
+        <div class="s-chat"><div class="msg in">Sea-view room for 2 nights from 14 Feb?</div><div class="msg out">Available at ₹8,400 a night with breakfast. Hold it for you?</div><div class="msg in">Yes, hold it.</div><div class="sys">✓ Room held · payment link sent</div></div>
+      </article>
+      <article class="slide" data-name="SaaS">
+        <div class="s-copy"><span class="ind">SaaS and B2B</span><h3>Demo requests qualified instantly.</h3><p>Understands the visitor's team and need, then books the right demo.</p><ul><li>Lead qualification by company size</li><li>Answers from product docs</li><li>Demo booking with your sales team</li></ul></div>
+        <div class="s-chat"><div class="msg in">Does it integrate with HubSpot?</div><div class="msg out">Yes, two-way sync. How many people are on your sales team?</div><div class="msg in">About 25.</div><div class="sys">✓ Demo booked · routed to AE</div></div>
+      </article>
+    </div>
   </div>
 </section>
 
-<!-- 7. ML & VISION -->
-<section id="ml">
+<!-- CAPABILITIES -->
+<section id="ml" class="tint">
   <div class="wrap">
     <div class="head reveal">
-      <span class="label">Machine learning and computer vision</span>
-      <h2 class="h2">Beyond agents. <span class="dim">Models that predict and see.</span></h2>
+      <div>
+        <span class="eyebrow">Beyond agents</span>
+        <h2 class="h2">Models that predict <span class="dim">and models that see.</span></h2>
+      </div>
+      <p>Machine learning, deep learning and computer vision, built around your data and connected to the tools your team already uses.</p>
     </div>
     <div class="caps">
       <article class="cap reveal">
-        <div class="t-copy"><h3>Forecasting</h3><p>Predict next month's sales, demand or revenue, so you can plan stock, staff and spend with confidence.</p></div>
-        <div class="cap-vis fc">
-          <svg viewBox="0 0 320 150" role="img" aria-label="Line chart: past sales in black, forecast in dashed blue with a shaded range">
-            <line class="grid" x1="20" y1="30" x2="310" y2="30"/><line class="grid" x1="20" y1="75" x2="310" y2="75"/><line class="grid" x1="20" y1="120" x2="310" y2="120"/>
-            <path class="band" d="M200 70 L230 58 L260 50 L290 38 L290 78 L260 84 L230 88 L200 86 Z"/>
-            <path class="hist draw" d="M20 112 L45 104 L70 108 L95 92 L120 96 L145 84 L170 86 L200 78"/>
-            <path class="pred draw" d="M200 78 L230 73 L260 67 L290 58"/>
-            <line x1="200" y1="22" x2="200" y2="124" stroke="#d2d2d7" stroke-dasharray="3 3"/>
-            <text x="20" y="142">Jan</text><text x="185" y="142">Today</text><text x="270" y="142">+3 mo</text>
+        <div class="viz">
+          <svg viewBox="0 0 200 100" preserveAspectRatio="none" aria-label="Sales line with a dashed forecast continuing upward">
+            <path d="M0 80 L25 72 L50 76 L75 60 L100 62 L125 48" fill="none" stroke="#9aa6bd" stroke-width="2.5" class="fc-line"/>
+            <path d="M125 48 L150 40 L175 30 L200 20" fill="none" stroke="#2350e6" stroke-width="2.5" stroke-dasharray="5 4"/>
+            <path d="M125 48 L150 32 L175 18 L200 6 L200 34 L175 42 L150 48 Z" fill="#2350e6" opacity=".1"/>
+            <circle cx="200" cy="20" r="4" fill="#2350e6"/>
           </svg>
-          <div class="fc-leg"><span><i style="background:#1d1d1f"></i>Actual</span><span><i style="background:#0066cc"></i>Forecast</span><span><i style="background:rgba(0,102,204,.25);height:8px;vertical-align:0"></i>Likely range</span></div>
         </div>
+        <h3>Forecasting</h3>
+        <p>Next month's sales, demand or revenue, so you can plan stock, staff and spend.</p>
+        <span class="use">Time series · LightGBM</span>
       </article>
       <article class="cap reveal">
-        <div class="t-copy"><h3>Predictive ML</h3><p>Score every customer or lead by how likely they are to buy, pay or leave, so your team calls the right people first.</p></div>
-        <div class="cap-vis">
-          <div class="risk">
-            <div class="head-r"><span>Customer</span><span>Churn risk</span><span></span></div>
-            <div><span>Account #2041</span><i style="--p:86%;--c:#d70015"></i><span>86%</span></div>
-            <div><span>Account #1187</span><i style="--p:52%;--c:#b25000"></i><span>52%</span></div>
-            <div><span>Account #3320</span><i style="--p:18%;--c:#1f9d55"></i><span>18%</span></div>
-            <div><span>Account #0954</span><i style="--p:9%;--c:#1f9d55"></i><span>9%</span></div>
+        <div class="viz">
+          <div class="bars">
+            <div><i class="hot" style="height:92%"></i><small>A</small></div>
+            <div><i class="hot" style="height:78%;transition-delay:.1s"></i><small>B</small></div>
+            <div><i style="height:52%;transition-delay:.2s"></i><small>C</small></div>
+            <div><i style="height:34%;transition-delay:.3s"></i><small>D</small></div>
+            <div><i style="height:18%;transition-delay:.4s"></i><small>E</small></div>
           </div>
         </div>
+        <h3>Predictive ML</h3>
+        <p>Score every lead or customer by how likely they are to buy or leave, so your team calls the right people first.</p>
+        <span class="use">XGBoost · CatBoost · scikit-learn</span>
       </article>
-      <article class="cap reveal" data-anim="tickets">
-        <div class="t-copy"><h3>Deep Learning</h3><p>Neural networks that read text the way people do: sort support tickets, detect sentiment and route messages automatically.</p></div>
-        <div class="cap-vis">
-          <div class="cls">
-            <div class="ticket">"My payment failed twice today" <em class="e2">Billing · 97%</em></div>
-            <div class="ticket">"How do I add a new user?" <em class="e1">How-to · 94%</em></div>
-            <div class="ticket">"Love the new update, thanks!" <em class="e3">Positive · 98%</em></div>
+      <article class="cap reveal">
+        <div class="viz" style="align-items:center">
+          <div class="tickets">
+            <div><span>"Refund not received"</span><b class="t2">Billing</b></div>
+            <div><span>"Love the new app"</span><b class="t1">Positive</b></div>
+            <div><span>"Can't log in"</span><b class="t3">Tech</b></div>
           </div>
         </div>
+        <h3>Deep Learning</h3>
+        <p>Neural networks that read text like people do: sort tickets, detect sentiment and route messages.</p>
+        <span class="use">PyTorch · Transformers</span>
       </article>
-      <article class="cap reveal" data-anim="boxes">
-        <div class="t-copy"><h3>Computer Vision</h3><p>Models that understand images: count products, spot empty shelves and defects, and read invoices and IDs automatically.</p></div>
-        <div class="cap-vis">
-          <div class="cv" role="img" aria-label="Shelf photo with detected products and one empty slot highlighted">
-            <span class="shelf s1"></span><span class="shelf s2"></span>
-            <span class="prod" style="left:9%;top:14%;width:16%;height:33%;background:#7aa7e0"></span>
-            <span class="prod" style="left:29%;top:20%;width:14%;height:27%;background:#e0a77a"></span>
-            <span class="prod" style="left:71%;top:12%;width:18%;height:35%;background:#9ccf9f"></span>
-            <span class="prod" style="left:12%;top:58%;width:20%;height:31%;background:#c9a0dc"></span>
-            <span class="prod" style="left:58%;top:60%;width:16%;height:29%;background:#e6c86e"></span>
-            <span class="box" style="left:8%;top:12%;width:18%;height:36%;--c:#0066cc"><em>Product · 0.97</em></span>
-            <span class="box" style="left:47%;top:12%;width:20%;height:36%;--c:#d70015;transition-delay:.15s"><em>Empty slot · 0.93</em></span>
-            <span class="box" style="left:57%;top:58%;width:18%;height:32%;--c:#0066cc;transition-delay:.3s"><em>Product · 0.95</em></span>
-            <span class="scan" aria-hidden="true"></span>
-          </div>
+      <article class="cap reveal">
+        <div class="viz">
+          <div class="shelf"><span></span><span></span><span class="empty"></span><span></span><span></span><span class="empty"></span><span></span><span></span></div>
+          <i class="scan"></i>
         </div>
+        <h3>Computer Vision</h3>
+        <p>Count products, spot empty shelves and defects, and read invoices and IDs automatically.</p>
+        <span class="use">OpenCV · YOLO · OCR</span>
       </article>
     </div>
   </div>
 </section>
 
-<!-- 8. WHY ME + ENGAGEMENT -->
-<section id="pricing" class="grey">
+<!-- PROCESS -->
+<section id="process">
   <div class="wrap">
     <div class="head reveal">
-      <span class="label">Why work with me</span>
-      <h2 class="h2">You get an engineer, <span class="dim">not just a chatbot.</span></h2>
+      <div>
+        <span class="eyebrow">Process</span>
+        <h2 class="h2">From first call to live AI <span class="dim">in weeks.</span></h2>
+      </div>
+      <p>You see working software early and often. No long silences, no surprises on the invoice.</p>
     </div>
-    <div class="why">
-      <article class="reveal"><h3>Built for production</h3><p>Safety checks, tests and monitoring come standard. What I build keeps working after the demo.</p></article>
-      <article class="reveal"><h3>End to end</h3><p>Agent, data pipeline and web app from one person. No hand-offs between three vendors.</p></article>
-      <article class="reveal"><h3>Cost-aware</h3><p>Smart routing and caching keep your monthly AI bill low. You see a cost estimate before I build.</p></article>
-      <article class="reveal"><h3>Clear communication</h3><p>Weekly updates, working demos and plain-English explanations. You always know where things stand.</p></article>
-    </div>
+    <ol class="proc reveal">
+      <li><span class="n">Step 1</span><h3>Discovery call</h3><span class="dur">Free · 30 minutes</span><p>We find where you lose leads, hours or data, and pick the automation with the clearest return.</p></li>
+      <li><span class="n">Step 2</span><h3>Fixed quote</h3><span class="dur">Within 48 hours</span><p>A written scope with deliverables, timeline, price and the expected monthly running cost.</p></li>
+      <li><span class="n">Step 3</span><h3>Build and test</h3><span class="dur">2 to 6 weeks</span><p>A working prototype in about two weeks, then integration, safety checks and testing on real scenarios.</p></li>
+      <li><span class="n">Step 4</span><h3>Launch and support</h3><span class="dur">Ongoing</span><p>Go live with monitoring and human handoff, then tuning so it keeps improving and stays cheap to run.</p></li>
+    </ol>
+  </div>
+</section>
 
-    <div class="sub-head reveal">
-      <h3>Ways to work together</h3>
-      <p>Every engagement starts with a free 30-minute call, so the scope and price fit what you need.</p>
+<!-- ENGAGEMENT -->
+<section id="pricing" class="tint">
+  <div class="wrap">
+    <div class="head reveal">
+      <div>
+        <span class="eyebrow">Work with me</span>
+        <h2 class="h2">Three ways to work together.</h2>
+      </div>
+      <p>Pricing depends on scope. After the discovery call you get a fixed written quote, so you know the cost before anything starts.</p>
     </div>
     <div class="plans">
-      <div class="plan reveal">
-        <span class="k">Fixed-scope project</span>
-        <h3>Build it</h3>
-        <p class="for">For a clear goal, such as an AI sales agent, a chatbot or a data pipeline.</p>
-        <ul><li>Agreed scope, timeline and price</li><li>Working prototype in about 2 weeks</li><li>Handover, documentation and training</li></ul>
-        <a class="btn light" href="#contact">Discuss a project</a>
+      <article class="plan reveal">
+        <div class="top"><h3>Project</h3></div>
+        <p class="for">For a clear goal: one agent, one pipeline, one model.</p>
+        <ul><li>Fixed scope and fixed price</li><li>Working prototype in about 2 weeks</li><li>Code, docs and handover</li><li>30 days of fixes after launch</li></ul>
+        <a class="btn ghost" href="#contact">Discuss a project</a>
+      </article>
+      <article class="plan feat reveal">
+        <div class="top"><h3>Retainer</h3><span class="badge">Best value</span></div>
+        <p class="for">For teams that want an AI engineer on call every month.</p>
+        <ul><li>A set number of days each month</li><li>New features, tuning and monitoring</li><li>Cost and quality reports</li><li>Priority replies on weekdays</li></ul>
+        <a class="btn" href="#contact">Discuss a retainer</a>
+      </article>
+      <article class="plan reveal">
+        <div class="top"><h3>Consulting</h3></div>
+        <p class="for">For advice, reviews and planning, billed by the hour.</p>
+        <ul><li>Architecture and model choice</li><li>Review of an existing agent or pipeline</li><li>Cost reduction plan</li><li>Team workshops</li></ul>
+        <a class="btn ghost" href="#contact">Book a session</a>
+      </article>
+    </div>
+    <div class="promise reveal">
+      <div><h4>Built for production</h4><p>Tests, guardrails and monitoring come standard, so it keeps working after the demo.</p></div>
+      <div><h4>End to end</h4><p>Agent, data pipeline and web app from one person. No hand-offs between vendors.</p></div>
+      <div><h4>Cost-aware</h4><p>Model routing and caching keep your monthly AI bill low. You see the estimate first.</p></div>
+      <div><h4>Clear updates</h4><p>Weekly demos and plain-English progress notes. You always know where things stand.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap about">
+    <div class="about-l reveal">
+      <span class="eyebrow">About me</span>
+      <h2 class="h2">An engineer who cares <span class="dim">what happens after launch.</span></h2>
+      <p>I'm Gopikanth. I started in data engineering, building pipelines on Databricks and Google Cloud, and moved into AI agents when businesses began asking for them. That mix is why my agents work: <strong>they sit on clean, tested data</strong>.</p>
+      <p>Today I lead development of AI sales agents used across six industries. As a freelancer I take on a few projects at a time, so each client gets my full attention.</p>
+      <div class="look">
+        <div><h4>Projects I'm looking for</h4><div class="pills"><span>AI agents for sales, support, bookings</span><span>RAG assistants</span><span>Data pipelines and warehouses</span><span>Forecasting and vision models</span></div></div>
+        <div><h4>Clients I work best with</h4><div class="pills"><span>Startups</span><span>Small and mid-sized businesses</span><span>Agencies</span><span>Product teams</span></div></div>
       </div>
-      <div class="plan feature reveal">
-        <span class="tagline">Most popular</span>
-        <span class="k">Monthly retainer</span>
-        <h3>Grow it</h3>
-        <p class="for">For businesses that want an AI engineer on call without hiring one.</p>
-        <ul><li>A set number of hours each month</li><li>New features, agents and integrations</li><li>Monitoring, tuning and cost control</li></ul>
-        <a class="btn" href="#contact">Start a retainer</a>
+    </div>
+    <div class="reveal">
+      <div class="tl">
+        <div class="job">
+          <div class="when">Mar 2026 – Now<b>Full-time</b></div>
+          <div>
+            <h3>Senior AI Engineer</h3>
+            <p class="org">AI solutions company</p>
+            <ul>
+              <li>Lead WhatsApp AI sales agents used across six industries, with tool calling, hybrid RAG and lead scoring.</li>
+              <li>Built agent routing and model evaluation to balance answer quality against API cost.</li>
+              <li>Added Indian-language voice so customers can talk to agents with voice notes.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="job">
+          <div class="when">Jan 2025 – Feb 2026<b>Full-time</b></div>
+          <div>
+            <h3>AI Engineer</h3>
+            <p class="org">AI solutions company</p>
+            <ul>
+              <li>Built multi-agent data intelligence and real estate agent platforms with approval steps and monitoring.</li>
+              <li>Engineered PySpark and Databricks pipelines with layered, tested data and star-schema warehouses.</li>
+              <li>Delivered a customer lifetime value forecasting pipeline on Google Cloud.</li>
+            </ul>
+          </div>
+        </div>
       </div>
-      <div class="plan reveal">
-        <span class="k">Hourly consulting</span>
-        <h3>Plan it</h3>
-        <p class="for">For teams that need advice on AI strategy, architecture or a code review.</p>
-        <ul><li>AI and data architecture review</li><li>Model and tool selection</li><li>Roadmap for your first AI project</li></ul>
-        <a class="btn light" href="#contact">Book a session</a>
+      <div class="certs">
+        <div><small>DATABRICKS</small>Agentic AI Foundations Associate</div>
+        <div><small>SALESFORCE</small>Certified AI Associate</div>
+        <div><small>GOOGLE CLOUD</small>Generative AI for Developers</div>
+        <div><small>GOOGLE CLOUD</small>Introduction to Generative AI</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 9. SKILLS -->
-<section id="skills">
+<!-- SKILLS -->
+<section id="skills" class="tint">
   <div class="wrap">
     <div class="head reveal">
-      <span class="label">Skills</span>
-      <h2 class="h2">Technical specifications.</h2>
+      <div>
+        <span class="eyebrow">Skills</span>
+        <h2 class="h2">Technical specifications.</h2>
+      </div>
+      <p>The tools behind every system above. Bold items are the ones I use most.</p>
     </div>
     <div class="spec reveal">
       <div class="spec-row"><h3>Agentic AI<span>Agents and orchestration</span></h3><p><b>LangGraph</b>, LangChain, multi-agent and supervisor systems, ReAct, tool calling, <b>MCP</b>, A2A, human-in-the-loop</p></div>
-      <div class="spec-row"><h3>LLMs and Retrieval<span>Models, RAG, voice</span></h3><p>OpenAI, Claude, Gemini, <b>hybrid RAG</b> (BM25 + vector), LanceDB, FAISS, Redis, reranking, speech-to-text and text-to-speech</p></div>
+      <div class="spec-row"><h3>LLMs and Retrieval<span>Models, RAG, voice</span></h3><p>OpenAI, Claude, Gemini, <b>hybrid RAG</b> (BM25 + vector), LanceDB, FAISS, Redis, reranking, speech-to-text, text-to-speech</p></div>
       <div class="spec-row"><h3>Routing, Cost and Safety<span>Production readiness</span></h3><p><b>Agent routing with Jev</b>, model cascading, semantic caching, guardrails, prompt-injection defense, LLM evaluation, LangSmith</p></div>
-      <div class="spec-row"><h3>Data Engineering<span>Pipelines and warehousing</span></h3><p><b>Airflow</b>, <b>dbt</b>, <b>Databricks</b>, PySpark, SQL, Delta Lake, medallion architecture, star schema, SCD Type 2, data quality testing</p></div>
+      <div class="spec-row"><h3>Data Engineering<span>Pipelines and warehousing</span></h3><p><b>Airflow</b>, <b>dbt</b>, <b>Databricks</b>, PySpark, SQL, Delta Lake, medallion architecture, star schema, SCD Type 2, data quality tests</p></div>
       <div class="spec-row"><h3>Machine Learning<span>Prediction and forecasting</span></h3><p>LightGBM, XGBoost, CatBoost, scikit-learn, time-series forecasting, churn and lead scoring</p></div>
       <div class="spec-row"><h3>Deep Learning and Vision<span>Text and images</span></h3><p><b>PyTorch</b>, TensorFlow, Transformers, text classification, OpenCV, object detection (YOLO), OCR and document AI</p></div>
-      <div class="spec-row"><h3>Backend, Web and Cloud<span>Shipping it</span></h3><p>Python, <b>FastAPI</b>, Pydantic, WebSockets, React, AWS, GCP (BigQuery, Cloud Functions), Docker, Git</p></div>
-      <div class="spec-row"><h3>Certifications</h3><p>Databricks Agentic AI Foundations Associate · Salesforce Certified AI Associate · Google Cloud Generative AI for Developers · Google Cloud Introduction to Generative AI</p></div>
+      <div class="spec-row"><h3>Backend, Web and Cloud<span>Shipping it</span></h3><p>Python, <b>FastAPI</b>, Pydantic, WebSockets, React, AWS, Google Cloud (BigQuery, Cloud Functions), Docker, Git</p></div>
     </div>
   </div>
 </section>
 
-<!-- 10. FAQ -->
-<section id="faq" class="grey">
+<!-- FAQ -->
+<section id="faq">
   <div class="wrap faq">
-    <div class="head reveal" style="margin-bottom:0">
-      <span class="label">FAQ</span>
+    <div class="reveal">
+      <span class="eyebrow">FAQ</span>
       <h2 class="h2">Questions clients ask <span class="dim">before we start.</span></h2>
+      <p style="color:var(--muted);margin-top:20px;max-width:40ch">Something else on your mind? Ask on the free call or by email.</p>
     </div>
-    <div class="qa reveal">
-      <details><summary>Do you work with clients outside India?</summary><p>Yes. I work remotely with clients in any time zone, with weekly calls and regular written updates.</p></details>
-      <details><summary>How much does a project cost?</summary><p>It depends on scope. After a free 30-minute call I send a fixed quote with a timeline, so there are no surprises. Small pilots are a good way to start.</p></details>
-      <details><summary>Will the AI agent sound like a bot?</summary><p>No. I write it in your brand's tone and test it against real situations such as price objections, rude replies and language switching. When it isn't sure, it hands over to a person.</p></details>
-      <details><summary>Is my customer data safe?</summary><p>Agents only get the access you approve. I add data masking, read-only database access where it fits, approval steps for sensitive actions and audit logs. I can deploy in your own cloud account.</p></details>
-      <details><summary>What happens after launch?</summary><p>You get documentation and a handover. If you want ongoing improvements, monitoring and new features, a monthly retainer covers it.</p></details>
+    <div class="reveal">
+      <details open><summary>How much does a project cost?</summary><p>It depends on scope. After a free 30-minute call I send a fixed written quote with the timeline and the expected monthly running cost of the AI, so there are no surprises.</p></details>
+      <details><summary>Is my data safe?</summary><p>Yes. Agents get read-only access where possible, sensitive data stays in your own cloud account, and I'm happy to sign an NDA before we look at anything.</p></details>
+      <details><summary>Do you work with clients outside India?</summary><p>Yes. I work remotely with clients worldwide, and my working hours overlap with the UK and Europe, with calls arranged for US time zones.</p></details>
+      <details><summary>What do I need to have ready?</summary><p>Just the problem and access to the relevant documents or data. I'll help you work out the rest on the discovery call.</p></details>
+      <details><summary>What happens after launch?</summary><p>Every project includes 30 days of fixes. After that you can take over with the docs I hand you, or keep me on a monthly retainer for tuning, monitoring and new features.</p></details>
+      <details><summary>Will the AI make things up?</summary><p>I build agents to answer from your own documents and data, with guardrails and tests on real scenarios. When the agent isn't sure, it says so and hands over to a person.</p></details>
     </div>
   </div>
 </section>
 
-<!-- 11. CONTACT -->
-<section id="contact">
-  <div class="wrap contact">
-    <div class="reveal">
-      <span class="label">Contact</span>
-      <h2 class="h2" style="margin-top:14px">Let's build something <span class="dim">that pays for itself.</span></h2>
-      <p style="font-size:19px;color:var(--muted);margin-top:16px;max-width:44ch">Tell me where your business loses time or leads. I'll show you what AI could take over, how long it takes to build and what it costs to run.</p>
-      <div class="perks"><span>Free 30-minute discovery call</span><span>Reply within one business day</span><span>Remote, working with clients worldwide</span></div>
-      <div class="mail">
-        <span class="mail-label">Email me directly</span>
-        <div class="mail-row">
-          <a class="mail-addr" id="mailAddr" href="mailto:gopikanth.tech@gmail.com">gopikanth.tech@gmail.com</a>
-          <button class="ghost" id="copyMail" type="button">Copy</button>
+<!-- CONTACT -->
+<section id="contact" style="padding-top:0">
+  <div class="wrap">
+    <div class="contact reveal">
+      <div>
+        <span class="eyebrow">Contact</span>
+        <h2>Tell me what's slowing you down. <span>I'll show you what AI can fix.</span></h2>
+        <p class="sub">Book a free 30-minute call. You'll leave with a clear plan, whether or not we work together.</p>
+        <div class="c-mail"><span class="addr" id="addr">gopikanth.tech@gmail.com</span><button type="button" data-copy="gopikanth.tech@gmail.com">Copy email</button></div>
+        <ul class="c-list"><li>Reply within 24 hours</li><li>Fixed quote before any work starts</li><li>NDA available on request</li></ul>
+      </div>
+      <form id="form" novalidate>
+        <div class="row2">
+          <label for="f-name">Your name<input id="f-name" name="name" autocomplete="name" required placeholder="Jane Doe"></label>
+          <label for="f-email">Email<input id="f-email" name="email" type="email" autocomplete="email" required placeholder="jane@company.com"></label>
         </div>
-      </div>
+        <div class="row2">
+          <label for="f-need">What do you need?
+            <select id="f-need" name="need">
+              <option>AI sales or support agent</option>
+              <option>Voice agent</option>
+              <option>Knowledge assistant (RAG)</option>
+              <option>Data pipeline or warehouse</option>
+              <option>ML, forecasting or vision</option>
+              <option>AI web app or dashboard</option>
+              <option>Not sure yet</option>
+            </select>
+          </label>
+          <label for="f-when">Timeline
+            <select id="f-when" name="when">
+              <option>As soon as possible</option>
+              <option>Within a month</option>
+              <option>1 to 3 months</option>
+              <option>Just exploring</option>
+            </select>
+          </label>
+        </div>
+        <label for="f-msg">About your project<textarea id="f-msg" name="message" required placeholder="What do you want to automate, and what does success look like?"></textarea></label>
+        <button class="btn" type="submit">Send enquiry <span class="arr">→</span></button>
+        <div class="f-note" id="fnote" aria-live="polite"></div>
+      </form>
     </div>
-    <form class="form reveal" id="brief" novalidate style="background:var(--tile)">
-      <div class="row">
-        <label for="f-name">Name<input id="f-name" name="name" autocomplete="name" required style="background:#fff"></label>
-        <label for="f-contact">Email or WhatsApp<input id="f-contact" name="contact" required style="background:#fff"></label>
-      </div>
-      <label for="f-need">What do you need?
-        <select id="f-need" name="need" style="background:#fff">
-          <option>AI sales or support agent</option>
-          <option>Chatbot on my documents</option>
-          <option>Data pipeline or dashboard</option>
-          <option>Forecasting or ML model</option>
-          <option>Computer vision</option>
-          <option>AI web app</option>
-          <option>Not sure yet</option>
-        </select>
-      </label>
-      <label for="f-msg">Project details<textarea id="f-msg" name="message" placeholder="I want an agent that replies to my ad leads on WhatsApp…" style="background:#fff"></textarea></label>
-      <button class="btn" type="submit">Send message</button>
-      <div class="out" id="formOut" hidden></div>
-    </form>
   </div>
 </section>
 
@@ -1090,195 +979,179 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 
 <footer>
   <div class="wrap">
-    <span>© <span id="yr">2026</span> Gopikanth · AgentVerse</span>
-    <span>gopikanth.tech@gmail.com · Freelance AI Engineer</span>
+    <span>© 2026 Gopikanth · AgentVerse</span>
+    <span>AI Engineer · AI Data Engineer · Remote, worldwide</span>
   </div>
 </footer>
 
 <script>
-const CONFIG = { FORM_ENDPOINT: "" }; // Formspree / Web3Forms URL. Empty = show a copyable message.
-
+var CONFIG = { FORM_ENDPOINT: "" }; // paste a Formspree URL here, e.g. https://formspree.io/f/xxxxxx
 (function(){
-  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const wait = ms => new Promise(r => setTimeout(r, reduce ? 0 : ms));
-  document.getElementById("yr").textContent = new Date().getFullYear();
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var vh = window.innerHeight || 800;
 
-  // Nav hairline + progress
-  const nav = document.getElementById("nav"), bar = document.getElementById("progress");
-  const onScroll = () => {
-    const h = document.documentElement.scrollHeight - innerHeight;
-    bar.style.transform = `scaleX(${h > 0 ? scrollY / h : 0})`;
-    nav.classList.toggle("scrolled", scrollY > 8);
-  };
-  addEventListener("scroll", onScroll, {passive:true}); onScroll();
+  /* header state + progress */
+  var hdr = document.getElementById("hdr"), bar = document.getElementById("progress");
+  function onScroll(){
+    var y = window.scrollY, h = document.documentElement.scrollHeight - vh;
+    hdr.classList.toggle("scrolled", y > 8);
+    bar.style.width = (h > 0 ? (y / h) * 100 : 0) + "%";
+  }
+  window.addEventListener("scroll", onScroll, {passive:true}); onScroll();
 
-  // Data agent sequence
-  async function playAsk(){
-    if(reduce) return;
-    const tile = document.getElementById("askTile");
-    const q = document.getElementById("askQ"), full = q.textContent;
-    const steps = tile.querySelectorAll(".step"), ans = tile.querySelector(".ask-a");
-    const bars = Array.from(tile.querySelectorAll(".hbar i")), scales = bars.map(b => b.style.transform);
-    steps.forEach(s => s.classList.add("wait")); ans.classList.add("wait");
-    bars.forEach(b => b.style.transform = "scaleX(0)");
-    q.textContent = "";
-    for(let i = 1; i <= full.length; i++){ q.textContent = full.slice(0, i); await wait(32); }
-    for(const s of steps){ await wait(450); s.classList.remove("wait"); }
-    await wait(400); ans.classList.remove("wait");
-    await wait(200); bars.forEach((b, i) => b.style.transform = scales[i]);
+  /* active nav link */
+  var links = [].slice.call(document.querySelectorAll(".nav a.l"));
+  if ("IntersectionObserver" in window) {
+    var secObs = new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if (e.isIntersecting) links.forEach(function(a){ a.classList.toggle("on", a.getAttribute("href") === "#" + e.target.id); });
+      });
+    }, {rootMargin:"-45% 0px -50% 0px"});
+    links.forEach(function(a){ var s = document.querySelector(a.getAttribute("href")); if (s) secObs.observe(s); });
   }
 
-  function primeCap(el){ if(el.dataset.anim && !reduce) el.classList.add("pre-anim"); }
-  function playCap(el){
-    if(!el.dataset.anim) return;
-    if(el.dataset.anim === "tickets") el.querySelectorAll(".ticket").forEach((t, i) => t.style.transitionDelay = (0.2 + i * 0.25) + "s");
-    requestAnimationFrame(() => el.classList.remove("pre-anim"));
-  }
-
-  // Scroll reveals
-  const items = Array.from(document.querySelectorAll(".reveal"));
-  const onShow = el => {
-    if(el.id === "askTile") playAsk();
-    if(el.classList.contains("cap")) playCap(el);
-  };
-  if(!reduce && "IntersectionObserver" in window){
-    const io = new IntersectionObserver(es => es.forEach(e => {
-      if(!e.isIntersecting) return;
-      const el = e.target;
-      const sibs = Array.from(el.parentElement.children).filter(c => c.classList.contains("reveal"));
-      el.style.transitionDelay = (Math.max(0, sibs.indexOf(el)) % 4) * 0.08 + "s";
-      el.classList.remove("pre"); el.classList.add("in");
-      onShow(el);
-      io.unobserve(el);
-    }), {threshold:.12, rootMargin:"0px 0px -6% 0px"});
-    items.forEach(el => {
-      if(el.getBoundingClientRect().top > innerHeight * 0.92){ el.classList.add("pre"); primeCap(el); }
-      else el.classList.add("in");
-      io.observe(el);
+  /* reveal: only elements below the first screen start hidden */
+  var reveals = [].slice.call(document.querySelectorAll(".reveal, .cap"));
+  var io = ("IntersectionObserver" in window) ? new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); trigger(e.target); }
     });
-  } else {
-    items.forEach(el => el.classList.add("in"));
-  }
-
-  // Phone conversation: plays each time it scrolls into view
-  const chat = document.getElementById("chat");
-  const msgs = Array.from(chat.children);
-  let run = 0;
-  async function play(){
-    const id = ++run;
-    msgs.forEach(m => m.classList.add("hidden"));
-    await wait(400);
-    for(const m of msgs){
-      if(id !== run) return;
-      if(m.classList.contains("out")){
-        const t = document.createElement("div"); t.className = "typing"; t.innerHTML = "<i></i><i></i><i></i>";
-        chat.insertBefore(t, m); await wait(850); t.remove();
-      } else { await wait(650); }
-      if(id !== run) return;
-      m.classList.remove("hidden");
-      await wait(250);
-    }
-  }
-  if(!reduce && "IntersectionObserver" in window){
-    let seen = false;
-    new IntersectionObserver(es => es.forEach(e => {
-      if(e.isIntersecting && !seen){ seen = true; play(); }
-      else if(!e.isIntersecting){ seen = false; }
-    }), {threshold:.35}).observe(chat);
-  }
-
-  // Industries carousel
-  const track = document.getElementById("track"), tabsEl = document.getElementById("tabs");
-  const slides = Array.from(track.querySelectorAll(".slide"));
-  const DUR = 6500;
-  let active = 0, timer = null, paused = false, inView = false;
-  slides.forEach((s, i) => {
-    s.setAttribute("aria-roledescription", "slide");
-    const b = document.createElement("button");
-    b.className = "tab" + (i === 0 ? " active" : ""); b.type = "button"; b.setAttribute("role", "tab");
-    b.innerHTML = `${s.getAttribute("aria-label")}<span class="bar"></span>`;
-    b.style.setProperty("--dur", DUR + "ms");
-    b.addEventListener("click", () => { go(i); restart(); });
-    tabsEl.appendChild(b);
+  }, {threshold:.15, rootMargin:"0px 0px -40px 0px"}) : null;
+  reveals.forEach(function(el, i){
+    if (!io || reduce) { el.classList.add("in"); return; }
+    if (el.getBoundingClientRect().top > vh) el.classList.add("pre");
+    io.observe(el);
   });
-  const tabs = Array.from(tabsEl.children);
+  // stagger siblings in grids
+  [".svc", ".plans", ".caps", ".cases"].forEach(function(sel){
+    var g = document.querySelector(sel); if (!g) return;
+    [].slice.call(g.children).forEach(function(c, i){ c.style.transitionDelay = (i % 3) * 0.08 + "s"; });
+  });
+
+  function trigger(el){
+    if (el.contains(document.getElementById("chat"))) playChat();
+    if (el.contains(document.getElementById("ask"))) playAsk();
+  }
+
+  /* phone chat playback */
+  var chat = document.getElementById("chat"), typing = document.getElementById("typing");
+  var chatItems = [].slice.call(chat.querySelectorAll(".msg, .sys"));
+  var chatTimer = [];
+  function playChat(){
+    if (reduce) return;
+    chatTimer.forEach(clearTimeout); chatTimer = [];
+    chat.classList.add("prep");
+    chatItems.forEach(function(m){ m.classList.remove("show"); });
+    var t = 400;
+    chatItems.forEach(function(m, i){
+      if (m.classList.contains("out") && i > 0) {
+        chatTimer.push(setTimeout(function(){ typing.classList.add("on"); chat.insertBefore(typing, m); }, t));
+        t += 900;
+      }
+      chatTimer.push(setTimeout(function(){ typing.classList.remove("on"); m.classList.add("show"); }, t));
+      t += m.classList.contains("in") ? 1100 : 700;
+    });
+    chatTimer.push(setTimeout(playChat, t + 5000));
+  }
+
+  /* data agent: typewriter, steps, answer */
+  var ask = document.getElementById("ask"), q = document.getElementById("askQ");
+  var askSteps = [].slice.call(ask.querySelectorAll(".step")), ans = ask.querySelector(".ans");
+  var full = q.textContent, askTimer = [];
+  function playAsk(){
+    if (reduce) return;
+    askTimer.forEach(clearTimeout); askTimer = [];
+    ask.classList.add("prep");
+    askSteps.concat([ans]).forEach(function(s){ s.classList.remove("show"); });
+    q.textContent = "";
+    var t = 300;
+    for (var i = 1; i <= full.length; i++) (function(n){ askTimer.push(setTimeout(function(){ q.textContent = full.slice(0, n); }, t + n * 38)); })(i);
+    t += full.length * 38 + 400;
+    askSteps.forEach(function(s){ askTimer.push(setTimeout(function(){ s.classList.add("show"); }, t)); t += 650; });
+    askTimer.push(setTimeout(function(){ ans.classList.add("show"); ask.classList.remove("prep"); }, t));
+    askTimer.push(setTimeout(playAsk, t + 6000));
+  }
+
+  /* industries carousel */
+  var track = document.getElementById("track"), tabsEl = document.getElementById("tabs");
+  var slides = [].slice.call(track.querySelectorAll(".slide")), tabs = [];
+  var cur = 0, auto = null, paused = false, DUR = 6500, start = 0, raf = 0;
+  slides.forEach(function(s, i){
+    var b = document.createElement("button");
+    b.type = "button"; b.setAttribute("role", "tab"); b.innerHTML = s.getAttribute("data-name") + "<i></i>";
+    b.addEventListener("click", function(){ go(i, true); });
+    tabsEl.appendChild(b); tabs.push(b);
+  });
   function setActive(i){
-    active = i;
-    slides.forEach((s, k) => s.classList.toggle("active", k === i));
-    tabs.forEach((t, k) => { t.classList.toggle("active", k === i); t.setAttribute("aria-selected", k === i); });
-    const tb = tabs[i], tl = tb.offsetLeft - tabsEl.offsetLeft;
-    tabsEl.scrollTo({left: tl - 20, behavior: reduce ? "auto" : "smooth"});
-    runBar();
+    cur = i;
+    slides.forEach(function(s, k){ s.classList.toggle("on", k === i); });
+    tabs.forEach(function(t, k){ t.classList.toggle("on", k === i); t.setAttribute("aria-selected", k === i); t.querySelector("i").style.width = "0"; });
   }
-  function go(i){
+  function go(i, user){
     i = (i + slides.length) % slides.length;
-    track.scrollTo({left: slides[i].offsetLeft - slides[0].offsetLeft, behavior: reduce ? "auto" : "smooth"});
     setActive(i);
+    track.scrollTo({left: slides[i].offsetLeft - track.offsetLeft, behavior: reduce ? "auto" : "smooth"});
+    restart();
   }
-  function runBar(){
-    tabs.forEach(t => t.querySelector(".bar").classList.remove("run"));
-    if(reduce || paused || !inView) return;
-    const b = tabs[active].querySelector(".bar"); void b.offsetWidth; b.classList.add("run");
+  function tick(now){
+    if (!paused) {
+      var p = Math.min(1, (now - start) / DUR);
+      tabs[cur].querySelector("i").style.width = p * 100 + "%";
+      if (p >= 1) { go(cur + 1); return; }
+    } else { start = now - (parseFloat(tabs[cur].querySelector("i").style.width) || 0) / 100 * DUR; }
+    raf = requestAnimationFrame(tick);
   }
   function restart(){
-    clearInterval(timer);
-    if(reduce) return;
-    timer = setInterval(() => { if(!paused && inView && !document.hidden) go(active + 1); }, DUR);
-    runBar();
+    cancelAnimationFrame(raf);
+    if (reduce) return;
+    start = performance.now(); raf = requestAnimationFrame(tick);
   }
-  let st;
-  track.addEventListener("scroll", () => {
+  document.getElementById("prev").addEventListener("click", function(){ go(cur - 1, true); });
+  document.getElementById("next").addEventListener("click", function(){ go(cur + 1, true); });
+  ["mouseenter", "focusin", "touchstart"].forEach(function(ev){ track.addEventListener(ev, function(){ paused = true; }, {passive:true}); });
+  ["mouseleave", "focusout"].forEach(function(ev){ track.addEventListener(ev, function(){ paused = false; }); });
+  var st;
+  track.addEventListener("scroll", function(){
     clearTimeout(st);
-    st = setTimeout(() => {
-      const x = track.scrollLeft;
-      let best = 0, d = Infinity;
-      slides.forEach((s, k) => { const dd = Math.abs((s.offsetLeft - slides[0].offsetLeft) - x); if(dd < d){ d = dd; best = k; } });
-      if(best !== active){ setActive(best); restart(); }
-    }, 90);
+    st = setTimeout(function(){
+      var best = 0, d = Infinity;
+      slides.forEach(function(s, k){ var x = Math.abs(s.offsetLeft - track.offsetLeft - track.scrollLeft); if (x < d) { d = x; best = k; } });
+      if (best !== cur) { setActive(best); restart(); }
+    }, 120);
   }, {passive:true});
-  document.getElementById("prev").addEventListener("click", () => { go(active - 1); restart(); });
-  document.getElementById("next").addEventListener("click", () => { go(active + 1); restart(); });
-  const sec = document.getElementById("industries");
-  sec.addEventListener("mouseenter", () => { paused = true; runBar(); });
-  sec.addEventListener("mouseleave", () => { paused = false; restart(); });
-  sec.addEventListener("focusin", () => { paused = true; runBar(); });
-  sec.addEventListener("focusout", () => { paused = false; restart(); });
-  if("IntersectionObserver" in window){
-    new IntersectionObserver(es => es.forEach(e => { inView = e.isIntersecting; restart(); }), {threshold:.35}).observe(track);
-  }
+  setActive(0); restart();
 
-  // Copy email
-  const copyMail = document.getElementById("copyMail"), mailAddr = document.getElementById("mailAddr");
-  copyMail.addEventListener("click", () => {
-    navigator.clipboard.writeText(mailAddr.textContent).then(() => { copyMail.textContent = "Copied"; setTimeout(() => copyMail.textContent = "Copy", 1800); })
-      .catch(() => { const r = document.createRange(); r.selectNodeContents(mailAddr); const s = getSelection(); s.removeAllRanges(); s.addRange(r); copyMail.textContent = "Selected"; });
+  /* copy email */
+  [].slice.call(document.querySelectorAll("[data-copy]")).forEach(function(b){
+    b.addEventListener("click", function(){
+      var txt = b.getAttribute("data-copy"), label = b.textContent;
+      function done(){ b.textContent = "Copied"; setTimeout(function(){ b.textContent = label; }, 1600); }
+      function fallback(){
+        var r = document.createRange(), el = document.getElementById("addr");
+        r.selectNodeContents(el); var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+        b.textContent = "Press Ctrl+C"; setTimeout(function(){ b.textContent = label; }, 2200);
+      }
+      try { navigator.clipboard.writeText(txt).then(done, fallback); } catch (e) { fallback(); }
+    });
   });
 
-  // Contact form
-  const form = document.getElementById("brief"), out = document.getElementById("formOut");
-  form.addEventListener("submit", async e => {
+  /* form */
+  var form = document.getElementById("form"), note = document.getElementById("fnote");
+  form.addEventListener("submit", function(e){
     e.preventDefault();
-    const d = Object.fromEntries(new FormData(form));
-    out.hidden = false;
-    if(!d.name || !d.contact){ out.textContent = "Add your name and an email or WhatsApp number so I can reply."; return; }
-    if(CONFIG.FORM_ENDPOINT){
-      try{
-        const r = await fetch(CONFIG.FORM_ENDPOINT, {method:"POST", headers:{"Content-Type":"application/json", Accept:"application/json"}, body:JSON.stringify(d)});
-        out.textContent = r.ok ? "Thanks. I'll reply within one business day." : "That didn't go through. Please email me directly.";
-        if(r.ok) form.reset();
-        return;
-      }catch(err){}
+    var d = new FormData(form), name = (d.get("name") || "").trim(), email = (d.get("email") || "").trim(), msg = (d.get("message") || "").trim();
+    if (!name || !/^\S+@\S+\.\S+$/.test(email) || !msg) { note.textContent = "Please add your name, a valid email and a short description of the project."; return; }
+    if (CONFIG.FORM_ENDPOINT) {
+      note.textContent = "Sending…";
+      fetch(CONFIG.FORM_ENDPOINT, {method:"POST", body:d, headers:{Accept:"application/json"}})
+        .then(function(r){ if (!r.ok) throw 0; form.reset(); note.textContent = "Thanks, " + name + ". Your enquiry is in. I'll reply within 24 hours."; })
+        .catch(function(){ note.textContent = "That didn't go through. Please email gopikanth.tech@gmail.com directly."; });
+      return;
     }
-    const msg = `Name: ${d.name}\nContact: ${d.contact}\nNeed: ${d.need}\nProject: ${d.message || "-"}`;
-    out.innerHTML = "";
-    const p = document.createElement("span"); p.textContent = "Your message is ready. Copy it and email it to gopikanth.tech@gmail.com.";
-    const pre = document.createElement("pre"); pre.textContent = msg;
-    const b = document.createElement("button"); b.type = "button"; b.className = "ghost"; b.textContent = "Copy message";
-    b.addEventListener("click", () => {
-      navigator.clipboard.writeText(msg).then(() => { b.textContent = "Copied"; })
-        .catch(() => { const r = document.createRange(); r.selectNodeContents(pre); const s = getSelection(); s.removeAllRanges(); s.addRange(r); b.textContent = "Selected, press Ctrl+C"; });
-    });
-    out.append(p, pre, b);
+    var body = "Name: " + name + "\nEmail: " + email + "\nNeed: " + d.get("need") + "\nTimeline: " + d.get("when") + "\n\n" + msg;
+    note.innerHTML = "";
+    note.appendChild(document.createTextNode("Copy this message and email it to gopikanth.tech@gmail.com:"));
+    var pre = document.createElement("pre"); pre.textContent = body; note.appendChild(pre);
   });
 })();
 </script>
