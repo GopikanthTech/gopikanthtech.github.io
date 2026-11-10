@@ -227,44 +227,124 @@ header.scrolled{border-bottom-color:var(--line)}
 .m-b{background:#f3e3d3;color:#7a4513}.m-s{background:#e6e9ef;color:#40485a}.m-g{background:#f6ebc4;color:#6d5300}
 .pass{font-size:12px;color:var(--green);font-weight:500;margin-left:auto;white-space:nowrap}
 
-/* under the hood */
-.arch{border:1px solid var(--line);border-radius:28px;padding:28px;background:var(--bg);box-shadow:0 30px 60px -50px rgba(12,15,22,.4)}
-.arch-top{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:20px}
-.arch-top b{font-size:15px}
-.arch-top span{font-size:13px;color:var(--muted)}
-.flow6{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:16px}
-.stage{position:relative;border:1px solid var(--line);border-radius:16px;padding:14px;background:var(--tile);display:flex;flex-direction:column;gap:8px;transition:border-color .4s,background .4s,box-shadow .4s,transform .4s;min-width:0}
-.stage:not(:last-child)::after{content:"";position:absolute;top:50%;right:-17px;width:18px;height:2px;background:var(--line);transition:background .4s}
-.stage.on{border-color:var(--blue);background:var(--bg);box-shadow:0 18px 36px -24px rgba(35,80,230,.6);transform:translateY(-3px)}
-.stage.on::after,.stage.done::after{background:var(--blue)}
-.stage .k{font-size:12px;font-weight:600;color:var(--blue)}
-.stage h4{font-size:15px;letter-spacing:-.01em}
-.stage small{font-size:12.5px;color:var(--muted);line-height:1.4}
-.stage .bub{font-size:12.5px;background:var(--bubble);border-radius:10px 10px 10px 3px;padding:7px 9px;line-height:1.35}
-.stage .bub.out{background:var(--bg);border:1px solid var(--line);border-radius:10px 10px 3px 10px}
-.stage .chips span{font-size:11.5px;padding:3px 8px;background:var(--bg);border:1px solid var(--line)}
-.tiers{display:grid;gap:4px}
-.tiers span{font-size:12px;padding:5px 8px;border-radius:8px;background:var(--bg);border:1px solid var(--line);display:flex;justify-content:space-between;transition:background .3s,color .3s,border-color .3s}
-.tiers span em{font-style:normal;color:var(--muted);font-size:11px}
-.tiers span.pick{background:var(--blue);border-color:var(--blue);color:#fff}
-.tiers span.pick em{color:rgba(255,255,255,.75)}
-.reel{display:flex;gap:4px}
-.reel i{flex:1;height:30px;border-radius:6px;background:linear-gradient(135deg,#cfd8ea,#9fb0cf)}
-.reel i:nth-child(2){background:linear-gradient(135deg,#d9e7dc,#9cc2a6)}
-.reel i:nth-child(3){background:linear-gradient(135deg,#efe0cc,#d1ab7c)}
-.reel i:nth-child(4){background:linear-gradient(135deg,#dcd5ef,#a99bd6)}
-.chips.team span{transition:background .3s,color .3s,border-color .3s}
-.stage.on .chips.team span,.stage.done .chips.team span{background:var(--green-soft);color:var(--green);border-color:transparent}
-.stage.on .chips.team span:nth-child(2){transition-delay:.15s}.stage.on .chips.team span:nth-child(3){transition-delay:.3s}.stage.on .chips.team span:nth-child(4){transition-delay:.45s}.stage.on .chips.team span:nth-child(5){transition-delay:.6s}.stage.on .chips.team span:nth-child(6){transition-delay:.75s}
-.player{position:relative;aspect-ratio:16/9;max-width:100%;border-radius:10px;background:linear-gradient(135deg,#1b2440,#0c0f16);display:grid;place-items:center;overflow:hidden}
-.playbtn{width:0;height:0;border-left:14px solid #fff;border-top:9px solid transparent;border-bottom:9px solid transparent;margin-left:4px;opacity:.9}
-.pbar{position:absolute;left:8px;right:8px;bottom:8px;height:3px;border-radius:2px;background:rgba(255,255,255,.2);overflow:hidden}
-.pbar i{display:block;height:100%;width:100%;background:#7ea0ff;transform-origin:left;transform:scaleX(1);transition:transform 1.2s linear}
-.stage.wait .pbar i{transform:scaleX(0);transition:none}
-.obs{margin-top:16px;border:1px dashed #cdd3de;border-radius:14px;padding:12px 16px;display:flex;flex-wrap:wrap;align-items:center;gap:10px 22px;font-size:13px;color:var(--ink-2)}
-.obs b{font-size:13px}
-.obs span{display:flex;align-items:center;gap:7px}
-.obs span::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--green)}
+/* under the hood: AI edit studio */
+.studio{background:#0b0e15;color:#e6e8ee;border-radius:28px;padding:20px;box-shadow:0 60px 120px -60px rgba(12,15,22,.7);position:relative;overflow:hidden}
+.studio::before{content:"";position:absolute;width:900px;height:500px;left:50%;top:-320px;transform:translateX(-50%);background:radial-gradient(ellipse,rgba(91,124,255,.28),transparent 65%);pointer-events:none}
+.studio>*{position:relative}
+.stu-top{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding:0 4px 16px;border-bottom:1px solid rgba(255,255,255,.07)}
+.stu-top .dots{display:flex;gap:6px}
+.stu-top .dots i{width:10px;height:10px;border-radius:50%;background:#262c38}
+.stu-top b{font-size:14px}
+.stu-goal{font-size:13px;color:#9aa1ae}
+.stu-pill{margin-left:auto;font-size:12px;padding:5px 12px;border-radius:999px;background:rgba(91,124,255,.18);color:#b4c5ff;display:flex;gap:8px;align-items:center;white-space:nowrap}
+.stu-pill i{width:10px;height:10px;border-radius:50%;border:2px solid currentColor;border-right-color:transparent;animation:spin .8s linear infinite}
+.studio.is-fin .stu-pill{background:rgba(20,147,90,.18);color:#7ee2a8}
+.studio.is-fin .stu-pill i{border:0;width:8px;height:8px;background:#7ee2a8;animation:none}
+.stu-grid{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.6fr) minmax(0,1fr);grid-template-areas:"raw team out";gap:16px;margin-top:16px}
+.stu-col{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:18px;padding:16px;min-width:0}
+.stu-col h4{font-size:13px;color:#cfd4dd;display:flex;justify-content:space-between;gap:8px;margin-bottom:12px;font-weight:600;letter-spacing:0}
+.stu-col h4 span{font-weight:400;color:#7d8595;font-size:12px}
+.c-raw{grid-area:raw}
+.c-team{grid-area:team;background:none;border:0;padding:0;display:flex;flex-direction:column}
+.c-out{grid-area:out}
+.clips{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.clip{position:relative;aspect-ratio:16/10;border-radius:10px;overflow:hidden;background:var(--g);display:flex;align-items:flex-end;padding:6px;transition:box-shadow .3s}
+.clip i{position:absolute;left:30%;bottom:16%;width:26%;height:48%;border-radius:40% 40% 6px 6px;background:rgba(255,255,255,.16)}
+.clip span{position:relative;font-family:var(--f-mono);font-size:9.5px;color:rgba(255,255,255,.85)}
+.clip em{position:absolute;top:5px;right:6px;font-style:normal;font-family:var(--f-mono);font-size:9.5px;background:rgba(0,0,0,.45);padding:1px 5px;border-radius:4px}
+.clip::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,transparent 30%,rgba(255,255,255,.35) 50%,transparent 70%);transform:translateX(-120%)}
+.clip.is-scan{box-shadow:0 0 0 2px #7ea0ff}
+.clip.is-scan::after{animation:shine .8s ease}
+@keyframes shine{to{transform:translateX(120%)}}
+.raw-meta{margin-top:12px;display:grid;gap:6px}
+.raw-meta div{display:flex;justify-content:space-between;font-size:12px;color:#7d8595}
+.raw-meta b{color:#cfd4dd;font-weight:500}
+.director{background:linear-gradient(180deg,rgba(91,124,255,.16),rgba(255,255,255,.03));border:1px solid rgba(124,150,255,.35);border-radius:18px;padding:16px}
+.d-head{display:flex;align-items:center;gap:12px}
+.d-ico{width:38px;height:38px;border-radius:11px;background:linear-gradient(145deg,#5b7cff,#2350e6);display:grid;place-items:center;font-size:18px;color:#fff;box-shadow:0 8px 20px -8px rgba(91,124,255,.8);flex:none}
+.d-head b{display:block;font-size:15px}
+.d-head small{font-size:12px;color:#9aa1ae}
+.d-state{margin-left:auto;font-size:11.5px;padding:3px 10px;border-radius:999px;background:rgba(255,255,255,.08);color:#cfd4dd;white-space:nowrap}
+.plan{display:grid;grid-template-columns:1fr 1fr;gap:7px 16px;margin-top:14px;counter-reset:pl}
+.plan li{font-size:12.5px;color:#5f6676;display:grid;grid-template-columns:17px minmax(0,1fr);column-gap:9px;row-gap:1px;transition:color .3s}
+.plan li::before{counter-increment:pl;content:counter(pl);font-family:var(--f-mono);font-size:10px;width:17px;height:17px;border-radius:5px;background:rgba(255,255,255,.07);display:grid;place-items:center;grid-row:span 2;transition:background .3s,color .3s}
+.plan li em{font-style:normal;color:#9db4ff;font-size:11.5px;grid-column:2}
+.plan li.sent{color:#e6e8ee}
+.plan li.sent::before{background:#2350e6;color:#fff}
+.bus{height:28px;position:relative;margin:0 16.6%}
+.bus::before{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:rgba(255,255,255,.1)}
+.bus::after{content:"";position:absolute;left:50%;top:0;bottom:0;width:2px;background:rgba(255,255,255,.1)}
+.bus i{position:absolute;bottom:-1px;left:50%;width:70px;height:4px;border-radius:2px;background:linear-gradient(90deg,transparent,#9db4ff,transparent);animation:busl 1.6s ease-in-out infinite;opacity:0}
+.bus i+i{animation-name:busr}
+@keyframes busl{0%{left:50%;opacity:0}25%{opacity:1}100%{left:-10%;opacity:0}}
+@keyframes busr{0%{left:45%;opacity:0}25%{opacity:1}100%{left:100%;opacity:0}}
+.agents{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.agent{position:relative;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:12px;display:grid;gap:7px;overflow:hidden;transition:border-color .3s,background .3s}
+.agent::after{content:"";position:absolute;left:50%;top:-14px;width:2px;height:14px;background:rgba(255,255,255,.1)}
+.a-top{display:flex;flex-direction:column;align-items:flex-start;gap:5px}
+.a-top b{font-size:13.5px}
+.mdl{font-size:10.5px;padding:2px 7px;border-radius:6px;white-space:nowrap}
+.m-sonnet{background:rgba(124,77,255,.24);color:#cdb9ff}
+.m-haiku{background:rgba(20,160,170,.22);color:#86e3ea}
+.a-task{font-size:12px;color:#9aa1ae;line-height:1.35}
+.sbar{height:4px;border-radius:2px;background:rgba(255,255,255,.08);overflow:hidden}
+.sbar i{display:block;height:100%;background:linear-gradient(90deg,#5b7cff,#9db4ff);transform-origin:left;transform:scaleX(1);transition:transform var(--d,2s) linear}
+.agent.done .sbar i{background:#3fbf7f;transform:scaleX(1);transition:transform .25s ease}
+.a-st{font-size:11px;color:#7ee2a8}
+.agent.queued .sbar i{transform:scaleX(0);transition:none}
+.agent.queued .a-st{color:#5f6676}
+.agent.work{border-color:rgba(124,150,255,.55);background:rgba(91,124,255,.09)}
+.agent.work .a-st{color:#b4c5ff}
+.agent.work::before{content:"";position:absolute;inset:0;background:linear-gradient(100deg,transparent 35%,rgba(124,150,255,.16) 50%,transparent 65%);animation:sweep 1.3s linear infinite}
+@keyframes sweep{from{transform:translateX(-100%)}to{transform:translateX(100%)}}
+.agent.done{border-color:rgba(126,226,168,.3)}
+.vscreen{position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:#05070b}
+.scene{position:absolute;inset:-6%;background:linear-gradient(180deg,#1b2a6b 0%,#5b6fd6 42%,#f0a27a 70%,#2a1d2e 71%,#120d18 100%);transition:filter .8s}
+.sun{position:absolute;left:60%;top:50%;width:15%;aspect-ratio:1/1;border-radius:50%;background:radial-gradient(circle,#ffe8c4,#ffb07a 60%,transparent 63%)}
+.figure{position:absolute;left:26%;bottom:22%;width:12%;height:34%;background:#0c0a12;border-radius:45% 45% 6px 6px}
+.studio.is-live .scene{animation:kb 9s ease-in-out infinite alternate}
+@keyframes kb{from{transform:scale(1) translate(0,0)}to{transform:scale(1.1) translate(-3%,-2%)}}
+.studio.is-building .scene{filter:grayscale(.85) brightness(.55)}
+.lower{position:absolute;left:6%;bottom:9%;font-size:clamp(10px,1.1vw,13px);font-weight:600;color:#fff;background:rgba(0,0,0,.5);padding:3px 8px;border-radius:5px;transition:opacity .5s}
+.studio.is-building .lower{opacity:0}
+.tcode{position:absolute;right:5%;top:7%;font-family:var(--f-mono);font-size:10px;color:#fff;background:rgba(0,0,0,.5);padding:2px 6px;border-radius:4px}
+.pbtn{position:absolute;left:50%;top:50%;width:40px;height:40px;transform:translate(-50%,-50%);border-radius:50%;background:rgba(255,255,255,.92);display:grid;place-items:center;transition:opacity .4s,transform .4s}
+.pbtn::before{content:"";border-left:12px solid #0b0e15;border-top:8px solid transparent;border-bottom:8px solid transparent;margin-left:3px}
+.studio.is-building .pbtn{opacity:0;transform:translate(-50%,-50%) scale(.7)}
+.rend-ov{position:absolute;inset:0;display:grid;place-items:center;font-size:12px;color:#cfd4dd;background:rgba(5,7,11,.55);opacity:0;transition:opacity .4s}
+.studio.is-building .rend-ov{opacity:1}
+.render{margin-top:12px;display:grid;gap:6px}
+.render div{display:flex;justify-content:space-between;gap:8px;font-size:12px;color:#9aa1ae}
+.render b{font-family:var(--f-mono);font-weight:500;color:#e6e8ee;font-variant-numeric:tabular-nums}
+.render .sbar i{transition:none}
+.checks{margin-top:14px;display:grid;gap:7px}
+.checks li{font-size:12.5px;color:#cfd4dd;display:flex;gap:8px;align-items:center;transition:color .3s}
+.checks li::before{content:"✓";width:16px;height:16px;border-radius:50%;background:rgba(126,226,168,.18);color:#7ee2a8;display:grid;place-items:center;font-size:9px;font-weight:700;flex:none;transition:background .3s,color .3s}
+.checks li.pending{color:#5f6676}
+.checks li.pending::before{background:rgba(255,255,255,.06);color:transparent}
+.tline{margin-top:16px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:18px;padding:14px 16px 16px;--lw:96px}
+.tl-head{display:flex;justify-content:space-between;gap:12px;font-size:12.5px;color:#cfd4dd;margin-bottom:10px;font-weight:600}
+.tl-head span{font-weight:400;color:#7d8595}
+.ruler,.trk{display:grid;grid-template-columns:var(--lw) minmax(0,1fr);gap:10px;align-items:center}
+.ruler{margin-bottom:6px}
+.ruler div{display:flex;justify-content:space-between;font-family:var(--f-mono);font-size:10px;color:#5f6676}
+.tracks{display:grid;gap:6px;position:relative}
+.trk>span{font-size:11.5px;color:#7d8595;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lane{position:relative;height:22px;border-radius:6px;background:rgba(255,255,255,.04)}
+.blk{position:absolute;top:2px;bottom:2px;left:var(--l);width:var(--w);border-radius:5px;transform-origin:left;transition:transform .55s cubic-bezier(.2,.8,.2,1),opacity .4s,filter .8s}
+.blk.off{transform:scaleX(0);opacity:0}
+.b-v1{background:linear-gradient(180deg,#5b7cff,#3a5bd9);filter:saturate(.25) brightness(.8)}
+.b-v1:nth-child(even){background:linear-gradient(180deg,#6d8bff,#4766e0)}
+.b-v1.graded{filter:none}
+.b-v2{background:linear-gradient(180deg,#9b7bff,#6f4de0)}
+.b-cap{background:#d9b44a}
+.b-vo{background:#0f3d2c repeating-linear-gradient(90deg,rgba(126,226,168,.85) 0 2px,transparent 2px 5px);-webkit-mask-image:linear-gradient(90deg,#000,#000);}
+.b-mu{background:#4a2414 repeating-linear-gradient(90deg,rgba(255,170,110,.75) 0 2px,transparent 2px 6px)}
+.playhead{position:absolute;top:-4px;bottom:-4px;left:calc(var(--lw) + 10px + (100% - var(--lw) - 10px) * var(--p,.7));width:2px;background:#ff5d5d;box-shadow:0 0 10px #ff5d5d;border-radius:1px;pointer-events:none}
+.playhead::before{content:"";position:absolute;top:-4px;left:-4px;border-left:5px solid transparent;border-right:5px solid transparent;border-top:6px solid #ff5d5d}
+.stu-foot{margin-top:14px;display:flex;flex-wrap:wrap;gap:8px 18px;font-size:12px;color:#7d8595;padding:0 4px}
+.stu-foot span{display:flex;align-items:center;gap:7px}
+.stu-foot b{color:#cfd4dd;font-weight:500}
 .concepts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:20px}
 .cc{border:1px solid var(--line);border-radius:18px;padding:20px;background:var(--bg);display:flex;flex-direction:column;gap:8px}
 .cc h3{font-size:16.5px}
@@ -432,9 +512,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   .hero-grid,.case,.about,.faq,.contact{grid-template-columns:minmax(0,1fr)}
   .case.flip .c-copy{order:0}
   .svc,.tech{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .flow6{grid-template-columns:repeat(3,minmax(0,1fr))}
-  .stage:nth-child(3)::after{display:none}
   .concepts{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .stu-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-areas:"team team" "raw out"}
   .cta-band{grid-template-columns:minmax(0,1fr);padding:40px}
   .cta-btns{flex-direction:row;flex-wrap:wrap}
   .caps{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -450,9 +529,16 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   section{padding-block:80px}
   .nav a.l{display:none}
   .svc,.tech,.caps,.promise,.concepts{grid-template-columns:minmax(0,1fr)}
-  .flow6{grid-template-columns:minmax(0,1fr);gap:14px}
-  .stage:not(:last-child)::after{display:block;top:auto;bottom:-15px;right:auto;left:28px;width:2px;height:14px}
-  .arch{padding:16px;border-radius:22px}
+  .studio{padding:14px;border-radius:22px}
+  .stu-pill{margin-left:0}
+  .stu-grid{grid-template-columns:minmax(0,1fr);grid-template-areas:"raw" "team" "out"}
+  .clips{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .agents{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .agent::after{display:none}
+  .bus{display:none}
+  .director{margin-bottom:12px}
+  .plan{grid-template-columns:minmax(0,1fr)}
+  .tline{--lw:58px;padding:12px}
   .cta-band{padding:30px 22px;border-radius:22px}
   .cta-btns{flex-direction:column}
   .proc{grid-template-columns:minmax(0,1fr)}
@@ -675,31 +761,102 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
     <div class="head reveal">
       <span class="eyebrow">Under the hood</span>
       <h2 class="h2">Not a chatbot. A multi-agent system.</h2>
-      <p>The agents I build work like a real team. A lead agent plans the job, specialist agents do the work in parallel, a reviewer checks the result, and every step is routed, traced and safe. Here is the same pattern applied to video editing.</p>
+      <p>Example: an AI video editor powered by Claude. A director agent reads the brief and plans the edit. A team of specialist agents works in parallel. Then the cut is reviewed and rendered automatically.</p>
     </div>
 
-    <div class="arch reveal" id="arch" aria-label="Example architecture: raw footage goes to a director agent, Jev routes each task to the right model, specialist agents edit in parallel, a critic agent reviews, and the final video renders">
-      <div class="arch-top"><b>Example: an AI video editor built from agents</b><span>Raw footage in, finished video out</span></div>
-      <div class="flow6">
-        <div class="stage"><span class="k">1 · Raw footage</span><h4>Upload and brief</h4><div class="reel" aria-hidden="true"><i></i><i></i><i></i><i></i></div><div class="bub">60s promo, upbeat, add captions</div><small>2 h of clips plus a short brief</small></div>
-        <div class="stage"><span class="k">2 · Director agent</span><h4>Plans the cut</h4><div class="chips"><span>Storyline</span><span>Shot list</span><span>Task plan</span></div><small>Breaks the job into tasks and assigns the team</small></div>
-        <div class="stage"><span class="k">3 · Jev router</span><h4>Right model per task</h4><div class="tiers" id="tiers"><span>Fast <em>captions</em></span><span class="pick">Vision <em>scenes</em></span><span>Reasoning <em>story</em></span></div><small>Chosen by task, quality and cost</small></div>
-        <div class="stage"><span class="k">4 · Specialist agents</span><h4>Work in parallel</h4><div class="chips team"><span>Transcript</span><span>Scene picker</span><span>B-roll</span><span>Captions</span><span>Music</span><span>Color</span></div><small>Each agent does one job</small></div>
-        <div class="stage"><span class="k">5 · Critic agent</span><h4>Reviews the cut</h4><div class="chips"><span>Pacing ✓</span><span>Brand ✓</span><span>2 fixes sent back</span></div><small>Loops fixes back to the team</small></div>
-        <div class="stage"><span class="k">6 · Final render</span><h4>Ready to publish</h4><div class="player" aria-hidden="true"><span class="playbtn"></span><span class="pbar"><i></i></span></div><small>1080p · 0:60 · captions burned in</small></div>
+    <div class="studio is-live is-fin reveal" id="studio" aria-label="Example: raw footage goes to a Claude director agent, which assigns transcription, shot selection, story editing, color, sound and captions to six Claude agents working in parallel. Their work fills a multi-track timeline, Claude reviews the cut and the final video is rendered.">
+      <div class="stu-top">
+        <span class="dots"><i></i><i></i><i></i></span><b>AI Edit Studio</b>
+        <span class="stu-goal">Brief: "60-second launch reel from today's shoot"</span>
+        <span class="stu-pill"><i></i><span id="stuPhase">Done · final_reel.mp4</span></span>
       </div>
-      <div class="obs"><b>Across every step:</b><span>Full traces</span><span>Quality scores</span><span>Cost per video</span><span>Human approval before publish</span></div>
+
+      <div class="stu-grid">
+        <div class="stu-col c-raw">
+          <h4>Raw footage <span>46 clips</span></h4>
+          <div class="clips">
+            <div class="clip" style="--g:linear-gradient(135deg,#24345f,#6b8cff)"><i></i><span>A001_C014</span><em>04:12</em></div>
+            <div class="clip" style="--g:linear-gradient(135deg,#3a2b4f,#c06c84)"><i></i><span>A002_C003</span><em>12:40</em></div>
+            <div class="clip" style="--g:linear-gradient(135deg,#123a33,#3fa58a)"><i></i><span>B001_C021</span><em>00:48</em></div>
+            <div class="clip" style="--g:linear-gradient(135deg,#42275a,#8a5d8c)"><i></i><span>B002_C007</span><em>01:16</em></div>
+            <div class="clip" style="--g:linear-gradient(135deg,#0f2027,#2c5364)"><i></i><span>D001_C002</span><em>02:05</em></div>
+            <div class="clip" style="--g:linear-gradient(135deg,#4d3a85,#6d7fd0)"><i></i><span>A003_C011</span><em>08:33</em></div>
+          </div>
+          <div class="raw-meta"><div>Total length<b>3h 12m</b></div><div>Interviews<b>6</b></div><div>B-roll and drone<b>40</b></div></div>
+        </div>
+
+        <div class="c-team">
+          <div class="director">
+            <div class="d-head"><span class="d-ico">✦</span><div><b>Director agent</b><small>Claude Opus · reads the brief, plans, assigns</small></div><span class="d-state" id="dState">Done</span></div>
+            <ol class="plan" id="plan">
+              <li class="sent">Transcribe interviews <em>Assigned to Transcriber</em></li>
+              <li class="sent">Pick the strongest shots <em>Assigned to Scene scout</em></li>
+              <li class="sent">Assemble a 60s story <em>Assigned to Story editor</em></li>
+              <li class="sent">Match color and look <em>Assigned to Colorist</em></li>
+              <li class="sent">Sync music, level voice <em>Assigned to Sound</em></li>
+              <li class="sent">Add captions, 4 languages <em>Assigned to Captions</em></li>
+            </ol>
+          </div>
+          <div class="bus" aria-hidden="true"><i></i><i></i></div>
+          <div class="agents">
+            <div class="agent done"><div class="a-top"><b>Transcriber</b><span class="mdl m-haiku">Claude Haiku</span></div><span class="a-task">Transcribes every interview with timestamps</span><div class="sbar"><i></i></div><span class="a-st">Done</span></div>
+            <div class="agent done"><div class="a-top"><b>Scene scout</b><span class="mdl m-sonnet">Claude Sonnet</span></div><span class="a-task">Watches all footage, picks the 14 best shots</span><div class="sbar"><i></i></div><span class="a-st">Done</span></div>
+            <div class="agent done"><div class="a-top"><b>Story editor</b><span class="mdl m-sonnet">Claude Sonnet</span></div><span class="a-task">Builds the 60s story and sets the pacing</span><div class="sbar"><i></i></div><span class="a-st">Done</span></div>
+            <div class="agent done"><div class="a-top"><b>Colorist</b><span class="mdl m-sonnet">Claude Sonnet</span></div><span class="a-task">Matches color and look across shots</span><div class="sbar"><i></i></div><span class="a-st">Done</span></div>
+            <div class="agent done"><div class="a-top"><b>Sound</b><span class="mdl m-haiku">Claude Haiku</span></div><span class="a-task">Syncs music to the beat, levels the voice</span><div class="sbar"><i></i></div><span class="a-st">Done</span></div>
+            <div class="agent done"><div class="a-top"><b>Captions</b><span class="mdl m-haiku">Claude Haiku</span></div><span class="a-task">Writes subtitles in 4 languages</span><div class="sbar"><i></i></div><span class="a-st">Done</span></div>
+          </div>
+        </div>
+
+        <div class="stu-col c-out">
+          <h4>Final output <span>1080p · 0:60</span></h4>
+          <div class="vscreen">
+            <div class="scene"><span class="sun"></span><span class="figure"></span></div>
+            <span class="lower">Built for what's next.</span>
+            <span class="tcode">00:42 / 01:00</span>
+            <span class="pbtn"></span>
+            <div class="rend-ov" id="rendOv">Agents at work…</div>
+          </div>
+          <div class="render"><div><span>final_reel.mp4</span><b id="rPct">100%</b></div><div class="sbar"><i id="rBar"></i></div></div>
+          <ul class="checks" id="checks">
+            <li>Pacing reviewed by Claude</li>
+            <li>Brand rules passed</li>
+            <li>Captions checked against transcript</li>
+            <li>Ready for your approval</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tline">
+        <div class="tl-head">Timeline <span>Assembled by agents</span></div>
+        <div class="ruler"><span></span><div><span>0:00</span><span>0:15</span><span>0:30</span><span>0:45</span><span>1:00</span></div></div>
+        <div class="tracks" id="tracks">
+          <div class="trk"><span>V2 · B-roll</span><div class="lane"><i class="blk b-v2" data-a="2" style="--l:9%;--w:11%"></i><i class="blk b-v2" data-a="2" style="--l:35%;--w:9%"></i><i class="blk b-v2" data-a="2" style="--l:63%;--w:12%"></i></div></div>
+          <div class="trk"><span>V1 · Main</span><div class="lane"><i class="blk b-v1 graded" data-a="1" style="--l:0%;--w:16%"></i><i class="blk b-v1 graded" data-a="1" style="--l:16%;--w:14%"></i><i class="blk b-v1 graded" data-a="1" style="--l:30%;--w:18%"></i><i class="blk b-v1 graded" data-a="1" style="--l:48%;--w:15%"></i><i class="blk b-v1 graded" data-a="1" style="--l:63%;--w:17%"></i><i class="blk b-v1 graded" data-a="1" style="--l:80%;--w:20%"></i></div></div>
+          <div class="trk"><span>T1 · Captions</span><div class="lane"><i class="blk b-cap" data-a="5" style="--l:2%;--w:11%"></i><i class="blk b-cap" data-a="5" style="--l:17%;--w:10%"></i><i class="blk b-cap" data-a="5" style="--l:32%;--w:13%"></i><i class="blk b-cap" data-a="5" style="--l:51%;--w:10%"></i><i class="blk b-cap" data-a="5" style="--l:66%;--w:12%"></i><i class="blk b-cap" data-a="5" style="--l:83%;--w:13%"></i></div></div>
+          <div class="trk"><span>A1 · Voice</span><div class="lane"><i class="blk b-vo" data-a="0" style="--l:0%;--w:48%"></i><i class="blk b-vo" data-a="0" style="--l:52%;--w:44%"></i></div></div>
+          <div class="trk"><span>A2 · Music</span><div class="lane"><i class="blk b-mu" data-a="4" style="--l:0%;--w:100%"></i></div></div>
+          <span class="playhead" id="playhead"></span>
+        </div>
+      </div>
+
+      <div class="stu-foot">
+        <span><b>Claude Opus</b> plans and reviews</span>
+        <span><b>Claude Sonnet</b> sees and edits</span>
+        <span><b>Claude Haiku</b> handles fast, high-volume work</span>
+        <span><b>MCP tools</b> run FFmpeg and render</span>
+      </div>
     </div>
 
     <div class="concepts">
-      <article class="cc reveal"><h3>Multi-agent orchestration</h3><p>A lead agent plans the work and hands each task to a specialist, in parallel where possible.</p><span class="use">LangGraph · supervisor pattern</span></article>
-      <article class="cc reveal"><h3>Jev routing</h3><p>Each request goes to the right model for its difficulty, balancing quality and cost.</p><span class="use">Jev · model cascading · caching</span></article>
-      <article class="cc reveal"><h3>Hybrid RAG</h3><p>Keyword and vector search with reranking, so answers come from your documents.</p><span class="use">BM25 + vectors · reranking</span></article>
-      <article class="cc reveal"><h3>Guardrails</h3><p>Prompt-injection defense, PII masking and policy checks on every input and output.</p><span class="use">Input and output filters</span></article>
-      <article class="cc reveal"><h3>MCP tool use</h3><p>Agents act in your real tools, from CRM and calendars to storage and editing software.</p><span class="use">MCP · A2A · tool calling</span></article>
-      <article class="cc reveal"><h3>Memory</h3><p>Agents remember each customer's history across conversations and channels.</p><span class="use">Short and long-term memory</span></article>
-      <article class="cc reveal"><h3>Evals and observability</h3><p>Every step is traced and scored, and cost per conversation is tracked.</p><span class="use">LangSmith · LLM evals</span></article>
-      <article class="cc reveal"><h3>Human in the loop</h3><p>Sensitive actions wait for approval, and a person can take over any chat.</p><span class="use">Approvals · handoff</span></article>
+      <article class="cc reveal"><h3>Director agent</h3><p>Claude Opus reads the brief, breaks the job into tasks and assigns each one.</p><span class="use">Claude Opus · planning</span></article>
+      <article class="cc reveal"><h3>Parallel specialists</h3><p>Six agents work side by side instead of one step at a time.</p><span class="use">Sub-agents · LangGraph</span></article>
+      <article class="cc reveal"><h3>Jev model routing</h3><p>Hard creative calls go to Opus, vision work to Sonnet, high-volume tasks to Haiku.</p><span class="use">Jev · cost-aware routing</span></article>
+      <article class="cc reveal"><h3>Vision understanding</h3><p>Claude looks at frames to choose shots and keep color consistent.</p><span class="use">Claude vision</span></article>
+      <article class="cc reveal"><h3>MCP tools</h3><p>Agents run real editing tools such as FFmpeg through secure tool calls.</p><span class="use">MCP · FFmpeg</span></article>
+      <article class="cc reveal"><h3>Shared memory</h3><p>Every agent works from the same brief, transcript and timeline.</p><span class="use">Shared state</span></article>
+      <article class="cc reveal"><h3>Review loop</h3><p>Claude checks pacing, brand rules and captions, and sends fixes back before export.</p><span class="use">Evals · self-review</span></article>
+      <article class="cc reveal"><h3>Human in the loop</h3><p>You approve the cut or ask for changes in plain English.</p><span class="use">Approvals · feedback</span></article>
     </div>
   </div>
 </section>
@@ -1057,16 +1214,60 @@ var CONFIG = { FORM_ENDPOINT: "" }; // paste a Formspree URL here, e.g. https://
   if (reduce) { [].slice.call(hub.querySelectorAll("circle.in, circle.out")).forEach(function(c){ c.remove(); }); }
   else setInterval(function(){ if (!document.hidden) hubStep(); }, 2600);
 
-  /* architecture stepper */
-  var arch = document.getElementById("arch"), stages = [].slice.call(arch.querySelectorAll(".stage"));
-  var tiers = [].slice.call(document.querySelectorAll("#tiers span")), as = 0, tierSeq = [1, 0, 2, 1];
-  function archStep(){
-    var i = as % (stages.length + 1);
-    stages.forEach(function(st, k){ st.classList.toggle("on", k === i); st.classList.toggle("done", k < i); st.classList.toggle("wait", k > i); });
-    if (i === 2) { var t = tierSeq[Math.floor(as / (stages.length + 1)) % tierSeq.length]; tiers.forEach(function(x, k){ x.classList.toggle("pick", k === t); }); }
-    as++;
+  /* AI edit studio sequence */
+  var studio = document.getElementById("studio");
+  if (studio) {
+    var sAgents = [].slice.call(studio.querySelectorAll(".agent")),
+        sPlan = [].slice.call(studio.querySelectorAll("#plan li")),
+        sClips = [].slice.call(studio.querySelectorAll(".clip")),
+        sBlocks = [].slice.call(studio.querySelectorAll(".blk")),
+        sChecks = [].slice.call(studio.querySelectorAll("#checks li")),
+        sPhase = document.getElementById("stuPhase"), sState = document.getElementById("dState"),
+        rPct = document.getElementById("rPct"), rBar = document.getElementById("rBar"),
+        rOv = document.getElementById("rendOv"), pHead = document.getElementById("playhead"),
+        sDur = [2.4, 3.4, 4.4, 3.0, 2.6, 3.6], sT = [];
+    var sAt = function(fn, ms){ sT.push(setTimeout(fn, ms)); };
+    var stSet = function(a, cls, txt){ a.classList.remove("queued", "work", "done"); a.classList.add(cls); a.querySelector(".a-st").textContent = txt; };
+    var setProg = function(p){ rPct.textContent = Math.round(p * 100) + "%"; rBar.style.transform = "scaleX(" + p + ")"; pHead.style.setProperty("--p", p); };
+    var sReset = function(){
+      studio.classList.add("is-building"); studio.classList.remove("is-live", "is-fin");
+      sAgents.forEach(function(a){ stSet(a, "queued", "Queued"); });
+      sPlan.forEach(function(l){ l.classList.remove("sent"); });
+      sBlocks.forEach(function(b){ b.classList.add("off"); b.classList.remove("graded"); });
+      sChecks.forEach(function(c){ c.classList.add("pending"); });
+      setProg(0); sState.textContent = "Planning"; sPhase.textContent = "Director is planning the edit"; rOv.textContent = "Waiting for agents…";
+    };
+    var sRun = function(){
+      sT.forEach(clearTimeout); sT = []; sReset();
+      var t = 400;
+      sClips.forEach(function(c, i){ sAt(function(){ c.classList.remove("is-scan"); void c.offsetWidth; c.classList.add("is-scan"); }, t + i * 150); });
+      t += sClips.length * 150 + 300;
+      sAt(function(){ sState.textContent = "Assigning"; sPhase.textContent = "6 Claude agents working in parallel"; rOv.textContent = "Agents at work…"; }, t);
+      var end = 0;
+      sAgents.forEach(function(a, i){
+        var st = t + i * 350, en = st + sDur[i] * 1000; end = Math.max(end, en);
+        sAt(function(){ sPlan[i].classList.add("sent"); a.style.setProperty("--d", sDur[i] + "s"); stSet(a, "work", "Working…"); }, st);
+        sAt(function(){
+          stSet(a, "done", "Done");
+          sBlocks.filter(function(b){ return b.getAttribute("data-a") === String(i); }).forEach(function(b, k){ setTimeout(function(){ b.classList.remove("off"); }, k * 110); });
+          if (i === 3) sBlocks.forEach(function(b){ if (b.classList.contains("b-v1")) b.classList.add("graded"); });
+        }, en);
+      });
+      var t2 = end + 400;
+      sAt(function(){ sState.textContent = "Reviewing"; sPhase.textContent = "Claude is reviewing the cut"; rOv.textContent = "Reviewing the cut…"; }, t2);
+      sChecks.forEach(function(c, i){ sAt(function(){ c.classList.remove("pending"); }, t2 + 300 + i * 450); });
+      var t3 = t2 + 300 + sChecks.length * 450;
+      sAt(function(){ sPhase.textContent = "Rendering final video"; rOv.textContent = "Rendering…"; }, t3);
+      for (var k = 1; k <= 40; k++) (function(k){ sAt(function(){ setProg(k / 40); }, t3 + k * 60); })(k);
+      var t4 = t3 + 40 * 60 + 200;
+      sAt(function(){ studio.classList.remove("is-building"); studio.classList.add("is-live", "is-fin"); sState.textContent = "Done"; sPhase.textContent = "Done · final_reel.mp4"; }, t4);
+      sAt(sRun, t4 + 5500);
+    };
+    if (!reduce && "IntersectionObserver" in window) {
+      var sObs = new IntersectionObserver(function(es){ if (es[0].isIntersecting) { sObs.disconnect(); sRun(); } }, {threshold: .25});
+      sObs.observe(studio);
+    }
   }
-  if (!reduce) setInterval(function(){ if (!document.hidden) archStep(); }, 1300);
 
   /* header state + progress */
   var hdr = document.getElementById("hdr"), bar = document.getElementById("progress");
